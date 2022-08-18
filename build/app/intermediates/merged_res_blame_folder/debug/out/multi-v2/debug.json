@@ -7055,20 +7055,22 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\github\\BiriniBul-\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "source": "C:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\SomeBuddy\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,281,385,494,614,708",
-                        "endColumns": "143,81,103,108,119,93,70",
-                        "endOffsets": "194,276,380,489,609,703,774"
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "176,821",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "472,987"
                     },
                     "to": {
-                        "startLines": "399,403,404,405,406,407,408",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "28118,28477,28559,28663,28772,28892,28986",
-                        "endColumns": "143,81,103,108,119,93,70",
-                        "endOffsets": "28257,28554,28658,28767,28887,28981,29052"
+                        "startLines": "1498,1502",
+                        "startColumns": "4,4",
+                        "startOffsets": "98071,98252",
+                        "endLines": "1501,1504",
+                        "endColumns": "12,12",
+                        "endOffsets": "98247,98416"
                     }
                 },
                 {
@@ -7235,25 +7237,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\github\\BiriniBul-\\android\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "176,821",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "472,987"
-                    },
-                    "to": {
-                        "startLines": "1498,1502",
-                        "startColumns": "4,4",
-                        "startOffsets": "98071,98252",
-                        "endLines": "1501,1504",
-                        "endColumns": "12,12",
-                        "endOffsets": "98247,98416"
-                    }
-                },
-                {
                     "source": "C:\\Users\\tayfu\\.gradle\\caches\\transforms-3\\1fe8981b831ef5c6fa6b7cae23d83ec3\\transformed\\lifecycle-viewmodel-2.3.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2",
@@ -7287,6 +7270,23 @@
                         "endLines": "12,13,14,15,294,2093,2097,3215,3227,3235",
                         "endColumns": "11,59,51,44,59,24,24,24,24,24",
                         "endOffsets": "646,706,758,803,19703,138259,138390,176845,177285,177594"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\SomeBuddy\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,281,385,494,614,708",
+                        "endColumns": "143,81,103,108,119,93,70",
+                        "endOffsets": "194,276,380,489,609,703,774"
+                    },
+                    "to": {
+                        "startLines": "399,403,404,405,406,407,408",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "28118,28477,28559,28663,28772,28892,28986",
+                        "endColumns": "143,81,103,108,119,93,70",
+                        "endOffsets": "28257,28554,28658,28767,28887,28981,29052"
                     }
                 },
                 {
@@ -8104,7 +8104,7 @@
             "outputFile": "com.example.version1.app-merged_res-28:/values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\github\\BiriniBul-\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\SomeBuddy\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

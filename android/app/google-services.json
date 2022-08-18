@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "160528578459",
+    "firebase_url": "https://birini-bul-default-rtdb.firebaseio.com",
     "project_id": "birini-bul",
     "storage_bucket": "birini-bul.appspot.com"
   },
@@ -14,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "160528578459-v1qkqtet5343f2noqum7l6ic9i8o7so6.apps.googleusercontent.com",
+          "client_id": "160528578459-egs4jaaik1vk5f4a5hg6esl9c8kmjj4k.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.version1",
-            "certificate_hash": "9da11925413275767bb168f6821dcb0281531450"
+            "certificate_hash": "77e2fdca8c8f9c3cde7acfbb7e7d0a3966320930"
           }
         },
         {
