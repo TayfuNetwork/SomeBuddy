@@ -6,7 +6,7 @@ Bir partner bulma uygulaması
 
 Bu bir hoba partneri bulma üzerine flutter uygulamasıdır.
 
-Eğer siz de flutter uygulaması geliştirmek isterseniz gerekli bazı kaynakalr :
+Eğer siz de flutter uygulaması geliştirmek isterseniz gerekli bazı kaynaklar :
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
