@@ -5,9 +5,11 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:version1/models/user.dart';
 import 'package:version1/pages/emailpassword.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/profil.dart';
+import 'package:version1/services/auth_service.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({
@@ -143,7 +145,6 @@ class _SignInPageState extends State<SignInPage> {
     UserCredential sonuc = await FirebaseAuth.instance.signInAnonymously();
     await Navigator.of(context)
         .push(CupertinoPageRoute(builder: (context) => const Profile()));
-
   }
 //******************************************************************//
 
@@ -158,10 +159,11 @@ class _SignInPageState extends State<SignInPage> {
                 idToken: _googleAuth.idToken,
                 accessToken: _googleAuth.accessToken));
         User? _user = sonuc.user;
+        
         await Navigator.of(context)
-            .push(CupertinoPageRoute(builder: (context) => bilgilerim()));
+            .push(CupertinoPageRoute(builder: (context) => const bilgilerim()));
         Navigator.of(context).pop();
-
+        
         return _user;
       } else {
         return null;
