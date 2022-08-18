@@ -1,10 +1,10 @@
-# version1
+# SomeBuddy
 
-A new Flutter project.
+Bir partner bulma uygulaması
 
-## Getting Started
+## Başlangıçta
 
-This project is a starting point for a Flutter application.
+Bu bir hoba partneri bulma üzerine flutter uygulamasıdır.
 
 A few resources to get you started if this is your first Flutter project:
 
