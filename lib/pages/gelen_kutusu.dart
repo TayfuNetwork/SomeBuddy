@@ -36,56 +36,44 @@ class _InboxState extends State<Inbox> {
 
               return RefreshIndicator(
                 onRefresh: _konusmalariYenile,
-                child: GestureDetector(
-                  child: ListView.builder(
-                      itemCount: tumKonusmalar.length,
-                      itemBuilder: (context, index) {
-                        var oankiKonusma = tumKonusmalar[index];
+                child: tumKonusmalar.isEmpty
+                    ? const Center(child: Text('Hiç mesajınız yok'))
+                    : ListView.builder(
+                        itemCount: tumKonusmalar.length,
+                        itemBuilder: (context, index) {
+                          var oankiKonusma = tumKonusmalar[index];
 
-                        return SingleChildScrollView(
-                          child: StreamBuilder<MyUser?>(
-                              stream:
-                                  getUserFromId(oankiKonusma.kimle_konusuyor!),
-                              builder: (context, snapshot) {
-                                if (oankiKonusma.son_yollanan_mesaj!.isEmpty) {
-                                  return const Text(
-                                    'Henüz bir mesajınız yok',
-                                    style: TextStyle(color: Colors.white),
-                                  );
-                                }
-                                _saatDakikaDegeri = _saatDakikaGoster(
-                                    oankiKonusma.olusturulma_tarihi!);
-                                if (snapshot.hasData) {
-                                  MyUser user = snapshot.data!;
+                          return SingleChildScrollView(
+                            child: StreamBuilder<MyUser?>(
+                                stream: getUserFromId(
+                                    oankiKonusma.kimle_konusuyor!),
+                                builder: (context, snapshot) {
+                                  _saatDakikaDegeri = _saatDakikaGoster(
+                                      oankiKonusma.olusturulma_tarihi!);
+                                  if (snapshot.hasData) {
+                                    MyUser user = snapshot.data!;
 
-                                  return ListTile(
-                                      title: Text(user.userName!),
-                                      subtitle: Text(
-                                          oankiKonusma.son_yollanan_mesaj! +
-                                              " ... " +
-                                              _saatDakikaDegeri),
-                                      leading: const Icon(Icons.pending),
-                                      onTap: () async {
-                                        await Navigator.of(context)
-                                            .push(CupertinoPageRoute(
-                                                builder: (context) => Sohbet(
-                                                      currentUser: _userModel,
-                                                      konusulanUser: user,
-                                                    )));
-                                      });
-                                }
-                                if (oankiKonusma == null) {
-                                  return const Text(
-                                    'Henüz bir mesajınız yok',
-                                    style: TextStyle(color: Colors.white),
-                                  );
-                                } else {
-                                  return const SizedBox(width: 20);
-                                }
-                              }),
-                        );
-                      }),
-                ),
+                                    return ListTile(
+                                        title: Text(user.userName!),
+                                        subtitle: Text(
+                                            oankiKonusma.son_yollanan_mesaj! +
+                                                " ... " +
+                                                _saatDakikaDegeri),
+                                        leading: const Icon(Icons.pending),
+                                        onTap: () async {
+                                          await Navigator.of(context)
+                                              .push(CupertinoPageRoute(
+                                                  builder: (context) => Sohbet(
+                                                        currentUser: _userModel,
+                                                        konusulanUser: user,
+                                                      )));
+                                        });
+                                  } else {
+                                    return const SizedBox(width: 20);
+                                  }
+                                }),
+                          );
+                        }),
               );
             }
           },

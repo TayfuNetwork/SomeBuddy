@@ -160,27 +160,26 @@ class _SignInPageState extends State<SignInPage> {
     GoogleSignInAccount? _googleUser = await _googleSignIn.signIn();
     if (_googleUser != null) {
       GoogleSignInAuthentication _googleAuth = await _googleUser.authentication;
-      
+
       if (_googleAuth.idToken != null && _googleAuth.accessToken != null) {
         UserCredential sonuc = await FirebaseAuth.instance.signInWithCredential(
             GoogleAuthProvider.credential(
                 idToken: _googleAuth.idToken,
                 accessToken: _googleAuth.accessToken));
         User? _user = sonuc.user;
-        
+
         if (_user != null) {
-          MyUser myUser = MyUser(userName: _user.displayName);
-          AuthService().user = myUser;
+         await AuthService().checkUser();
 
           if (AuthService().isHaveProfile) {
-            Navigator.pop(context);
-
-            return Navigator.of(context).push(
-                CupertinoPageRoute(builder: (context) => const bilgilerim()));
+            return Navigator.of(context).pushAndRemoveUntil(
+                CupertinoPageRoute(builder: (context) => const bilgilerim()),
+                ((route) => false));
           } else {
             Navigator.pop(context);
-            return Navigator.of(context).push(
-                CupertinoPageRoute(builder: (context) => const Profile()));
+            return Navigator.of(context).pushAndRemoveUntil(
+                CupertinoPageRoute(builder: (context) => const Profile()),
+                ((route) => false));
           }
         }
       }

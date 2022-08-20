@@ -80,6 +80,7 @@ class _showState extends State<show> {
                       ]),
                   child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
+                      physics: BouncingScrollPhysics(),
                       child: Row(
                         children: const [
                           CircleAvatar(

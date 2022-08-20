@@ -18,25 +18,24 @@ class MyUser {
   int? yas;
   String? sex;
   String? bio;
-  bool? premium = false;
+  bool? premium;
   List<Medya>? gPic;
 
-  MyUser({
-    this.soyisim,
-    this.gPic,
-    this.image,
-    this.email,
-    this.userName,
-    this.id,
-    this.il,
-    this.ilce,
-    this.brans,
-    this.mevki,
-    this.yas,
-    this.sex,
-    this.bio,
-    this.premium,
-  });
+  MyUser(
+      {this.soyisim,
+      this.gPic,
+      this.image,
+      this.email,
+      this.userName,
+      this.id,
+      this.il,
+      this.ilce,
+      this.brans,
+      this.mevki,
+      this.yas,
+      this.sex,
+      this.bio,
+      this.premium = false});
 
   MyUser copyWith({
     String? soyisim,
@@ -61,10 +60,10 @@ class MyUser {
       email: email ?? this.email,
       userName: userName ?? this.userName,
       id: id ?? this.id,
-      il: il ?? this.il,
-      ilce: ilce ?? this.ilce,
-      brans: brans ?? this.brans,
-      mevki: mevki ?? this.mevki,
+      il: il,
+      ilce: ilce,
+      brans: brans,
+      mevki: mevki,
       yas: yas ?? this.yas,
       sex: sex ?? this.sex,
       bio: bio ?? this.bio,
@@ -88,6 +87,7 @@ class MyUser {
       'sex': sex,
       'premium': premium,
       'gPic': gPic?.map((e) => e.toMap()).toList(),
+      'bio': bio,
     };
   }
 

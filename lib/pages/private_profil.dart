@@ -354,7 +354,6 @@ class _private_profilState extends State<private_profil> {
             content: Text("Kullanıcı adı değştirme işlemi başarılı",
                 style: TextStyle(color: Colors.white))));
       } else {
-        _userNameController.text = (_userModel.user!.userName).toString();
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             backgroundColor: Colors.blue,
             content: Text("Bu kullanıcı adı daha önce alınmış!",
@@ -368,7 +367,12 @@ class _private_profilState extends State<private_profil> {
         .doc(userID)
         .collection('image');
     if (_userModel.user!.bio != _bioController.text) {
-      _userModel.user!.bio = _bioController.text;
+      await FirebaseFirestore.instance //bu firebasedeki için
+          .collection("Users")
+          .doc(userID)
+          .update({'bio': _bioController.text});
+
+      _userModel.user!.bio = _bioController.text; //auth servisdeki user
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           backgroundColor: Colors.blue,
           content: Text("Biografi değştirme işlemi başarılı",
@@ -378,7 +382,6 @@ class _private_profilState extends State<private_profil> {
 
   deleteProfilPhoto() async {
     var userID = AuthService().user!.id;
-    var _profilFoto = AuthService().user!.image;
     var adres = FirebaseFirestore.instance
         .collection("Users")
         .doc(userID)

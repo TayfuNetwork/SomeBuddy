@@ -33,6 +33,19 @@ class _MyDrawerState extends State<MyDrawer> {
             child: ListView(
               children: [
                 ListTile(
+                  leading: const Icon(
+                    Icons.person,
+                  ),
+                  title: const Text(
+                    "PROFIL",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  trailing: const Icon(Icons.keyboard_arrow_right),
+                  onTap: () {
+                    _privateprofil();
+                  },
+                ),
+                ListTile(
                     leading: const Icon(Icons.chat),
                     title:
                         const Text("MESAJLAR", style: TextStyle(fontSize: 15)),
@@ -59,6 +72,16 @@ class _MyDrawerState extends State<MyDrawer> {
                         style: TextStyle(fontSize: 12)),
                     trailing: const Icon(Icons.keyboard_arrow_right),
                     onTap: () {}),
+                ListTile(
+                    leading: const Icon(Icons.no_accounts),
+                    title: const Text(
+                      "ÇIKIŞ YAP",
+                      style: TextStyle(color: Colors.red, fontSize: 12),
+                    ),
+                    trailing: const Icon(Icons.keyboard_arrow_right),
+                    onTap: () {
+                      _cikisYap();
+                    }),
                 const SizedBox(
                   height: 30,
                 ),
@@ -77,6 +100,53 @@ class _MyDrawerState extends State<MyDrawer> {
         ],
       ),
     );
+  }
+
+  Future _cikisYap() async {
+    FirebaseAuth.instance.signOut();
+    await Navigator.of(context)
+        .push(CupertinoPageRoute(builder: (context) => const SignInPage()));
+  }
+
+  _privateprofil() {
+    MyUser user = AuthService().user!;
+    return Navigator.of(context)
+        .push(CupertinoPageRoute(builder: (context) => const private_profil()));
+    /* if (user.premium == true) {
+      return Navigator.of(context).push(
+          CupertinoPageRoute(builder: (context) => const private_profil()));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          backgroundColor: Colors.blue,
+          content: Text("Premium üye olmayanlar bu alana erişemez",
+              style: TextStyle(color: Colors.white))));
+    } */
+  }
+
+  Widget control() {
+    if (user.premium == true) {
+      return IconButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            backgroundColor: Colors.blue,
+            content:
+                Text("Premium üyesiniz", style: TextStyle(color: Colors.white)),
+            duration: Duration(seconds: 1),
+          ));
+        },
+        icon: const Icon(Icons.star),
+        color: Colors.greenAccent,
+      );
+    } else {
+      return IconButton(
+          onPressed: () {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                backgroundColor: Colors.blue,
+                content: Text("Premium üye olma kodları henüz yazılmadı",
+                    style: TextStyle(color: Colors.white))));
+          },
+          icon: const Icon(Icons.star));
+    }
   }
 
   _imageController() {
