@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:version1/control_pages/json-models.dart';
 import 'package:flutter/material.dart';
+import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/gelen_kutusu.dart';
 import 'package:version1/pages/results.dart';
@@ -49,11 +50,12 @@ class _searchPageState extends State<searchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       appBar: AppBar(
         title: const Text('Arama Yap'),
         actions: [
           IconButton(
-            icon: Icon(Icons.chat),
+            icon: const Icon(Icons.chat),
             onPressed: _mesajlaraGit,
           ),
         ],

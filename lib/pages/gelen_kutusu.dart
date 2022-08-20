@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/konusma.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/konusmalarim.dart';
@@ -47,8 +48,9 @@ class _InboxState extends State<Inbox> {
                                   getUserFromId(oankiKonusma.kimle_konusuyor!),
                               builder: (context, snapshot) {
                                 if (oankiKonusma.son_yollanan_mesaj!.isEmpty) {
-                                  return const SizedBox(
-                                    height: 20,
+                                  return const Text(
+                                    'Henüz bir mesajınız yok',
+                                    style: TextStyle(color: Colors.white),
                                   );
                                 }
                                 _saatDakikaDegeri = _saatDakikaGoster(
@@ -71,8 +73,14 @@ class _InboxState extends State<Inbox> {
                                                       konusulanUser: user,
                                                     )));
                                       });
+                                }
+                                if (oankiKonusma == null) {
+                                  return const Text(
+                                    'Henüz bir mesajınız yok',
+                                    style: TextStyle(color: Colors.white),
+                                  );
                                 } else {
-                                  return const Text('Henüz bir mesajınız yok');
+                                  return const SizedBox(width: 20);
                                 }
                               }),
                         );

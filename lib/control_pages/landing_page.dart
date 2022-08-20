@@ -19,7 +19,7 @@ class LandingPageState extends State<LandingPage> {
       return  const SignInPage();
     } else {
       if (AuthService().isHaveProfile) {
-        return bilgilerim();
+        return const bilgilerim();
       } else {
         return const Profile();
       }

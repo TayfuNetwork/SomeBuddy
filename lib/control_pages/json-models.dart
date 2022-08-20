@@ -2619,6 +2619,13 @@ const String _bransData = """[
       "Narural",
       "Diğer"
     ]
+  },
+  {
+    "brans": "Aromatik-Bitikler",
+    "no": 188,
+    "mevki": [
+      "Farketmez"
+    ]
   }
 ]""";
 // ignore: constant_identifier_names

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/gelen_kutusu.dart';
 import 'package:version1/pages/konusmalarim.dart';
@@ -35,6 +36,7 @@ class _ResultsState extends State<Results> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       appBar: AppBar(
         title: const Text('Arama Sonuçları'),
         actions: [

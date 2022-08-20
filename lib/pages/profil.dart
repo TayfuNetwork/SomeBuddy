@@ -177,7 +177,10 @@ class _ProfileState extends State<Profile> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
 //******************************************************************//
-                if (isim != null && soyisim != null && sex != null)
+                if (isim != null &&
+                    soyisim != null &&
+                    sex != null &&
+                    bio != null)
                   ElevatedButton(
                     // ignore: prefer_const_constructors
 

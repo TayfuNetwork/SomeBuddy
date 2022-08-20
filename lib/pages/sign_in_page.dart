@@ -42,45 +42,52 @@ class _SignInPageState extends State<SignInPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              "Oturum Açın",
+              "Oturum Açın / Kaydolun",
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 32,
+                  color: Colors.black),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 18),
             //******************************************************************//
             GoogleGirisi(),
             //******************************************************************//
 
-            RaisedButton(
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(10),
-                ),
-              ),
-              onPressed: () {
-                Navigator.of(context).push(CupertinoPageRoute(
-                    builder: (context) => const EmailPassword()));
-              },
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Icon(Icons.email),
-                  const Text(
-                    'Email ve Şifre ile oturum aç',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  Icon(Icons.email, color: Colors.white.withOpacity(0)),
-                ],
-              ),
-              color: Colors.purple,
-            ),
+            eMailGirisi(context),
 
             AnonimGiris(),
             //******************************************************************//
           ],
         ),
       ),
+    );
+  }
+
+  RaisedButton eMailGirisi(BuildContext context) {
+    return RaisedButton(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(10),
+        ),
+      ),
+      onPressed: () {
+        Navigator.of(context).push(
+            CupertinoPageRoute(builder: (context) => const EmailPassword()));
+      },
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Icon(Icons.email),
+          const Text(
+            'Email ve Şifre ile oturum aç',
+            style: TextStyle(color: Colors.white),
+          ),
+          Icon(Icons.email, color: Colors.white.withOpacity(0)),
+        ],
+      ),
+      color: Colors.purple,
     );
   }
 
@@ -153,6 +160,7 @@ class _SignInPageState extends State<SignInPage> {
     GoogleSignInAccount? _googleUser = await _googleSignIn.signIn();
     if (_googleUser != null) {
       GoogleSignInAuthentication _googleAuth = await _googleUser.authentication;
+      
       if (_googleAuth.idToken != null && _googleAuth.accessToken != null) {
         UserCredential sonuc = await FirebaseAuth.instance.signInWithCredential(
             GoogleAuthProvider.credential(
@@ -160,16 +168,23 @@ class _SignInPageState extends State<SignInPage> {
                 accessToken: _googleAuth.accessToken));
         User? _user = sonuc.user;
         
-        await Navigator.of(context)
-            .push(CupertinoPageRoute(builder: (context) => const bilgilerim()));
-        Navigator.of(context).pop();
-        
-        return _user;
-      } else {
-        return null;
+        if (_user != null) {
+          MyUser myUser = MyUser(userName: _user.displayName);
+          AuthService().user = myUser;
+
+          if (AuthService().isHaveProfile) {
+            Navigator.pop(context);
+
+            return Navigator.of(context).push(
+                CupertinoPageRoute(builder: (context) => const bilgilerim()));
+          } else {
+            Navigator.pop(context);
+            return Navigator.of(context).push(
+                CupertinoPageRoute(builder: (context) => const Profile()));
+          }
+        }
       }
     } else {
-      Navigator.of(context).pop();
       return null;
     }
   }

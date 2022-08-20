@@ -4,8 +4,10 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/medya.dart';
 import 'package:version1/models/user.dart';
+import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/services/auth_service.dart';
 
 import 'gelen_kutusu.dart';
@@ -44,12 +46,13 @@ class _private_profilState extends State<private_profil> {
     final _bio = AuthService().user!.bio;
     _bioController.text = _bio.toString();
     return Scaffold(
+      drawer: MyDrawer(),
       appBar: AppBar(
         title: const Text('Size Özel'),
         actions: [
           IconButton(
-            icon: Icon(Icons.chat),
-            onPressed: _mesajlaraGit,
+            icon: const Icon(Icons.home),
+            onPressed: _bilgilerimeGit,
           ),
         ],
       ),
@@ -359,8 +362,8 @@ class _private_profilState extends State<private_profil> {
       }
     }
     var userID = AuthService().user!.id;
-    var _profilFoto = AuthService().user!.image;
-    var adres = FirebaseFirestore.instance
+
+    FirebaseFirestore.instance
         .collection("Users")
         .doc(userID)
         .collection('image');
@@ -368,7 +371,7 @@ class _private_profilState extends State<private_profil> {
       _userModel.user!.bio = _bioController.text;
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           backgroundColor: Colors.blue,
-          content: Text("Biografi adı değştirme işlemi başarılı",
+          content: Text("Biografi değştirme işlemi başarılı",
               style: TextStyle(color: Colors.white))));
     }
   }
@@ -468,8 +471,8 @@ class _private_profilState extends State<private_profil> {
     return galerinstance;
   }
 
-  _mesajlaraGit() {
+  _bilgilerimeGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => const Inbox()));
+        .push(CupertinoPageRoute(builder: (context) => const bilgilerim()));
   }
 }

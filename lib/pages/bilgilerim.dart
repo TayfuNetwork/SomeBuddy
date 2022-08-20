@@ -38,89 +38,9 @@ class _bilgilerimState extends State<bilgilerim> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: Column(
-          children: [
-            UserAccountsDrawerHeader(
-                accountName: Text(
-                  user.userName! + ' ' + user.soyisim!,
-                  style: const TextStyle(fontSize: 20),
-                ),
-                accountEmail: Text(user.email!),
-                currentAccountPicture: _imageController()),
-            Expanded(
-              child: ListView(
-                children: [
-                  ListTile(
-                    leading: const Icon(
-                      Icons.person,
-                    ),
-                    title: const Text(
-                      "PROFIL",
-                      style: TextStyle(fontSize: 15),
-                    ),
-                    trailing: const Icon(Icons.keyboard_arrow_right),
-                    onTap: () {
-                      _privateprofil();
-                    },
-                  ),
-                  ListTile(
-                      leading: const Icon(Icons.chat),
-                      title: const Text("MESAJLAR",
-                          style: TextStyle(fontSize: 15)),
-                      trailing: const Icon(Icons.keyboard_arrow_right),
-                      onTap: () {
-                        Navigator.of(context).push(CupertinoPageRoute(
-                            builder: (context) => const Inbox()));
-                      }),
-                  ListTile(
-                      leading: const Icon(Icons.star),
-                      title: const Text("PREMIUM DETAYLARI",
-                          style: TextStyle(fontSize: 15)),
-                      trailing: const Icon(Icons.keyboard_arrow_right),
-                      onTap: () {}),
-                  ListTile(
-                      leading: const Icon(Icons.safety_divider),
-                      title: const Text("GÖRÜŞ - ÖNERİ BİLDİRİN",
-                          style: TextStyle(fontSize: 12)),
-                      trailing: const Icon(Icons.keyboard_arrow_right),
-                      onTap: () {}),
-                  ListTile(
-                      leading: const Icon(Icons.video_collection_outlined),
-                      title: const Text("NASIL KULLANILIR ?",
-                          style: TextStyle(fontSize: 12)),
-                      trailing: const Icon(Icons.keyboard_arrow_right),
-                      onTap: () {}),
-                  ListTile(
-                      leading: const Icon(Icons.no_accounts),
-                      title: const Text(
-                        "ÇIKIŞ YAP",
-                        style: TextStyle(color: Colors.red, fontSize: 12),
-                      ),
-                      trailing: const Icon(Icons.keyboard_arrow_right),
-                      onTap: () {
-                        _cikisYap();
-                      }),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const AboutListTile(
-                    applicationName: " LİSANS",
-                    applicationIcon: Icon(Icons.file_open),
-                    applicationVersion: "3.8",
-                    child: Text("UYGULAMA HAKKINDA",
-                        style: TextStyle(fontSize: 12)),
-                    icon: Icon(Icons.info),
-                    applicationLegalese: null,
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
+      drawer: myDrawerMenu(context),
       appBar: AppBar(
-        title: const Text('Bilgilerin'),
+        title: const Text('Bilgilerim'),
         actions: <Widget>[
           Row(
             children: [
@@ -305,42 +225,32 @@ class _bilgilerimState extends State<bilgilerim> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  TextButton(
-                      onPressed: () async {
-                        var _user = AuthService().user;
-                        if (_user!.il != null) {
+                  if (AuthService().user!.il != null)
+                    TextButton(
+                        onPressed: () async {
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                               backgroundColor: Colors.blue,
                               duration: Duration(seconds: 5),
                               content: Text(
                                   "Kaydınız silindi, artık arama sonuçlarında görünmezsiniz. Keşfedilmek için bilgilerinizi doldurunuz.",
                                   style: TextStyle(color: Colors.white))));
-                        } else {
-                          ScaffoldMessenger.of(context)
-                              .showSnackBar(const SnackBar(
-                                  backgroundColor: Colors.blue,
-                                  duration: Duration(seconds: 5),
-                                  content: Text(
-                                    "Bir kaydınız bulunmuyor!",
-                                    style: TextStyle(color: Colors.white),
-                                  )));
-                        }
-                        var userID = AuthService().user!.id;
-                        return FirebaseFirestore.instance
-                            .collection("Users")
-                            .doc(userID)
-                            .update({
-                          'il': null,
-                          'ilce': null,
-                          'brans': null,
-                          'mevki': null
-                        });
-                      },
-                      child: const Text(
-                        'Hobi kaydımı sil',
-                        style: TextStyle(color: Colors.pink),
-                        softWrap: true,
-                      )),
+
+                          var userID = AuthService().user!.id;
+                          return FirebaseFirestore.instance
+                              .collection("Users")
+                              .doc(userID)
+                              .update({
+                            'il': null,
+                            'ilce': null,
+                            'brans': null,
+                            'mevki': null
+                          });
+                        },
+                        child: const Text(
+                          'Hobi kaydımı sil',
+                          style: TextStyle(color: Colors.pink),
+                          softWrap: true,
+                        )),
                   if (ilce != null && brans != null)
                     Column(
                       children: [
@@ -357,7 +267,9 @@ class _bilgilerimState extends State<bilgilerim> {
                               ilce: ilce,
                               mevki: mevki,
                             );
+
                             await AuthService().updateUser(user);
+
                             Navigator.of(context).push(CupertinoPageRoute(
                                 builder: (context) => const searchPage()));
                           },
@@ -382,6 +294,91 @@ class _bilgilerimState extends State<bilgilerim> {
       ),
     );
   }
+
+  Drawer myDrawerMenu(BuildContext context) {
+    return Drawer(
+      child: Column(
+        children: [
+          UserAccountsDrawerHeader(
+              accountName: Text(
+                user.userName! + ' ' + user.soyisim!,
+                style: const TextStyle(fontSize: 20),
+              ),
+              accountEmail: Text(user.email!),
+              currentAccountPicture: _imageController()),
+          Expanded(
+            child: ListView(
+              children: [
+                ListTile(
+                  leading: const Icon(
+                    Icons.person,
+                  ),
+                  title: const Text(
+                    "PROFIL",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                  trailing: const Icon(Icons.keyboard_arrow_right),
+                  onTap: () {
+                    _privateprofil();
+                  },
+                ),
+                ListTile(
+                    leading: const Icon(Icons.chat),
+                    title:
+                        const Text("MESAJLAR", style: TextStyle(fontSize: 15)),
+                    trailing: const Icon(Icons.keyboard_arrow_right),
+                    onTap: () {
+                      Navigator.of(context).push(CupertinoPageRoute(
+                          builder: (context) => const Inbox()));
+                    }),
+                ListTile(
+                    leading: const Icon(Icons.star),
+                    title: const Text("PREMIUM DETAYLARI",
+                        style: TextStyle(fontSize: 15)),
+                    trailing: const Icon(Icons.keyboard_arrow_right),
+                    onTap: () {}),
+                ListTile(
+                    leading: const Icon(Icons.safety_divider),
+                    title: const Text("GÖRÜŞ - ÖNERİ BİLDİRİN",
+                        style: TextStyle(fontSize: 12)),
+                    trailing: const Icon(Icons.keyboard_arrow_right),
+                    onTap: () {}),
+                ListTile(
+                    leading: const Icon(Icons.video_collection_outlined),
+                    title: const Text("NASIL KULLANILIR ?",
+                        style: TextStyle(fontSize: 12)),
+                    trailing: const Icon(Icons.keyboard_arrow_right),
+                    onTap: () {}),
+                ListTile(
+                    leading: const Icon(Icons.no_accounts),
+                    title: const Text(
+                      "ÇIKIŞ YAP",
+                      style: TextStyle(color: Colors.red, fontSize: 12),
+                    ),
+                    trailing: const Icon(Icons.keyboard_arrow_right),
+                    onTap: () {
+                      _cikisYap();
+                    }),
+                const SizedBox(
+                  height: 30,
+                ),
+                const AboutListTile(
+                  applicationName: " LİSANS",
+                  applicationIcon: Icon(Icons.file_open),
+                  applicationVersion: "3.8",
+                  child:
+                      Text("UYGULAMA HAKKINDA", style: TextStyle(fontSize: 12)),
+                  icon: Icon(Icons.info),
+                  applicationLegalese: null,
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
 //******************************************************************//
 
   Future _cikisYap() async {
@@ -392,7 +389,9 @@ class _bilgilerimState extends State<bilgilerim> {
 
   _privateprofil() {
     MyUser user = AuthService().user!;
-    if (user.premium == true) {
+    return Navigator.of(context)
+        .push(CupertinoPageRoute(builder: (context) => const private_profil()));
+    /* if (user.premium == true) {
       return Navigator.of(context).push(
           CupertinoPageRoute(builder: (context) => const private_profil()));
     } else {
@@ -400,7 +399,7 @@ class _bilgilerimState extends State<bilgilerim> {
           backgroundColor: Colors.blue,
           content: Text("Premium üye olmayanlar bu alana erişemez",
               style: TextStyle(color: Colors.white))));
-    }
+    } */
   }
 
   Widget control() {
