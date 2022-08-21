@@ -1,13 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
-import 'package:version1/pages/gelen_kutusu.dart';
-import 'package:version1/pages/private_profil.dart';
+
 import 'package:version1/pages/search_page.dart';
-import 'package:version1/pages/sign_in_page.dart';
+
 import 'package:version1/services/auth_service.dart';
 import '../control_pages/json-models.dart';
 
@@ -39,7 +38,7 @@ class _bilgilerimState extends State<bilgilerim> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer:MyDrawer(),
+      drawer: MyDrawer(),
       appBar: AppBar(
         title: const Text('Bilgilerim'),
         actions: <Widget>[
@@ -248,14 +247,12 @@ class _bilgilerimState extends State<bilgilerim> {
                               'mevki': null
                             });
                             AuthService().user = AuthService().user!.copyWith(
-                              il: null,
-                              ilce: null,
-                              brans: null,
-                              mevki: null,
-                            );
-                            setState(() {
-                              
-                            });
+                                  il: null,
+                                  ilce: null,
+                                  brans: null,
+                                  mevki: null,
+                                );
+                            setState(() {});
                           } on Exception catch (e) {
                             // TODO
                           }
@@ -309,10 +306,7 @@ class _bilgilerimState extends State<bilgilerim> {
     );
   }
 
- 
-  
-
-Widget control() {
+  Widget control() {
     if (user.premium == true) {
       return IconButton(
         onPressed: () {
@@ -337,6 +331,4 @@ Widget control() {
           icon: const Icon(Icons.star));
     }
   }
-
-  
 }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/gelen_kutusu.dart';
-import 'package:version1/pages/konusmalarim.dart';
+import 'package:version1/pages/chat.dart';
 import 'package:version1/pages/private_profil.dart';
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
@@ -124,10 +124,9 @@ class _ResultsState extends State<Results> {
                       onTap: () {
                         if (e.premium == true) {
                           Navigator.of(context).push(CupertinoPageRoute(
-                              builder: (context) => const show(
-
-                                
-                              )));
+                              builder: (context) => show(
+                                    whoData: e,
+                                  )));
                         } else {
                           Navigator.of(context).push(CupertinoPageRoute(
                               builder: (context) => Sohbet(
