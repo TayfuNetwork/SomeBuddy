@@ -1,7 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:version1/pages/search_page.dart';
+import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
 import '../models/mesaj.dart';
 import '../models/user.dart';
@@ -62,9 +65,9 @@ class _SohbetState extends State<Sohbet> {
                       child: TextField(
                         controller: _mesajController,
                         cursorColor: Colors.blueGrey,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16.0,
-                          color: stateColor(),
+                          color: Colors.black,
                         ),
                         decoration: InputDecoration(
                           fillColor: Colors.white,
@@ -82,7 +85,7 @@ class _SohbetState extends State<Sohbet> {
                       ),
                       child: FloatingActionButton(
                         elevation: 0,
-                        backgroundColor: Colors.green,
+                        backgroundColor: stateColor(),
                         child: const Icon(
                           Icons.navigation,
                           size: 35,
@@ -197,7 +200,7 @@ class _SohbetState extends State<Sohbet> {
   }
 
   Color stateColor() {
-    if (widget.konusulanUser.sex == 'Kadın') {
+    if (widget.currentUser.sex == 'Kadın') {
       Color statu = Colors.pink;
       return statu;
     } else {
@@ -212,6 +215,13 @@ class _SohbetState extends State<Sohbet> {
     } else {
       return const AssetImage("images/top.jpg");
     }
+  }
+
+  showNavigation() {
+    return Navigator.of(context).push(CupertinoPageRoute(
+        builder: (context) => show(
+              whoData: widget.konusulanUser,
+            )));
   }
 }
 
