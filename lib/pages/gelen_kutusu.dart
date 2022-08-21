@@ -2,10 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/konusma.dart';
 import 'package:version1/models/user.dart';
-import 'package:version1/pages/konusmalarim.dart';
+import 'package:version1/pages/chat.dart';
 import 'package:version1/services/auth_service.dart';
 
 class Inbox extends StatefulWidget {
@@ -52,6 +51,14 @@ class _InboxState extends State<Inbox> {
                                       oankiKonusma.olusturulma_tarihi!);
                                   if (snapshot.hasData) {
                                     MyUser user = snapshot.data!;
+                                    ImageProvider _havePhoto() {
+                                      if (user.image != null) {
+                                        return NetworkImage(user.image!);
+                                      } else {
+                                        return const AssetImage(
+                                            "images/top.jpg");
+                                      }
+                                    }
 
                                     return ListTile(
                                         title: Text(user.userName!),
@@ -59,7 +66,9 @@ class _InboxState extends State<Inbox> {
                                             oankiKonusma.son_yollanan_mesaj! +
                                                 " ... " +
                                                 _saatDakikaDegeri),
-                                        leading: const Icon(Icons.pending),
+                                        leading: CircleAvatar(
+                                          backgroundImage: _havePhoto(),
+                                        ),
                                         onTap: () async {
                                           await Navigator.of(context)
                                               .push(CupertinoPageRoute(
