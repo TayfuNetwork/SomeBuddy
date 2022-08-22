@@ -40,7 +40,7 @@ class _bilgilerimState extends State<bilgilerim> {
     return Scaffold(
       drawer: MyDrawer(),
       appBar: AppBar(
-        title: const Text('Bilgilerim'),
+        title: const Text('Bilgiler'),
         actions: <Widget>[
           Row(
             children: [
@@ -67,7 +67,7 @@ class _bilgilerimState extends State<bilgilerim> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
 //******************************************************************//
-              const Text('Kimliğiniz', style: TextStyle(color: Colors.grey)),
+              const Text('Kimlik', style: TextStyle(color: Colors.grey)),
               ListTile(
                 textColor: Colors.black,
                 title: Text("${user.userName}"),
@@ -78,7 +78,7 @@ class _bilgilerimState extends State<bilgilerim> {
                   ),
                   backgroundColor: Colors.blue,
                 ),
-                subtitle: const Text("ili, ilçesi, branşı, mevkisi"),
+                subtitle: const Text("il, ilçe, branş, mevki"),
                 trailing: const Icon(Icons.message),
                 onTap: () {},
               ),
@@ -253,9 +253,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                   mevki: null,
                                 );
                             setState(() {});
-                          } on Exception catch (e) {
-                            // TODO
-                          }
+                          } on Exception catch (e) {}
                         },
                         child: const Text(
                           'Hobi kaydımı sil',

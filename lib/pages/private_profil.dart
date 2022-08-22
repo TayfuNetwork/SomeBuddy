@@ -10,8 +10,6 @@ import 'package:version1/models/user.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/services/auth_service.dart';
 
-import 'gelen_kutusu.dart';
-
 // ignore: camel_case_types
 class private_profil extends StatefulWidget {
   const private_profil({Key? key}) : super(key: key);
@@ -131,7 +129,7 @@ class _private_profilState extends State<private_profil> {
                 initialValue: _userModel.email,
                 readOnly: true,
                 decoration: const InputDecoration(
-                    labelText: 'Emailiniz',
+                    labelText: 'Email',
                     hintText: 'Email',
                     border: OutlineInputBorder()),
               ),
@@ -143,7 +141,7 @@ class _private_profilState extends State<private_profil> {
                 //initialValue: _userModel.user!.userName,
                 readOnly: false,
                 decoration: const InputDecoration(
-                    labelText: 'Kullanıcı Adınız',
+                    labelText: 'Kullanıcı Adı',
                     hintText: 'Kullanıcı Adı',
                     border: OutlineInputBorder()),
               ),
@@ -170,7 +168,7 @@ class _private_profilState extends State<private_profil> {
                   child: const Text('Değişiklikleri Kaydet')),
             ),
             const Text(
-              'Kimim ?',
+              'Medya',
               style: TextStyle(color: Colors.grey),
             ),
             Padding(
@@ -189,7 +187,7 @@ class _private_profilState extends State<private_profil> {
                       onPressed: () {
                         uploadGalleryPhotoCamera(ImageSource.gallery);
                       },
-                      child: const Text('Galerinden resim ekle')),
+                      child: const Text('Galeriden resim ekle')),
                 ],
               ),
             ),

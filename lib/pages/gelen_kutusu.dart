@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:version1/models/konusma.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/chat.dart';
+import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
 
 class Inbox extends StatefulWidget {
@@ -51,6 +52,13 @@ class _InboxState extends State<Inbox> {
                                       oankiKonusma.olusturulma_tarihi!);
                                   if (snapshot.hasData) {
                                     MyUser user = snapshot.data!;
+                                    git() {
+                                      Navigator.of(context).push(
+                                          CupertinoPageRoute(
+                                              builder: (context) =>
+                                                  show(whoData: user)));
+                                    }
+
                                     ImageProvider _havePhoto() {
                                       if (user.image != null) {
                                         return NetworkImage(user.image!);
@@ -66,8 +74,11 @@ class _InboxState extends State<Inbox> {
                                             oankiKonusma.son_yollanan_mesaj! +
                                                 " ... " +
                                                 _saatDakikaDegeri),
-                                        leading: CircleAvatar(
-                                          backgroundImage: _havePhoto(),
+                                        leading: GestureDetector(
+                                          onTap: git,
+                                          child: CircleAvatar(
+                                            backgroundImage: _havePhoto(),
+                                          ),
                                         ),
                                         onTap: () async {
                                           await Navigator.of(context)
