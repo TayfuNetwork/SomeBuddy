@@ -2,6 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:version1/pages/usage.dart';
 import '../models/user.dart';
 import '../pages/gelen_kutusu.dart';
 import '../pages/private_profil.dart';
@@ -72,7 +73,10 @@ class _MyDrawerState extends State<MyDrawer> {
                     title: const Text("NASIL KULLANILIR ?",
                         style: TextStyle(fontSize: 12)),
                     trailing: const Icon(Icons.keyboard_arrow_right),
-                    onTap: () {}),
+                    onTap: () {
+                      Navigator.of(context).push(CupertinoPageRoute(
+                          builder: (context) => const usage()));
+                    }),
                 ListTile(
                     leading: const Icon(Icons.no_accounts),
                     title: const Text(

@@ -128,6 +128,24 @@
       "languageVersion": "2.16"
     },
     {
+      "name": "firebase_messaging",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-12.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "firebase_messaging_platform_interface",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging_platform_interface-4.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "firebase_messaging_web",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging_web-3.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "firebase_storage",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-10.3.4",
       "packageUri": "lib/",
@@ -392,7 +410,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-08-18T21:15:24.391614Z",
+  "generated": "2022-08-21T23:57:54.705434Z",
   "generator": "pub",
   "generatorVersion": "2.17.6"
 }

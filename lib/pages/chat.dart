@@ -3,19 +3,22 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:version1/pages/search_page.dart';
+
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
+
 import '../models/mesaj.dart';
 import '../models/user.dart';
 
 class Sohbet extends StatefulWidget {
   final MyUser currentUser;
   late MyUser konusulanUser;
+
   Sohbet({
+    Key? key,
     required this.currentUser,
     required this.konusulanUser,
-  });
+  }) : super(key: key);
 
   @override
   State<Sohbet> createState() => _SohbetState();
@@ -49,6 +52,7 @@ class _SohbetState extends State<Sohbet> {
                     }
                     List<Mesaj>? tumMesajar = StreamMesajlarlistesi.data;
                     return ListView.builder(
+                        reverse: true,
                         controller: _scrollController,
                         itemBuilder: (context, index) {
                           return _konusmaBalonuOlustur(tumMesajar![index]);
@@ -99,16 +103,9 @@ class _SohbetState extends State<Sohbet> {
                               bendenMi: true,
                               mesaj: _mesajController.text,
                             );
+                             _mesajController.clear();
                             var sonuc = await AuthService.saveMessage(
                                 _kaydedilecekMesaj);
-
-                            if (sonuc) {
-                              _mesajController.clear();
-                              _scrollController.animateTo(
-                                  _scrollController.position.maxScrollExtent,
-                                  duration: const Duration(milliseconds: 40),
-                                  curve: Curves.easeOut);
-                            }
                           }
                         },
                       ),
@@ -226,11 +223,13 @@ class _SohbetState extends State<Sohbet> {
 }
 
 Stream<List<Mesaj>> getMessages(String currentUserID, String konusulanUserID) {
+  QuerySnapshot _querySnapShot;
+
   var snapShot = FirebaseFirestore.instance
       .collection("konusmalar")
       .doc(currentUserID + "--" + konusulanUserID)
       .collection("mesajlar")
-      .orderBy("date")
+      .orderBy("date", descending: true)
       .snapshots();
   return snapShot.map((mesajListesi) =>
       mesajListesi.docs.map((mesaj) => Mesaj.fromMap(mesaj.data())).toList());

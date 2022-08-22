@@ -264,13 +264,17 @@ class _private_profilState extends State<private_profil> {
                                                           'Users/gallery/${e.ref}');
                                                   if (_secilenResim != null) {
                                                     _secilenResim.delete();
-
-                                                    var yol = FirebaseFirestore
-                                                        .instance
+                                                    setState(() {
+                                                      galeri();
+                                                    });
+                                                    FirebaseFirestore.instance
                                                         .collection("Users")
                                                         .doc(userID)
-                                                        .collection('gPic');
-
+                                                        .update({
+                                                      'gPic': FieldValue
+                                                          .arrayRemove(
+                                                              [e.toMap()])
+                                                    });
                                                     Navigator.pop(context);
                                                   } else {
                                                     ScaffoldMessenger.of(
