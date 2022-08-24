@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:version1/models/user.dart';
+
 import 'package:version1/pages/emailpassword.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/profil.dart';
@@ -25,38 +25,43 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: const Text('Hadi Başlayalım'),
-        elevation: 0,
-      ),
 //******************************************************************//
 
-      backgroundColor: Colors.grey.shade300,
       body: Container(
-        color: const Color.fromARGB(255, 200, 207, 213),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("images/Logo.png"), fit: BoxFit.cover)),
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            /* ClipOval(
+              child: Image.asset(
+                "images/Logo.png",
+                fit: BoxFit.cover,
+              ),
+            ), */
+
             const Text(
               "Oturum Açın / Kaydolun",
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 32,
-                  color: Colors.black),
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+                color: Colors.white,
+                fontStyle: FontStyle.italic,
+              ),
             ),
-            const SizedBox(height: 18),
+            const SizedBox(height: 48),
             //******************************************************************//
             GoogleGirisi(),
             //******************************************************************//
 
             eMailGirisi(context),
 
-            AnonimGiris(),
+            //AnonimGiris(),
             //******************************************************************//
           ],
         ),
@@ -81,13 +86,13 @@ class _SignInPageState extends State<SignInPage> {
         children: [
           const Icon(Icons.email),
           const Text(
-            'Email ve Şifre ile oturum aç',
-            style: TextStyle(color: Colors.white),
+            'Email ile oturum aç',
+            style: TextStyle(color: Colors.white, fontSize: 16),
           ),
           Icon(Icons.email, color: Colors.white.withOpacity(0)),
         ],
       ),
-      color: Colors.purple,
+      color: Colors.blue,
     );
   }
 
@@ -135,7 +140,7 @@ class _SignInPageState extends State<SignInPage> {
           Image.asset("images/google-logo.png"),
           const Text(
             'Google ile oturum aç',
-            style: TextStyle(color: Colors.black87),
+            style: TextStyle(color: Colors.black87, fontSize: 16),
           ),
           Image.asset(
             "images/google-logo.png",
@@ -143,7 +148,7 @@ class _SignInPageState extends State<SignInPage> {
           ),
         ],
       ),
-      color: Colors.grey.shade300,
+      color: Colors.white,
     );
   }
 //******************************************************************//
@@ -169,7 +174,7 @@ class _SignInPageState extends State<SignInPage> {
         User? _user = sonuc.user;
 
         if (_user != null) {
-         await AuthService().checkUser();
+          await AuthService().checkUser();
 
           if (AuthService().isHaveProfile) {
             return Navigator.of(context).pushAndRemoveUntil(

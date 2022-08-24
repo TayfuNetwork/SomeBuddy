@@ -24,7 +24,13 @@ class _showState extends State<show> {
       appBar: AppBar(
         title: const Text('Profili'),
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/Logo.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Container(
           child: Column(
             children: [

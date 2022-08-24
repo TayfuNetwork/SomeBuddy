@@ -103,7 +103,7 @@ class _SohbetState extends State<Sohbet> {
                               bendenMi: true,
                               mesaj: _mesajController.text,
                             );
-                             _mesajController.clear();
+                            _mesajController.clear();
                             var sonuc = await AuthService.saveMessage(
                                 _kaydedilecekMesaj);
                           }

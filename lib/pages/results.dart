@@ -49,14 +49,11 @@ class _ResultsState extends State<Results> {
       ),
       body: Container(
         width: double.maxFinite,
-        padding: const EdgeInsets.all(8),
-        margin: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(2),
+        margin: const EdgeInsets.all(2),
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: const [
-              BoxShadow(color: Colors.grey, blurRadius: 6),
-            ]),
+            image: DecorationImage(
+                image: AssetImage("images/Logo.png"), fit: BoxFit.cover)),
         child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
           stream: SearchService()
               .searchStream(widget.il, widget.ilce, widget.brans, widget.mevki),
@@ -76,7 +73,6 @@ class _ResultsState extends State<Results> {
 
               if (users.isEmpty) {
                 return Center(
-                  // ignore: avoid_unnecessary_containers
                   child: Container(
                     child: const Text(
                         "Malesef, bu kriterlere uygun bir üyemiz yok"),
@@ -106,7 +102,7 @@ class _ResultsState extends State<Results> {
                       title: Text(
                         "${e.userName} ${e.soyisim}",
                         style: const TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black),
+                            fontWeight: FontWeight.bold, color: Colors.white),
                       ),
                       leading: CircleAvatar(
                         child: Text(
@@ -117,8 +113,8 @@ class _ResultsState extends State<Results> {
                         backgroundColor: widget.ppColor,
                       ),
                       subtitle: Text(
-                        "${e.il}, ${e.ilce}, ${e.brans}, ${e.mevki}",
-                        style: const TextStyle(color: Colors.black),
+                        "${e.il}/ ${e.ilce} - ${e.brans}/ ${e.mevki}",
+                        style: const TextStyle(color: Colors.blue),
                       ),
                       trailing: widget.sIcon,
                       onTap: () {

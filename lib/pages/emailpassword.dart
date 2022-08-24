@@ -50,8 +50,9 @@ class _EmailPasswordState extends State<EmailPassword> {
         await AuthService().checkUser();
 
         Navigator.of(context).push(CupertinoPageRoute(
-            builder: (context) =>
-                AuthService().isHaveProfile ? const bilgilerim() : const Profile()));
+            builder: (context) => AuthService().isHaveProfile
+                ? const bilgilerim()
+                : const Profile()));
       }
     }
   }
@@ -64,10 +65,12 @@ class _EmailPasswordState extends State<EmailPassword> {
         : "Hesabınız yok mu? Hemen Kayıt Olun";
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Giriş / Kayıt'),
-        ),
-        body: SingleChildScrollView(
+        body: Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("images/Logo.png"), fit: BoxFit.cover)),
+      child: Center(
+        child: SingleChildScrollView(
           child: Form(
             key: _formKey,
             child: Column(
@@ -130,7 +133,9 @@ class _EmailPasswordState extends State<EmailPassword> {
               ],
             ),
           ),
-        ));
+        ),
+      ),
+    ));
   }
 
   degistir() {

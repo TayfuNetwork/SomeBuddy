@@ -23,80 +23,90 @@ class _InboxState extends State<Inbox> {
         appBar: AppBar(
           title: const Text('Mesajlar'),
         ),
-        body: FutureBuilder<List<Konusma>>(
-          future: getAllConversations(_userModel.id!),
-          builder: (context, konusmaListesi) {
-            if (!konusmaListesi.hasData) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else {
-              var tumKonusmalar = konusmaListesi.data!;
-              var _saatDakikaDegeri = "";
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/Logo.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: FutureBuilder<List<Konusma>>(
+            future: getAllConversations(_userModel.id!),
+            builder: (context, konusmaListesi) {
+              if (!konusmaListesi.hasData) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else {
+                var tumKonusmalar = konusmaListesi.data!;
+                var _saatDakikaDegeri = "";
 
-              return RefreshIndicator(
-                onRefresh: _konusmalariYenile,
-                child: tumKonusmalar.isEmpty
-                    ? const Center(child: Text('Hiç mesajınız yok'))
-                    : ListView.builder(
-                        itemCount: tumKonusmalar.length,
-                        itemBuilder: (context, index) {
-                          var oankiKonusma = tumKonusmalar[index];
+                return RefreshIndicator(
+                  onRefresh: _konusmalariYenile,
+                  child: tumKonusmalar.isEmpty
+                      ? const Center(child: Text('Hiç mesajınız yok'))
+                      : ListView.builder(
+                          itemCount: tumKonusmalar.length,
+                          itemBuilder: (context, index) {
+                            var oankiKonusma = tumKonusmalar[index];
 
-                          return SingleChildScrollView(
-                            child: StreamBuilder<MyUser?>(
-                                stream: getUserFromId(
-                                    oankiKonusma.kimle_konusuyor!),
-                                builder: (context, snapshot) {
-                                  _saatDakikaDegeri = _saatDakikaGoster(
-                                      oankiKonusma.olusturulma_tarihi!);
-                                  if (snapshot.hasData) {
-                                    MyUser user = snapshot.data!;
-                                    git() {
-                                      Navigator.of(context).push(
-                                          CupertinoPageRoute(
-                                              builder: (context) =>
-                                                  show(whoData: user)));
-                                    }
-
-                                    ImageProvider _havePhoto() {
-                                      if (user.image != null) {
-                                        return NetworkImage(user.image!);
-                                      } else {
-                                        return const AssetImage(
-                                            "images/top.jpg");
+                            return SingleChildScrollView(
+                              child: StreamBuilder<MyUser?>(
+                                  stream: getUserFromId(
+                                      oankiKonusma.kimle_konusuyor!),
+                                  builder: (context, snapshot) {
+                                    _saatDakikaDegeri = _saatDakikaGoster(
+                                        oankiKonusma.olusturulma_tarihi!);
+                                    if (snapshot.hasData) {
+                                      MyUser user = snapshot.data!;
+                                      git() {
+                                        Navigator.of(context).push(
+                                            CupertinoPageRoute(
+                                                builder: (context) =>
+                                                    show(whoData: user)));
                                       }
-                                    }
 
-                                    return ListTile(
-                                        title: Text(user.userName!),
-                                        subtitle: Text(
-                                            oankiKonusma.son_yollanan_mesaj! +
-                                                " ... " +
-                                                _saatDakikaDegeri),
-                                        leading: GestureDetector(
-                                          onTap: git,
-                                          child: CircleAvatar(
-                                            backgroundImage: _havePhoto(),
+                                      ImageProvider _havePhoto() {
+                                        if (user.image != null) {
+                                          return NetworkImage(user.image!);
+                                        } else {
+                                          return const AssetImage(
+                                              "images/top.jpg");
+                                        }
+                                      }
+
+                                      return ListTile(
+                                          title: Text(user.userName!),
+                                          subtitle: Text(
+                                              oankiKonusma.son_yollanan_mesaj! +
+                                                  " ... " +
+                                                  _saatDakikaDegeri),
+                                          leading: GestureDetector(
+                                            onTap: git,
+                                            child: CircleAvatar(
+                                              backgroundImage: _havePhoto(),
+                                            ),
                                           ),
-                                        ),
-                                        onTap: () async {
-                                          await Navigator.of(context)
-                                              .push(CupertinoPageRoute(
-                                                  builder: (context) => Sohbet(
-                                                        currentUser: _userModel,
-                                                        konusulanUser: user,
-                                                      )));
-                                        });
-                                  } else {
-                                    return const SizedBox(width: 20);
-                                  }
-                                }),
-                          );
-                        }),
-              );
-            }
-          },
+                                          onTap: () async {
+                                            await Navigator.of(context).push(
+                                                CupertinoPageRoute(
+                                                    builder: (context) =>
+                                                        Sohbet(
+                                                          currentUser:
+                                                              _userModel,
+                                                          konusulanUser: user,
+                                                        )));
+                                          });
+                                    } else {
+                                      return const SizedBox(width: 20);
+                                    }
+                                  }),
+                            );
+                          }),
+                );
+              }
+            },
+          ),
         ));
   }
 
