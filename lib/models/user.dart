@@ -35,7 +35,7 @@ class MyUser {
       this.yas,
       this.sex,
       this.bio,
-      this.premium = false});
+      this.premium = true});
 
   MyUser copyWith({
     String? soyisim,
