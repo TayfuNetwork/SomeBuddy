@@ -2626,6 +2626,21 @@ const String _bransData = """[
     "mevki": [
       "Farketmez"
     ]
+  },
+  {
+    "brans": "Yazılım",
+    "no": 189,
+    "mevki": [
+      "Farketmez",
+      "C",
+      "C#",
+      "C++",
+      "Pyhon",
+      "Java",
+      "Dart",
+      "BackEnd",
+      "FronEnd"
+    ]
   }
 ]""";
 // ignore: constant_identifier_names

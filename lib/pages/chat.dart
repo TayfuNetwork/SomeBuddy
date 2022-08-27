@@ -9,6 +9,7 @@ import 'package:version1/services/auth_service.dart';
 
 import '../models/mesaj.dart';
 import '../models/user.dart';
+import 'bilgilerim.dart';
 
 class Sohbet extends StatefulWidget {
   final MyUser currentUser;
@@ -36,6 +37,12 @@ class _SohbetState extends State<Sohbet> {
         appBar: AppBar(
           elevation: 1,
           title: const Text('Sohbet '),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.home),
+              onPressed: _bilgilerimeGit,
+            ),
+          ],
         ),
         body: Center(
           child: Column(
@@ -188,6 +195,11 @@ class _SohbetState extends State<Sohbet> {
         ),
       );
     }
+  }
+
+  _bilgilerimeGit() {
+    return Navigator.of(context)
+        .push(CupertinoPageRoute(builder: (context) => const bilgilerim()));
   }
 
   String _saatDakikaGoster(Timestamp? date) {

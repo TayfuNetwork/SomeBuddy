@@ -51,9 +51,6 @@ class _ResultsState extends State<Results> {
         width: double.maxFinite,
         padding: const EdgeInsets.all(2),
         margin: const EdgeInsets.all(2),
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("images/Logo.png"), fit: BoxFit.cover)),
         child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
           stream: SearchService()
               .searchStream(widget.il, widget.ilce, widget.brans, widget.mevki),

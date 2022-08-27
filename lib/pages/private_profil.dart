@@ -46,7 +46,7 @@ class _private_profilState extends State<private_profil> {
     return Scaffold(
       drawer: MyDrawer(),
       appBar: AppBar(
-        title: const Text('Size Özel'),
+        title: const Text('Profil'),
         actions: [
           IconButton(
             icon: const Icon(Icons.home),

@@ -235,7 +235,7 @@ class _searchPageState extends State<searchPage> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const bilgilerim()));
                       },
-                      child: const Text('Bilgilerin')),
+                      child: const Text('Ana Sayfa')),
                 ],
               ),
             ],

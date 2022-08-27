@@ -179,7 +179,7 @@ class AuthService {
       "konusma_goruldu": false,
       "olusturulma_tarihi": DateTime.now()
     });
-
+  
     return true;
   }
 }

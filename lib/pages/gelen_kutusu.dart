@@ -7,7 +7,7 @@ import 'package:version1/models/user.dart';
 import 'package:version1/pages/chat.dart';
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
-
+import 'package:firebase_messaging/firebase_messaging.dart';
 class Inbox extends StatefulWidget {
   const Inbox({Key? key}) : super(key: key);
 
@@ -71,7 +71,7 @@ class _InboxState extends State<Inbox> {
                                           return NetworkImage(user.image!);
                                         } else {
                                           return const AssetImage(
-                                              "images/top.jpg");
+                                              "images/Logo.png");
                                         }
                                       }
 
@@ -121,6 +121,9 @@ class _InboxState extends State<Inbox> {
     await Future.delayed(const Duration(seconds: 2));
     return null;
   }
+
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  
 }
 
 Future<List<Konusma>> getAllConversations(String userID) async {
