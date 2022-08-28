@@ -2,8 +2,6 @@
 
 Bir partner bulma uygulaması
 
-## Başlangıçta
-
 Bu bir hoba partneri bulma üzerine flutter uygulamasıdır.
 
 Bana instagram üzerinden ulaşabilirsiniz. #[www.instagram.com/_typhoon.code](https://www.instagram.com/_typhoon.code/)
