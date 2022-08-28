@@ -1,4 +1,4 @@
-#Sat Aug 27 23:44:15 TRT 2022
+#Sun Aug 28 04:15:54 TRT 2022
 base.2=C\:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\SomeBuddy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex
 path.2=classes3.dex
 base.1=C\:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\SomeBuddy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex

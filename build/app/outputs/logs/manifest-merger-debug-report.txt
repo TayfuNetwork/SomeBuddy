@@ -15,6 +15,8 @@ MERGED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\
 MERGED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:image_picker_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
 MERGED from [:image_picker_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
+MERGED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-29:19
+MERGED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-29:19
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\041b27d38198d104baa2ef8fafea15d7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\041b27d38198d104baa2ef8fafea15d7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
 MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:26:5-71:19
@@ -69,6 +71,8 @@ MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Us
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:28:5-36:19
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:25:5-39:19
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:25:5-39:19
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\tayfu\.gradle\caches\transforms-3\3f9bd44148db7c1743e3ab6a67d9d7f0\transformed\jetified-threetenabp-1.2.3\AndroidManifest.xml:7:5-20
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\tayfu\.gradle\caches\transforms-3\3f9bd44148db7c1743e3ab6a67d9d7f0\transformed\jetified-threetenabp-1.2.3\AndroidManifest.xml:7:5-20
 MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\tayfu\.gradle\caches\transforms-3\902d4f6670ff46edbc0e675b18678aff\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:11:5-20
 MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\tayfu\.gradle\caches\transforms-3\902d4f6670ff46edbc0e675b18678aff\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:11:5-20
 	android:appComponentFactory
@@ -92,6 +96,7 @@ MERGED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\
 MERGED from [:image_picker_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-21:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_login_facebook] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_login_facebook\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-31:12
 MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\224d32528c14de86600ae9f4b308ccaa\transformed\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\8bffc0e5dda3b83649c900720739e56d\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
@@ -108,11 +113,12 @@ MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.
 MERGED from [com.google.firebase:firebase-common:20.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\08d870f84243b194a5b17e231733b264\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:15:1-40:12
 MERGED from [com.facebook.android:facebook-login:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\6b8bc17b262b48e4eeeee5b67f363e39\transformed\jetified-facebook-login-13.2.0\AndroidManifest.xml:21:1-31:12
 MERGED from [com.facebook.android:facebook-common:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\f9812d0b931964ec3abc41f735c7684f\transformed\jetified-facebook-common-13.2.0\AndroidManifest.xml:21:1-52:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\455370d4143e35751b65619b6356c643\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\91c42c5798d1e9a004b23d04fa0a9fd0\transformed\media-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\970f4fd8af27304c9251db8f3485e223\transformed\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\5fb3f8552bde3f5ea95d53c07d1ec7ab\transformed\jetified-play-services-auth-20.0.1\AndroidManifest.xml:17:1-40:12
 MERGED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:21:1-62:12
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tayfu\.gradle\caches\transforms-3\d115a2747313faa2d4b694edca623ce5\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:2:1-9:12
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\455370d4143e35751b65619b6356c643\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\6a5e9b7646124d2de4a75a342af27810\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\30f1667b9369d9f7bd0097f89fd1340e\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\c5c6ed790728c314f387e997dc92aa7d\transformed\jetified-play-services-auth-api-phone-18.0.1\AndroidManifest.xml:2:1-7:12
@@ -135,7 +141,6 @@ MERGED from [androidx.activity:activity:1.2.0] C:\Users\tayfu\.gradle\caches\tra
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\35c46662b6f19b790934c8f63ac14df9\transformed\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\d261a04523eb7e551ba10e6d9f09850f\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\ea222f03f1f9b3978afc82a2e5a1f9f6\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.media:media:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\8fecdc769ea5e08c5097b93f38614b26\transformed\media-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\a6d870c2367ff9a5775a4cf2297b634b\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\299f07af94db35528b007c31c65fc472\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\322b8c37ec4f92aca53bba19d69bdce5\transformed\coordinatorlayout-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -166,6 +171,7 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\tayfu\.gradle\ca
 MERGED from [androidx.print:print:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\048bb426b7897db7dcc8c2b5198eb307\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\tayfu\.gradle\caches\transforms-3\1fe8981b831ef5c6fa6b7cae23d83ec3\transformed\lifecycle-viewmodel-2.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [io.grpc:grpc-android:1.44.1] C:\Users\tayfu\.gradle\caches\transforms-3\b903ec4de04a1216607159527ee7bccc\transformed\jetified-grpc-android-1.44.1\AndroidManifest.xml:2:1-11:12
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\tayfu\.gradle\caches\transforms-3\3f9bd44148db7c1743e3ab6a67d9d7f0\transformed\jetified-threetenabp-1.2.3\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\c56d3bdab8711db79af12fc8ff9b7d23\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\933870cd7b923ad80ec1de067a530e68\transformed\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\tayfu\.gradle\caches\transforms-3\902d4f6670ff46edbc0e675b18678aff\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:2:1-13:12
@@ -208,6 +214,8 @@ MERGED from [:flutter_plugin_android_lifecycle] C:\Users\tayfu\OneDrive\Belgeler
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_login_facebook] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_login_facebook\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_login_facebook] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_login_facebook\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\224d32528c14de86600ae9f4b308ccaa\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
@@ -240,6 +248,10 @@ MERGED from [com.facebook.android:facebook-login:13.2.0] C:\Users\tayfu\.gradle\
 MERGED from [com.facebook.android:facebook-login:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\6b8bc17b262b48e4eeeee5b67f363e39\transformed\jetified-facebook-login-13.2.0\AndroidManifest.xml:24:5-26:41
 MERGED from [com.facebook.android:facebook-common:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\f9812d0b931964ec3abc41f735c7684f\transformed\jetified-facebook-common-13.2.0\AndroidManifest.xml:25:5-27:41
 MERGED from [com.facebook.android:facebook-common:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\f9812d0b931964ec3abc41f735c7684f\transformed\jetified-facebook-common-13.2.0\AndroidManifest.xml:25:5-27:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\455370d4143e35751b65619b6356c643\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\455370d4143e35751b65619b6356c643\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\91c42c5798d1e9a004b23d04fa0a9fd0\transformed\media-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\91c42c5798d1e9a004b23d04fa0a9fd0\transformed\media-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\970f4fd8af27304c9251db8f3485e223\transformed\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\970f4fd8af27304c9251db8f3485e223\transformed\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\5fb3f8552bde3f5ea95d53c07d1ec7ab\transformed\jetified-play-services-auth-20.0.1\AndroidManifest.xml:20:5-44
@@ -248,8 +260,6 @@ MERGED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\c
 MERGED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:24:5-26:41
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tayfu\.gradle\caches\transforms-3\d115a2747313faa2d4b694edca623ce5\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tayfu\.gradle\caches\transforms-3\d115a2747313faa2d4b694edca623ce5\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\455370d4143e35751b65619b6356c643\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\455370d4143e35751b65619b6356c643\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\6a5e9b7646124d2de4a75a342af27810\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\6a5e9b7646124d2de4a75a342af27810\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\30f1667b9369d9f7bd0097f89fd1340e\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
@@ -294,8 +304,6 @@ MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\tayfu\.gradle\ca
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\d261a04523eb7e551ba10e6d9f09850f\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\ea222f03f1f9b3978afc82a2e5a1f9f6\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\ea222f03f1f9b3978afc82a2e5a1f9f6\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.media:media:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\8fecdc769ea5e08c5097b93f38614b26\transformed\media-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.media:media:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\8fecdc769ea5e08c5097b93f38614b26\transformed\media-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\a6d870c2367ff9a5775a4cf2297b634b\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\a6d870c2367ff9a5775a4cf2297b634b\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\299f07af94db35528b007c31c65fc472\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -356,6 +364,8 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\tayfu\.gradl
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.0] C:\Users\tayfu\.gradle\caches\transforms-3\1fe8981b831ef5c6fa6b7cae23d83ec3\transformed\lifecycle-viewmodel-2.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [io.grpc:grpc-android:1.44.1] C:\Users\tayfu\.gradle\caches\transforms-3\b903ec4de04a1216607159527ee7bccc\transformed\jetified-grpc-android-1.44.1\AndroidManifest.xml:5:5-7:41
 MERGED from [io.grpc:grpc-android:1.44.1] C:\Users\tayfu\.gradle\caches\transforms-3\b903ec4de04a1216607159527ee7bccc\transformed\jetified-grpc-android-1.44.1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\tayfu\.gradle\caches\transforms-3\3f9bd44148db7c1743e3ab6a67d9d7f0\transformed\jetified-threetenabp-1.2.3\AndroidManifest.xml:5:5-44
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\tayfu\.gradle\caches\transforms-3\3f9bd44148db7c1743e3ab6a67d9d7f0\transformed\jetified-threetenabp-1.2.3\AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\c56d3bdab8711db79af12fc8ff9b7d23\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\c56d3bdab8711db79af12fc8ff9b7d23\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\933870cd7b923ad80ec1de067a530e68\transformed\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:7:5-9:41
@@ -556,6 +566,56 @@ ADDED from [:image_picker_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\Some
 		ADDED from [:image_picker_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-72
 	android:name
 		ADDED from [:image_picker_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-67
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-78
+uses-permission#android.permission.VIBRATE
+ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-66
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-63
+uses-permission#android.permission.USE_FULL_SCREEN_INTENT
+ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-81
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:11:22-78
+uses-permission#android.permission.SCHEDULE_EXACT_ALARM
+ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:12:22-76
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-77
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:13:22-74
+receiver#com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver
+ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-18:40
+	android:exported
+		ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-37
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-97
+receiver#com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver
+ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:19:9-28:20
+	android:exported
+		ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-37
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-101
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.MY_PACKAGE_REPLACED+action:name:android.intent.action.QUICKBOOT_POWERON+action:name:com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-27:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:23:17-79
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:23:25-76
+action#android.intent.action.MY_PACKAGE_REPLACED
+ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:24:17-84
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:24:25-81
+action#android.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:25:17-82
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:25:25-79
+action#com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:26:17-82
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:26:25-79
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\041b27d38198d104baa2ef8fafea15d7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
 	android:required
