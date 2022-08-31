@@ -11,6 +11,7 @@ import '../models/mesaj.dart';
 import '../models/user.dart';
 import 'bilgilerim.dart';
 
+// ignore: must_be_immutable
 class Sohbet extends StatefulWidget {
   final MyUser currentUser;
   late MyUser konusulanUser;
@@ -111,7 +112,7 @@ class _SohbetState extends State<Sohbet> {
                               mesaj: _mesajController.text,
                             );
                             _mesajController.clear();
-                            var sonuc = await AuthService.saveMessage(
+                             await AuthService.saveMessage(
                                 _kaydedilecekMesaj);
                           }
                         },
@@ -235,7 +236,7 @@ class _SohbetState extends State<Sohbet> {
 }
 
 Stream<List<Mesaj>> getMessages(String currentUserID, String konusulanUserID) {
-  QuerySnapshot _querySnapShot;
+  
 
   var snapShot = FirebaseFirestore.instance
       .collection("konusmalar")

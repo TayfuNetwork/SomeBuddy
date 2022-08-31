@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+//import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
 
@@ -24,7 +24,7 @@ class bilgilerim extends StatefulWidget {
   _bilgilerimState createState() => _bilgilerimState();
 }
 
-var flp = FlutterLocalNotificationsPlugin();
+/* var flp = FlutterLocalNotificationsPlugin();
 Future<void> kurulum() async {
   var androidAyari = AndroidInitializationSettings("@mipmap/ic_launcher");
   var iosAyari = IOSInitializationSettings();
@@ -57,7 +57,7 @@ Future<void> bildirimGoster() async {
 void initState() {
   kurulum();
 }
-
+ */
 String? ili, ilcesi, bransi, mevkisi;
 Color? ppColor;
 
@@ -290,7 +290,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                               mevki: null,
                                             );
                                     setState(() {});
-                                  } on Exception catch (e) {}
+                                  } on Exception {}
                                 },
                                 child: const Text(
                                   'Hobi kaydımı sil',

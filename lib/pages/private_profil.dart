@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -260,6 +262,7 @@ class _private_profilState extends State<private_profil> {
                                                   var _secilenResim =
                                                       FirebaseStorage.instance.ref(
                                                           'Users/gallery/${e.ref}');
+                                                  // ignore: unnecessary_null_comparison
                                                   if (_secilenResim != null) {
                                                     _secilenResim.delete();
                                                     setState(() {
@@ -393,11 +396,13 @@ class _private_profilState extends State<private_profil> {
         .collection("Users")
         .doc(userID)
         .update({'image': null});
+    // ignore: unnecessary_null_comparison
     if (adres == null) {
       var _profileRef =
           FirebaseStorage.instance.ref('Users/profile_photos/photo_$userID');
       _profileRef.delete();
     }
+    // ignore: unnecessary_null_comparison
     adres == null
         ? ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             backgroundColor: Colors.blue,
@@ -455,7 +460,7 @@ class _private_profilState extends State<private_profil> {
       var _task = _profileRef.putFile(File(_file.path)); // bak null check
       _task.whenComplete(() async {
         var _url = await _profileRef.getDownloadURL();
-        Medya medya = Medya(url: _url, ref: ref);
+        //Medya medya = Medya(url: _url, ref: ref);
         var kisi = AuthService().user!.id;
         await FirebaseFirestore.instance
             .doc('Users/$kisi')

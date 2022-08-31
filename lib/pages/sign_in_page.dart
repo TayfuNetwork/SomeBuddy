@@ -154,7 +154,7 @@ class _SignInPageState extends State<SignInPage> {
 //******************************************************************//
 
   void _misafirGirisi() async {
-    UserCredential sonuc = await FirebaseAuth.instance.signInAnonymously();
+    //UserCredential sonuc = await FirebaseAuth.instance.signInAnonymously();
     await Navigator.of(context)
         .push(CupertinoPageRoute(builder: (context) => const Profile()));
   }

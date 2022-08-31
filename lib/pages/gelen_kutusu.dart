@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:version1/models/konusma.dart';
 import 'package:version1/models/user.dart';
-import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/chat.dart';
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
@@ -20,7 +19,7 @@ class _InboxState extends State<Inbox> {
   @override
   Widget build(BuildContext context) {
     var _userModel = AuthService().user!;
-    String dene;
+   
     return Scaffold(
         appBar: AppBar(
           title: const Text('Mesajlar'),
@@ -77,9 +76,7 @@ class _InboxState extends State<Inbox> {
                                         }
                                       }
 
-                                      if (tumKonusmalar.length > 0) {
-                                        bildirimGoster();
-                                      }
+                                     
                                       return ListTile(
                                           title: Text(user.userName!),
                                           subtitle: Text(

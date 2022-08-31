@@ -5,12 +5,11 @@ import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/gelen_kutusu.dart';
 import 'package:version1/pages/chat.dart';
-import 'package:version1/pages/private_profil.dart';
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
 import 'package:version1/services/search_service.dart';
 
-// ignore: camel_case_types
+// ignore: camel_case_types, must_be_immutable
 class Results extends StatefulWidget {
   final String il;
   final String ilce;

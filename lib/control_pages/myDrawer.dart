@@ -114,7 +114,7 @@ class _MyDrawerState extends State<MyDrawer> {
   }
 
   _privateprofil() {
-    MyUser user = AuthService().user!;
+    //MyUser user = AuthService().user!;
     return Navigator.of(context)
         .push(CupertinoPageRoute(builder: (context) => const private_profil()));
     /* if (user.premium == true) {

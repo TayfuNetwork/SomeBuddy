@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/sign_in_page.dart';
-import 'package:version1/services/auth_service.dart';
 import '../control_pages/json-models.dart';
 
 // ignore: camel_case_types
@@ -198,6 +196,7 @@ class _ProfileState extends State<Profile> {
                         ad! + " " + soyad!,
                       );
 
+                      // ignore: unused_local_variable
                       MyUser myUser = MyUser(
                         email: user.email ?? "email",
                         userName: ad ?? "isimsiz",
@@ -208,7 +207,7 @@ class _ProfileState extends State<Profile> {
                         soyisim: soyisim,
                       );
 
-                      bool? res = await AuthService().updateUser(myUser);
+                      //bool? res = await AuthService().updateUser(myUser);
                       await Navigator.of(context).push(CupertinoPageRoute(
                           builder: (context) => bilgilerim()));
                       Navigator.of(context).pop();
