@@ -41,10 +41,19 @@ class _EmailPasswordState extends State<EmailPassword> {
       }
       user = await service.signUp(_sifre!, _email!, context);
       if (user != null) {
-        Navigator.of(context)
-            .push(CupertinoPageRoute(builder: (context) => const Profile()));
+        if (user.emailVerified) {
+        return user;
+      } else {
+        return ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            backgroundColor: Colors.blue,
+            content: Text("Lütfen onaylamak için mailinizi kontrol edin",
+                style: TextStyle(color: Colors.white))));
+        
+      }
       }
     } else {
+      // ignore: unnecessary_null_comparison
+      if(AuthService().user! != null){
       user = await service.signIn(_sifre!, _email!, context);
       if (user != null) {
         await AuthService().checkUser();
@@ -53,7 +62,7 @@ class _EmailPasswordState extends State<EmailPassword> {
             builder: (context) => AuthService().isHaveProfile
                 ? const bilgilerim()
                 : const Profile()));
-      }
+      }}
     }
   }
 

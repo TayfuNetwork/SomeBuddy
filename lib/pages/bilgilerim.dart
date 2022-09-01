@@ -1,21 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
-
 import 'package:version1/pages/search_page.dart';
-
 import 'package:version1/services/auth_service.dart';
 import '../control_pages/json-models.dart';
-
 // sadece oturum açmış kişiler bu sayfayı görebilir.
 // ignore: camel_case_types
-
 // ignore: camel_case_types
 class bilgilerim extends StatefulWidget {
+  
   const bilgilerim({
     Key? key,
   }) : super(key: key);
@@ -24,40 +20,6 @@ class bilgilerim extends StatefulWidget {
   _bilgilerimState createState() => _bilgilerimState();
 }
 
-/* var flp = FlutterLocalNotificationsPlugin();
-Future<void> kurulum() async {
-  var androidAyari = AndroidInitializationSettings("@mipmap/ic_launcher");
-  var iosAyari = IOSInitializationSettings();
-  var kurulumAyari =
-      InitializationSettings(android: androidAyari, iOS: iosAyari);
-  await flp.initialize(kurulumAyari, onSelectNotification: bildirimSecilme);
-}
-
-Future<void> bildirimSecilme(String? payload) async {
-  if (payload != null) {
-    print("Bildirim seçildi : $payload");
-  }
-}
-
-Future<void> bildirimGoster() async {
-  var androidBildirimDetayi = AndroidNotificationDetails(
-      "kanal id", "kanal baslik",
-      channelDescription: "kanal içerik",
-      priority: Priority.high,
-      importance: Importance.max);
-
-  var iosBildirimDetayi = IOSNotificationDetails();
-  var bildirimDetayi = NotificationDetails(
-      android: androidBildirimDetayi, iOS: iosBildirimDetayi);
-  await flp.show(0, "başlik", "içerik", bildirimDetayi,
-      payload: "Payload içerik");
-}
-
-@override
-void initState() {
-  kurulum();
-}
- */
 String? ili, ilcesi, bransi, mevkisi;
 Color? ppColor;
 
@@ -71,8 +33,11 @@ class _bilgilerimState extends State<bilgilerim> {
   IlService service = IlService();
   String? url = AuthService().user?.image;
   MyUser get user => AuthService().user!;
+  bool? x = AuthService().user?.premium;
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) 
+  {
     return Scaffold(
       drawer: MyDrawer(),
       appBar: AppBar(
@@ -297,7 +262,6 @@ class _bilgilerimState extends State<bilgilerim> {
                                   style: TextStyle(color: Colors.pink),
                                   softWrap: true,
                                 )),
-                               
                           if (ilce != null && brans != null)
                             Column(
                               children: [
@@ -364,11 +328,10 @@ class _bilgilerimState extends State<bilgilerim> {
     } else {
       return IconButton(
           onPressed: () {
-            
             ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                 backgroundColor: Colors.blue,
                 content: Text("Premium üye olma kodları henüz yazılmadı",
-                    style: TextStyle(color: Colors.white)))); 
+                    style: TextStyle(color: Colors.white))));
           },
           icon: const Icon(Icons.star));
     }
