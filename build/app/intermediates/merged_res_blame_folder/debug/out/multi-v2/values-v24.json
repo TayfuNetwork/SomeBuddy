@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.version1.app-mergeDebugResources-27:/values-v24/values-v24.xml",
+            "outputFile": "com.example.version1.app-mergeDebugResources-31:/values-v24/values-v24.xml",
             "map": [
                 {
                     "source": "C:\\Users\\tayfu\\.gradle\\caches\\transforms-3\\970f4fd8af27304c9251db8f3485e223\\transformed\\appcompat-1.1.0\\res\\values-v24\\values-v24.xml",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\tayfu\\.gradle\\caches\\transforms-3\\8fecdc769ea5e08c5097b93f38614b26\\transformed\\media-1.0.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\tayfu\\.gradle\\caches\\transforms-3\\91c42c5798d1e9a004b23d04fa0a9fd0\\transformed\\media-1.1.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
