@@ -40,6 +40,7 @@ class _EmailPasswordState extends State<EmailPassword> {
         return;
       }
       user = await service.signUp(_sifre!, _email!, context);
+
       if (user != null) {
         Navigator.of(context)
             .push(CupertinoPageRoute(builder: (context) => const Profile()));

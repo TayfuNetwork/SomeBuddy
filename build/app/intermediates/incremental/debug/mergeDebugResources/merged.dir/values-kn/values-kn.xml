@@ -72,20 +72,6 @@
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"ಲಿಂಕ್ ನಕಲಿಸಿ"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"ಬ್ರೌಸರ್‌ನಲ್ಲಿ ತೆರೆಯಿರಿ"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"ಲಿಂಕ್ ಹಂಚಿರಿ"</string>
-    <string name="offline_notification_text">ಜಾಹೀರಾತನ್ನು ತೆರೆಯಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
-    <string name="offline_notification_title">ನೀವು ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿದ್ದಾಗ ನೀವು ಉಳಿಸಿದ ಜಾಹೀರಾತನ್ನು ವೀಕ್ಷಿಸಿ</string>
-    <string name="offline_opt_in_confirm">ಸರಿ</string>
-    <string name="offline_opt_in_confirmation">ನೀವು ಆನ್‌ಲೈನ್‌ಗೆ ಹಿಂತಿರುಗಿದಾಗ ಲಿಂಕ್‌ನೊಂದಿಗೆ ಅಧಿಸೂಚನೆಯನ್ನು ಪಡೆಯುತ್ತೀರಿ</string>
-    <string name="offline_opt_in_decline">ಬೇಡ</string>
-    <string name="offline_opt_in_message">ಜಾಹೀರಾತುದಾರರ ಸೈಟ್‌ಗೆ ಲಿಂಕ್‌ನೊಂದಿಗೆ ನಾವು ನಿಮಗೆ ಅಧಿಸೂಚನೆಯನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.</string>
-    <string name="offline_opt_in_title">ನೀವು ಆನ್‌ಲೈನ್‌ಗೆ ಹಿಂತಿರುಗಿದಾಗ ಜಾಹೀರಾತನ್ನು ತೆರೆಯಿರಿ.</string>
-    <string name="s1">ಚಿತ್ರ ಉಳಿಸಿ</string>
-    <string name="s2">ಚಿತ್ರದ ಗ್ಯಾಲರಿಯಲ್ಲಿ ಚಿತ್ರ ಸಂಗ್ರಹಿಸಿಡಲು ಜಾಹೀರಾತಿಗೆ ಅನುಮತಿಸುವುದೇ?</string>
-    <string name="s3">ಸಮ್ಮತಿಸಿ</string>
-    <string name="s4">ನಿರಾಕರಿಸಿ</string>
-    <string name="s5">ಕ್ಯಾಲೆಂಡರ್ ಈವೆಂಟ್ ರಚಿಸಿ</string>
-    <string name="s6">ಕ್ಯಾಲೆಂಡರ್ ಈವೆಂಟ್ ರಚಿಸಲು ಜಾಹೀರಾತಿಗೆ ಅನುಮತಿಸುವುದೇ?</string>
-    <string name="s7">ಪರೀಕ್ಷಾ ಜಾಹೀರಾತು</string>
     <string msgid="730395136688082741" name="search_menu_title">"ಹುಡುಕಿ"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

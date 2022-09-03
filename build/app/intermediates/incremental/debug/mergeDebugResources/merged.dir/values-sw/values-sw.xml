@@ -49,20 +49,6 @@
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Nakili kiungo"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Fungua katika kivinjari"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Shiriki kiungo"</string>
-    <string name="offline_notification_text">Gusa ili ufungue tangazo</string>
-    <string name="offline_notification_title">Angalia tangazo ulilohifadhi ulipokuwa nje ya mtandao</string>
-    <string name="offline_opt_in_confirm">Sawa</string>
-    <string name="offline_opt_in_confirmation">Utapokea arifa yenye kiungo utakaporudi mtandaoni</string>
-    <string name="offline_opt_in_decline">Hapana</string>
-    <string name="offline_opt_in_message">Tutakutumia arifa yenye kiungo kinachoelekeza kwenye tovuti ya mtangazaji.</string>
-    <string name="offline_opt_in_title">Fungua tangazo utakaporudi mtandaoni.</string>
-    <string name="s1">Hifadhi picha</string>
-    <string name="s2">Ungependa kuruhusu tangazo lihifadhi picha katika matunzio ya Picha?</string>
-    <string name="s3">Kubali</string>
-    <string name="s4">Kataa</string>
-    <string name="s5">Unda tukio la kalenda</string>
-    <string name="s6">Ungependa kuruhusu tangazo liunde tukio la kalenda?</string>
-    <string name="s7">Tangazo la Jaribio</string>
     <string msgid="730395136688082741" name="search_menu_title">"Tafuta"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

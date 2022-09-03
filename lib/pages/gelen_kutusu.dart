@@ -84,6 +84,7 @@ class _InboxState extends State<Inbox> {
                                                   " ... " +
                                                   _saatDakikaDegeri),
                                           leading: GestureDetector(
+                                            onLongPress: delete,
                                             onTap: git,
                                             child: CircleAvatar(
                                               backgroundImage: _havePhoto(),
@@ -122,6 +123,10 @@ class _InboxState extends State<Inbox> {
     setState(() {});
     await Future.delayed(const Duration(seconds: 2));
     return null;
+  }
+
+  void delete() {
+    
   }
 }
 

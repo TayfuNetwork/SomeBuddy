@@ -392,12 +392,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "nested",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/nested-1.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "path",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.1",
       "packageUri": "lib/",
@@ -426,12 +420,6 @@
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.2.4",
       "packageUri": "lib/",
       "languageVersion": "2.14"
-    },
-    {
-      "name": "provider",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/provider-6.0.3",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "quiver",
@@ -524,7 +512,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-09-01T16:39:24.264007Z",
+  "generated": "2022-09-03T13:51:57.909275Z",
   "generator": "pub",
   "generatorVersion": "2.17.6"
 }

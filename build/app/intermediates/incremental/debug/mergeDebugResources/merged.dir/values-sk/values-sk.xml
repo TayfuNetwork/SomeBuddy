@@ -72,20 +72,6 @@
     <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"Kopírovať odkaz"</string>
     <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"Otvoriť v prehliadači"</string>
     <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"Zdieľať odkaz"</string>
-    <string name="offline_notification_text">Klepnutím otvoriť reklamu</string>
-    <string name="offline_notification_title">Zobrazte si reklamu, ktorú ste uložili v režime offline</string>
-    <string name="offline_opt_in_confirm">OK</string>
-    <string name="offline_opt_in_confirmation">Po opätovnom pripojení k internetu dostanete upozornenie s odkazom</string>
-    <string name="offline_opt_in_decline">Nie, ďakujem</string>
-    <string name="offline_opt_in_message">Pošleme vám upozornenie s odkazom na web inzerenta.</string>
-    <string name="offline_opt_in_title">Reklama sa otvorí, keď budete znova online.</string>
-    <string name="s1">Uloženie obrázka</string>
-    <string name="s2">Povoliť reklame uložiť obrázok do galérie obrázkov?</string>
-    <string name="s3">Prijať</string>
-    <string name="s4">Odmietnuť</string>
-    <string name="s5">Vytvorenie udalosti v kalendári</string>
-    <string name="s6">Povoliť reklame vytvoriť udalosť v kalendári?</string>
-    <string name="s7">Testovacia reklama</string>
     <string msgid="730395136688082741" name="search_menu_title">"Hľadať"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

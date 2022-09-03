@@ -16,6 +16,8 @@ class show extends StatefulWidget {
   State<show> createState() => _showState();
 }
 
+Color ppColor = Colors.blue;
+
 class _showState extends State<show> {
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class _showState extends State<show> {
               Center(
                 child: CircleAvatar(
                   backgroundColor: Colors.blue,
-                  backgroundImage: NetworkImage(widget.whoData.image!),
+                  backgroundImage: controlPP(),
                   radius: 75,
                 ),
               ),
@@ -59,12 +61,9 @@ class _showState extends State<show> {
                     "${widget.whoData.yas}",
                     style: const TextStyle(fontSize: 20, color: Colors.white),
                   ),
-                  backgroundColor: Colors.blue,
+                  backgroundColor: ControlColor(),
                 ),
-                subtitle: Text(
-                  "${widget.whoData.il}/${widget.whoData.ilce} - ${widget.whoData.brans}/${widget.whoData.mevki}",
-                  style: const TextStyle(color: Colors.blue),
-                ),
+                subtitle: ControlName(),
                 trailing: const Icon(
                   Icons.message,
                   color: Colors.yellow,
@@ -76,7 +75,16 @@ class _showState extends State<show> {
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text('${widget.whoData.bio}'),
+                child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    width: double.maxFinite,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(child: Text('${widget.whoData.bio}')),
+                    )),
               ),
               const Divider(
                 height: 2,
@@ -171,10 +179,40 @@ class _showState extends State<show> {
     );
   }
 
+  controlPP() {
+    if (widget.whoData.image != null) {
+      return NetworkImage(widget.whoData.image!);
+    } else {
+      return AssetImage("images/Logo.png");
+    }
+  }
+
   Stream<DocumentSnapshot<Map<String, dynamic>>> galeri() {
     var userID = widget.whoData.id;
     var galerinstance =
         FirebaseFirestore.instance.collection('Users').doc(userID).snapshots();
     return galerinstance;
+  }
+
+  Text ControlName() {
+    if (widget.whoData.il != null) {
+      return Text(
+        "${widget.whoData.il}/${widget.whoData.ilce} - ${widget.whoData.brans}/${widget.whoData.mevki}",
+        style: const TextStyle(color: Colors.blue),
+      );
+    } else {
+      return Text(
+        "Hobi kaydı bulunmuyor.",
+        style: const TextStyle(color: Colors.orange),
+      );
+    }
+  }
+
+  Color ControlColor() {
+    if (widget.whoData.sex == 'Kadın') {
+      return ppColor = Colors.pink.shade400;
+    } else {
+      return ppColor = Colors.blue;
+    }
   }
 }
