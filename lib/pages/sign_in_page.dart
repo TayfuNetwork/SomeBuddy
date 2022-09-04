@@ -96,34 +96,8 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
-  //non_constant_identifier_names
-  RaisedButton AnonimGiris() {
-    return RaisedButton(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(10),
-        ),
-      ),
-      onPressed: _misafirGirisi,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Image.asset("images/google-logo.png"),
-          const Text(
-            'anonim oturum test',
-            style: TextStyle(color: Colors.black87),
-          ),
-          Image.asset(
-            "images/google-logo.png",
-            color: Colors.white.withOpacity(0),
-          ),
-        ],
-      ),
-      color: Colors.grey.shade300,
-    );
-  }
-
+  
+  
   // ignore: non_constant_identifier_names
   RaisedButton GoogleGirisi() {
     return RaisedButton(
@@ -181,7 +155,7 @@ class _SignInPageState extends State<SignInPage> {
                 CupertinoPageRoute(builder: (context) => const bilgilerim()),
                 ((route) => false));
           } else {
-            Navigator.pop(context);
+            
             return Navigator.of(context).pushAndRemoveUntil(
                 CupertinoPageRoute(builder: (context) => const Profile()),
                 ((route) => false));

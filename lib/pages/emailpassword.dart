@@ -42,18 +42,21 @@ class _EmailPasswordState extends State<EmailPassword> {
       user = await service.signUp(_sifre!, _email!, context);
 
       if (user != null) {
-        Navigator.of(context)
-            .push(CupertinoPageRoute(builder: (context) => const Profile()));
+        Navigator.of(context).pushAndRemoveUntil(
+            CupertinoPageRoute(builder: (context) => const Profile()),
+            ((route) => false));
       }
     } else {
       user = await service.signIn(_sifre!, _email!, context);
       if (user != null) {
         await AuthService().checkUser();
 
-        Navigator.of(context).push(CupertinoPageRoute(
-            builder: (context) => AuthService().isHaveProfile
-                ? const bilgilerim()
-                : const Profile()));
+        Navigator.of(context).pushAndRemoveUntil(
+            CupertinoPageRoute(
+                builder: (context) => AuthService().isHaveProfile
+                    ? const bilgilerim()
+                    : const Profile()),
+            ((route) => false));
       }
     }
   }
