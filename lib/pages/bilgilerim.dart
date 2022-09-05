@@ -323,7 +323,7 @@ class _bilgilerimState extends State<bilgilerim> {
           ));
         },
         icon: const Icon(Icons.star),
-        color: Colors.greenAccent,
+        color: Colors.blue,
       );
     } else {
       return IconButton(

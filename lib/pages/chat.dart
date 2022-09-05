@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:version1/pages/gelen_kutusu.dart';
 import 'package:version1/pages/search_page.dart';
 
 import 'package:version1/pages/show.dart';
@@ -42,11 +43,17 @@ class _SohbetState extends State<Sohbet> {
           title: const Text('Sohbet '),
           actions: [
             IconButton(
-              icon: const Icon(Icons.search),
+                onPressed: _mesajlaraGit,
+                icon: const Icon(
+                  Icons.chat,
+                  color: Colors.blue,
+                )),
+            IconButton(
+              icon: const Icon(Icons.search, color: Colors.blue),
               onPressed: _searchPage,
             ),
             IconButton(
-              icon: const Icon(Icons.home),
+              icon: const Icon(Icons.home, color: Colors.blue),
               onPressed: _bilgilerimeGit,
             ),
           ],
@@ -206,6 +213,11 @@ class _SohbetState extends State<Sohbet> {
   _bilgilerimeGit() {
     return Navigator.of(context)
         .push(CupertinoPageRoute(builder: (context) => const bilgilerim()));
+  }
+
+  _mesajlaraGit() {
+    return Navigator.of(context)
+        .push(CupertinoPageRoute(builder: (context) => const Inbox()));
   }
 
   _searchPage() {

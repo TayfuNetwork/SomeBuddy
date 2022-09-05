@@ -127,6 +127,7 @@ class _SignInPageState extends State<SignInPage> {
   }
 //******************************************************************//
 
+  // ignore: unused_element
   void _misafirGirisi() async {
     //UserCredential sonuc = await FirebaseAuth.instance.signInAnonymously();
     await Navigator.of(context)

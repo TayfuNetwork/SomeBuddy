@@ -25,12 +25,13 @@ class _MyDrawerState extends State<MyDrawer> {
       child: Column(
         children: [
           UserAccountsDrawerHeader(
-              accountName: Text(
-                user.userName! + ' ' + user.soyisim!,
-                style: const TextStyle(fontSize: 20),
-              ),
-              accountEmail: Text(user.email!),
-              currentAccountPicture: _imageController()),
+            accountName: Text(
+              user.userName! + ' ' + user.soyisim!,
+              style: const TextStyle(fontSize: 20),
+            ),
+            accountEmail: Text(user.email!),
+            currentAccountPicture: _imageController(),
+          ),
           Expanded(
             child: ListView(
               children: [

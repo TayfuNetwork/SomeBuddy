@@ -55,7 +55,7 @@ class _searchPageState extends State<searchPage> {
         title: Center(child: const Text('Arama Yap')),
         actions: [
           IconButton(
-            icon: const Icon(Icons.chat),
+            icon: const Icon(Icons.chat, color: Colors.blue),
             onPressed: _mesajlaraGit,
           ),
         ],
