@@ -7,11 +7,11 @@ import 'package:version1/models/user.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/services/auth_service.dart';
 import '../control_pages/json-models.dart';
+
 // sadece oturum açmış kişiler bu sayfayı görebilir.
 // ignore: camel_case_types
 // ignore: camel_case_types
 class bilgilerim extends StatefulWidget {
-  
   const bilgilerim({
     Key? key,
   }) : super(key: key);
@@ -36,12 +36,12 @@ class _bilgilerimState extends State<bilgilerim> {
   bool? x = AuthService().user?.premium;
 
   @override
-  Widget build(BuildContext context) 
-  {
+  Widget build(BuildContext context) {
     return Scaffold(
       drawer: MyDrawer(),
       appBar: AppBar(
-        title: const Text('Ana Sayfa'),
+        elevation: 8,
+        title: Center(child: const Text('Ana Sayfa')),
         actions: <Widget>[control()],
       ),
       body: Column(

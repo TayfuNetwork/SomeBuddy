@@ -1,6 +1,9 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:version1/models/konusma.dart';
 import 'package:version1/models/user.dart';
@@ -19,7 +22,7 @@ class _InboxState extends State<Inbox> {
   @override
   Widget build(BuildContext context) {
     var _userModel = AuthService().user!;
-   
+
     return Scaffold(
         appBar: AppBar(
           title: const Text('Mesajlar'),
@@ -42,49 +45,107 @@ class _InboxState extends State<Inbox> {
                 var tumKonusmalar = konusmaListesi.data!;
                 var _saatDakikaDegeri = "";
 
-                return RefreshIndicator(
-                  onRefresh: _konusmalariYenile,
-                  child: tumKonusmalar.isEmpty
-                      ? const Center(child: Text('Hiç mesajınız yok'))
-                      : ListView.builder(
-                          itemCount: tumKonusmalar.length,
-                          itemBuilder: (context, index) {
-                            var oankiKonusma = tumKonusmalar[index];
+                return tumKonusmalar.isEmpty
+                    ? const Center(child: Text('Hiç mesajınız yok'))
+                    : ListView.builder(
+                        itemCount: tumKonusmalar.length,
+                        itemBuilder: (context, index) {
+                          var oankiKonusma = tumKonusmalar[index];
 
-                            return SingleChildScrollView(
-                              child: StreamBuilder<MyUser?>(
-                                  stream: getUserFromId(
-                                      oankiKonusma.kimle_konusuyor!),
-                                  builder: (context, snapshot) {
-                                    _saatDakikaDegeri = _saatDakikaGoster(
-                                        oankiKonusma.olusturulma_tarihi!);
-                                    if (snapshot.hasData) {
-                                      MyUser user = snapshot.data!;
-                                      git() {
-                                        Navigator.of(context).push(
-                                            CupertinoPageRoute(
-                                                builder: (context) =>
-                                                    show(whoData: user)));
+                          return SingleChildScrollView(
+                            child: StreamBuilder<MyUser?>(
+                                stream: getUserFromId(
+                                    oankiKonusma.kimle_konusuyor!),
+                                builder: (context, snapshot) {
+                                  _saatDakikaDegeri = _saatDakikaGoster(
+                                      oankiKonusma.olusturulma_tarihi!);
+                                  if (snapshot.hasData) {
+                                    var myuser = AuthService().user!.id;
+                                    MyUser user = snapshot.data!;
+                                    git() {
+                                      Navigator.of(context).push(
+                                          CupertinoPageRoute(
+                                              builder: (context) =>
+                                                  show(whoData: user)));
+                                    }
+
+                                    ImageProvider _havePhoto() {
+                                      if (user.image != null) {
+                                        return NetworkImage(user.image!);
+                                      } else {
+                                        return const AssetImage(
+                                            "images/Logo.png");
                                       }
+                                    }
 
-                                      ImageProvider _havePhoto() {
-                                        if (user.image != null) {
-                                          return NetworkImage(user.image!);
-                                        } else {
-                                          return const AssetImage(
-                                              "images/Logo.png");
-                                        }
-                                      }
-
-                                     
-                                      return ListTile(
+                                    return Dismissible(
+                                      direction: DismissDirection.endToStart,
+                                      onDismissed: ((direction) async {
+                                        showDialog(
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return AlertDialog(
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20.0)),
+                                                title: Center(
+                                                  child: const Text(
+                                                    "Mesajlar silinecek",
+                                                    style: TextStyle(
+                                                        color: Colors.red),
+                                                  ),
+                                                ),
+                                                actions: <Widget>[
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      FlatButton(
+                                                          onPressed: () {
+                                                            FirebaseFirestore
+                                                                .instance
+                                                                .collection(
+                                                                    "konusmalar")
+                                                                .doc(
+                                                                    "${myuser}--${user.id}")
+                                                                .delete();
+                                                          },
+                                                          child: const Text(
+                                                            "Sil",
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .blue),
+                                                          )),
+                                                      FlatButton(
+                                                        onPressed: () {
+                                                          _konusmalariYenile();
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                        child: const Text(
+                                                            "Vazgeç",
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .blue)),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              );
+                                            });
+                                      }),
+                                      key: UniqueKey(),
+                                      child: ListTile(
                                           title: Text(user.userName!),
                                           subtitle: Text(
                                               oankiKonusma.son_yollanan_mesaj! +
                                                   " ... " +
                                                   _saatDakikaDegeri),
                                           leading: GestureDetector(
-                                            onLongPress: delete,
                                             onTap: git,
                                             child: CircleAvatar(
                                               backgroundImage: _havePhoto(),
@@ -99,14 +160,14 @@ class _InboxState extends State<Inbox> {
                                                               _userModel,
                                                           konusulanUser: user,
                                                         )));
-                                          });
-                                    } else {
-                                      return const SizedBox(width: 20);
-                                    }
-                                  }),
-                            );
-                          }),
-                );
+                                          }),
+                                    );
+                                  } else {
+                                    return const SizedBox(width: 20);
+                                  }
+                                }),
+                          );
+                        });
               }
             },
           ),
@@ -121,12 +182,8 @@ class _InboxState extends State<Inbox> {
 
   Future<Null> _konusmalariYenile() async {
     setState(() {});
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     return null;
-  }
-
-  void delete() {
-    
   }
 }
 

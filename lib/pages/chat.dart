@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:version1/pages/search_page.dart';
 
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
@@ -36,9 +37,14 @@ class _SohbetState extends State<Sohbet> {
         //backgroundColor: Color.fromARGB(255, 129, 152, 192),
 
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           elevation: 1,
           title: const Text('Sohbet '),
           actions: [
+            IconButton(
+              icon: const Icon(Icons.search),
+              onPressed: _searchPage,
+            ),
             IconButton(
               icon: const Icon(Icons.home),
               onPressed: _bilgilerimeGit,
@@ -112,8 +118,7 @@ class _SohbetState extends State<Sohbet> {
                               mesaj: _mesajController.text,
                             );
                             _mesajController.clear();
-                             await AuthService.saveMessage(
-                                _kaydedilecekMesaj);
+                            await AuthService.saveMessage(_kaydedilecekMesaj);
                           }
                         },
                       ),
@@ -203,6 +208,12 @@ class _SohbetState extends State<Sohbet> {
         .push(CupertinoPageRoute(builder: (context) => const bilgilerim()));
   }
 
+  _searchPage() {
+    return Navigator.of(context).pushAndRemoveUntil(
+        CupertinoPageRoute(builder: (context) => const searchPage()),
+        ((route) => false));
+  }
+
   String _saatDakikaGoster(Timestamp? date) {
     var _formater = DateFormat.Hm();
     var _formatlanmisTarih = _formater.format(date!.toDate());
@@ -236,8 +247,6 @@ class _SohbetState extends State<Sohbet> {
 }
 
 Stream<List<Mesaj>> getMessages(String currentUserID, String konusulanUserID) {
-  
-
   var snapShot = FirebaseFirestore.instance
       .collection("konusmalar")
       .doc(currentUserID + "--" + konusulanUserID)

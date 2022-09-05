@@ -52,7 +52,7 @@ class _searchPageState extends State<searchPage> {
     return Scaffold(
       drawer: MyDrawer(),
       appBar: AppBar(
-        title: const Text('Arama Yap'),
+        title: Center(child: const Text('Arama Yap')),
         actions: [
           IconButton(
             icon: const Icon(Icons.chat),
@@ -63,6 +63,8 @@ class _searchPageState extends State<searchPage> {
 //******************************************************************//
 
       body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/Logo.png"), // <-- BACKGROUND IMAGE
