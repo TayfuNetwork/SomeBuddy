@@ -1,18 +1,18 @@
 -- Merging decision tree log ---
 application
-INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:3:4-39:19
-MERGED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
-MERGED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
+INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:6:4-43:19
 MERGED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
-MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
-MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:cloud_firestore] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:cloud_firestore] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
-MERGED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-46:19
-MERGED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-46:19
+MERGED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
+MERGED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
+MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
+MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
+MERGED from [:geolocator_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-17:19
+MERGED from [:geolocator_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-17:19
 MERGED from [:image_picker_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
 MERGED from [:image_picker_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
 MERGED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-29:19
@@ -23,8 +23,6 @@ MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\ca
 MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:26:5-71:19
 MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:16:5-24:19
 MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:16:5-24:19
-MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:30:5-59:19
-MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:30:5-59:19
 MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:29:5-37:19
 MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:29:5-37:19
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:28:5-36:19
@@ -33,44 +31,32 @@ MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\tayfu\.g
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\f45856fa7279452aaf4676aa876c6208\transformed\jetified-firebase-auth-interop-20.0.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\163f45795270b2fc5dcf417585e83da0\transformed\jetified-firebase-appcheck-interop-16.0.0\AndroidManifest.xml:24:5-20
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\163f45795270b2fc5dcf417585e83da0\transformed\jetified-firebase-appcheck-interop-16.0.0\AndroidManifest.xml:24:5-20
-MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\tayfu\.gradle\caches\transforms-3\38a9f33c913cdb9c41545d258ee9c673\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:24:5-32:19
-MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\tayfu\.gradle\caches\transforms-3\38a9f33c913cdb9c41545d258ee9c673\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:24:5-32:19
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:14:5-22:19
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:14:5-22:19
 MERGED from [com.google.firebase:firebase-common:20.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\08d870f84243b194a5b17e231733b264\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:25:5-38:19
 MERGED from [com.google.firebase:firebase-common:20.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\08d870f84243b194a5b17e231733b264\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:25:5-38:19
 MERGED from [com.facebook.android:facebook-login:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\6b8bc17b262b48e4eeeee5b67f363e39\transformed\jetified-facebook-login-13.2.0\AndroidManifest.xml:28:5-29:19
 MERGED from [com.facebook.android:facebook-login:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\6b8bc17b262b48e4eeeee5b67f363e39\transformed\jetified-facebook-login-13.2.0\AndroidManifest.xml:28:5-29:19
 MERGED from [com.facebook.android:facebook-common:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\f9812d0b931964ec3abc41f735c7684f\transformed\jetified-facebook-common-13.2.0\AndroidManifest.xml:29:5-50:19
 MERGED from [com.facebook.android:facebook-common:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\f9812d0b931964ec3abc41f735c7684f\transformed\jetified-facebook-common-13.2.0\AndroidManifest.xml:29:5-50:19
+MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\eef6e01b4f7525453d209f8989dd1064\transformed\jetified-play-services-location-20.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\eef6e01b4f7525453d209f8989dd1064\transformed\jetified-play-services-location-20.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\5fb3f8552bde3f5ea95d53c07d1ec7ab\transformed\jetified-play-services-auth-20.0.1\AndroidManifest.xml:22:5-38:19
 MERGED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\5fb3f8552bde3f5ea95d53c07d1ec7ab\transformed\jetified-play-services-auth-20.0.1\AndroidManifest.xml:22:5-38:19
-MERGED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:30:5-60:19
-MERGED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:30:5-60:19
-MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tayfu\.gradle\caches\transforms-3\d115a2747313faa2d4b694edca623ce5\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tayfu\.gradle\caches\transforms-3\d115a2747313faa2d4b694edca623ce5\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\0fdea3d095fc30c7dd4ea821f75f75f4\transformed\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\0fdea3d095fc30c7dd4ea821f75f75f4\transformed\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\575dc915fec3b6aa46117f0505f15f02\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\575dc915fec3b6aa46117f0505f15f02\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
-MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\da34eff2e6d1ccf51ffd44708c2ce2c2\transformed\jetified-firebase-iid-interop-17.1.0\AndroidManifest.xml:7:5-8:19
-MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\da34eff2e6d1ccf51ffd44708c2ce2c2\transformed\jetified-firebase-iid-interop-17.1.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\0028390fd49584fa534c36a3c2b657db\transformed\jetified-play-services-tasks-18.0.1\AndroidManifest.xml:5:5-20
 MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\0028390fd49584fa534c36a3c2b657db\transformed\jetified-play-services-tasks-18.0.1\AndroidManifest.xml:5:5-20
-MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\bd1a9be953414a5adb75d27b93262823\transformed\jetified-firebase-measurement-connector-19.0.0\AndroidManifest.xml:22:5-23:19
-MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\bd1a9be953414a5adb75d27b93262823\transformed\jetified-firebase-measurement-connector-19.0.0\AndroidManifest.xml:22:5-23:19
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\531e6946116011676088a3f0960acb81\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:20:5-24:19
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\531e6946116011676088a3f0960acb81\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:30:5-60:19
+MERGED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:30:5-60:19
 MERGED from [com.facebook.android:facebook-bolts:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\3fe91f36dc41263622b7fa791e93cd38\transformed\jetified-facebook-bolts-13.2.0\AndroidManifest.xml:28:5-29:19
 MERGED from [com.facebook.android:facebook-bolts:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\3fe91f36dc41263622b7fa791e93cd38\transformed\jetified-facebook-bolts-13.2.0\AndroidManifest.xml:28:5-29:19
 MERGED from [androidx.core:core:1.8.0] C:\Users\tayfu\.gradle\caches\transforms-3\0ae63b7911b93b7e25f8ffd2ac798ff4\transformed\core-1.8.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.8.0] C:\Users\tayfu\.gradle\caches\transforms-3\0ae63b7911b93b7e25f8ffd2ac798ff4\transformed\core-1.8.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\7cb70ee0d06b7e8d2c26394fd47702a7\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\7cb70ee0d06b7e8d2c26394fd47702a7\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:28:5-36:19
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:28:5-36:19
-MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:25:5-39:19
-MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:25:5-39:19
 MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\tayfu\.gradle\caches\transforms-3\3f9bd44148db7c1743e3ab6a67d9d7f0\transformed\jetified-threetenabp-1.2.3\AndroidManifest.xml:7:5-20
 MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\tayfu\.gradle\caches\transforms-3\3f9bd44148db7c1743e3ab6a67d9d7f0\transformed\jetified-threetenabp-1.2.3\AndroidManifest.xml:7:5-20
 MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\tayfu\.gradle\caches\transforms-3\902d4f6670ff46edbc0e675b18678aff\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:11:5-20
@@ -82,56 +68,50 @@ MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\tayfu\.gr
 	android:name
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml
 manifest
-ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-40:12
-INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-40:12
-INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-40:12
-INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-40:12
-MERGED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-40:12
-MERGED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
+ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
+INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
+INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
+INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
+MERGED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
 MERGED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
-MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:cloud_firestore] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
-MERGED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-48:12
+MERGED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [:geolocator_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [:image_picker_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-21:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_login_facebook] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_login_facebook\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-31:12
 MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:geocoding] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geocoding\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\224d32528c14de86600ae9f4b308ccaa\transformed\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\8bffc0e5dda3b83649c900720739e56d\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\041b27d38198d104baa2ef8fafea15d7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
 MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:17:1-73:12
 MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:2:1-26:12
-MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:17:1-61:12
 MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:15:1-39:12
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\f45856fa7279452aaf4676aa876c6208\transformed\jetified-firebase-auth-interop-20.0.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\163f45795270b2fc5dcf417585e83da0\transformed\jetified-firebase-appcheck-interop-16.0.0\AndroidManifest.xml:15:1-26:12
-MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\tayfu\.gradle\caches\transforms-3\38a9f33c913cdb9c41545d258ee9c673\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:15:1-34:12
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:2:1-24:12
 MERGED from [com.google.firebase:firebase-common:20.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\08d870f84243b194a5b17e231733b264\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:15:1-40:12
 MERGED from [com.facebook.android:facebook-login:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\6b8bc17b262b48e4eeeee5b67f363e39\transformed\jetified-facebook-login-13.2.0\AndroidManifest.xml:21:1-31:12
 MERGED from [com.facebook.android:facebook-common:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\f9812d0b931964ec3abc41f735c7684f\transformed\jetified-facebook-common-13.2.0\AndroidManifest.xml:21:1-52:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\455370d4143e35751b65619b6356c643\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.media:media:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\91c42c5798d1e9a004b23d04fa0a9fd0\transformed\media-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\970f4fd8af27304c9251db8f3485e223\transformed\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\eef6e01b4f7525453d209f8989dd1064\transformed\jetified-play-services-location-20.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\5fb3f8552bde3f5ea95d53c07d1ec7ab\transformed\jetified-play-services-auth-20.0.1\AndroidManifest.xml:17:1-40:12
-MERGED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:21:1-62:12
-MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tayfu\.gradle\caches\transforms-3\d115a2747313faa2d4b694edca623ce5\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:2:1-9:12
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\6a5e9b7646124d2de4a75a342af27810\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\30f1667b9369d9f7bd0097f89fd1340e\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\c5c6ed790728c314f387e997dc92aa7d\transformed\jetified-play-services-auth-api-phone-18.0.1\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-auth-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\f48aced3b60d313eb08d3ce2f61edcca\transformed\jetified-play-services-auth-base-18.0.1\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\0fdea3d095fc30c7dd4ea821f75f75f4\transformed\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\0fd1f4addce74c20303e6b52a1844255\transformed\jetified-firebase-database-collection-18.0.1\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\575dc915fec3b6aa46117f0505f15f02\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:16:1-24:12
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\de3af7616b58c511b6574c501107bb30\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:2:1-13:12
-MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\da34eff2e6d1ccf51ffd44708c2ce2c2\transformed\jetified-firebase-iid-interop-17.1.0\AndroidManifest.xml:2:1-10:12
-MERGED from [com.google.firebase:firebase-installations-interop:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\160ebbcd357e62b9a1c6e61fd37a3d3f\transformed\jetified-firebase-installations-interop-17.0.1\AndroidManifest.xml:15:1-23:12
 MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\0028390fd49584fa534c36a3c2b657db\transformed\jetified-play-services-tasks-18.0.1\AndroidManifest.xml:2:1-6:12
-MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\bd1a9be953414a5adb75d27b93262823\transformed\jetified-firebase-measurement-connector-19.0.0\AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\531e6946116011676088a3f0960acb81\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\970f4fd8af27304c9251db8f3485e223\transformed\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:21:1-62:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\6a5e9b7646124d2de4a75a342af27810\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\30f1667b9369d9f7bd0097f89fd1340e\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.3.0] C:\Users\tayfu\.gradle\caches\transforms-3\be78b2314ed74df9b459c8b7d0a03520\transformed\fragment-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\1700f73431a68c5d8c52c9cbd13c3fb5\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.browser:browser:1.4.0] C:\Users\tayfu\.gradle\caches\transforms-3\9b4f20a241ce59269efe65e7658f2d2a\transformed\browser-1.4.0\AndroidManifest.xml:17:1-24:12
@@ -150,22 +130,18 @@ MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\tayf
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\44ff0ee718b17ccbd7a9f0769f1b24b4\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.8.0] C:\Users\tayfu\.gradle\caches\transforms-3\0ae63b7911b93b7e25f8ffd2ac798ff4\transformed\core-1.8.0\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\tayfu\.gradle\caches\transforms-3\3a84d43c2033bf264d67f4788468315a\transformed\exifinterface-1.3.3\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\4fbc5e5b202d383933a39b5326a49f17\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\b68afeef9f6b704084a33b499d121c25\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\tayfu\.gradle\caches\transforms-3\590e038e9b6ef167d875faa3758bc8d7\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\7cb70ee0d06b7e8d2c26394fd47702a7\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\4fbc5e5b202d383933a39b5326a49f17\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\f5a9ce17744b0dc995121eed8350a415\transformed\jetified-firebase-components-17.0.0\AndroidManifest.xml:15:1-23:12
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:15:1-38:12
-MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:15:1-41:12
-MERGED from [com.google.android.datatransport:transport-api:3.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\6d58cd1e12d0a4b51081a8a1ca539afd\transformed\jetified-transport-api-3.0.0\AndroidManifest.xml:15:1-22:12
-MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\8921af2a0d7daf8bdf6428ffc812fc60\transformed\jetified-firebase-encoders-json-18.0.0\AndroidManifest.xml:15:1-23:12
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\840713f494e5c5d1f324966db0421adf\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\c9bebf696a4033aa7adff264aaa657f4\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.0] C:\Users\tayfu\.gradle\caches\transforms-3\d204423cc8ddc26fc067c1f3f38013db\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\3294c69c2927b474a1600cda3c801d19\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\e37457507f4308071886f9bf87040aee\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\tayfu\.gradle\caches\transforms-3\9d4aa86f834c27ec96890296495c70d2\transformed\lifecycle-livedata-core-2.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\fac244fed791bd6f6a609f4af5711dd6\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\840713f494e5c5d1f324966db0421adf\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\c9bebf696a4033aa7adff264aaa657f4\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\ffdd2d834adc709d2c1f77076f28486f\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\0e6cbad129cc3303604c28a91b92292c\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\048bb426b7897db7dcc8c2b5198eb307\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -184,30 +160,38 @@ INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-40:12
+		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\debug\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-40:12
+		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:4:5-79
+	android:name
+		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:4:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:5:5-81
+	android:name
+		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:5:22-78
 uses-sdk
 INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml
-MERGED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:cloud_firestore] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:cloud_firestore] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:geolocator_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:geolocator_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:image_picker_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:image_picker_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -218,6 +202,8 @@ MERGED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUT
 MERGED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:geocoding] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geocoding\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:geocoding] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geocoding\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\224d32528c14de86600ae9f4b308ccaa\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\224d32528c14de86600ae9f4b308ccaa\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\8bffc0e5dda3b83649c900720739e56d\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
@@ -228,8 +214,6 @@ MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\ca
 MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:21:5-23:41
-MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:21:5-23:41
 MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:19:5-21:41
@@ -238,10 +222,6 @@ MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\tayfu\.g
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\f45856fa7279452aaf4676aa876c6208\transformed\jetified-firebase-auth-interop-20.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\163f45795270b2fc5dcf417585e83da0\transformed\jetified-firebase-appcheck-interop-16.0.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\163f45795270b2fc5dcf417585e83da0\transformed\jetified-firebase-appcheck-interop-16.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\tayfu\.gradle\caches\transforms-3\38a9f33c913cdb9c41545d258ee9c673\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\tayfu\.gradle\caches\transforms-3\38a9f33c913cdb9c41545d258ee9c673\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:6:5-8:41
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-common:20.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\08d870f84243b194a5b17e231733b264\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-common:20.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\08d870f84243b194a5b17e231733b264\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [com.facebook.android:facebook-login:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\6b8bc17b262b48e4eeeee5b67f363e39\transformed\jetified-facebook-login-13.2.0\AndroidManifest.xml:24:5-26:41
@@ -252,18 +232,10 @@ MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\tayfu\.gradle\cac
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\455370d4143e35751b65619b6356c643\transformed\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.media:media:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\91c42c5798d1e9a004b23d04fa0a9fd0\transformed\media-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.media:media:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\91c42c5798d1e9a004b23d04fa0a9fd0\transformed\media-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\970f4fd8af27304c9251db8f3485e223\transformed\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\970f4fd8af27304c9251db8f3485e223\transformed\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\eef6e01b4f7525453d209f8989dd1064\transformed\jetified-play-services-location-20.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\eef6e01b4f7525453d209f8989dd1064\transformed\jetified-play-services-location-20.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\5fb3f8552bde3f5ea95d53c07d1ec7ab\transformed\jetified-play-services-auth-20.0.1\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\5fb3f8552bde3f5ea95d53c07d1ec7ab\transformed\jetified-play-services-auth-20.0.1\AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:24:5-26:41
-MERGED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:24:5-26:41
-MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tayfu\.gradle\caches\transforms-3\d115a2747313faa2d4b694edca623ce5\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\tayfu\.gradle\caches\transforms-3\d115a2747313faa2d4b694edca623ce5\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\6a5e9b7646124d2de4a75a342af27810\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\6a5e9b7646124d2de4a75a342af27810\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\30f1667b9369d9f7bd0097f89fd1340e\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\30f1667b9369d9f7bd0097f89fd1340e\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\c5c6ed790728c314f387e997dc92aa7d\transformed\jetified-play-services-auth-api-phone-18.0.1\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\c5c6ed790728c314f387e997dc92aa7d\transformed\jetified-play-services-auth-api-phone-18.0.1\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\f48aced3b60d313eb08d3ce2f61edcca\transformed\jetified-play-services-auth-base-18.0.1\AndroidManifest.xml:5:5-44
@@ -274,18 +246,18 @@ MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\t
 MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\0fd1f4addce74c20303e6b52a1844255\transformed\jetified-firebase-database-collection-18.0.1\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\575dc915fec3b6aa46117f0505f15f02\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\575dc915fec3b6aa46117f0505f15f02\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:18:5-43
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\de3af7616b58c511b6574c501107bb30\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\de3af7616b58c511b6574c501107bb30\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\da34eff2e6d1ccf51ffd44708c2ce2c2\transformed\jetified-firebase-iid-interop-17.1.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\da34eff2e6d1ccf51ffd44708c2ce2c2\transformed\jetified-firebase-iid-interop-17.1.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-installations-interop:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\160ebbcd357e62b9a1c6e61fd37a3d3f\transformed\jetified-firebase-installations-interop-17.0.1\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-installations-interop:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\160ebbcd357e62b9a1c6e61fd37a3d3f\transformed\jetified-firebase-installations-interop-17.0.1\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\0028390fd49584fa534c36a3c2b657db\transformed\jetified-play-services-tasks-18.0.1\AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-tasks:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\0028390fd49584fa534c36a3c2b657db\transformed\jetified-play-services-tasks-18.0.1\AndroidManifest.xml:4:5-43
-MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\bd1a9be953414a5adb75d27b93262823\transformed\jetified-firebase-measurement-connector-19.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\bd1a9be953414a5adb75d27b93262823\transformed\jetified-firebase-measurement-connector-19.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\531e6946116011676088a3f0960acb81\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\531e6946116011676088a3f0960acb81\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:18:5-43
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\970f4fd8af27304c9251db8f3485e223\transformed\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\970f4fd8af27304c9251db8f3485e223\transformed\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:24:5-26:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\6a5e9b7646124d2de4a75a342af27810\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\6a5e9b7646124d2de4a75a342af27810\transformed\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\30f1667b9369d9f7bd0097f89fd1340e\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\30f1667b9369d9f7bd0097f89fd1340e\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.3.0] C:\Users\tayfu\.gradle\caches\transforms-3\be78b2314ed74df9b459c8b7d0a03520\transformed\fragment-1.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.3.0] C:\Users\tayfu\.gradle\caches\transforms-3\be78b2314ed74df9b459c8b7d0a03520\transformed\fragment-1.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\1700f73431a68c5d8c52c9cbd13c3fb5\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
@@ -322,28 +294,16 @@ MERGED from [androidx.core:core:1.8.0] C:\Users\tayfu\.gradle\caches\transforms-
 MERGED from [androidx.core:core:1.8.0] C:\Users\tayfu\.gradle\caches\transforms-3\0ae63b7911b93b7e25f8ffd2ac798ff4\transformed\core-1.8.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\tayfu\.gradle\caches\transforms-3\3a84d43c2033bf264d67f4788468315a\transformed\exifinterface-1.3.3\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\tayfu\.gradle\caches\transforms-3\3a84d43c2033bf264d67f4788468315a\transformed\exifinterface-1.3.3\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\4fbc5e5b202d383933a39b5326a49f17\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\4fbc5e5b202d383933a39b5326a49f17\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\b68afeef9f6b704084a33b499d121c25\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\b68afeef9f6b704084a33b499d121c25\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\tayfu\.gradle\caches\transforms-3\590e038e9b6ef167d875faa3758bc8d7\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\tayfu\.gradle\caches\transforms-3\590e038e9b6ef167d875faa3758bc8d7\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\7cb70ee0d06b7e8d2c26394fd47702a7\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\7cb70ee0d06b7e8d2c26394fd47702a7\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\4fbc5e5b202d383933a39b5326a49f17\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\4fbc5e5b202d383933a39b5326a49f17\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\f5a9ce17744b0dc995121eed8350a415\transformed\jetified-firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\f5a9ce17744b0dc995121eed8350a415\transformed\jetified-firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:18:5-20:41
-MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:18:5-20:41
-MERGED from [com.google.android.datatransport:transport-api:3.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\6d58cd1e12d0a4b51081a8a1ca539afd\transformed\jetified-transport-api-3.0.0\AndroidManifest.xml:18:5-20:41
-MERGED from [com.google.android.datatransport:transport-api:3.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\6d58cd1e12d0a4b51081a8a1ca539afd\transformed\jetified-transport-api-3.0.0\AndroidManifest.xml:18:5-20:41
-MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\8921af2a0d7daf8bdf6428ffc812fc60\transformed\jetified-firebase-encoders-json-18.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\8921af2a0d7daf8bdf6428ffc812fc60\transformed\jetified-firebase-encoders-json-18.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\840713f494e5c5d1f324966db0421adf\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\840713f494e5c5d1f324966db0421adf\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\c9bebf696a4033aa7adff264aaa657f4\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\c9bebf696a4033aa7adff264aaa657f4\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.0] C:\Users\tayfu\.gradle\caches\transforms-3\d204423cc8ddc26fc067c1f3f38013db\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.0] C:\Users\tayfu\.gradle\caches\transforms-3\d204423cc8ddc26fc067c1f3f38013db\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\3294c69c2927b474a1600cda3c801d19\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -354,6 +314,10 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\tayfu\.g
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.0] C:\Users\tayfu\.gradle\caches\transforms-3\9d4aa86f834c27ec96890296495c70d2\transformed\lifecycle-livedata-core-2.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\fac244fed791bd6f6a609f4af5711dd6\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\fac244fed791bd6f6a609f4af5711dd6\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\840713f494e5c5d1f324966db0421adf\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\840713f494e5c5d1f324966db0421adf\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\c9bebf696a4033aa7adff264aaa657f4\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\c9bebf696a4033aa7adff264aaa657f4\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\ffdd2d834adc709d2c1f77076f28486f\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\ffdd2d834adc709d2c1f77076f28486f\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\0e6cbad129cc3303604c28a91b92292c\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
@@ -382,8 +346,6 @@ INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\debug\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
 ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\debug\AndroidManifest.xml:6:5-66
-MERGED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
-MERGED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
 MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
 MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
 MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:23:5-67
@@ -394,40 +356,26 @@ MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle
 MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:27:5-67
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:26:5-67
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:11:5-67
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:11:5-67
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\de3af7616b58c511b6574c501107bb30\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:8:5-67
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\de3af7616b58c511b6574c501107bb30\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:8:5-67
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:26:5-67
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:26:5-67
 	android:name
 		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\debug\AndroidManifest.xml:6:22-64
 service#com.google.firebase.components.ComponentDiscoveryService
-ADDED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
-MERGED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
-MERGED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
-MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
-MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
+ADDED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
 MERGED from [:cloud_firestore] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
 MERGED from [:cloud_firestore] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
-MERGED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:35:9-39:19
-MERGED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:35:9-39:19
+MERGED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
+MERGED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
+MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
+MERGED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
 MERGED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
 MERGED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
 MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:64:9-70:19
 MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:64:9-70:19
 MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:17:9-23:19
 MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:17:9-23:19
-MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:52:9-58:19
-MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:52:9-58:19
 MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:30:9-36:19
 MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:30:9-36:19
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:29:9-35:19
 MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:29:9-35:19
-MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\tayfu\.gradle\caches\transforms-3\38a9f33c913cdb9c41545d258ee9c673\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:25:9-31:19
-MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\tayfu\.gradle\caches\transforms-3\38a9f33c913cdb9c41545d258ee9c673\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:25:9-31:19
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:15:9-21:19
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:15:9-21:19
 MERGED from [com.google.firebase:firebase-common:20.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\08d870f84243b194a5b17e231733b264\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:33:9-37:35
 MERGED from [com.google.firebase:firebase-common:20.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\08d870f84243b194a5b17e231733b264\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:33:9-37:35
 	android:exported
@@ -437,119 +385,51 @@ MERGED from [com.google.firebase:firebase-common:20.1.1] C:\Users\tayfu\.gradle\
 	android:directBootAware
 		ADDED from [com.google.firebase:firebase-common:20.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\08d870f84243b194a5b17e231733b264\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:35:13-43
 	android:name
-		ADDED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:18-89
-meta-data#com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar
-ADDED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
-	android:value
-		ADDED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
-	android:name
-		ADDED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+		ADDED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:10:18-89
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.database.FlutterFirebaseAppRegistrar
 ADDED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
 	android:value
 		ADDED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 	android:name
 		ADDED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-127
-meta-data#com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar
-ADDED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
-	android:value
-		ADDED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
-	android:name
-		ADDED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-126
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar
 ADDED from [:cloud_firestore] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
 	android:value
 		ADDED from [:cloud_firestore] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 	android:name
 		ADDED from [:cloud_firestore] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-134
-uses-permission#android.permission.WAKE_LOCK
-ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-68
-MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:26:5-68
-MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:26:5-68
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\de3af7616b58c511b6574c501107bb30\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:9:5-68
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\de3af7616b58c511b6574c501107bb30\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:9:5-68
-	android:name
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-65
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-79
-MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:13:5-79
-MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:13:5-79
-MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:25:5-79
-MERGED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:25:5-79
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:26:5-79
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:26:5-79
-MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:25:5-79
-MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:25:5-79
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:10:5-79
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\de3af7616b58c511b6574c501107bb30\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:7:5-79
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\de3af7616b58c511b6574c501107bb30\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:7:5-79
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:25:5-79
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:25:5-79
-MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:22:5-79
-MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:22:5-79
-MERGED from [io.grpc:grpc-android:1.44.1] C:\Users\tayfu\.gradle\caches\transforms-3\b903ec4de04a1216607159527ee7bccc\transformed\jetified-grpc-android-1.44.1\AndroidManifest.xml:9:5-79
-MERGED from [io.grpc:grpc-android:1.44.1] C:\Users\tayfu\.gradle\caches\transforms-3\b903ec4de04a1216607159527ee7bccc\transformed\jetified-grpc-android-1.44.1\AndroidManifest.xml:9:5-79
-	android:name
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:11:22-76
-service#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService
-ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:14:9-17:72
-	android:exported
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-37
-	android:permission
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-69
-	android:name
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-107
-service#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService
-ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:18:9-24:19
-	android:exported
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-37
-	android:name
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:19:13-97
-intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:21:13-23:29
-action#com.google.firebase.MESSAGING_EVENT
-ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:22:17-78
-	android:name
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:22:25-75
-receiver#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver
-ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:26:9-33:20
-	android:exported
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:28:13-36
-	android:permission
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:29:13-73
-	android:name
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:27:13-98
-intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
-ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-32:29
-action#com.google.android.c2dm.intent.RECEIVE
-ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:31:17-81
-	android:name
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:31:25-78
-meta-data#com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar
-ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:36:13-38:85
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar
+ADDED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
 	android:value
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:38:17-82
+		ADDED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 	android:name
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:37:17-128
-provider#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider
-ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:41:9-45:38
-	android:authorities
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:43:13-88
-	android:exported
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:44:13-37
-	android:initOrder
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:45:13-35
+		ADDED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar
+ADDED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+	android:value
+		ADDED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 	android:name
-		ADDED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:42:13-102
+		ADDED from [:firebase_storage] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-126
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar
 ADDED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
 	android:value
 		ADDED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 	android:name
 		ADDED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [:geolocator_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-77
+	android:name
+		ADDED from [:geolocator_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-74
+service#com.baseflow.geolocator.GeolocatorLocationService
+ADDED from [:geolocator_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:9-16:56
+	android:enabled
+		ADDED from [:geolocator_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-35
+	android:exported
+		ADDED from [:geolocator_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-37
+	android:foregroundServiceType
+		ADDED from [:geolocator_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-53
+	android:name
+		ADDED from [:geolocator_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-77
 provider#io.flutter.plugins.imagepicker.ImagePickerFileProvider
 ADDED from [:image_picker_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-18:20
 	android:grantUriPermissions
@@ -628,6 +508,18 @@ ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\t
 		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\041b27d38198d104baa2ef8fafea15d7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
 	android:name
 		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\041b27d38198d104baa2ef8fafea15d7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:25:5-79
+MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:25:5-79
+MERGED from [io.grpc:grpc-android:1.44.1] C:\Users\tayfu\.gradle\caches\transforms-3\b903ec4de04a1216607159527ee7bccc\transformed\jetified-grpc-android-1.44.1\AndroidManifest.xml:9:5-79
+MERGED from [io.grpc:grpc-android:1.44.1] C:\Users\tayfu\.gradle\caches\transforms-3\b903ec4de04a1216607159527ee7bccc\transformed\jetified-grpc-android-1.44.1\AndroidManifest.xml:9:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:24:22-76
 activity#com.google.firebase.auth.internal.GenericIdpActivity
 ADDED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:27:9-44:20
 	android:excludeFromRecents
@@ -688,34 +580,6 @@ ADDED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradl
 		ADDED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:22:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:21:17-111
-uses-permission#com.google.android.c2dm.permission.RECEIVE
-ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:28:5-82
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\de3af7616b58c511b6574c501107bb30\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:11:5-82
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\de3af7616b58c511b6574c501107bb30\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:11:5-82
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:28:22-79
-receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
-ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:31:9-38:20
-	android:exported
-		ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:33:13-36
-	android:permission
-		ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:34:13-73
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:32:13-78
-service#com.google.firebase.messaging.FirebaseMessagingService
-ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:44:9-51:19
-	android:exported
-		ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:47:13-37
-	android:directBootAware
-		ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:46:13-43
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:45:13-82
-meta-data#com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar
-ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:55:13-57:85
-	android:value
-		ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:57:17-82
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:23.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\35e2e0a83e583f46d785ca77f06ea70d\transformed\jetified-firebase-messaging-23.0.5\AndroidManifest.xml:56:17-119
 meta-data#com.google.firebase.components:com.google.firebase.storage.StorageRegistrar
 ADDED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:33:13-35:85
 	android:value
@@ -728,18 +592,6 @@ ADDED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle
 		ADDED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:34:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:33:17-109
-meta-data#com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar
-ADDED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\tayfu\.gradle\caches\transforms-3\38a9f33c913cdb9c41545d258ee9c673\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:28:13-30:85
-	android:value
-		ADDED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\tayfu\.gradle\caches\transforms-3\38a9f33c913cdb9c41545d258ee9c673\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:30:17-82
-	android:name
-		ADDED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\tayfu\.gradle\caches\transforms-3\38a9f33c913cdb9c41545d258ee9c673\transformed\jetified-firebase-datatransport-18.1.4\AndroidManifest.xml:29:17-115
-meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar
-ADDED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:18:13-20:85
-	android:value
-		ADDED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:20:17-82
-	android:name
-		ADDED from [com.google.firebase:firebase-installations:17.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\74bbf1bd287b622bec1f2f126353402f\transformed\jetified-firebase-installations-17.0.1\AndroidManifest.xml:19:17-127
 provider#com.google.firebase.provider.FirebaseInitProvider
 ADDED from [com.google.firebase:firebase-common:20.1.1] C:\Users\tayfu\.gradle\caches\transforms-3\08d870f84243b194a5b17e231733b264\transformed\jetified-firebase-common-20.1.1\AndroidManifest.xml:26:9-31:39
 	android:authorities
@@ -796,6 +648,20 @@ ADDED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\tayfu\.gr
 		ADDED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\5fb3f8552bde3f5ea95d53c07d1ec7ab\transformed\jetified-play-services-auth-20.0.1\AndroidManifest.xml:36:13-107
 	android:name
 		ADDED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\5fb3f8552bde3f5ea95d53c07d1ec7ab\transformed\jetified-play-services-auth-20.0.1\AndroidManifest.xml:34:13-89
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\575dc915fec3b6aa46117f0505f15f02\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\575dc915fec3b6aa46117f0505f15f02\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\575dc915fec3b6aa46117f0505f15f02\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\575dc915fec3b6aa46117f0505f15f02\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\531e6946116011676088a3f0960acb81\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\531e6946116011676088a3f0960acb81\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\531e6946116011676088a3f0960acb81\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
 uses-permission#com.google.android.gms.permission.AD_ID
 ADDED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:28:5-79
 	android:name
@@ -832,48 +698,6 @@ action#com.facebook.sdk.ACTION_CURRENT_AUTHENTICATION_TOKEN_CHANGED
 ADDED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:57:17-103
 	android:name
 		ADDED from [com.facebook.android:facebook-core:13.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\86086c921f7f6f3fe677eb5578ca203e\transformed\jetified-facebook-core-13.2.0\AndroidManifest.xml:57:25-100
-activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\575dc915fec3b6aa46117f0505f15f02\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
-	android:exported
-		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\575dc915fec3b6aa46117f0505f15f02\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
-	android:theme
-		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\575dc915fec3b6aa46117f0505f15f02\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
-	android:name
-		ADDED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\575dc915fec3b6aa46117f0505f15f02\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
-meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\531e6946116011676088a3f0960acb81\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
-	android:value
-		ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\531e6946116011676088a3f0960acb81\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
-	android:name
-		ADDED from [com.google.android.gms:play-services-basement:18.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\531e6946116011676088a3f0960acb81\transformed\jetified-play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
-service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
-ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:29:9-35:19
-MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:36:9-38:40
-MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:36:9-38:40
-	android:exported
-		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:31:13-37
-	android:name
-		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:30:13-103
-meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
-ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:32:13-34:39
-	android:value
-		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:34:17-36
-	android:name
-		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\2c2c21db28d136901e2eb127c39baeaf\transformed\jetified-transport-backend-cct-3.1.5\AndroidManifest.xml:33:17-94
-service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
-ADDED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:26:9-30:19
-	android:exported
-		ADDED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:28:13-37
-	android:permission
-		ADDED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:29:13-69
-	android:name
-		ADDED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:27:13-117
-receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
-ADDED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:32:9-34:40
-	android:exported
-		ADDED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:34:13-37
-	android:name
-		ADDED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\tayfu\.gradle\caches\transforms-3\4c57129e576b1b57f28b0f44400474ed\transformed\jetified-transport-runtime-3.1.5\AndroidManifest.xml:33:13-132
 uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
 ADDED from [com.android.installreferrer:installreferrer:1.0] C:\Users\tayfu\.gradle\caches\transforms-3\902d4f6670ff46edbc0e675b18678aff\transformed\jetified-installreferrer-1.0\AndroidManifest.xml:9:5-110
 	android:name

@@ -103,7 +103,7 @@ class _InboxState extends State<Inbox> {
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      FlatButton(
+                                                      TextButton(
                                                           onPressed: () {
                                                             FirebaseFirestore
                                                                 .instance
@@ -112,6 +112,8 @@ class _InboxState extends State<Inbox> {
                                                                 .doc(
                                                                     "${myuser}--${user.id}")
                                                                 .delete();
+                                                            Navigator.pop(
+                                                                context);
                                                           },
                                                           child: const Text(
                                                             "Sil",
@@ -119,7 +121,7 @@ class _InboxState extends State<Inbox> {
                                                                 color: Colors
                                                                     .blue),
                                                           )),
-                                                      FlatButton(
+                                                      TextButton(
                                                         onPressed: () {
                                                           _konusmalariYenile();
                                                           Navigator.pop(

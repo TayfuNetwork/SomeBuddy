@@ -69,13 +69,8 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
-  RaisedButton eMailGirisi(BuildContext context) {
-    return RaisedButton(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(10),
-        ),
-      ),
+  ElevatedButton eMailGirisi(BuildContext context) {
+    return ElevatedButton(
       onPressed: () {
         Navigator.of(context).push(
             CupertinoPageRoute(builder: (context) => const EmailPassword()));
@@ -92,20 +87,12 @@ class _SignInPageState extends State<SignInPage> {
           Icon(Icons.email, color: Colors.white.withOpacity(0)),
         ],
       ),
-      color: Colors.blue,
     );
   }
 
-  
-  
   // ignore: non_constant_identifier_names
-  RaisedButton GoogleGirisi() {
-    return RaisedButton(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(10),
-        ),
-      ),
+  ElevatedButton GoogleGirisi() {
+    return ElevatedButton(
       onPressed: _googleGirisi,
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -122,7 +109,6 @@ class _SignInPageState extends State<SignInPage> {
           ),
         ],
       ),
-      color: Colors.white,
     );
   }
 //******************************************************************//
@@ -156,7 +142,6 @@ class _SignInPageState extends State<SignInPage> {
                 CupertinoPageRoute(builder: (context) => const bilgilerim()),
                 ((route) => false));
           } else {
-            
             return Navigator.of(context).pushAndRemoveUntil(
                 CupertinoPageRoute(builder: (context) => const Profile()),
                 ((route) => false));

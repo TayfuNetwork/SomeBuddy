@@ -240,7 +240,7 @@ class _private_profilState extends State<private_profil> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              FlatButton(
+                                              TextButton(
                                                 onPressed: () async {
                                                   var kisi =
                                                       AuthService().user!.id;
@@ -255,7 +255,7 @@ class _private_profilState extends State<private_profil> {
                                                 child: const Text(
                                                     "Profil resmi yap"),
                                               ),
-                                              FlatButton(
+                                              TextButton(
                                                 onPressed: () async {
                                                   var userID =
                                                       AuthService().user!.id;

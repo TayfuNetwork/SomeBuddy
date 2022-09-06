@@ -2,6 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:version1/pages/geo.dart';
 import 'package:version1/pages/usage.dart';
 import '../models/user.dart';
 import '../pages/gelen_kutusu.dart';
@@ -62,7 +63,10 @@ class _MyDrawerState extends State<MyDrawer> {
                     title: const Text("PREMIUM DETAYLARI",
                         style: TextStyle(fontSize: 15)),
                     trailing: const Icon(Icons.keyboard_arrow_right),
-                    onTap: () {}),
+                    onTap: () {
+                      Navigator.of(context).push(
+                          CupertinoPageRoute(builder: (context) => HomePage()));
+                    }),
                 ListTile(
                     leading: const Icon(Icons.safety_divider),
                     title: const Text("GÖRÜŞ - ÖNERİ BİLDİRİN",
