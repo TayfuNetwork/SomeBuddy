@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 //import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
@@ -22,6 +23,8 @@ class bilgilerim extends StatefulWidget {
   _bilgilerimState createState() => _bilgilerimState();
 }
 
+var status = Permission.location.status;
+Future<bool> isShown = Permission.contacts.shouldShowRequestRationale;
 String? ili, ilcesi, bransi, mevkisi;
 Color? ppColor;
 
@@ -39,8 +42,12 @@ class _bilgilerimState extends State<bilgilerim> {
   Position? _currentPosition;
   String? _konumIl;
   String? _konumIlce;
-  String? _konumIlceYoksaIl;
-  String? _konumIlceYoksaIlce;
+
+  @override
+  void initState() {
+    super.initState();
+    isShown;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -161,14 +168,14 @@ class _bilgilerimState extends State<bilgilerim> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             ElevatedButton(
-                                onPressed: () {
+                                onPressed: () async {
                                   setState(() {
+                                    determinePosition();
+
                                     _getCurrentLocation();
-                                    setState(() {
-                                      il = _konumIl;
-                                      ilce = _konumIlce;
-                                    });
                                   });
+                                  il = _konumIl;
+                                  ilce = _konumIlce;
                                 },
                                 child: Text("Konum Oluştur")),
                             if (il != null) info()
@@ -364,18 +371,73 @@ class _bilgilerimState extends State<bilgilerim> {
     }
   }
 
-  _getCurrentLocation() {
+  Future _getCurrentLocation() async {
     Geolocator.getCurrentPosition(
             desiredAccuracy: LocationAccuracy.best,
             forceAndroidLocationManager: true)
-        .then((Position position) {
-      setState(() {
-        _currentPosition = position;
-        _getAddressFromLatLng();
-      });
+        .then((Position position) async {
+      print(position);
+
+      _currentPosition = position;
+      await _getAddressFromLatLng();
     }).catchError((e) {
       print(e);
     });
+  }
+
+  Future<void> getLocation() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.best);
+    _currentPosition = position;
+    // print("-------position-------: ${locationService.currentPosition}");
+    _getAddressFromLatLng();
+  }
+
+  Future<void> determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.low);
   }
 
   _getAddressFromLatLng() async {
@@ -385,15 +447,13 @@ class _bilgilerimState extends State<bilgilerim> {
 
       Placemark place = placemarks[0];
 
-      setState(() {
-        if (place.subAdministrativeArea!.length > 1) {
-          _konumIl = " ${place.administrativeArea}";
-          _konumIlce = " ${place.subAdministrativeArea}";
-        } else {
-          _konumIl = " ${place.locality}";
-          _konumIlce = "${place.administrativeArea}";
-        }
-      });
+      if (place.subAdministrativeArea!.length > 1) {
+        _konumIl = " ${place.administrativeArea}";
+        _konumIlce = " ${place.subAdministrativeArea}";
+      } else {
+        _konumIl = " ${place.administrativeArea}";
+        _konumIlce = "${place.locality}";
+      }
     } catch (e) {
       print(e);
     }

@@ -171,6 +171,9 @@ androidx/window/core/ExperimentalWindowApi.class
 androidx/window/embedding/SplitRule$LayoutDir.class
 com/android/installreferrer/api/InstallReferrerClient$InstallReferrerResponse.class
 com/android/installreferrer/api/InstallReferrerClientImpl$ClientState.class
+com/baseflow/permissionhandler/PermissionConstants$PermissionGroup.class
+com/baseflow/permissionhandler/PermissionConstants$PermissionStatus.class
+com/baseflow/permissionhandler/PermissionConstants$ServiceStatus.class
 com/facebook/FacebookSdk.class
 com/facebook/appevents/AppEventsConstants.class
 com/facebook/bolts/Task$TaskCompletionSource.class

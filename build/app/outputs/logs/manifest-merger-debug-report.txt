@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 application
-INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:6:4-43:19
+INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:7:4-44:19
 MERGED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:cloud_firestore] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-15:19
@@ -68,11 +68,11 @@ MERGED from [com.android.installreferrer:installreferrer:1.0] C:\Users\tayfu\.gr
 	android:name
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml
 manifest
-ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
-INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
-INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
-INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
-MERGED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
+ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-45:12
+INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-45:12
+INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-45:12
+INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-45:12
+MERGED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-45:12
 MERGED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:cloud_firestore] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_auth] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
@@ -84,6 +84,7 @@ MERGED from [:flutter_plugin_android_lifecycle] C:\Users\tayfu\OneDrive\Belgeler
 MERGED from [:flutter_login_facebook] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_login_facebook\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-31:12
 MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:permission_handler_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:geocoding] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geocoding\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\224d32528c14de86600ae9f4b308ccaa\transformed\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\8bffc0e5dda3b83649c900720739e56d\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
@@ -160,14 +161,30 @@ INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
+		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-45:12
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\debug\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-44:12
+		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:1-45:12
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:3:5-67
+MERGED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:3:5-67
+MERGED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:3:5-67
+MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
+MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
+MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:14:5-67
+MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:14:5-67
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:27:5-67
+MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:27:5-67
+MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:26:5-67
+	android:name
+		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:3:22-64
 uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:4:5-79
 	android:name
@@ -176,6 +193,10 @@ uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:5:5-81
 	android:name
 		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:5:22-78
+uses-permission#android.permission.ACCESS_BACKGROUND_LOCATION
+ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:6:5-85
+	android:name
+		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml:6:22-82
 uses-sdk
 INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml
@@ -202,6 +223,8 @@ MERGED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUT
 MERGED from [:flutter_local_notifications] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:permission_handler_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:permission_handler_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:geocoding] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geocoding\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:geocoding] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geocoding\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\224d32528c14de86600ae9f4b308ccaa\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
@@ -344,20 +367,6 @@ INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src
 	android:minSdkVersion
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\debug\AndroidManifest.xml
-uses-permission#android.permission.INTERNET
-ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\debug\AndroidManifest.xml:6:5-66
-MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
-MERGED from [:google_sign_in_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-67
-MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-auth:21.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\094dd57af4ec67202a084ae09927ec4d\transformed\jetified-firebase-auth-21.0.5\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:14:5-67
-MERGED from [com.google.firebase:firebase-firestore:24.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\e99dca7c6b800d2ab1d557dd08e3b4ef\transformed\jetified-firebase-firestore-24.1.2\AndroidManifest.xml:14:5-67
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:27:5-67
-MERGED from [com.google.firebase:firebase-storage:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\09ea4aacd8e32f6e2f29a03c77e48b80\transformed\jetified-firebase-storage-20.0.1\AndroidManifest.xml:27:5-67
-MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-database:20.0.5] C:\Users\tayfu\.gradle\caches\transforms-3\e5b445d2207260838248e9ba264064bc\transformed\jetified-firebase-database-20.0.5\AndroidManifest.xml:26:5-67
-	android:name
-		ADDED from C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\android\app\src\debug\AndroidManifest.xml:6:22-64
 service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [:firebase_database] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_database\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
 MERGED from [:cloud_firestore] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
