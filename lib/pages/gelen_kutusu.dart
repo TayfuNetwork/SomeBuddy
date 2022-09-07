@@ -10,6 +10,8 @@ import 'package:version1/pages/chat.dart';
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
 
+import '../control_pages/myDrawer.dart';
+
 class Inbox extends StatefulWidget {
   const Inbox({Key? key}) : super(key: key);
 
@@ -23,8 +25,24 @@ class _InboxState extends State<Inbox> {
     var _userModel = AuthService().user!;
 
     return Scaffold(
+        drawer: MyDrawer(),
         appBar: AppBar(
-          title: const Text('Mesajlar'),
+          flexibleSpace: Container(),
+          backgroundColor: Colors.blueAccent,
+          elevation: 10,
+          toolbarHeight: 80,
+          toolbarOpacity: 0.8,
+          shadowColor: Colors.black,
+          title: const Text(
+            "Mesajlar",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+          ),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(8))),
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 22,
+          ),
         ),
         body: Container(
           decoration: BoxDecoration(
@@ -140,28 +158,43 @@ class _InboxState extends State<Inbox> {
                                             });
                                       }),
                                       key: UniqueKey(),
-                                      child: ListTile(
-                                          title: Text(user.userName!),
-                                          subtitle: Text(
-                                              oankiKonusma.son_yollanan_mesaj! +
+                                      child: Card(
+                                        color: Colors.white,
+                                        child: Card(
+                                          color: Colors.blueAccent,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(8),
+                                                  topRight: Radius.circular(8),
+                                                  bottomLeft:
+                                                      Radius.circular(8),
+                                                  bottomRight:
+                                                      Radius.circular(80))),
+                                          child: ListTile(
+                                              title: Text(user.userName!),
+                                              subtitle: Text(oankiKonusma
+                                                      .son_yollanan_mesaj! +
                                                   " ... " +
                                                   _saatDakikaDegeri),
-                                          leading: GestureDetector(
-                                            onTap: git,
-                                            child: CircleAvatar(
-                                              backgroundImage: _havePhoto(),
-                                            ),
-                                          ),
-                                          onTap: () async {
-                                            await Navigator.of(context).push(
-                                                CupertinoPageRoute(
-                                                    builder: (context) =>
-                                                        Sohbet(
-                                                          currentUser:
-                                                              _userModel,
-                                                          konusulanUser: user,
-                                                        )));
-                                          }),
+                                              leading: GestureDetector(
+                                                onTap: git,
+                                                child: CircleAvatar(
+                                                  backgroundImage: _havePhoto(),
+                                                ),
+                                              ),
+                                              onTap: () async {
+                                                await Navigator.of(context)
+                                                    .push(CupertinoPageRoute(
+                                                        builder: (context) =>
+                                                            Sohbet(
+                                                              currentUser:
+                                                                  _userModel,
+                                                              konusulanUser:
+                                                                  user,
+                                                            )));
+                                              }),
+                                        ),
+                                      ),
                                     );
                                   } else {
                                     return const SizedBox(width: 20);

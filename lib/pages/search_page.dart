@@ -5,7 +5,6 @@ import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/gelen_kutusu.dart';
 import 'package:version1/pages/results.dart';
-import '../control_pages/json-models.dart';
 
 // ignore: camel_case_types
 class searchPage extends StatefulWidget {

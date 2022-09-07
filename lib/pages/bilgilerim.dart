@@ -7,6 +7,8 @@ import 'package:version1/models/user.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/services/auth_service.dart';
 import '../control_pages/json-models.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 
 // sadece oturum açmış kişiler bu sayfayı görebilir.
 // ignore: camel_case_types
@@ -28,290 +30,307 @@ class _bilgilerimState extends State<bilgilerim> {
   Brans? brans;
   String? mevki;
   BransServices model = BransServices();
-  Il? il;
+  String? il;
   String? ilce;
   IlService service = IlService();
   String? url = AuthService().user?.image;
   MyUser get user => AuthService().user!;
   bool? x = AuthService().user?.premium;
+  Position? _currentPosition;
+  String? _konumIl;
+  String? _konumIlce;
+  String? _konumIlceYoksaIl;
+  String? _konumIlceYoksaIlce;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: MyDrawer(),
-      appBar: AppBar(
-        elevation: 8,
-        title: Center(child: const Text('Ana Sayfa')),
-        actions: <Widget>[control()],
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("images/Logo.png"),
-                  fit: BoxFit.cover,
+    return SafeArea(
+      child: Scaffold(
+        drawer: MyDrawer(),
+        appBar: AppBar(
+          flexibleSpace: Container(),
+          backgroundColor: Colors.blueAccent,
+          elevation: 10,
+          toolbarHeight: 80,
+          toolbarOpacity: 0.8,
+          shadowColor: Colors.black,
+          title: const Text(
+            "Ana Sayfa",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+          ),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(8))),
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 22,
+          ),
+          actions: [controlPremium()],
+        ),
+        body: Column(
+          children: [
+            Expanded(
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("images/Logo.png"),
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              child: SingleChildScrollView(
-                child: Container(
-                  width: double.maxFinite,
-                  padding: const EdgeInsets.all(15),
-                  margin: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: const [
-                        BoxShadow(color: Colors.grey, blurRadius: 6),
-                      ]),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      const Text('Kimlik',
-                          style: TextStyle(color: Colors.grey)),
-                      ListTile(
-                        textColor: Colors.black,
-                        title: Text("${user.userName}"),
-                        leading: CircleAvatar(
-                          child: Text(
-                            "${user.yas}",
-                            style: const TextStyle(
-                                fontSize: 20, color: Colors.white),
+                child: SingleChildScrollView(
+                  child: Container(
+                    width: double.maxFinite,
+                    padding: const EdgeInsets.all(15),
+                    margin: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.grey, blurRadius: 6),
+                        ]),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        const Text('Kimlik',
+                            style: TextStyle(color: Colors.grey)),
+                        ListTile(
+                          textColor: Colors.black,
+                          title: Text("${user.userName}"),
+                          leading: CircleAvatar(
+                            child: Text(
+                              "${user.yas}",
+                              style: const TextStyle(
+                                  fontSize: 20, color: Colors.white),
+                            ),
+                            backgroundColor: renk(),
                           ),
-                          backgroundColor: renk(),
+                          subtitle: ControlName(),
+                          trailing: const Icon(Icons.message),
+                          onTap: () {},
                         ),
-                        subtitle: const Text("il, ilçe, branş, mevki"),
-                        trailing: const Icon(Icons.message),
-                        onTap: () {},
-                      ),
-                      const SizedBox(height: 5),
-                      const Divider(
-                        thickness: 2,
-                        color: Colors.green,
-                      ),
-                      const SizedBox(height: 10),
-                      const Text('Kayıt oluşturmadan da gezinebilirsiniz',
-                          style: TextStyle(color: Colors.grey)),
-                      const SizedBox(height: 10),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          const Text(
-                            "İl:",
-                            style: TextStyle(color: Colors.blue),
-                          ),
-                          DropdownButton<int>(
-                              menuMaxHeight: 300,
-                              iconEnabledColor: Colors.blue,
-                              dropdownColor:
-                                  const Color.fromARGB(255, 28, 185, 242),
-                              style: const TextStyle(color: Colors.black),
-                              value: il?.plaka ?? 1,
-                              items: service.iller.map((i) {
-                                return DropdownMenuItem(
-                                  child: Text(i.il,
-                                      style:
-                                          const TextStyle(color: Colors.black)),
-                                  value: i.plaka,
-                                  onTap: () {
-                                    setState(() {
-                                      il = i;
-                                      ilce = i.ilceleri.first;
-                                    });
-                                  },
-                                );
-                              }).toList(),
-                              onChanged: (value) {}),
-                        ],
-                      ),
-                      if (ilce != null)
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            const Text("ilçe:",
-                                style: TextStyle(color: Colors.blue)),
-                            DropdownButton<String>(
-                              menuMaxHeight: 400,
-                              iconEnabledColor: Colors.blue,
-                              dropdownColor:
-                                  const Color.fromARGB(255, 28, 185, 242),
-                              value: ilce ?? il!.ilceleri.first,
-                              style: const TextStyle(color: Colors.black),
-                              items: service.ilceler(il!.plaka).map((i) {
-                                return DropdownMenuItem(
-                                  child: Text(
-                                    i,
-                                    style: const TextStyle(color: Colors.black),
-                                  ),
-                                  value: i,
-                                  onTap: () {
-                                    setState(() {
-                                      ilce = i;
-                                      ilce = ilce;
-                                    });
-                                  },
-                                );
-                              }).toList(),
-                              onChanged: (s) {},
-                            ),
-                          ],
-                        ),
-                      if (il != null)
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            const Text("Branş:",
-                                style: TextStyle(color: Colors.blue)),
-                            DropdownButton<int>(
-                              menuMaxHeight: 400,
-                              iconEnabledColor: Colors.blue,
-                              dropdownColor:
-                                  const Color.fromARGB(255, 28, 185, 242),
-                              style: const TextStyle(color: Colors.black),
-                              value: brans?.no ?? 82,
-                              items: model.branslar.map((b) {
-                                return DropdownMenuItem(
-                                  child: Text(b.brans,
-                                      style:
-                                          const TextStyle(color: Colors.black)),
-                                  value: b.no,
-                                  onTap: () {
-                                    setState(() {
-                                      brans = b;
-                                      mevki = b.mevki.first;
-                                    });
-                                  },
-                                );
-                              }).toList(),
-                              onChanged: (s) {},
-                            ),
-                          ],
-                        ),
-                      if (mevki != null)
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            const Text("mevki:",
-                                style: TextStyle(color: Colors.blue)),
-                            DropdownButton<String>(
-                              menuMaxHeight: 400,
-                              iconEnabledColor: Colors.blue,
-                              dropdownColor:
-                                  const Color.fromARGB(255, 28, 185, 242),
-                              value: mevki ?? brans!.mevki.first,
-                              style: const TextStyle(color: Colors.black),
-                              items: model.mevki(brans!.no).map((b) {
-                                return DropdownMenuItem(
-                                  child: Text(
-                                    b,
-                                    style: const TextStyle(color: Colors.black),
-                                  ),
-                                  value: b,
-                                  onTap: () {
-                                    setState(() {
-                                      mevki = b;
-                                    });
-                                  },
-                                );
-                              }).toList(),
-                              onChanged: (s) {},
-                            ),
-                          ],
-                        ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          if (AuthService().user!.il != null)
-                            TextButton(
-                                onPressed: () async {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          backgroundColor: Colors.blue,
-                                          duration: Duration(seconds: 5),
-                                          content: Text(
-                                              "Kaydınız silindi, artık arama sonuçlarında görünmezsiniz. Keşfedilmek için bilgilerinizi doldurunuz.",
-                                              style: TextStyle(
-                                                  color: Colors.white))));
+                        const SizedBox(height: 5),
+                        if (AuthService().user!.il != null)
+                          TextButton(
+                              onPressed: () async {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        backgroundColor: Colors.blue,
+                                        duration: Duration(seconds: 5),
+                                        content: Text(
+                                            "Kaydınız silindi, artık arama sonuçlarında görünmezsiniz. Keşfedilmek için bilgilerinizi doldurunuz.",
+                                            style: TextStyle(
+                                                color: Colors.white))));
 
-                                  var userID = AuthService().user!.id;
-                                  try {
-                                    await FirebaseFirestore.instance
-                                        .collection("Users")
-                                        .doc(userID)
-                                        .update({
-                                      'il': null,
-                                      'ilce': null,
-                                      'brans': null,
-                                      'mevki': null
+                                var userID = AuthService().user!.id;
+                                try {
+                                  await FirebaseFirestore.instance
+                                      .collection("Users")
+                                      .doc(userID)
+                                      .update({
+                                    'il': null,
+                                    'ilce': null,
+                                    'brans': null,
+                                    'mevki': null
+                                  });
+                                  AuthService().user =
+                                      AuthService().user!.copyWith(
+                                            il: null,
+                                            ilce: null,
+                                            brans: null,
+                                            mevki: null,
+                                          );
+                                  setState(() {});
+                                } on Exception {}
+                              },
+                              child: const Text(
+                                'Kaydı Sil !',
+                                style: TextStyle(color: Colors.pink),
+                                softWrap: true,
+                              )),
+                        const Divider(
+                          thickness: 2,
+                          color: Colors.blueAccent,
+                        ),
+                        const SizedBox(height: 10),
+                        const Text(
+                            'Konum oluşturarak kaydınızı başlatabilirsiniz',
+                            style: TextStyle(color: Colors.grey)),
+                        const SizedBox(height: 10),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _getCurrentLocation();
+                                    setState(() {
+                                      il = _konumIl;
+                                      ilce = _konumIlce;
                                     });
-                                    AuthService().user =
-                                        AuthService().user!.copyWith(
-                                              il: null,
-                                              ilce: null,
-                                              brans: null,
-                                              mevki: null,
-                                            );
-                                    setState(() {});
-                                  } on Exception {}
+                                  });
                                 },
-                                child: const Text(
-                                  'Hobi kaydımı sil',
-                                  style: TextStyle(color: Colors.pink),
-                                  softWrap: true,
-                                )),
-                          if (ilce != null && brans != null)
-                            Column(
-                              children: [
-                                ElevatedButton(
-                                  onPressed: () async {
-                                    ili = (il)!.il;
-                                    ilcesi = ilce;
-                                    bransi = (brans)!.brans;
-                                    mevkisi = mevki;
-                                    MyUser user = AuthService().user!;
-                                    user = user.copyWith(
-                                      brans: bransi,
-                                      il: ili,
-                                      ilce: ilce,
-                                      mevki: mevki,
-                                    );
+                                child: Text("Konum Oluştur")),
+                            if (il != null) info()
+                          ],
+                        ),
+                        if (il != null)
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              const Text("Branş:",
+                                  style: TextStyle(color: Colors.blue)),
+                              DropdownButton<int>(
+                                menuMaxHeight: 400,
+                                iconEnabledColor: Colors.blue,
+                                dropdownColor:
+                                    const Color.fromARGB(255, 28, 185, 242),
+                                style: const TextStyle(color: Colors.black),
+                                value: brans?.no ?? 82,
+                                items: model.branslar.map((b) {
+                                  return DropdownMenuItem(
+                                    child: Text(b.brans,
+                                        style: const TextStyle(
+                                            color: Colors.black)),
+                                    value: b.no,
+                                    onTap: () {
+                                      setState(() {
+                                        brans = b;
+                                        mevki = b.mevki.first;
+                                      });
+                                    },
+                                  );
+                                }).toList(),
+                                onChanged: (s) {},
+                              ),
+                            ],
+                          ),
+                        if (mevki != null)
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              const Text("mevki:",
+                                  style: TextStyle(color: Colors.blue)),
+                              DropdownButton<String>(
+                                menuMaxHeight: 400,
+                                iconEnabledColor: Colors.blue,
+                                dropdownColor:
+                                    const Color.fromARGB(255, 28, 185, 242),
+                                value: mevki ?? brans!.mevki.first,
+                                style: const TextStyle(color: Colors.black),
+                                items: model.mevki(brans!.no).map((b) {
+                                  return DropdownMenuItem(
+                                    child: Text(
+                                      b,
+                                      style:
+                                          const TextStyle(color: Colors.black),
+                                    ),
+                                    value: b,
+                                    onTap: () {
+                                      setState(() {
+                                        mevki = b;
+                                      });
+                                    },
+                                  );
+                                }).toList(),
+                                onChanged: (s) {},
+                              ),
+                            ],
+                          ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            if (ilce != null && brans != null)
+                              Column(
+                                children: [
+                                  ElevatedButton(
+                                    onPressed: () async {
+                                      ili = (il)!;
+                                      ilcesi = ilce;
+                                      bransi = (brans)!.brans;
+                                      mevkisi = mevki;
+                                      MyUser user = AuthService().user!;
+                                      user = user.copyWith(
+                                        brans: bransi,
+                                        il: ili,
+                                        ilce: ilce,
+                                        mevki: mevki,
+                                      );
 
-                                    await AuthService().updateUser(user);
+                                      await AuthService().updateUser(user);
 
+                                      Navigator.of(context).push(
+                                          CupertinoPageRoute(
+                                              builder: (context) =>
+                                                  const searchPage()));
+                                    },
+                                    child: const Text('Kaydet ve partner bul'),
+                                  ),
+                                ],
+                              ),
+                            if (ilce == null || brans == null)
+                              ElevatedButton(
+                                  onPressed: () {
                                     Navigator.of(context).push(
                                         CupertinoPageRoute(
                                             builder: (context) =>
                                                 const searchPage()));
                                   },
-                                  child: const Text('Kaydet ve partner bul'),
-                                ),
-                              ],
-                            ),
-                          if (ilce == null || brans == null)
-                            ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).push(CupertinoPageRoute(
-                                      builder: (context) =>
-                                          const searchPage()));
-                                },
-                                child: const Text('Gezinti')),
-                        ],
-                      ),
-                    ],
+                                  child: const Text('Gezinti')),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
-  Widget control() {
+  Column info() {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text(
+                "il :",
+                style: TextStyle(color: Colors.blue),
+              ),
+              Text(
+                "$il ",
+                style: TextStyle(color: Colors.black),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text(
+                "ilce :",
+                style: TextStyle(color: Colors.blue),
+              ),
+              Text(
+                "$ilce",
+                style: TextStyle(color: Colors.black),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget controlPremium() {
     if (user.premium == true) {
       return IconButton(
         onPressed: () {
@@ -322,8 +341,8 @@ class _bilgilerimState extends State<bilgilerim> {
             duration: Duration(seconds: 1),
           ));
         },
-        icon: const Icon(Icons.star),
-        color: Colors.blue,
+        icon: const Icon(Icons.privacy_tip_sharp),
+        color: Colors.lime,
       );
     } else {
       return IconButton(
@@ -341,7 +360,56 @@ class _bilgilerimState extends State<bilgilerim> {
     if (AuthService().user!.sex == 'Kadın') {
       return ppColor = Colors.pink.shade400;
     } else {
-      return ppColor = Colors.blue;
+      return ppColor = Colors.blueAccent;
+    }
+  }
+
+  _getCurrentLocation() {
+    Geolocator.getCurrentPosition(
+            desiredAccuracy: LocationAccuracy.best,
+            forceAndroidLocationManager: true)
+        .then((Position position) {
+      setState(() {
+        _currentPosition = position;
+        _getAddressFromLatLng();
+      });
+    }).catchError((e) {
+      print(e);
+    });
+  }
+
+  _getAddressFromLatLng() async {
+    try {
+      List<Placemark> placemarks = await placemarkFromCoordinates(
+          _currentPosition!.latitude, _currentPosition!.longitude);
+
+      Placemark place = placemarks[0];
+
+      setState(() {
+        if (place.subAdministrativeArea!.length > 1) {
+          _konumIl = " ${place.administrativeArea}";
+          _konumIlce = " ${place.subAdministrativeArea}";
+        } else {
+          _konumIl = " ${place.locality}";
+          _konumIlce = "${place.administrativeArea}";
+        }
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Text ControlName() {
+    if (user.il != null) {
+      return Text(
+        "${user.il}/${user.ilce} - ${user.brans}/${user.mevki}",
+        style: const TextStyle(color: Colors.blue),
+      );
+    } else {
+      return Text(
+        "Hobi kaydı bulunmuyor.",
+        style: const TextStyle(color: Colors.orange),
+      );
     }
   }
 }

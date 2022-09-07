@@ -22,92 +22,95 @@ class _MyDrawerState extends State<MyDrawer> {
   MyUser get user => AuthService().user!;
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: Column(
-        children: [
-          UserAccountsDrawerHeader(
-            accountName: Text(
-              user.userName! + ' ' + user.soyisim!,
-              style: const TextStyle(fontSize: 20),
+    return SafeArea(
+      child: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(color: Colors.grey),
+              accountName: Text(
+                user.userName! + ' ' + user.soyisim!,
+                style: const TextStyle(fontSize: 20),
+              ),
+              accountEmail: Text(user.email!),
+              currentAccountPicture: _imageController(),
             ),
-            accountEmail: Text(user.email!),
-            currentAccountPicture: _imageController(),
-          ),
-          Expanded(
-            child: ListView(
-              children: [
-                ListTile(
-                  leading: const Icon(
-                    Icons.person,
-                  ),
-                  title: const Text(
-                    "PROFIL",
-                    style: TextStyle(fontSize: 15),
-                  ),
-                  trailing: const Icon(Icons.keyboard_arrow_right),
-                  onTap: () {
-                    _privateprofil();
-                  },
-                ),
-                ListTile(
-                    leading: const Icon(Icons.chat),
-                    title:
-                        const Text("MESAJLAR", style: TextStyle(fontSize: 15)),
-                    trailing: const Icon(Icons.keyboard_arrow_right),
-                    onTap: () {
-                      Navigator.of(context).push(CupertinoPageRoute(
-                          builder: (context) => const Inbox()));
-                    }),
-                ListTile(
-                    leading: const Icon(Icons.star),
-                    title: const Text("PREMIUM DETAYLARI",
-                        style: TextStyle(fontSize: 15)),
-                    trailing: const Icon(Icons.keyboard_arrow_right),
-                    onTap: () {
-                      Navigator.of(context).push(
-                          CupertinoPageRoute(builder: (context) => HomePage()));
-                    }),
-                ListTile(
-                    leading: const Icon(Icons.safety_divider),
-                    title: const Text("GÖRÜŞ - ÖNERİ BİLDİRİN",
-                        style: TextStyle(fontSize: 12)),
-                    trailing: const Icon(Icons.keyboard_arrow_right),
-                    onTap: () {}),
-                ListTile(
-                    leading: const Icon(Icons.video_collection_outlined),
-                    title: const Text("NASIL KULLANILIR ?",
-                        style: TextStyle(fontSize: 12)),
-                    trailing: const Icon(Icons.keyboard_arrow_right),
-                    onTap: () {
-                      Navigator.of(context).push(CupertinoPageRoute(
-                          builder: (context) => const usage()));
-                    }),
-                ListTile(
-                    leading: const Icon(Icons.no_accounts),
+            Expanded(
+              child: ListView(
+                children: [
+                  ListTile(
+                    leading: const Icon(
+                      Icons.person,
+                    ),
                     title: const Text(
-                      "ÇIKIŞ YAP",
-                      style: TextStyle(color: Colors.red, fontSize: 12),
+                      "PROFIL",
+                      style: TextStyle(fontSize: 15),
                     ),
                     trailing: const Icon(Icons.keyboard_arrow_right),
                     onTap: () {
-                      _cikisYap();
-                    }),
-                const SizedBox(
-                  height: 30,
-                ),
-                const AboutListTile(
-                  applicationName: " LİSANS",
-                  applicationIcon: Icon(Icons.file_open),
-                  applicationVersion: "3.8",
-                  child:
-                      Text("UYGULAMA HAKKINDA", style: TextStyle(fontSize: 12)),
-                  icon: Icon(Icons.info),
-                  applicationLegalese: null,
-                )
-              ],
-            ),
-          )
-        ],
+                      _privateprofil();
+                    },
+                  ),
+                  ListTile(
+                      leading: const Icon(Icons.chat),
+                      title: const Text("MESAJLAR",
+                          style: TextStyle(fontSize: 15)),
+                      trailing: const Icon(Icons.keyboard_arrow_right),
+                      onTap: () {
+                        Navigator.of(context).push(CupertinoPageRoute(
+                            builder: (context) => const Inbox()));
+                      }),
+                  ListTile(
+                      leading: const Icon(Icons.star),
+                      title: const Text("PREMIUM DETAYLARI",
+                          style: TextStyle(fontSize: 15)),
+                      trailing: const Icon(Icons.keyboard_arrow_right),
+                      onTap: () {
+                        Navigator.of(context).push(CupertinoPageRoute(
+                            builder: (context) => HomePage()));
+                      }),
+                  ListTile(
+                      leading: const Icon(Icons.safety_divider),
+                      title: const Text("GÖRÜŞ - ÖNERİ BİLDİRİN",
+                          style: TextStyle(fontSize: 12)),
+                      trailing: const Icon(Icons.keyboard_arrow_right),
+                      onTap: () {}),
+                  ListTile(
+                      leading: const Icon(Icons.video_collection_outlined),
+                      title: const Text("NASIL KULLANILIR ?",
+                          style: TextStyle(fontSize: 12)),
+                      trailing: const Icon(Icons.keyboard_arrow_right),
+                      onTap: () {
+                        Navigator.of(context).push(CupertinoPageRoute(
+                            builder: (context) => const usage()));
+                      }),
+                  ListTile(
+                      leading: const Icon(Icons.no_accounts),
+                      title: const Text(
+                        "ÇIKIŞ YAP",
+                        style: TextStyle(color: Colors.red, fontSize: 12),
+                      ),
+                      trailing: const Icon(Icons.keyboard_arrow_right),
+                      onTap: () {
+                        _cikisYap();
+                      }),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const AboutListTile(
+                    applicationName: " LİSANS",
+                    applicationIcon: Icon(Icons.file_open),
+                    applicationVersion: "3.8",
+                    child: Text("UYGULAMA HAKKINDA",
+                        style: TextStyle(fontSize: 12)),
+                    icon: Icon(Icons.info),
+                    applicationLegalese: null,
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
