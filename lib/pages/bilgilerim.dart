@@ -184,16 +184,13 @@ class _bilgilerimState extends State<bilgilerim> {
                           children: [
                             ElevatedButton(
                                 onPressed: () async {
-                                  await determinePosition();
-
+                                  _currentPosition = await determinePosition();
+                                  await _getAddressFromLatLng();
                                   _getCurrentLocation();
                                   il = _konumIl;
                                   ilce = _konumIlce;
 
-                                  setState(() {
-                                    il;
-                                    ilce;
-                                  });
+                                  setState(() {});
                                   setState(() {
                                     _isloading = false;
                                   });
@@ -448,7 +445,7 @@ class _bilgilerimState extends State<bilgilerim> {
     _getAddressFromLatLng();
   }
 
-  Future<void> determinePosition() async {
+  Future<Position> determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
 
@@ -472,6 +469,7 @@ class _bilgilerimState extends State<bilgilerim> {
 
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.low);
+    return position;
   }
 
   _getAddressFromLatLng() async {
@@ -482,8 +480,8 @@ class _bilgilerimState extends State<bilgilerim> {
       Placemark place = placemarks[0];
 
       if (place.subAdministrativeArea!.length > 1) {
-        _konumIl = " ${place.administrativeArea}";
-        _konumIlce = " ${place.subAdministrativeArea}";
+        _konumIl = "${place.administrativeArea}";
+        _konumIlce = "${place.subAdministrativeArea}";
       } else {
         _konumIl = " ${place.administrativeArea}";
         _konumIlce = "${place.locality}";
