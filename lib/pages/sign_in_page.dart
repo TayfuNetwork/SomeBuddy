@@ -30,20 +30,13 @@ class _SignInPageState extends State<SignInPage> {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("images/Logo.png"), fit: BoxFit.cover)),
+                image: AssetImage("images/background.png"), fit: BoxFit.cover)),
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            /* ClipOval(
-              child: Image.asset(
-                "images/Logo.png",
-                fit: BoxFit.cover,
-              ),
-            ), */
-
             const Text(
               "Oturum Açın / Kaydolun",
               textAlign: TextAlign.center,

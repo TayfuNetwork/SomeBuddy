@@ -22,7 +22,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("images/Logo.png"), fit: BoxFit.cover)),
+                  image: AssetImage("images/background.png"), fit: BoxFit.cover)),
           child: Padding(
               padding: const EdgeInsets.all(16),
               child: Form(

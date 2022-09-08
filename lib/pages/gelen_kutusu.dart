@@ -7,10 +7,12 @@ import 'package:intl/intl.dart';
 import 'package:version1/models/konusma.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/chat.dart';
+import 'package:version1/pages/search_page.dart';
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
 
 import '../control_pages/myDrawer.dart';
+import 'bilgilerim.dart';
 
 class Inbox extends StatefulWidget {
   const Inbox({Key? key}) : super(key: key);
@@ -43,11 +45,21 @@ class _InboxState extends State<Inbox> {
             color: Colors.white,
             fontSize: 22,
           ),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.search, color: Colors.white),
+              onPressed: _searchPage,
+            ),
+            IconButton(
+              icon: const Icon(Icons.home, color: Colors.white),
+              onPressed: _bilgilerimeGit,
+            ),
+          ],
         ),
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("images/Logo.png"),
+              image: AssetImage("images/background.png"),
               fit: BoxFit.cover,
             ),
           ),
@@ -159,41 +171,36 @@ class _InboxState extends State<Inbox> {
                                       }),
                                       key: UniqueKey(),
                                       child: Card(
-                                        color: Colors.white,
-                                        child: Card(
-                                          color: Colors.blueAccent,
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.only(
-                                                  topLeft: Radius.circular(8),
-                                                  topRight: Radius.circular(8),
-                                                  bottomLeft:
-                                                      Radius.circular(8),
-                                                  bottomRight:
-                                                      Radius.circular(80))),
-                                          child: ListTile(
-                                              title: Text(user.userName!),
-                                              subtitle: Text(oankiKonusma
-                                                      .son_yollanan_mesaj! +
-                                                  " ... " +
-                                                  _saatDakikaDegeri),
-                                              leading: GestureDetector(
-                                                onTap: git,
-                                                child: CircleAvatar(
-                                                  backgroundImage: _havePhoto(),
-                                                ),
+                                        color: Colors.green,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(80),
+                                                topRight: Radius.circular(80),
+                                                bottomLeft: Radius.circular(80),
+                                                bottomRight:
+                                                    Radius.circular(80))),
+                                        child: ListTile(
+                                            title: Text(user.userName!),
+                                            subtitle: Text(oankiKonusma
+                                                    .son_yollanan_mesaj! +
+                                                " ... " +
+                                                _saatDakikaDegeri),
+                                            leading: GestureDetector(
+                                              onTap: git,
+                                              child: CircleAvatar(
+                                                backgroundImage: _havePhoto(),
                                               ),
-                                              onTap: () async {
-                                                await Navigator.of(context)
-                                                    .push(CupertinoPageRoute(
-                                                        builder: (context) =>
-                                                            Sohbet(
-                                                              currentUser:
-                                                                  _userModel,
-                                                              konusulanUser:
-                                                                  user,
-                                                            )));
-                                              }),
-                                        ),
+                                            ),
+                                            onTap: () async {
+                                              await Navigator.of(context).push(
+                                                  CupertinoPageRoute(
+                                                      builder: (context) =>
+                                                          Sohbet(
+                                                            currentUser:
+                                                                _userModel,
+                                                            konusulanUser: user,
+                                                          )));
+                                            }),
                                       ),
                                     );
                                   } else {
@@ -218,6 +225,17 @@ class _InboxState extends State<Inbox> {
     setState(() {});
     await Future.delayed(const Duration(seconds: 1));
     return null;
+  }
+
+  _bilgilerimeGit() {
+    return Navigator.of(context)
+        .push(CupertinoPageRoute(builder: (context) => const bilgilerim()));
+  }
+
+  _searchPage() {
+    return Navigator.of(context).pushAndRemoveUntil(
+        CupertinoPageRoute(builder: (context) => const searchPage()),
+        ((route) => false));
   }
 }
 

@@ -44,7 +44,7 @@ class _EmailPasswordState extends State<EmailPassword> {
       if (user != null) {
         Navigator.of(context).pushAndRemoveUntil(
             CupertinoPageRoute(builder: (context) => const Profile()),
-            ((route) => false));
+            (route) => false);
       }
     } else {
       user = await service.signIn(_sifre!, _email!, context);
@@ -72,7 +72,7 @@ class _EmailPasswordState extends State<EmailPassword> {
         body: Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("images/Logo.png"), fit: BoxFit.cover)),
+              image: AssetImage("images/background.png"), fit: BoxFit.cover)),
       child: Center(
         child: SingleChildScrollView(
           child: Form(

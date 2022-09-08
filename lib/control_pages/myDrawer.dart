@@ -1,11 +1,12 @@
 // ignore: file_names
+import 'dart:ffi';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/pages/geo.dart';
 import 'package:version1/pages/usage.dart';
 import '../models/user.dart';
-import '../pages/gelen_kutusu.dart';
 import '../pages/private_profil.dart';
 import '../pages/sign_in_page.dart';
 import '../services/auth_service.dart';
@@ -27,14 +28,19 @@ class _MyDrawerState extends State<MyDrawer> {
         child: Column(
           children: [
             UserAccountsDrawerHeader(
-              decoration: BoxDecoration(color: Colors.grey),
-              accountName: Text(
-                user.userName! + ' ' + user.soyisim!,
-                style: const TextStyle(fontSize: 20),
-              ),
-              accountEmail: Text(user.email!),
-              currentAccountPicture: _imageController(),
-            ),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: <Color>[Colors.deepOrange, Colors.orange]),
+                ),
+                accountName: Text(user.userName! + ' ' + user.soyisim!,
+                    style: const TextStyle(
+                        fontSize: 20, fontStyle: FontStyle.italic)),
+                accountEmail: Text(user.email!),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: _imageController(),
+                  radius: 95,
+                  backgroundColor: Colors.white,
+                )),
             Expanded(
               child: ListView(
                 children: [
@@ -51,15 +57,6 @@ class _MyDrawerState extends State<MyDrawer> {
                       _privateprofil();
                     },
                   ),
-                  ListTile(
-                      leading: const Icon(Icons.chat),
-                      title: const Text("MESAJLAR",
-                          style: TextStyle(fontSize: 15)),
-                      trailing: const Icon(Icons.keyboard_arrow_right),
-                      onTap: () {
-                        Navigator.of(context).push(CupertinoPageRoute(
-                            builder: (context) => const Inbox()));
-                      }),
                   ListTile(
                       leading: const Icon(Icons.star),
                       title: const Text("PREMIUM DETAYLARI",
@@ -163,10 +160,11 @@ class _MyDrawerState extends State<MyDrawer> {
   }
 
   _imageController() {
-    if (url != null) {
-      return Image.network(url!);
+    var whoData = AuthService().user;
+    if (whoData!.image != null) {
+      return NetworkImage(whoData.image!);
     } else {
-      return const Icon(Icons.no_photography);
+      return AssetImage("images/Logo.png");
     }
   }
 }

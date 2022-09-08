@@ -11,6 +11,8 @@ import '../control_pages/json-models.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 
+import 'gelen_kutusu.dart';
+
 // sadece oturum açmış kişiler bu sayfayı görebilir.
 // ignore: camel_case_types
 // ignore: camel_case_types
@@ -42,7 +44,8 @@ class _bilgilerimState extends State<bilgilerim> {
   Position? _currentPosition;
   String? _konumIl;
   String? _konumIlce;
-
+  bool _isloading = true;
+  String _durum = "Konum Oluştur";
   @override
   void initState() {
     super.initState();
@@ -71,7 +74,19 @@ class _bilgilerimState extends State<bilgilerim> {
             color: Colors.white,
             fontSize: 22,
           ),
-          actions: [controlPremium()],
+          actions: [
+            IconButton(
+                onPressed: _mesajlaraGit,
+                icon: const Icon(
+                  Icons.chat,
+                  color: Colors.white,
+                )),
+            IconButton(
+              icon: const Icon(Icons.search, color: Colors.white),
+              onPressed: _searchPage,
+            ),
+            controlPremium()
+          ],
         ),
         body: Column(
           children: [
@@ -81,7 +96,7 @@ class _bilgilerimState extends State<bilgilerim> {
                 height: MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("images/Logo.png"),
+                    image: AssetImage("images/background.png"),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -169,15 +184,35 @@ class _bilgilerimState extends State<bilgilerim> {
                           children: [
                             ElevatedButton(
                                 onPressed: () async {
-                                  setState(() {
-                                    determinePosition();
+                                  await determinePosition();
 
-                                    _getCurrentLocation();
-                                  });
+                                  _getCurrentLocation();
                                   il = _konumIl;
                                   ilce = _konumIlce;
+
+                                  setState(() {
+                                    il;
+                                    ilce;
+                                  });
+                                  setState(() {
+                                    _isloading = false;
+                                  });
+                                  await Future.delayed(Duration(seconds: 5));
+                                  setState(() {
+                                    _getCurrentLocation();
+                                    il = _konumIl;
+                                    ilce = _konumIlce;
+                                    _isloading = true;
+                                    _durum = "Konum Belirlendi";
+                                  });
+                                  await Future.delayed(Duration(seconds: 3));
+                                  setState(() {
+                                    _durum = "Konum Oluştur";
+                                  });
                                 },
-                                child: Text("Konum Oluştur")),
+                                child: !_isloading
+                                    ? buildSmallButton()
+                                    : Text(_durum)),
                             if (il != null) info()
                           ],
                         ),
@@ -349,7 +384,7 @@ class _bilgilerimState extends State<bilgilerim> {
           ));
         },
         icon: const Icon(Icons.privacy_tip_sharp),
-        color: Colors.lime,
+        color: Colors.orange,
       );
     } else {
       return IconButton(
@@ -410,7 +445,6 @@ class _bilgilerimState extends State<bilgilerim> {
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.best);
     _currentPosition = position;
-    // print("-------position-------: ${locationService.currentPosition}");
     _getAddressFromLatLng();
   }
 
@@ -471,5 +505,26 @@ class _bilgilerimState extends State<bilgilerim> {
         style: const TextStyle(color: Colors.orange),
       );
     }
+  }
+
+  buildSmallButton() {
+    return Container(
+      decoration:
+          BoxDecoration(shape: BoxShape.circle, color: Colors.blueAccent),
+      child: CircularProgressIndicator(
+        color: Colors.white,
+      ),
+    );
+  }
+
+  _mesajlaraGit() {
+    return Navigator.of(context)
+        .push(CupertinoPageRoute(builder: (context) => const Inbox()));
+  }
+
+  _searchPage() {
+    return Navigator.of(context).pushAndRemoveUntil(
+        CupertinoPageRoute(builder: (context) => const searchPage()),
+        ((route) => false));
   }
 }
