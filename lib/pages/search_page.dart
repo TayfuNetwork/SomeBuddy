@@ -48,20 +48,28 @@ class _searchPageState extends State<searchPage> {
   }
 
   Future<void> yakinArama() async {
-    var user = await AuthService().user!;
+    var user = AuthService().user!;
+
+    bulunanIl = (user.il);
+    bulunanIlce = user.ilce!;
+    bulunanBrans = user.brans!;
+    bulunanMevki = user.mevki!;
+    ppColor = Colors.blue;
+    Icon sIcon = const Icon(Icons.photo);
+
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => Results(
-          il: (user.il)!,
-          ilce: user.ilce!,
-          brans: user.brans!,
-          mevki: user.mevki!,
+          il: bulunanIl!,
+          ilce: bulunanIlce!,
+          brans: bulunanBrans!,
+          mevki: bulunanMevki!,
           ppColor: Colors.blue,
           sIcon: const Icon(Icons.photo),
         ),
       ),
     );
-    setState(() {});
+    print("${(user.il)},${(user.ilce)},${(user.brans)}, ${(user.mevki)}");
   }
 
   @override
@@ -290,8 +298,6 @@ class _searchPageState extends State<searchPage> {
                           onPressed: () {
                             var user = AuthService().user!;
                             yakinArama();
-                            print(
-                                "${(user.il)},${(user.ilce)},${(user.brans)}, ${(user.mevki)}");
                           },
                           child: Text(" En yakın partneri bul"))
                   ],
