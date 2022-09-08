@@ -59,7 +59,7 @@ class _private_profilState extends State<private_profil> {
           toolbarOpacity: 0.8,
           shadowColor: Colors.black,
           title: const Text(
-            "Sohbet",
+            "Profil",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
           ),
           shape: RoundedRectangleBorder(
@@ -127,8 +127,7 @@ class _private_profilState extends State<private_profil> {
                                       title: const Text("Fotoğrafı Kaldır"),
                                       onTap: () {
                                         deleteProfilPhoto();
-                                        Navigator.pop(
-                                                              context);
+                                        Navigator.pop(context);
                                       },
                                     ),
                                   ],
@@ -224,12 +223,14 @@ class _private_profilState extends State<private_profil> {
                           },
                           child: const Text(
                             'Kameradan resim ekle',
+                            style: TextStyle(color: Colors.black),
                           )),
                       TextButton(
                           onPressed: () {
                             uploadGalleryPhotoCamera(ImageSource.gallery);
                           },
-                          child: const Text('Galeriden resim ekle')),
+                          child: const Text('Galeriden resim ekle',
+                              style: TextStyle(color: Colors.black))),
                     ],
                   ),
                 ),

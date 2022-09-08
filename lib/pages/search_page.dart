@@ -61,7 +61,7 @@ class _searchPageState extends State<searchPage> {
         ),
       ),
     );
-    
+    setState(() {});
   }
 
   @override
@@ -286,12 +286,12 @@ class _searchPageState extends State<searchPage> {
                       ],
                     ),
                     if (AuthService().user?.il != null)
-                    
                       TextButton(
                           onPressed: () {
                             var user = AuthService().user!;
                             yakinArama();
-                            print("${(user.il)},${(user.ilce)},${(user.brans)}, ${(user.mevki)}");
+                            print(
+                                "${(user.il)},${(user.ilce)},${(user.brans)}, ${(user.mevki)}");
                           },
                           child: Text(" En yakın partneri bul"))
                   ],
