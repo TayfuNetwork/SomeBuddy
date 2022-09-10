@@ -1,9 +1,8 @@
 // ignore: file_names
-import 'dart:ffi';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:version1/pages/geo.dart';
 import 'package:version1/pages/usage.dart';
 import '../models/user.dart';
@@ -113,9 +112,11 @@ class _MyDrawerState extends State<MyDrawer> {
   }
 
   Future _cikisYap() async {
+    await GoogleSignIn().disconnect();
     FirebaseAuth.instance.signOut();
-    await Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => const SignInPage()));
+    await Navigator.of(context).pushAndRemoveUntil(
+        CupertinoPageRoute(builder: (context) => const SignInPage()),
+        (route) => false);
   }
 
   _privateprofil() {

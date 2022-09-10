@@ -45,7 +45,7 @@ class _bilgilerimState extends State<bilgilerim> {
   String? _konumIl;
   String? _konumIlce;
   bool _isloading = true;
-  String _durum = "Konum Oluştur";
+  String _durum = "Kayıt Oluştur";
   @override
   void initState() {
     super.initState();

@@ -32,6 +32,10 @@ class _searchPageState extends State<searchPage> {
   String? bulunanIlce;
   String? bulunanBrans;
   String? bulunanMevki;
+  String? sonIl;
+  String? sonIlce;
+  String? sonBrans;
+  String? sonMevki;
   Future<void> arama() async {
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -55,7 +59,6 @@ class _searchPageState extends State<searchPage> {
     bulunanBrans = user.brans!;
     bulunanMevki = user.mevki!;
     ppColor = Colors.blue;
-    Icon sIcon = const Icon(Icons.photo);
 
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -296,10 +299,13 @@ class _searchPageState extends State<searchPage> {
                     if (AuthService().user?.il != null)
                       TextButton(
                           onPressed: () {
-                            var user = AuthService().user!;
                             yakinArama();
                           },
-                          child: Text(" En yakın partneri bul"))
+                          child: Text(" En yakın partneri bul")),
+                    if (sonIl != null)
+                      ElevatedButton(
+                          onPressed: sonAramaTekrarla,
+                          child: Text("Bir önceki aramanızı tekrarlayın"))
                   ],
                 ),
               ],
@@ -318,5 +324,17 @@ class _searchPageState extends State<searchPage> {
   _bilgilerimeGit() {
     return Navigator.of(context)
         .push(CupertinoPageRoute(builder: (context) => const bilgilerim()));
+  }
+
+  Future<void> sonAramaTekrarla() async {
+    Navigator.of(context).push(CupertinoPageRoute(
+        builder: (context) => Results(
+              il: sonIl!,
+              ilce: sonIlce!,
+              brans: sonBrans!,
+              mevki: sonMevki!,
+              ppColor: Colors.blue,
+              sIcon: Icon(Icons.photo),
+            )));
   }
 }
