@@ -476,14 +476,20 @@ class _private_profilState extends State<private_profil> {
 
   uploadGalleryPhotoCamera(ImageSource sourche) async {
     final ImagePicker _picker = ImagePicker();
+    PickedFile? compressedImage = await _picker.getImage(
+      source: ImageSource.camera,
+      imageQuality: 85,
+    );
     var userID = AuthService().user!.id;
+    
     XFile? _file = await _picker.pickImage(source: sourche);
+    
     String ref = 'photo_$userID' +
         '_' +
         DateTime.now().millisecondsSinceEpoch.toString();
     var _profileRef = await FirebaseStorage.instance.ref('Users/gallery/$ref');
     if (_file != null) {
-      var _task = _profileRef.putFile(File(_file.path)); // bak null check
+      var _task = _profileRef.putFile(File(_file.path));
       _task.whenComplete(() async {
         var _url = await _profileRef.getDownloadURL();
         Medya medya = Medya(url: _url, ref: ref);

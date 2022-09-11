@@ -32,7 +32,6 @@ class AuthService {
       UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: sifre);
       if (userCredential.user != null) {
-        
         return userCredential.user;
       }
     } on FirebaseAuthException catch (e) {
@@ -61,7 +60,6 @@ class AuthService {
       UserCredential userCredential =
           await _auth.signInWithEmailAndPassword(email: email, password: sifre);
       if (userCredential.user != null) {
-       
         return userCredential.user;
       }
     } on FirebaseAuthException catch (e) {
@@ -157,6 +155,7 @@ class AuthService {
       "kimle_konusuyor": kaydedilecekMesaj.kime,
       "son_yollanan_mesaj": kaydedilecekMesaj.mesaj,
       "konusma_goruldu": false,
+      "sonMesajBenimMi": kaydedilecekMesaj.kimden,
       "olusturulma_tarihi": DateTime.now()
     });
 
@@ -177,9 +176,10 @@ class AuthService {
       "kimle_konusuyor": kaydedilecekMesaj.kimden,
       "son_yollanan_mesaj": kaydedilecekMesaj.mesaj,
       "konusma_goruldu": false,
-      "olusturulma_tarihi": DateTime.now()
+      "olusturulma_tarihi": DateTime.now(),
+      "sonMesajBenimMi": kaydedilecekMesaj.kimden
     });
-  
+
     return true;
   }
 }

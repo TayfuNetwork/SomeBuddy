@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:version1/models/konusma.dart';
+import 'package:version1/models/mesaj.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/chat.dart';
 import 'package:version1/pages/search_page.dart';
@@ -20,6 +21,8 @@ class Inbox extends StatefulWidget {
   @override
   State<Inbox> createState() => _InboxState();
 }
+
+Color? editIconColor;
 
 class _InboxState extends State<Inbox> {
   @override
@@ -181,10 +184,16 @@ class _InboxState extends State<Inbox> {
                                                     Radius.circular(80))),
                                         child: ListTile(
                                             title: Text(user.userName!),
-                                            subtitle: Text(oankiKonusma
-                                                    .son_yollanan_mesaj! +
-                                                " ... " +
-                                                _saatDakikaDegeri),
+                                            subtitle: Row(
+                                              children: [
+                                                kimden(oankiKonusma
+                                                    .sonMesajBenimMi),
+                                                Text(oankiKonusma
+                                                        .son_yollanan_mesaj! +
+                                                    " ... " +
+                                                    _saatDakikaDegeri),
+                                              ],
+                                            ),
                                             leading: GestureDetector(
                                               onTap: git,
                                               child: CircleAvatar(
@@ -236,6 +245,18 @@ class _InboxState extends State<Inbox> {
     return Navigator.of(context).pushAndRemoveUntil(
         CupertinoPageRoute(builder: (context) => const searchPage()),
         ((route) => false));
+  }
+
+  kimden(bendenMi) {
+    var user = AuthService().user!;
+    if (bendenMi == user.id) {
+      return Text(
+        "Gönderilen: ",
+        style: TextStyle(color: Colors.white),
+      );
+    } else {
+      return Text("Gelen: ", style: TextStyle(color: Colors.white));
+    }
   }
 }
 
