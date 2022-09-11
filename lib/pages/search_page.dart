@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:version1/control_pages/json-models.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/control_pages/myDrawer.dart';
@@ -22,9 +24,8 @@ class _searchPageState extends State<searchPage> {
   Brans? brans;
   String? mevki;
   BransServices model = BransServices();
-  Il? il;
+  String? il;
   String? ilce;
-  IlService service = IlService();
   String? bulunanAd;
   String? bulunanSoyad;
   String? bulunanYas;
@@ -32,15 +33,11 @@ class _searchPageState extends State<searchPage> {
   String? bulunanIlce;
   String? bulunanBrans;
   String? bulunanMevki;
-  String? sonIl;
-  String? sonIlce;
-  String? sonBrans;
-  String? sonMevki;
   Future<void> arama() async {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => Results(
-          il: il!.il,
+          il: il!,
           ilce: ilce!,
           brans: brans!.brans,
           mevki: mevki!,
@@ -49,6 +46,9 @@ class _searchPageState extends State<searchPage> {
         ),
       ),
     );
+    setState(() {
+      sonAramaSakla();
+    });
   }
 
   Future<void> yakinArama() async {
@@ -138,107 +138,99 @@ class _searchPageState extends State<searchPage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                const Text('Partner bulmanın en kolay yolu',
-                    style: TextStyle(color: Colors.grey)),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "! Yazım yanlışına dikkat ediniz !",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
                 const SizedBox(height: 20),
                 //******************************************************************//
 
+                TextFormField(
+                  inputFormatters: <TextInputFormatter>[
+                    UpperCaseTextFormatter()
+                  ],
+                  maxLines: 1,
+                  style: const TextStyle(color: Colors.black),
+                  decoration: const InputDecoration(
+                    hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue, width: 1)),
+                    focusColor: Colors.blue,
+                    hintText: 'İli giriniz',
+                    enabled: true,
+                  ),
+                  autofocus: false,
+                  onChanged: (girilenil) {
+                    il = girilenil;
+                  },
+                ),
+                //******************************************************************//
+
+                const SizedBox(height: 10),
+                //******************************************************************//
+
+                TextField(
+                  inputFormatters: <TextInputFormatter>[
+                    UpperCaseTextFormatter()
+                  ],
+                  textCapitalization: TextCapitalization.words,
+                  maxLines: 1,
+                  style: const TextStyle(color: Colors.black),
+                  decoration: const InputDecoration(
+                    hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue, width: 1)),
+                    focusColor: Colors.blue,
+                    hintText: 'İlçeyi giriniz',
+                    enabled: true,
+                  ),
+                  autofocus: false,
+                  onChanged: (girilenilce) {
+                    ilce = girilenilce;
+                  },
+                ),
+
+                //******************************************************************//
+
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      "İl:",
-                      style: TextStyle(color: Colors.blue),
-                    ),
+                    const Text("Branş:", style: TextStyle(color: Colors.blue)),
                     DropdownButton<int>(
-                        menuMaxHeight: 300,
-                        iconEnabledColor: Colors.blue,
-                        dropdownColor: const Color.fromARGB(255, 28, 185, 242),
-                        style: const TextStyle(color: Colors.black),
-                        value: il?.plaka ?? 1,
-                        items: service.iller.map((i) {
-                          return DropdownMenuItem(
-                            child: Text(i.il,
-                                style: const TextStyle(color: Colors.black)),
-                            value: i.plaka,
-                            onTap: () {
-                              setState(() {
-                                il = i;
-                                ilce = i.ilceleri.first;
-                              });
-                            },
-                          );
-                        }).toList(),
-                        onChanged: (value) {}),
+                      menuMaxHeight: 400,
+                      iconEnabledColor: Colors.blue,
+                      dropdownColor: const Color.fromARGB(255, 28, 185, 242),
+                      style: const TextStyle(color: Colors.black),
+                      value: brans?.no ?? 82,
+                      items: model.branslar.map((b) {
+                        return DropdownMenuItem(
+                          child: Text(b.brans,
+                              style: const TextStyle(color: Colors.black)),
+                          value: b.no,
+                          onTap: () {
+                            setState(() {
+                              brans = b;
+                              mevki = b.mevki.first;
+                            });
+                          },
+                        );
+                      }).toList(),
+                      onChanged: (s) {},
+                    ),
+                    Icon(
+                      Icons.download,
+                      color: Colors.blue,
+                    )
                   ],
                 ),
                 //******************************************************************//
 
-                if (ilce != null)
+                if (brans != null)
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      const Text("ilçe:", style: TextStyle(color: Colors.blue)),
-                      DropdownButton<String>(
-                        menuMaxHeight: 400,
-                        iconEnabledColor: Colors.blue,
-                        dropdownColor: const Color.fromARGB(255, 28, 185, 242),
-                        value: ilce ?? il!.ilceleri.first,
-                        style: const TextStyle(color: Colors.black),
-                        items: service.ilceler(il!.plaka).map((i) {
-                          return DropdownMenuItem(
-                            child: Text(
-                              i,
-                              style: const TextStyle(color: Colors.black),
-                            ),
-                            value: i,
-                            onTap: () {
-                              setState(() {
-                                ilce = i;
-                                ilce = ilce;
-                              });
-                            },
-                          );
-                        }).toList(),
-                        onChanged: (s) {},
-                      ),
-                    ],
-                  ),
-                //******************************************************************//
-                if (il != null)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      const Text("Branş:",
-                          style: TextStyle(color: Colors.blue)),
-                      DropdownButton<int>(
-                        menuMaxHeight: 400,
-                        iconEnabledColor: Colors.blue,
-                        dropdownColor: const Color.fromARGB(255, 28, 185, 242),
-                        style: const TextStyle(color: Colors.black),
-                        value: brans?.no ?? 82,
-                        items: model.branslar.map((b) {
-                          return DropdownMenuItem(
-                            child: Text(b.brans,
-                                style: const TextStyle(color: Colors.black)),
-                            value: b.no,
-                            onTap: () {
-                              setState(() {
-                                brans = b;
-                                mevki = b.mevki.first;
-                              });
-                            },
-                          );
-                        }).toList(),
-                        onChanged: (s) {},
-                      ),
-                    ],
-                  ),
-                //******************************************************************//
-
-                if (mevki != null)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text("mevki:",
                           style: TextStyle(color: Colors.blue)),
@@ -264,48 +256,56 @@ class _searchPageState extends State<searchPage> {
                         }).toList(),
                         onChanged: (s) {},
                       ),
+                      Icon(
+                        Icons.download,
+                        color: Colors.blue,
+                      )
                     ],
                   ),
                 //******************************************************************//
 
                 Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        ElevatedButton(
-                            onPressed: () {
-                              if (il != null && ilce != null && brans != null) {
-                                arama();
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        backgroundColor: Colors.blue,
-                                        content: Text(
-                                            "Bütün açılır menüleri doldurmalısınız",
-                                            style: TextStyle(
-                                                color: Colors.white))));
-                              }
-                            },
-                            child: const Text('Ara')),
-                        ElevatedButton(
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const bilgilerim()));
-                            },
-                            child: const Text('Ana Sayfa')),
-                      ],
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ElevatedButton(
+                        onPressed: () {
+                          if (il != null && ilce != null && brans != null) {
+                            arama();
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    backgroundColor: Colors.blue,
+                                    content: Text(
+                                        "Bütün alanları eksiksiz doldurmalısınız.",
+                                        style:
+                                            TextStyle(color: Colors.white))));
+                          }
+                        },
+                        child: const Text('Ara')),
+                    SizedBox(
+                      height: 30,
                     ),
                     if (AuthService().user?.il != null)
-                      TextButton(
-                          onPressed: () {
-                            yakinArama();
-                          },
-                          child: Text(" En yakın partneri bul")),
-                    if (sonIl != null)
-                      ElevatedButton(
-                          onPressed: sonAramaTekrarla,
-                          child: Text("Bir önceki aramanızı tekrarlayın"))
+                      Row(
+                        children: [
+                          Icon(Icons.navigate_next, color: Colors.red),
+                          TextButton(
+                              onPressed: () {
+                                yakinArama();
+                              },
+                              child: Text(" En yakın partneri bul")),
+                        ],
+                      ),
+                    Row(
+                      children: [
+                        Icon(Icons.navigate_next, color: Colors.red),
+                        TextButton(
+                            onPressed: sonAramaTekrar,
+                            child: Text("Bir önceki aramayı tekrarla")),
+                      ],
+                    )
                   ],
                 ),
               ],
@@ -326,15 +326,53 @@ class _searchPageState extends State<searchPage> {
         .push(CupertinoPageRoute(builder: (context) => const bilgilerim()));
   }
 
-  Future<void> sonAramaTekrarla() async {
-    Navigator.of(context).push(CupertinoPageRoute(
-        builder: (context) => Results(
-              il: sonIl!,
-              ilce: sonIlce!,
-              brans: sonBrans!,
-              mevki: sonMevki!,
-              ppColor: Colors.blue,
-              sIcon: Icon(Icons.photo),
-            )));
+  Future<void> sonAramaSakla() async {
+    final preferences = await SharedPreferences.getInstance();
+
+    preferences.setString("sonIl", il!);
+    preferences.setString("sonIlce", ilce!);
+    preferences.setString("sonBrans", brans!.brans);
+    preferences.setString("sonMevki", mevki!);
   }
+
+  Future<void> sonAramaTekrar() async {
+    final preferences = await SharedPreferences.getInstance();
+
+    bulunanIl = preferences.get("sonIl").toString();
+    bulunanIlce = preferences.get("sonIlce").toString();
+    bulunanBrans = preferences.get("sonBrans").toString();
+    bulunanMevki = preferences.get("sonMevki").toString();
+    setState(() {});
+
+    await Navigator.of(context).push(CupertinoPageRoute(
+        builder: (context) => Results(
+              il: bulunanIl!,
+              ilce: bulunanIlce!,
+              brans: bulunanBrans!,
+              mevki: bulunanMevki!,
+              ppColor: Colors.blue,
+              sIcon: Icon(Icons.person),
+            )));
+
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        backgroundColor: Colors.blue,
+        content: Text("Üzgünüz, son arama kaydınıza ulaşamadık!",
+            style: TextStyle(color: Colors.white))));
+  }
+}
+
+class UpperCaseTextFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    return TextEditingValue(
+      text: capitalize(newValue.text),
+      selection: newValue.selection,
+    );
+  }
+}
+
+String capitalize(String value) {
+  if (value.trim().isEmpty) return "";
+  return "${value[0].toUpperCase()}${value.substring(1).toLowerCase()}";
 }

@@ -274,6 +274,10 @@ class _bilgilerimState extends State<bilgilerim> {
                                 }).toList(),
                                 onChanged: (s) {},
                               ),
+                              Icon(
+                                Icons.abc,
+                                color: Colors.white.withOpacity(0),
+                              )
                             ],
                           ),
                         Column(
@@ -346,6 +350,10 @@ class _bilgilerimState extends State<bilgilerim> {
                 "$il ",
                 style: TextStyle(color: Colors.black),
               ),
+              Icon(
+                Icons.navigate_before,
+                color: Colors.blue,
+              )
             ],
           ),
         ),
@@ -362,6 +370,10 @@ class _bilgilerimState extends State<bilgilerim> {
                 "$ilce",
                 style: TextStyle(color: Colors.black),
               ),
+              Icon(
+                Icons.navigate_before,
+                color: Colors.blue,
+              )
             ],
           ),
         ),

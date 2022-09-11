@@ -90,9 +90,19 @@ class _ResultsState extends State<Results> {
 
                 if (users.length == 1) {
                   if (users.any((e) => e.id == AuthService().user!.id)) {
-                    return const Center(
-                      child:
+                    return Center(
+                      child: Column(
+                        children: [
+                          Text(widget.il +
+                              "/ " +
+                              widget.ilce +
+                              "/ " +
+                              widget.brans +
+                              "/ " +
+                              widget.mevki),
                           Text("Malesef, bu kriterlerdeki tek üyemiz sizsiniz"),
+                        ],
+                      ),
                     );
                   }
                 }
@@ -100,8 +110,19 @@ class _ResultsState extends State<Results> {
                 if (users.isEmpty) {
                   return Center(
                     child: Container(
-                      child: const Text(
-                          "Malesef, bu kriterlere uygun bir üyemiz yok"),
+                      child: Column(
+                        children: [
+                          Text(widget.il +
+                              "/ " +
+                              widget.ilce +
+                              "/ " +
+                              widget.brans +
+                              "/ " +
+                              widget.mevki),
+                          const Text(
+                              "Malesef, bu kriterlere uygun bir üyemiz yok"),
+                        ],
+                      ),
                     ),
                   );
                 }
@@ -109,62 +130,73 @@ class _ResultsState extends State<Results> {
 
                 return SingleChildScrollView(
                   child: Column(
-                    children: users.map((e) {
-                      if (e.sex == 'Kadın') {
-                        widget.ppColor = Colors.pink.shade400;
-                      } else {
-                        widget.ppColor = Colors.blue;
-                      }
-                      if (e.premium == true) {
-                        widget.sIcon =
-                            const Icon(Icons.person, color: Colors.red);
-                      } else {
-                        widget.sIcon = const Icon(
-                          Icons.message,
-                          color: Colors.blue,
-                        );
-                      }
-                      return Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: ListTile(
-                          title: Text(
-                            "${e.userName} ${e.soyisim}",
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          leading: CircleAvatar(
-                            child: Text(
-                              e.yas.toString(),
-                              style: const TextStyle(
-                                  fontSize: 20, color: Colors.white),
+                    children: [
+                      Text(widget.il +
+                          "/ " +
+                          widget.ilce +
+                          "/ " +
+                          widget.brans +
+                          "/ " +
+                          widget.mevki),
+                      Column(
+                        children: users.map((e) {
+                          if (e.sex == 'Kadın') {
+                            widget.ppColor = Colors.pink.shade400;
+                          } else {
+                            widget.ppColor = Colors.blue;
+                          }
+                          if (e.premium == true) {
+                            widget.sIcon =
+                                const Icon(Icons.person, color: Colors.red);
+                          } else {
+                            widget.sIcon = const Icon(
+                              Icons.message,
+                              color: Colors.blue,
+                            );
+                          }
+                          return Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
                             ),
-                            backgroundColor: widget.ppColor,
-                          ),
-                          subtitle: Text(
-                            "${e.il}/ ${e.ilce} - ${e.brans}/ ${e.mevki}",
-                            style: const TextStyle(color: Colors.blue),
-                          ),
-                          trailing: widget.sIcon,
-                          onTap: () {
-                            if (e.premium == true) {
-                              Navigator.of(context).push(CupertinoPageRoute(
-                                  builder: (context) => show(
-                                        whoData: e,
-                                      )));
-                            } else {
-                              Navigator.of(context).push(CupertinoPageRoute(
-                                  builder: (context) => Sohbet(
-                                        currentUser: AuthService().user!,
-                                        konusulanUser: e,
-                                      )));
-                            }
-                          },
-                        ),
-                      );
-                    }).toList(),
+                            child: ListTile(
+                              title: Text(
+                                "${e.userName} ${e.soyisim}",
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              leading: CircleAvatar(
+                                child: Text(
+                                  e.yas.toString(),
+                                  style: const TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                ),
+                                backgroundColor: widget.ppColor,
+                              ),
+                              subtitle: Text(
+                                "${e.il}/ ${e.ilce} - ${e.brans}/ ${e.mevki}",
+                                style: const TextStyle(color: Colors.blue),
+                              ),
+                              trailing: widget.sIcon,
+                              onTap: () {
+                                if (e.premium == true) {
+                                  Navigator.of(context).push(CupertinoPageRoute(
+                                      builder: (context) => show(
+                                            whoData: e,
+                                          )));
+                                } else {
+                                  Navigator.of(context).push(CupertinoPageRoute(
+                                      builder: (context) => Sohbet(
+                                            currentUser: AuthService().user!,
+                                            konusulanUser: e,
+                                          )));
+                                }
+                              },
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ],
                   ),
                 );
               } else {

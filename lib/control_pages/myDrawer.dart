@@ -112,7 +112,6 @@ class _MyDrawerState extends State<MyDrawer> {
   }
 
   Future _cikisYap() async {
-    await GoogleSignIn().disconnect();
     FirebaseAuth.instance.signOut();
     await Navigator.of(context).pushAndRemoveUntil(
         CupertinoPageRoute(builder: (context) => const SignInPage()),
