@@ -7,6 +7,7 @@ import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/gelen_kutusu.dart';
 import 'package:version1/pages/results.dart';
+import 'package:version1/services/ad_helper.dart';
 import 'package:version1/services/auth_service.dart';
 
 // ignore: camel_case_types
@@ -34,45 +35,58 @@ class _searchPageState extends State<searchPage> {
   String? bulunanBrans;
   String? bulunanMevki;
   Future<void> arama() async {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => Results(
-          il: il!,
-          ilce: ilce!,
-          brans: brans!.brans,
-          mevki: mevki!,
-          ppColor: Colors.blue,
-          sIcon: const Icon(Icons.photo),
-        ),
-      ),
-    );
+    if (adHelper.interstitialAd != null) {
+      await adHelper.showInterstitialAd(
+        (p0) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => Results(
+                il: il!,
+                ilce: ilce!,
+                brans: brans!.brans,
+                mevki: mevki!,
+                ppColor: Colors.blue,
+                sIcon: const Icon(Icons.photo),
+              ),
+            ),
+          );
+        },
+      );
+    }
+
     setState(() {
       sonAramaSakla();
     });
   }
 
   Future<void> yakinArama() async {
-    var user = AuthService().user!;
+    if (adHelper.interstitialAd != null) {
+      await adHelper.showInterstitialAd(
+        (p0) {
+          var user = AuthService().user!;
 
-    bulunanIl = (user.il);
-    bulunanIlce = user.ilce!;
-    bulunanBrans = user.brans!;
-    bulunanMevki = user.mevki!;
-    ppColor = Colors.blue;
+          bulunanIl = (user.il);
+          bulunanIlce = user.ilce!;
+          bulunanBrans = user.brans!;
+          bulunanMevki = user.mevki!;
+          ppColor = Colors.blue;
 
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => Results(
-          il: bulunanIl!,
-          ilce: bulunanIlce!,
-          brans: bulunanBrans!,
-          mevki: bulunanMevki!,
-          ppColor: Colors.blue,
-          sIcon: const Icon(Icons.photo),
-        ),
-      ),
-    );
-    print("${(user.il)},${(user.ilce)},${(user.brans)}, ${(user.mevki)}");
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => Results(
+                il: bulunanIl!,
+                ilce: bulunanIlce!,
+                brans: bulunanBrans!,
+                mevki: bulunanMevki!,
+                ppColor: Colors.blue,
+                sIcon: const Icon(Icons.photo),
+              ),
+            ),
+          );
+          print("${(user.il)},${(user.ilce)},${(user.brans)}, ${(user.mevki)}");
+        },
+      );
+    }
   }
 
   @override
@@ -323,7 +337,7 @@ class _searchPageState extends State<searchPage> {
 
   _bilgilerimeGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) =>  bilgilerim()));
+        .push(CupertinoPageRoute(builder: (context) => bilgilerim()));
   }
 
   Future<void> sonAramaSakla() async {

@@ -108,6 +108,7 @@ MERGED from [:shared_preferences_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTT
 MERGED from [:permission_handler_android] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:geocoding] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geocoding\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:google_mobile_ads] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_mobile_ads\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [:fluttertoast] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\224d32528c14de86600ae9f4b308ccaa\transformed\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-ads:21.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\b8dd4f967e2d72a8ed038fdd7d58c17d\transformed\jetified-play-services-ads-21.2.0\AndroidManifest.xml:17:1-25:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\8bffc0e5dda3b83649c900720739e56d\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
@@ -274,6 +275,8 @@ MERGED from [:geocoding] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\buil
 MERGED from [:geocoding] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\geocoding\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:google_mobile_ads] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_mobile_ads\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:google_mobile_ads] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_mobile_ads\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\224d32528c14de86600ae9f4b308ccaa\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tayfu\.gradle\caches\transforms-3\224d32528c14de86600ae9f4b308ccaa\transformed\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [com.google.android.gms:play-services-ads:21.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\b8dd4f967e2d72a8ed038fdd7d58c17d\transformed\jetified-play-services-ads-21.2.0\AndroidManifest.xml:21:5-23:52

@@ -23,7 +23,6 @@ class bilgilerim extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
-  
   @override
   _bilgilerimState createState() => _bilgilerimState();
 }
@@ -303,12 +302,11 @@ class _bilgilerimState extends State<bilgilerim> {
                                       );
 
                                       await AuthService().updateUser(user);
-                                      
 
-                                       Navigator.of(context).push(
+                                      Navigator.of(context).push(
                                           CupertinoPageRoute(
                                               builder: (context) =>
-                                                  const searchPage())); 
+                                                  const searchPage()));
                                     },
                                     child: const Text('Kaydet ve partner bul'),
                                   ),
@@ -317,7 +315,6 @@ class _bilgilerimState extends State<bilgilerim> {
                             if (ilce == null || brans == null)
                               ElevatedButton(
                                   onPressed: () {
-                                    
                                     Navigator.of(context).push(
                                         CupertinoPageRoute(
                                             builder: (context) =>
@@ -325,10 +322,16 @@ class _bilgilerimState extends State<bilgilerim> {
                                   },
                                   child: const Text('Gezinti')),
                             SizedBox(
-                              height: 40,
+                              height: 20,
                             ),
-                            
-                            
+                            Container(
+                              width: AdSize.banner.width.toDouble(),
+                              height: AdSize.banner.height.toDouble(),
+                              alignment: Alignment.bottomCenter,
+                              child: AdWidget(
+                                ad: adHelper.createBannerAd(),
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -342,7 +345,6 @@ class _bilgilerimState extends State<bilgilerim> {
       ),
     );
   }
-
 
   Column info() {
     return Column(
@@ -390,8 +392,6 @@ class _bilgilerimState extends State<bilgilerim> {
       ],
     );
   }
-
-  
 
   Widget controlPremium() {
     if (user.premium == true) {

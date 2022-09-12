@@ -132,7 +132,7 @@ class _showState extends State<show> {
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     'Bana ait bazı fotoğraflar aşağıdadır.',
-                    style: TextStyle(color: Colors.blue),
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
                 SingleChildScrollView(
@@ -239,7 +239,7 @@ class _showState extends State<show> {
     if (widget.whoData.il != null) {
       return Text(
         "${widget.whoData.il}/${widget.whoData.ilce} - ${widget.whoData.brans}/${widget.whoData.mevki}",
-        style: const TextStyle(color: Colors.blue),
+        style: const TextStyle(color: Colors.yellow),
       );
     } else {
       return Text(
@@ -264,7 +264,7 @@ class _showState extends State<show> {
 
   _bilgilerimeGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) =>  bilgilerim()));
+        .push(CupertinoPageRoute(builder: (context) => bilgilerim()));
   }
 
   _searchPage() {

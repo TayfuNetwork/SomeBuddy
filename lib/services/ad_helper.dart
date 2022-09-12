@@ -64,7 +64,8 @@ class AdHelper {
           print("${err.message}");
         }));
   }
-  Future<void> showInterstitialAd() async {
+
+  Future<void> showInterstitialAd(Function(InterstitialAd)? function) async {
     if (interstitialAd == null) {
       createInterstitialAd();
       print('Warning: attempt to show interstitial before loaded.');
@@ -73,8 +74,7 @@ class AdHelper {
     if (_isIntertitialLoaded) {
       print("Show Ads isLoaded");
       interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
-        onAdShowedFullScreenContent: (InterstitialAd ad) =>
-            print('ad onAdShowedFullScreenContent.'),
+        onAdShowedFullScreenContent: function,
         onAdDismissedFullScreenContent: (InterstitialAd ad) {
           print('$ad onAdDismissedFullScreenContent.');
           ad.dispose();
@@ -100,6 +100,7 @@ class AdHelper {
       print("Dont show Ad isNotLoaded");
     }
   }
+
   Future<void> showRewardedAd() async {
     if (rewardedAd == null) {
       createRewardedAd();
@@ -143,14 +144,18 @@ class AdHelper {
     }
   }
 
-  String _bannerAdUnitId =
-      Platform.isAndroid ? 'ca-app-pub3940256099942544/6300978111' : ""; //ca-app-pub-1753932827820630/3349726379
-  String _interstitialAdUnitId =
-      Platform.isAndroid ? 'ca-app-pub-3940256099942544/1033173712' : "";//ca-app-pub-1753932827820630/5486565435
-  String _rewardedAdUnitId =
-      Platform.isAndroid ? 'ca-app-pub-3940256099942544-5224354917' : "";//ca-app-pub-1753932827820630/1439509214
+  String _bannerAdUnitId = Platform.isAndroid
+      ? "ca-app-pub-3940256099942544/6300978111"
+      : ""; //ca-app-pub-1753932827820630/3349726379
+  String _interstitialAdUnitId = Platform.isAndroid
+      ? 'ca-app-pub-3940256099942544/1033173712'
+      : ""; //ca-app-pub-1753932827820630/5486565435
+  String _rewardedAdUnitId = Platform.isAndroid
+      ? 'ca-app-pub-3940256099942544/5224354917'
+      : ""; //ca-app-pub-1753932827820630/1439509214
 
   bool _isIntertitialLoaded = false;
   bool _isRewardedAdLoaded = false;
 }
+
 AdHelper adHelper = AdHelper();
