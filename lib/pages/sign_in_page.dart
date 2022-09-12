@@ -132,7 +132,7 @@ class _SignInPageState extends State<SignInPage> {
 
           if (AuthService().isHaveProfile) {
             return Navigator.of(context).pushAndRemoveUntil(
-                CupertinoPageRoute(builder: (context) => const bilgilerim()),
+                CupertinoPageRoute(builder: (context) =>  bilgilerim()),
                 ((route) => false));
           } else {
             return Navigator.of(context).pushAndRemoveUntil(

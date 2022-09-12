@@ -218,7 +218,7 @@ class _ResultsState extends State<Results> {
 
   _bilgilerimeGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => const bilgilerim()));
+        .push(CupertinoPageRoute(builder: (context) =>  bilgilerim()));
   }
 
   _searchPage() {

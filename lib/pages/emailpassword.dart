@@ -54,7 +54,7 @@ class _EmailPasswordState extends State<EmailPassword> {
         Navigator.of(context).pushAndRemoveUntil(
             CupertinoPageRoute(
                 builder: (context) => AuthService().isHaveProfile
-                    ? const bilgilerim()
+                    ?  bilgilerim()
                     : const Profile()),
             ((route) => false));
       }

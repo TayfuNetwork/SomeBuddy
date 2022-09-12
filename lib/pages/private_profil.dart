@@ -476,14 +476,11 @@ class _private_profilState extends State<private_profil> {
 
   uploadGalleryPhotoCamera(ImageSource sourche) async {
     final ImagePicker _picker = ImagePicker();
-    PickedFile? compressedImage = await _picker.getImage(
-      source: ImageSource.camera,
-      imageQuality: 85,
-    );
+    
     var userID = AuthService().user!.id;
-    
-    XFile? _file = await _picker.pickImage(source: sourche);
-    
+
+    XFile? _file = await _picker.pickImage(source: sourche, imageQuality: 40);
+
     String ref = 'photo_$userID' +
         '_' +
         DateTime.now().millisecondsSinceEpoch.toString();
@@ -509,7 +506,7 @@ class _private_profilState extends State<private_profil> {
   uploadProfilPhoto(ImageSource sourche) async {
     final ImagePicker _picker = ImagePicker();
     var userID = AuthService().user!.id;
-    XFile? _file = await _picker.pickImage(source: sourche);
+    XFile? _file = await _picker.pickImage(source: sourche, imageQuality: 40);
     String ref = 'photo_$userID' +
         '_' +
         DateTime.now().millisecondsSinceEpoch.toString();
@@ -542,7 +539,7 @@ class _private_profilState extends State<private_profil> {
 
   _bilgilerimeGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => const bilgilerim()));
+        .push(CupertinoPageRoute(builder: (context) =>  bilgilerim()));
   }
 
   _mesajlaraGit() {

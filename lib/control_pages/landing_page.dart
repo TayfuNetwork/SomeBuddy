@@ -64,7 +64,7 @@ class LandingPageState extends State<LandingPage> {
     } else {
       if (AuthService().isHaveProfile) {
         call();
-        return const bilgilerim();
+        return bilgilerim();
       } else {
         return const Profile();
       }

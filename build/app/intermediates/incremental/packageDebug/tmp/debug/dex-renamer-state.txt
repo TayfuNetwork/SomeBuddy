@@ -1,10 +1,13 @@
-#Sun Sep 11 17:17:10 TRT 2022
-base.2=C\:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\SomeBuddy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex
+#Mon Sep 12 06:11:14 TRT 2022
+path.3=classes4.dex
 path.2=classes3.dex
-base.1=C\:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\SomeBuddy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
 path.1=classes2.dex
+path.0=classes.dex
+base.3=C\:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\SomeBuddy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes4.dex
+base.2=C\:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\SomeBuddy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex
+base.1=C\:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\SomeBuddy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
 base.0=C\:\\Users\\tayfu\\OneDrive\\Belgeler\\FLUTTER\\SomeBuddy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-path.0=classes.dex

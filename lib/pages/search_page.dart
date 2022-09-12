@@ -323,7 +323,7 @@ class _searchPageState extends State<searchPage> {
 
   _bilgilerimeGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => const bilgilerim()));
+        .push(CupertinoPageRoute(builder: (context) =>  bilgilerim()));
   }
 
   Future<void> sonAramaSakla() async {

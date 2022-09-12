@@ -57,6 +57,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.10.0
+  google_mobile_ads: ^1.2.0
+
   
 
 flutter_icons:

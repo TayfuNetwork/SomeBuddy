@@ -7,9 +7,11 @@ import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/services/auth_service.dart';
+import '../control_pages/ad_helper.dart';
 import '../control_pages/json-models.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'gelen_kutusu.dart';
 
@@ -17,9 +19,32 @@ import 'gelen_kutusu.dart';
 // ignore: camel_case_types
 // ignore: camel_case_types
 class bilgilerim extends StatefulWidget {
-  const bilgilerim({
+  bilgilerim({
     Key? key,
   }) : super(key: key);
+
+  Future<InitializationStatus> _initGoogleMobileAds() {
+    return MobileAds.instance.initialize();
+  }
+
+  InterstitialAd? _interstitialAd;
+  BannerAd? _bannerAd;
+  void initState() {
+    BannerAd(
+      adUnitId: AdHelper.bannerAdUnitId,
+      request: AdRequest(),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          _bannerAd = ad as BannerAd;
+        },
+        onAdFailedToLoad: (ad, err) {
+          print('Failed to load a banner ad: ${err.message}');
+          ad.dispose();
+        },
+      ),
+    ).load();
+  }
 
   @override
   _bilgilerimState createState() => _bilgilerimState();
@@ -301,11 +326,12 @@ class _bilgilerimState extends State<bilgilerim> {
                                       );
 
                                       await AuthService().updateUser(user);
+                                      _loadInterstitialAd(searchPage());
 
-                                      Navigator.of(context).push(
+                                      /* Navigator.of(context).push(
                                           CupertinoPageRoute(
                                               builder: (context) =>
-                                                  const searchPage()));
+                                                  const searchPage())); */
                                     },
                                     child: const Text('Kaydet ve partner bul'),
                                   ),
@@ -314,12 +340,34 @@ class _bilgilerimState extends State<bilgilerim> {
                             if (ilce == null || brans == null)
                               ElevatedButton(
                                   onPressed: () {
+                                    if (widget._interstitialAd != null) {
+                                      widget._interstitialAd!.show();
+                                      _loadInterstitialAd(searchPage());
+                                    }
                                     Navigator.of(context).push(
                                         CupertinoPageRoute(
                                             builder: (context) =>
                                                 const searchPage()));
                                   },
                                   child: const Text('Gezinti')),
+                            SizedBox(
+                              height: 40,
+                            ),
+                            if (widget._bannerAd != null)
+                              Container(
+                                width: widget._bannerAd!.size.width.toDouble(),
+                                height:
+                                    widget._bannerAd!.size.height.toDouble(),
+                                child: AdWidget(ad: widget._bannerAd!),
+                              ),
+                            if (widget._bannerAd == null)
+                              Container(
+                                  width: 200,
+                                  height: 200,
+                                  child: Text(
+                                    "Reklam yüklenemedi",
+                                    style: TextStyle(color: Colors.black),
+                                  )),
                           ],
                         ),
                       ],
@@ -334,6 +382,14 @@ class _bilgilerimState extends State<bilgilerim> {
     );
   }
 
+/*   @override
+  void dispose() {
+   
+    widget._bannerAd?.dispose();
+
+    super.dispose();
+  }
+ */
   Column info() {
     return Column(
       children: [
@@ -378,6 +434,28 @@ class _bilgilerimState extends State<bilgilerim> {
           ),
         ),
       ],
+    );
+  }
+
+  void _loadInterstitialAd(Sourche) {
+    InterstitialAd.load(
+      adUnitId: AdHelper.interstitialAdUnitId,
+      request: AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) {
+          ad.fullScreenContentCallback = FullScreenContentCallback(
+            onAdDismissedFullScreenContent: (ad) {
+              Navigator.of(context)
+                  .push(CupertinoPageRoute(builder: (context) => Sourche()));
+            },
+          );
+
+          widget._interstitialAd = ad;
+        },
+        onAdFailedToLoad: (err) {
+          print('Failed to load an interstitial ad: ${err.message}');
+        },
+      ),
     );
   }
 

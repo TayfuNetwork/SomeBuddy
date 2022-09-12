@@ -9,8 +9,6 @@ buildscript {
         classpath 'com.android.tools.build:gradle:7.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:4.3.13'
-        //implementation platform('com.google.firebase:firebase-bom:30.2.0')
-        //implementation 'com.google.firebase:firebase-analytics-ktx'
     }
 }
 //apply plugin: 'com.android.application'
