@@ -101,7 +101,7 @@ class AdHelper {
     }
   }
 
-  Future<void> showRewardedAd() async {
+  Future<void> showRewardedAd(Function(RewardedAd)? function) async {
     if (rewardedAd == null) {
       createRewardedAd();
       print('Warning: attempt to show rewarded before loaded.');
@@ -110,8 +110,9 @@ class AdHelper {
     if (_isRewardedAdLoaded) {
       print("Show Ads isLoaded");
       rewardedAd!.fullScreenContentCallback = FullScreenContentCallback(
-        onAdShowedFullScreenContent: (RewardedAd ad) =>
-            print('ad onAdShowedFullScreenContent.'),
+        onAdShowedFullScreenContent: (RewardedAd ad) {
+          print('ad onAdShowedFullScreenContent.');
+        },
         onAdDismissedFullScreenContent: (RewardedAd ad) {
           print('$ad onAdDismissedFullScreenContent.');
           ad.dispose();
@@ -125,7 +126,7 @@ class AdHelper {
         await rewardedAd!.show(
           onUserEarnedReward: (ad, reward) {
             Fluttertoast.showToast(
-              msg: "Ödül verildi",
+              msg: "Cinsiyeti Seçebilirsin",
               gravity: ToastGravity.BOTTOM,
               toastLength: Toast.LENGTH_LONG,
             );

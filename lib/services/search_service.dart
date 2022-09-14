@@ -41,3 +41,46 @@ class SearchService {
         .snapshots();
   }
 }
+
+class SearchService2 {
+  bool isHaveProfile = false;
+
+  static SearchService2? _instance;
+
+  factory SearchService2() {
+    if (_instance != null) {
+      return _instance!;
+    } else {
+      _instance = SearchService2._();
+      return _instance!;
+    }
+  }
+
+  SearchService2._();
+
+  CollectionReference<Map<String, dynamic>> get userCollection =>
+      FirebaseFirestore.instance.collection("Users");
+
+  Future<List<MyUser>>? search(
+      String il, String ilce, String brans, String mevki, String sex) async {
+    QuerySnapshot<Map<String, dynamic>> maps = await userCollection
+        .where("il", isEqualTo: il)
+        .where("ilce", isEqualTo: ilce)
+        .where("brans", isEqualTo: brans)
+        .where("mevki", isEqualTo: mevki)
+        .where("sex", isEqualTo: sex)
+        .get();
+    return maps.docs.map((e) => MyUser.fromMap(e.data())).toList();
+  }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> searchStream1(
+      String il, String ilce, String brans, String mevki, String sex) {
+    return userCollection
+        .where("il", isEqualTo: il)
+        .where("ilce", isEqualTo: ilce)
+        .where("brans", isEqualTo: brans)
+        .where("mevki", isEqualTo: mevki)
+        .where("sex", isEqualTo: sex)
+        .snapshots();
+  }
+}

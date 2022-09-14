@@ -6,9 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/gelen_kutusu.dart';
+import 'package:version1/pages/result_Sex.dart';
 import 'package:version1/pages/results.dart';
 import 'package:version1/services/ad_helper.dart';
 import 'package:version1/services/auth_service.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 // ignore: camel_case_types
 class searchPage extends StatefulWidget {
@@ -34,6 +36,15 @@ class _searchPageState extends State<searchPage> {
   String? bulunanIlce;
   String? bulunanBrans;
   String? bulunanMevki;
+  String? Cinsiyet;
+  String? secilenCinsiyet;
+  bool? izlendi = false;
+  Future<void> cinsiyetArama() async {
+    if (adHelper.rewardedAd != null) {
+      await adHelper.showRewardedAd((p1) => izlendi = true);
+    }
+  }
+
   Future<void> arama() async {
     if (adHelper.interstitialAd != null) {
       await adHelper.showInterstitialAd(
@@ -89,6 +100,8 @@ class _searchPageState extends State<searchPage> {
     }
   }
 
+  String? sex;
+  SexServices model1 = SexServices();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -126,144 +139,110 @@ class _searchPageState extends State<searchPage> {
         ),
         //******************************************************************//
 
-        body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image:
-                  AssetImage("images/background.png"), // <-- BACKGROUND IMAGE
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: SingleChildScrollView(
-              child: Container(
-            width: double.maxFinite,
-            padding: const EdgeInsets.all(15),
-            margin: const EdgeInsets.all(20),
+        body: SingleChildScrollView(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: const [
-                  BoxShadow(color: Colors.grey, blurRadius: 6),
-                ]),
-            //******************************************************************//
+              image: DecorationImage(
+                image:
+                    AssetImage("images/background.png"), // <-- BACKGROUND IMAGE
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: SingleChildScrollView(
+                child: Container(
+              width: double.maxFinite,
+              padding: const EdgeInsets.all(15),
+              margin: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: const [
+                    BoxShadow(color: Colors.grey, blurRadius: 6),
+                  ]),
+              //******************************************************************//
 
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "! Yazım yanlışına dikkat ediniz !",
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                //******************************************************************//
-
-                TextFormField(
-                  inputFormatters: <TextInputFormatter>[
-                    UpperCaseTextFormatter()
-                  ],
-                  maxLines: 1,
-                  style: const TextStyle(color: Colors.black),
-                  decoration: const InputDecoration(
-                    hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 1)),
-                    focusColor: Colors.blue,
-                    hintText: 'İli giriniz',
-                    enabled: true,
-                  ),
-                  autofocus: false,
-                  onChanged: (girilenil) {
-                    il = girilenil;
-                  },
-                ),
-                //******************************************************************//
-
-                const SizedBox(height: 10),
-                //******************************************************************//
-
-                TextField(
-                  inputFormatters: <TextInputFormatter>[
-                    UpperCaseTextFormatter()
-                  ],
-                  textCapitalization: TextCapitalization.words,
-                  maxLines: 1,
-                  style: const TextStyle(color: Colors.black),
-                  decoration: const InputDecoration(
-                    hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 1)),
-                    focusColor: Colors.blue,
-                    hintText: 'İlçeyi giriniz',
-                    enabled: true,
-                  ),
-                  autofocus: false,
-                  onChanged: (girilenilce) {
-                    ilce = girilenilce;
-                  },
-                ),
-
-                //******************************************************************//
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text("Branş:", style: TextStyle(color: Colors.blue)),
-                    DropdownButton<int>(
-                      menuMaxHeight: 400,
-                      iconEnabledColor: Colors.blue,
-                      dropdownColor: const Color.fromARGB(255, 28, 185, 242),
-                      style: const TextStyle(color: Colors.black),
-                      value: brans?.no ?? 82,
-                      items: model.branslar.map((b) {
-                        return DropdownMenuItem(
-                          child: Text(b.brans,
-                              style: const TextStyle(color: Colors.black)),
-                          value: b.no,
-                          onTap: () {
-                            setState(() {
-                              brans = b;
-                              mevki = b.mevki.first;
-                            });
-                          },
-                        );
-                      }).toList(),
-                      onChanged: (s) {},
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "! Yazım yanlışına dikkat ediniz !",
+                      style: TextStyle(color: Colors.red),
                     ),
-                    Icon(
-                      Icons.download,
-                      color: Colors.blue,
-                    )
-                  ],
-                ),
-                //******************************************************************//
+                  ),
+                  const SizedBox(height: 20),
+                  //******************************************************************//
 
-                if (brans != null)
+                  TextFormField(
+                    inputFormatters: <TextInputFormatter>[
+                      UpperCaseTextFormatter()
+                    ],
+                    maxLines: 1,
+                    style: const TextStyle(color: Colors.black),
+                    decoration: const InputDecoration(
+                      hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue, width: 1)),
+                      focusColor: Colors.blue,
+                      hintText: 'İli giriniz',
+                      enabled: true,
+                    ),
+                    autofocus: false,
+                    onChanged: (girilenil) {
+                      il = girilenil;
+                    },
+                  ),
+                  //******************************************************************//
+
+                  const SizedBox(height: 10),
+                  //******************************************************************//
+
+                  TextField(
+                    inputFormatters: <TextInputFormatter>[
+                      UpperCaseTextFormatter()
+                    ],
+                    textCapitalization: TextCapitalization.words,
+                    maxLines: 1,
+                    style: const TextStyle(color: Colors.black),
+                    decoration: const InputDecoration(
+                      hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue, width: 1)),
+                      focusColor: Colors.blue,
+                      hintText: 'İlçeyi giriniz',
+                      enabled: true,
+                    ),
+                    autofocus: false,
+                    onChanged: (girilenilce) {
+                      ilce = girilenilce;
+                    },
+                  ),
+
+                  //******************************************************************//
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text("mevki:",
+                      const Text("Branş:",
                           style: TextStyle(color: Colors.blue)),
-                      DropdownButton<String>(
+                      DropdownButton<int>(
                         menuMaxHeight: 400,
                         iconEnabledColor: Colors.blue,
                         dropdownColor: const Color.fromARGB(255, 28, 185, 242),
-                        value: mevki ?? brans!.mevki.first,
                         style: const TextStyle(color: Colors.black),
-                        items: model.mevki(brans!.no).map((b) {
+                        value: brans?.no ?? 82,
+                        items: model.branslar.map((b) {
                           return DropdownMenuItem(
-                            child: Text(
-                              b,
-                              style: const TextStyle(color: Colors.black),
-                            ),
-                            value: b,
+                            child: Text(b.brans,
+                                style: const TextStyle(color: Colors.black)),
+                            value: b.no,
                             onTap: () {
                               setState(() {
-                                mevki = b;
+                                brans = b;
+                                mevki = b.mevki.first;
                               });
                             },
                           );
@@ -276,55 +255,197 @@ class _searchPageState extends State<searchPage> {
                       )
                     ],
                   ),
-                //******************************************************************//
+                  //******************************************************************//
 
-                Column(
-                  children: [
-                    SizedBox(
-                      height: 10,
+                  if (brans != null)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text("mevki:",
+                            style: TextStyle(color: Colors.blue)),
+                        DropdownButton<String>(
+                          menuMaxHeight: 400,
+                          iconEnabledColor: Colors.blue,
+                          dropdownColor:
+                              const Color.fromARGB(255, 28, 185, 242),
+                          value: mevki ?? brans!.mevki.first,
+                          style: const TextStyle(color: Colors.black),
+                          items: model.mevki(brans!.no).map((b) {
+                            return DropdownMenuItem(
+                              child: Text(
+                                b,
+                                style: const TextStyle(color: Colors.black),
+                              ),
+                              value: b,
+                              onTap: () {
+                                setState(() {
+                                  mevki = b;
+                                });
+                              },
+                            );
+                          }).toList(),
+                          onChanged: (s) {},
+                        ),
+                        Icon(
+                          Icons.download,
+                          color: Colors.blue,
+                        ),
+                      ],
                     ),
-                    ElevatedButton(
-                        onPressed: () {
-                          if (il != null && ilce != null && brans != null) {
-                            arama();
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    backgroundColor: Colors.blue,
-                                    content: Text(
-                                        "Bütün alanları eksiksiz doldurmalısınız.",
-                                        style:
-                                            TextStyle(color: Colors.white))));
-                          }
-                        },
-                        child: const Text('Ara')),
-                    SizedBox(
-                      height: 30,
+                  //******************************************************************//
+                  if (izlendi == true)
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextButton(
+                                onPressed: () {
+                                  setState(() {
+                                    secilenCinsiyet = "Erkek";
+                                    sex = secilenCinsiyet;
+                                  });
+                                },
+                                child: Text(
+                                  "Erkek",
+                                  style: TextStyle(color: Colors.black),
+                                )),
+                            if (secilenCinsiyet == "Erkek")
+                              Icon(
+                                Icons.download_done_outlined,
+                                color: Colors.green,
+                              )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextButton(
+                                onPressed: () {
+                                  setState(() {
+                                    secilenCinsiyet = "Kadın";
+                                    sex = secilenCinsiyet;
+                                  });
+                                },
+                                child: Text(
+                                  "Kadın",
+                                  style: TextStyle(color: Colors.black),
+                                )),
+                            if (secilenCinsiyet == "Kadın")
+                              Icon(
+                                Icons.download_done_outlined,
+                                color: Colors.green,
+                              )
+                          ],
+                        )
+                      ],
                     ),
-                    if (AuthService().user?.il != null)
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: 10,
+                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            if (il != null && ilce != null && brans != null) {
+                              if (izlendi == true) {
+                                Navigator.of(context).push(CupertinoPageRoute(
+                                    builder: (context) => Results2(
+                                        sex: sex!,
+                                        sIcon: Icon(Icons.person),
+                                        ppColor: ppColor!,
+                                        brans: brans!.brans,
+                                        il: il!,
+                                        ilce: ilce!,
+                                        mevki: mevki!)));
+                              } else {
+                                arama();
+                              }
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      backgroundColor: Colors.blue,
+                                      content: Text(
+                                          "Bütün alanları eksiksiz doldurmalısınız.",
+                                          style:
+                                              TextStyle(color: Colors.white))));
+                            }
+                          },
+                          child: const Text('Ara')),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(
+                            Icons.no_adult_content,
+                            color: Colors.red,
+                          ),
+                          Text(
+                            "Cinsiyet filtrelemesi için reklam ",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          Icon(
+                            Icons.navigate_next,
+                            color: Colors.red,
+                          ),
+                          TextButton(
+                              onPressed: () {
+                                cinsiyetArama();
+                                setState(() {
+                                  izlendi = true;
+                                });
+                              },
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.blue),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      "İzle",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ))),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      if (AuthService().user?.il != null)
+                        Row(
+                          children: [
+                            Icon(Icons.navigate_next, color: Colors.red),
+                            TextButton(
+                                onPressed: () {
+                                  yakinArama();
+                                },
+                                child: Text(" En yakın partneri bul")),
+                          ],
+                        ),
                       Row(
                         children: [
                           Icon(Icons.navigate_next, color: Colors.red),
                           TextButton(
-                              onPressed: () {
-                                yakinArama();
-                              },
-                              child: Text(" En yakın partneri bul")),
+                              onPressed: sonAramaTekrar,
+                              child: Text("Bir önceki aramayı tekrarla")),
                         ],
                       ),
-                    Row(
-                      children: [
-                        Icon(Icons.navigate_next, color: Colors.red),
-                        TextButton(
-                            onPressed: sonAramaTekrar,
-                            child: Text("Bir önceki aramayı tekrarla")),
-                      ],
-                    )
-                  ],
-                ),
-              ],
-            ),
-          )),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        width: AdSize.banner.width.toDouble(),
+                        height: AdSize.banner.height.toDouble(),
+                        alignment: Alignment.bottomCenter,
+                        child: AdWidget(
+                          ad: adHelper.createBannerAd(),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )),
+          ),
         ),
       ),
     );

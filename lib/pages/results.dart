@@ -49,7 +49,7 @@ class _ResultsState extends State<Results> {
           toolbarOpacity: 0.8,
           shadowColor: Colors.black,
           title: const Text(
-            "Partner Adayları",
+            "Sonuçlar",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
           ),
           shape: RoundedRectangleBorder(
@@ -218,7 +218,7 @@ class _ResultsState extends State<Results> {
 
   _bilgilerimeGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) =>  bilgilerim()));
+        .push(CupertinoPageRoute(builder: (context) => bilgilerim()));
   }
 
   _searchPage() {
