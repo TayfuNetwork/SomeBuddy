@@ -41,7 +41,7 @@ class _bilgilerimState extends State<bilgilerim> {
   String? ilce;
   String? url = AuthService().user?.image;
   MyUser get user => AuthService().user!;
-  bool? premiumMu = AuthService().user?.premium;
+  //bool? premiumMu = AuthService().user?.premium;
   Position? _currentPosition;
   String? _konumIl;
   String? _konumIlce;
@@ -86,7 +86,7 @@ class _bilgilerimState extends State<bilgilerim> {
               icon: const Icon(Icons.search, color: Colors.white),
               onPressed: _searchPage,
             ),
-            controlPremium()
+            //controlPremium()
           ],
         ),
         body: Column(
@@ -185,28 +185,39 @@ class _bilgilerimState extends State<bilgilerim> {
                           children: [
                             ElevatedButton(
                                 onPressed: () async {
-                                  _currentPosition = await determinePosition();
-                                  await _getAddressFromLatLng();
-                                  _getCurrentLocation();
-                                  il = _konumIl;
-                                  ilce = _konumIlce;
-
-                                  setState(() {});
-                                  setState(() {
-                                    _isloading = false;
-                                  });
-                                  await Future.delayed(Duration(seconds: 5));
-                                  setState(() {
+                                  try {
+                                    _currentPosition =
+                                        await determinePosition();
+                                    await _getAddressFromLatLng();
                                     _getCurrentLocation();
                                     il = _konumIl;
                                     ilce = _konumIlce;
-                                    _isloading = true;
-                                    _durum = "Konum Belirlendi";
-                                  });
-                                  await Future.delayed(Duration(seconds: 3));
-                                  setState(() {
-                                    _durum = "Konum Oluştur";
-                                  });
+
+                                    setState(() {});
+                                    setState(() {
+                                      _isloading = false;
+                                    });
+                                    await Future.delayed(Duration(seconds: 3));
+                                    setState(() {
+                                      _getCurrentLocation();
+                                      il = _konumIl;
+                                      ilce = _konumIlce;
+                                      _isloading = true;
+                                      _durum = "Konum Belirlendi";
+                                    });
+                                    await Future.delayed(Duration(seconds: 3));
+                                    setState(() {
+                                      _durum = "Konum Oluştur";
+                                    });
+                                  } catch (e) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                            backgroundColor: Colors.blue,
+                                            content: Text(
+                                                "Konumunuza erişilemiyor, açık olduğundan emin olun.",
+                                                style: TextStyle(
+                                                    color: Colors.white))));
+                                  }
                                 },
                                 child: !_isloading
                                     ? buildSmallButton()
@@ -393,7 +404,7 @@ class _bilgilerimState extends State<bilgilerim> {
     );
   }
 
-  Widget controlPremium() {
+ /*  Widget controlPremium() {
     if (user.premium == true) {
       return IconButton(
         onPressed: () {
@@ -417,7 +428,7 @@ class _bilgilerimState extends State<bilgilerim> {
           },
           icon: const Icon(Icons.star));
     }
-  }
+  } */
 
   Color renk() {
     if (AuthService().user!.sex == 'Kadın') {
@@ -519,7 +530,9 @@ class _bilgilerimState extends State<bilgilerim> {
     if (user.il != null) {
       return Text(
         "${user.il}/${user.ilce} - ${user.brans}/${user.mevki}",
-        style: const TextStyle(color: Colors.blue),
+        style: const TextStyle(
+          color: Colors.blue,
+        ),
       );
     } else {
       return Text(

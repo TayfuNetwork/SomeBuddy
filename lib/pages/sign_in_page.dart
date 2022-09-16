@@ -9,6 +9,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:version1/pages/emailpassword.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/profil.dart';
+import 'package:version1/pages/welcome.dart';
 import 'package:version1/services/auth_service.dart';
 
 class SignInPage extends StatefulWidget {
@@ -132,11 +133,11 @@ class _SignInPageState extends State<SignInPage> {
 
           if (AuthService().isHaveProfile) {
             return Navigator.of(context).pushAndRemoveUntil(
-                CupertinoPageRoute(builder: (context) =>  bilgilerim()),
+                CupertinoPageRoute(builder: (context) => welcome()),
                 ((route) => false));
           } else {
             return Navigator.of(context).pushAndRemoveUntil(
-                CupertinoPageRoute(builder: (context) => const Profile()),
+                CupertinoPageRoute(builder: (context) => welcome()),
                 ((route) => false));
           }
         }

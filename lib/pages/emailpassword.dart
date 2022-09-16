@@ -139,7 +139,8 @@ class _EmailPasswordState extends State<EmailPassword> {
           ),
         ),
       ),
-    ));
+    )
+    );
   }
 
   degistir() {

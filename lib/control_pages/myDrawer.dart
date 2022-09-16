@@ -2,7 +2,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:version1/pages/geo.dart';
 import 'package:version1/pages/usage.dart';
 import '../models/user.dart';
 import '../pages/private_profil.dart';
@@ -55,7 +54,7 @@ class _MyDrawerState extends State<MyDrawer> {
                       _privateprofil();
                     },
                   ),
-                  ListTile(
+                  /* ListTile(
                       leading: const Icon(Icons.star),
                       title: const Text("PREMIUM DETAYLARI",
                           style: TextStyle(fontSize: 15)),
@@ -63,13 +62,13 @@ class _MyDrawerState extends State<MyDrawer> {
                       onTap: () {
                         Navigator.of(context).push(CupertinoPageRoute(
                             builder: (context) => HomePage()));
-                      }),
-                  ListTile(
+                      }), */
+                  /* ListTile(
                       leading: const Icon(Icons.safety_divider),
                       title: const Text("GÖRÜŞ - ÖNERİ BİLDİRİN",
                           style: TextStyle(fontSize: 12)),
                       trailing: const Icon(Icons.keyboard_arrow_right),
-                      onTap: () {}),
+                      onTap: () {}), */
                   ListTile(
                       leading: const Icon(Icons.video_collection_outlined),
                       title: const Text("NASIL KULLANILIR ?",
@@ -132,7 +131,7 @@ class _MyDrawerState extends State<MyDrawer> {
     } */
   }
 
-  Widget control() {
+/*   Widget control() {
     if (user.premium == true) {
       return IconButton(
         onPressed: () {
@@ -156,7 +155,7 @@ class _MyDrawerState extends State<MyDrawer> {
           },
           icon: const Icon(Icons.star));
     }
-  }
+  } */
 
   _imageController() {
     var whoData = AuthService().user;

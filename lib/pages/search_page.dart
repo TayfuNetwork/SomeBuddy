@@ -372,40 +372,43 @@ class _searchPageState extends State<searchPage> {
                             }
                           },
                           child: const Text('Ara')),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            Icons.no_adult_content,
-                            color: Colors.red,
-                          ),
-                          Text(
-                            "Cinsiyet filtrelemesi için reklam ",
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          Icon(
-                            Icons.navigate_next,
-                            color: Colors.red,
-                          ),
-                          TextButton(
-                              onPressed: () {
-                                cinsiyetArama();
-                                setState(() {
-                                  izlendi = true;
-                                });
-                              },
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.blue),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "İzle",
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ))),
-                        ],
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Icon(
+                              Icons.navigate_next,
+                              color: Colors.red,
+                            ),
+                            Text(
+                              "Cinsiyet filtrelemesi için reklam ",
+                              style: TextStyle(color: Colors.red),
+                            ),
+                            Icon(
+                              Icons.navigate_next,
+                              color: Colors.red,
+                            ),
+                            TextButton(
+                                onPressed: () {
+                                  cinsiyetArama();
+                                  setState(() {
+                                    izlendi = true;
+                                  });
+                                },
+                                child: Container(
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.blue),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(2.0),
+                                      child: Text(
+                                        "İzle",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ))),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: 20,

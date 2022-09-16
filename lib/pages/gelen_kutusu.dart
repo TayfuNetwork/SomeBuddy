@@ -146,6 +146,18 @@ class _InboxState extends State<Inbox> {
                                                                   .doc(
                                                                       "${myuser}--${user.id}")
                                                                   .delete();
+
+                                                              FirebaseFirestore
+                                                                  .instance
+                                                                  .collection(
+                                                                      "konusmalar")
+                                                                  .doc(
+                                                                      "${myuser}--${user.id}")
+                                                                  .collection(
+                                                                      "mesajlar")
+                                                                  .doc()
+                                                                  .delete();
+
                                                               Navigator.pop(
                                                                   context);
                                                             },

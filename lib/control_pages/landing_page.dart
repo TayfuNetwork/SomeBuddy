@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+//import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/profil.dart';
 import 'package:version1/pages/sign_in_page.dart';
@@ -13,7 +13,7 @@ class LandingPage extends StatefulWidget {
   State<LandingPage> createState() => LandingPageState();
 }
 
-var flp = FlutterLocalNotificationsPlugin();
+/* var flp = FlutterLocalNotificationsPlugin();
 Future<void> kurulum() async {
   var androidAyari = AndroidInitializationSettings("@mipmap/ic_launcher");
   var iosAyari = IOSInitializationSettings();
@@ -41,20 +41,7 @@ Future<void> bildirimGoster() async {
   await flp.show(
       0, "Premium olmak çok kolay !", "Tıkla ve öğren", bildirimDetayi,
       payload: "Payload içerik");
-}
-
-Future<void>? call() {
-  var userr = AuthService().user!.premium;
-  if (userr != true) {
-    return bildirimGoster();
-  }
-  return null;
-}
-
-@override
-void initState() {
-  kurulum();
-}
+} */
 
 class LandingPageState extends State<LandingPage> {
   @override
@@ -63,7 +50,7 @@ class LandingPageState extends State<LandingPage> {
       return const SignInPage();
     } else {
       if (AuthService().isHaveProfile) {
-        call();
+        //call();
         return bilgilerim();
       } else {
         return const Profile();

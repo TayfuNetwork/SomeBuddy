@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class usage extends StatelessWidget {
   const usage({Key? key}) : super(key: key);
 
@@ -53,7 +52,7 @@ class usage extends StatelessWidget {
                       const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
-                            "Bu menü aracılığı ile mesajlarının bulunduğu sayfaya gidebilir. Aynı şekilde 'Profil' butonuna tıklayarak eğer kullanıcı premium bir üye ise, aramalarda nasıl görüneceğini düzenleyebilir, profil resmi yükleyebilir, kendisini tanımlayabilir ve de galerisine yeni resimler ekleyebilir"),
+                            "Bu menü aracılığı ile mesajlarının bulunduğu sayfaya gidebilir, aynı şekilde 'Profil' butonuna tıklayarak aramalarda nasıl görüneceğini düzenleyebilir, profil resmi yükleyebilir, kendisini tanımlayabilir ve de galerisine yeni resimler ekleyebilir"),
                       ),
                       const Text(
                         "Bilgilerini doldurma",
@@ -80,7 +79,7 @@ class usage extends StatelessWidget {
                       const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
-                            "Bu sayfada girilen kriterlere uygun eşleşmeler listelenir. Eşleşme sonucunda, sol tarafta bulunan daire biçimli simgenin içinde ilgili kullanıcının 'yaşını', simgenin rengi pembe ise cinsiyetinin kadın, mavi ise erkek olduğunu gösterir. Eğer listelenen kullanıcı premium bir üye ise sağ tarafında profil logosu belirir, eğer premium bir üye değil ise sağ tarafında mesaj logosu belirir. Premium olmayan üyelere yalnızca mesaj atabildiğiniz gibi, premium olan üyelerin profiline gidip kendisi hakkında daha fazla bilgiye ( Resimler ve biografisi ) ulaşabilirsiniz."),
+                            "Bu sayfada girilen kriterlere uygun eşleşmeler listelenir. Listelenen kullanıcının üstüne tıklayarak üyelerin profiline gidip kendisi hakkında daha fazla bilgiye ( Resimler ve biografisi ) ulaşabilirsiniz."),
                       ),
                       Padding(
                         padding: EdgeInsets.all(8.0),

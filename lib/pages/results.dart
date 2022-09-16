@@ -145,7 +145,7 @@ class _ResultsState extends State<Results> {
                           } else {
                             widget.ppColor = Colors.blue;
                           }
-                          if (e.premium == true) {
+                          if (e.premium == false) {
                             widget.sIcon =
                                 const Icon(Icons.person, color: Colors.red);
                           } else {
@@ -179,7 +179,7 @@ class _ResultsState extends State<Results> {
                               ),
                               trailing: widget.sIcon,
                               onTap: () {
-                                if (e.premium == true) {
+                                if (e.premium == false) {
                                   Navigator.of(context).push(CupertinoPageRoute(
                                       builder: (context) => show(
                                             whoData: e,
