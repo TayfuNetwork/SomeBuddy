@@ -30,9 +30,11 @@ class _welcomeState extends State<welcome> {
                     fit: BoxFit.cover)),
             child: Center(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Merhaba ! Hoşgeldiniz $isim $cinsiyet "),
-                  TextButton(onPressed: bilgilerimeGit, child: Text("Devam"))
+                  Text("Merhaba ! Tekrar hoşgeldiniz $isim $cinsiyet."),
+                  TextButton(
+                      onPressed: bilgilerimeGit, child: Text("Partner bul"))
                 ],
               ),
             )),

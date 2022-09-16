@@ -138,7 +138,8 @@ class _InboxState extends State<Inbox> {
                                                               .spaceBetween,
                                                       children: [
                                                         TextButton(
-                                                            onPressed: () {
+                                                            onPressed:
+                                                                () async {
                                                               FirebaseFirestore
                                                                   .instance
                                                                   .collection(
@@ -147,16 +148,24 @@ class _InboxState extends State<Inbox> {
                                                                       "${myuser}--${user.id}")
                                                                   .delete();
 
-                                                              FirebaseFirestore
+                                                              var collection = FirebaseFirestore
                                                                   .instance
                                                                   .collection(
-                                                                      "konusmalar")
+                                                                      'konusmalar')
                                                                   .doc(
                                                                       "${myuser}--${user.id}")
                                                                   .collection(
-                                                                      "mesajlar")
-                                                                  .doc()
-                                                                  .delete();
+                                                                      "mesajlar");
+                                                              var snapshots =
+                                                                  await collection
+                                                                      .get();
+                                                              for (var doc
+                                                                  in snapshots
+                                                                      .docs) {
+                                                                await doc
+                                                                    .reference
+                                                                    .delete();
+                                                              }
 
                                                               Navigator.pop(
                                                                   context);
