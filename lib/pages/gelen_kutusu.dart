@@ -207,15 +207,19 @@ class _InboxState extends State<Inbox> {
                                                       Radius.circular(80))),
                                           child: ListTile(
                                               title: Text(user.userName!),
-                                              subtitle: Row(
-                                                children: [
-                                                  kimden(oankiKonusma
-                                                      .sonMesajBenimMi),
-                                                  Text(oankiKonusma
-                                                          .son_yollanan_mesaj! +
-                                                      " ... " +
-                                                      _saatDakikaDegeri),
-                                                ],
+                                              subtitle: SingleChildScrollView(
+                                                scrollDirection:
+                                                    Axis.horizontal,
+                                                child: Row(
+                                                  children: [
+                                                    kimden(oankiKonusma
+                                                        .sonMesajBenimMi),
+                                                    Text(oankiKonusma
+                                                        .son_yollanan_mesaj!),
+                                                    Text("..."),
+                                                    Text(_saatDakikaDegeri),
+                                                  ],
+                                                ),
                                               ),
                                               leading: GestureDetector(
                                                 onTap: git,
