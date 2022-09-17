@@ -68,6 +68,8 @@ class _ProfileState extends State<Profile> {
 
                 TextField(
                   style: const TextStyle(color: Colors.white),
+                  maxLength: 11,
+                  maxLines: 1,
                   decoration: const InputDecoration(
                     hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
                     enabledBorder: OutlineInputBorder(
@@ -87,6 +89,8 @@ class _ProfileState extends State<Profile> {
                 //******************************************************************//
 
                 TextField(
+                  maxLength: 11,
+                  maxLines: 1,
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
                     hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),

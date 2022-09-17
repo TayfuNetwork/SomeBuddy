@@ -228,7 +228,7 @@ class _SohbetState extends State<Sohbet> {
 
   _bilgilerimeGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) =>  bilgilerim()));
+        .push(CupertinoPageRoute(builder: (context) => bilgilerim()));
   }
 
   _mesajlaraGit() {
@@ -262,7 +262,7 @@ class _SohbetState extends State<Sohbet> {
     if (widget.konusulanUser.image != null) {
       return NetworkImage(widget.konusulanUser.image!);
     } else {
-      return const AssetImage("images/top.jpg");
+      return const AssetImage("images/logo.png");
     }
   }
 

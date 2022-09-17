@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/pages/search_page.dart';
-
+import 'package:version1/services/ad_helper.dart';
 import '../control_pages/myDrawer.dart';
 import '../models/medya.dart';
 import '../models/user.dart';
@@ -20,6 +20,7 @@ class show extends StatefulWidget {
   State<show> createState() => _showState();
 }
 
+bool? rewardP = false;
 Color ppColor = Colors.blue;
 
 class _showState extends State<show> {
@@ -83,12 +84,13 @@ class _showState extends State<show> {
                 ),
                 const SizedBox(width: 8),
                 ListTile(
-                  onTap: () {
-                    Navigator.of(context).push(CupertinoPageRoute(
-                        builder: (context) => Sohbet(
-                              currentUser: AuthService().user!,
-                              konusulanUser: widget.whoData,
-                            )));
+                  onTap: () async {
+                    if (adHelper.rewardedAd != null) {
+                      git();
+                      await adHelper.showRewardedAd((p2) {
+                        git();
+                      });
+                    }
                   },
                   textColor: Colors.black,
                   title: Text(
@@ -224,7 +226,7 @@ class _showState extends State<show> {
     if (widget.whoData.image != null) {
       return NetworkImage(widget.whoData.image!);
     } else {
-      return AssetImage("images/Logo.png");
+      return AssetImage("images/logo.png");
     }
   }
 
@@ -271,5 +273,13 @@ class _showState extends State<show> {
     return Navigator.of(context).pushAndRemoveUntil(
         CupertinoPageRoute(builder: (context) => const searchPage()),
         ((route) => false));
+  }
+
+  git() {
+    Navigator.of(context).push(CupertinoPageRoute(
+        builder: (context) => Sohbet(
+              currentUser: AuthService().user!,
+              konusulanUser: widget.whoData,
+            )));
   }
 }

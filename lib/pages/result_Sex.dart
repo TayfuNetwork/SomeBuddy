@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/gelen_kutusu.dart';
-import 'package:version1/pages/chat.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
 import 'package:version1/services/search_service.dart';
-
 import 'bilgilerim.dart';
 
 // ignore: camel_case_types, must_be_immutable
@@ -185,18 +183,16 @@ class _Results2State extends State<Results2> {
                               ),
                               trailing: widget.sIcon,
                               onTap: () {
-                                if (e.premium == false) {
-                                  Navigator.of(context).push(CupertinoPageRoute(
-                                      builder: (context) => show(
-                                            whoData: e,
-                                          )));
-                                } else {
-                                  Navigator.of(context).push(CupertinoPageRoute(
+                                Navigator.of(context).push(CupertinoPageRoute(
+                                    builder: (context) => show(
+                                          whoData: e,
+                                        )));
+
+                                /* Navigator.of(context).push(CupertinoPageRoute(
                                       builder: (context) => Sohbet(
                                             currentUser: AuthService().user!,
                                             konusulanUser: e,
-                                          )));
-                                }
+                                          ))); */
                               },
                             ),
                           );

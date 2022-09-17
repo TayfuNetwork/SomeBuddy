@@ -111,10 +111,10 @@ class AdHelper {
       print("Show Ads isLoaded");
       rewardedAd!.fullScreenContentCallback = FullScreenContentCallback(
         onAdShowedFullScreenContent: (RewardedAd ad) {
-          print('ad onAdShowedFullScreenContent.');
+          print('ad ödül reklamı gösterildi.');
         },
         onAdDismissedFullScreenContent: (RewardedAd ad) {
-          print('$ad onAdDismissedFullScreenContent.');
+          print('$ad ödül reklamı kapatıldı.');
           ad.dispose();
         },
         onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) {
@@ -126,7 +126,7 @@ class AdHelper {
         await rewardedAd!.show(
           onUserEarnedReward: (ad, reward) {
             Fluttertoast.showToast(
-              msg: "Cinsiyeti Seçebilirsin",
+              msg: "Devam edebilirsin",
               gravity: ToastGravity.BOTTOM,
               toastLength: Toast.LENGTH_LONG,
             );

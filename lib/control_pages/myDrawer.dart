@@ -157,12 +157,12 @@ class _MyDrawerState extends State<MyDrawer> {
     }
   } */
 
-  _imageController() {
+   _imageController() {
     var whoData = AuthService().user;
     if (whoData!.image != null) {
       return NetworkImage(whoData.image!);
     } else {
-      return AssetImage("images/Logo.png");
+      return AssetImage("images/logo.png");
     }
   }
 }

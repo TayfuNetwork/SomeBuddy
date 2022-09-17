@@ -2,12 +2,9 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
 import 'package:version1/pages/emailpassword.dart';
-import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/profil.dart';
 import 'package:version1/pages/welcome.dart';
 import 'package:version1/services/auth_service.dart';

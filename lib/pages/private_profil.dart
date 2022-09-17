@@ -151,12 +151,12 @@ class _private_profilState extends State<private_profil> {
                             );
                           } else {
                             return const CircleAvatar(
-                                backgroundImage: AssetImage("images/top.jpg"),
+                                backgroundImage: AssetImage("images/logo.png"),
                                 radius: 75);
                           }
                         } else {
                           return const CircleAvatar(
-                              backgroundImage: AssetImage("images/top.jpg"),
+                              backgroundImage: AssetImage("images/logo.png"),
                               radius: 75);
                         }
                       },
@@ -178,6 +178,8 @@ class _private_profilState extends State<private_profil> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
+                    maxLength: 11,
+                    maxLines: 1,
                     controller: _userNameController,
                     //initialValue: _userModel.user!.userName,
                     readOnly: false,
@@ -476,7 +478,7 @@ class _private_profilState extends State<private_profil> {
 
   uploadGalleryPhotoCamera(ImageSource sourche) async {
     final ImagePicker _picker = ImagePicker();
-    
+
     var userID = AuthService().user!.id;
 
     XFile? _file = await _picker.pickImage(source: sourche, imageQuality: 40);
@@ -539,7 +541,7 @@ class _private_profilState extends State<private_profil> {
 
   _bilgilerimeGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) =>  bilgilerim()));
+        .push(CupertinoPageRoute(builder: (context) => bilgilerim()));
   }
 
   _mesajlaraGit() {

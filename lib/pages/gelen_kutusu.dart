@@ -107,7 +107,7 @@ class _InboxState extends State<Inbox> {
                                           return NetworkImage(user.image!);
                                         } else {
                                           return const AssetImage(
-                                              "images/Logo.png");
+                                              "images/logo.png");
                                         }
                                       }
 

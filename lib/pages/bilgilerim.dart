@@ -44,7 +44,7 @@ class _bilgilerimState extends State<bilgilerim> {
   //bool? premiumMu = AuthService().user?.premium;
   Position? _currentPosition;
   String? _konumIl;
-  String? _konumIlce;
+  String? _konumIlce = "Place";
   bool _isloading = true;
   String _durum = "Kayıt Oluştur";
   @override
@@ -404,7 +404,7 @@ class _bilgilerimState extends State<bilgilerim> {
     );
   }
 
- /*  Widget controlPremium() {
+  /*  Widget controlPremium() {
     if (user.premium == true) {
       return IconButton(
         onPressed: () {
