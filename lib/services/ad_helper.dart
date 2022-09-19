@@ -88,7 +88,11 @@ class AdHelper {
         await interstitialAd!.show();
         // _isShowAds = false;
       } on Exception catch (e) {
-        
+         Fluttertoast.showToast(
+              msg: e.toString(),
+              gravity: ToastGravity.BOTTOM,
+              toastLength: Toast.LENGTH_LONG,
+            );
         // _isShowAds = true;
       }
       interstitialAd = null;
@@ -133,7 +137,11 @@ class AdHelper {
           },
         );
       } on Exception catch (e) {
-     
+     Fluttertoast.showToast(
+              msg: e.toString(),
+              gravity: ToastGravity.BOTTOM,
+              toastLength: Toast.LENGTH_LONG,
+            );
       }
       rewardedAd = null;
 

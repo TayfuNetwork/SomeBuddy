@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:version1/models/mesaj.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/services/notification.dart';
@@ -111,6 +112,11 @@ class AuthService {
       this.user = user;
       return true;
     } on Exception catch (e) {
+      Fluttertoast.showToast(
+              msg: e.toString(),
+              gravity: ToastGravity.BOTTOM,
+              toastLength: Toast.LENGTH_LONG,
+            );
       return false;
     }
   }

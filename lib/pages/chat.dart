@@ -8,7 +8,6 @@ import 'package:version1/pages/search_page.dart';
 
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
-import 'package:version1/services/notification.dart';
 
 import '../control_pages/myDrawer.dart';
 import '../models/mesaj.dart';
