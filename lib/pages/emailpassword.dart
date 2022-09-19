@@ -1,6 +1,8 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/control_pages/reset_password.dart';
@@ -42,6 +44,12 @@ class _EmailPasswordState extends State<EmailPassword> {
       user = await service.signUp(_sifre!, _email!, context);
 
       if (user != null) {
+        final fcmToken = await FirebaseMessaging.instance.getToken();
+        FirebaseFirestore.instance
+            .collection('Users')
+            .doc(user.uid)
+            .set({'token': fcmToken}, SetOptions(merge: true));
+        AuthService().user!.token = fcmToken;
         Navigator.of(context).pushAndRemoveUntil(
             CupertinoPageRoute(builder: (context) => const Profile()),
             (route) => false);
@@ -54,7 +62,7 @@ class _EmailPasswordState extends State<EmailPassword> {
         Navigator.of(context).pushAndRemoveUntil(
             CupertinoPageRoute(
                 builder: (context) => AuthService().isHaveProfile
-                    ?  bilgilerim()
+                    ? bilgilerim()
                     : const Profile()),
             ((route) => false));
       }
@@ -139,8 +147,7 @@ class _EmailPasswordState extends State<EmailPassword> {
           ),
         ),
       ),
-    )
-    );
+    ));
   }
 
   degistir() {

@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/models/mesaj.dart';
 import 'package:version1/models/user.dart';
+import 'package:version1/services/notification.dart';
 
 class AuthService {
   MyUser? user;
@@ -109,7 +111,6 @@ class AuthService {
       this.user = user;
       return true;
     } on Exception catch (e) {
-      print(e.toString());
       return false;
     }
   }
@@ -131,54 +132,67 @@ class AuthService {
   }
 
   static saveMessage(Mesaj kaydedilecekMesaj) async {
-    final x = DateTime.now().millisecondsSinceEpoch;
+    try {
+      final x = DateTime.now().millisecondsSinceEpoch;
 
-    var _mesajID = x.toString();
+      var _mesajID = x.toString();
 
-    var _myDocumentID =
-        kaydedilecekMesaj.kimden + "--" + kaydedilecekMesaj.kime;
-    var _receiverDocumentID =
-        kaydedilecekMesaj.kime + "--" + kaydedilecekMesaj.kimden;
-    var _kaydedilecekMesajYapisi = kaydedilecekMesaj.toMap();
-    await FirebaseFirestore.instance
-        .collection("konusmalar")
-        .doc(_myDocumentID.toString())
-        .collection("mesajlar")
-        .doc(_mesajID.toString())
-        .set(_kaydedilecekMesajYapisi);
+      var _myDocumentID =
+          kaydedilecekMesaj.kimden + "--" + kaydedilecekMesaj.kime;
+      var _receiverDocumentID =
+          kaydedilecekMesaj.kime + "--" + kaydedilecekMesaj.kimden;
+      var _kaydedilecekMesajYapisi = kaydedilecekMesaj.toMap();
+      await FirebaseFirestore.instance
+          .collection("konusmalar")
+          .doc(_myDocumentID.toString())
+          .collection("mesajlar")
+          .doc(_mesajID.toString())
+          .set(_kaydedilecekMesajYapisi);
 
-    await FirebaseFirestore.instance
-        .collection("konusmalar")
-        .doc(_myDocumentID)
-        .set({
-      "konusma_sahibi": kaydedilecekMesaj.kimden,
-      "kimle_konusuyor": kaydedilecekMesaj.kime,
-      "son_yollanan_mesaj": kaydedilecekMesaj.mesaj,
-      "konusma_goruldu": false,
-      "sonMesajBenimMi": kaydedilecekMesaj.kimden,
-      "olusturulma_tarihi": DateTime.now()
-    });
+      await FirebaseFirestore.instance
+          .collection("konusmalar")
+          .doc(_myDocumentID)
+          .set({
+        "konusma_sahibi": kaydedilecekMesaj.kimden,
+        "kimle_konusuyor": kaydedilecekMesaj.kime,
+        "son_yollanan_mesaj": kaydedilecekMesaj.mesaj,
+        "konusma_goruldu": false,
+        "sonMesajBenimMi": kaydedilecekMesaj.kimden,
+        "olusturulma_tarihi": DateTime.now()
+      });
 
-    _kaydedilecekMesajYapisi.update("bendenMi", (deger) => false);
+      _kaydedilecekMesajYapisi.update("bendenMi", (deger) => false);
 
-    await FirebaseFirestore.instance
-        .collection("konusmalar")
-        .doc(_receiverDocumentID)
-        .collection("mesajlar")
-        .doc(_mesajID.toString())
-        .set(_kaydedilecekMesajYapisi);
+      await FirebaseFirestore.instance
+          .collection("konusmalar")
+          .doc(_receiverDocumentID)
+          .collection("mesajlar")
+          .doc(_mesajID.toString())
+          .set(_kaydedilecekMesajYapisi);
 
-    await FirebaseFirestore.instance
-        .collection("konusmalar")
-        .doc(_receiverDocumentID)
-        .set({
-      "konusma_sahibi": kaydedilecekMesaj.kime,
-      "kimle_konusuyor": kaydedilecekMesaj.kimden,
-      "son_yollanan_mesaj": kaydedilecekMesaj.mesaj,
-      "konusma_goruldu": false,
-      "olusturulma_tarihi": DateTime.now(),
-      "sonMesajBenimMi": kaydedilecekMesaj.kimden
-    });
+      await FirebaseFirestore.instance
+          .collection("konusmalar")
+          .doc(_receiverDocumentID)
+          .set({
+        "konusma_sahibi": kaydedilecekMesaj.kime,
+        "kimle_konusuyor": kaydedilecekMesaj.kimden,
+        "son_yollanan_mesaj": kaydedilecekMesaj.mesaj,
+        "konusma_goruldu": false,
+        "olusturulma_tarihi": DateTime.now(),
+        "sonMesajBenimMi": kaydedilecekMesaj.kimden
+      });
+      var _to = await FirebaseFirestore.instance
+          .collection('Users')
+          .doc(kaydedilecekMesaj.kime)
+          .get();
+
+      var userToken = _to.data()?['token'];
+
+      NotificationService().sendPushMessage(
+          userToken, AuthService().user!.userName!, kaydedilecekMesaj.mesaj);
+    } catch (e) {
+      return false;
+    }
 
     return true;
   }

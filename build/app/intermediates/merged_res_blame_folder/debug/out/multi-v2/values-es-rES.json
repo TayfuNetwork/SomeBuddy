@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.version1.app-mergeDebugResources-30:/values-es-rES/values-es-rES.xml",
+            "outputFile": "com.example.version1.app-mergeDebugResources-32:/values-es-rES/values-es-rES.xml",
             "map": [
                 {
                     "source": "C:\\Users\\tayfu\\.gradle\\caches\\transforms-3\\6b8bc17b262b48e4eeeee5b67f363e39\\transformed\\jetified-facebook-login-13.2.0\\res\\values-es-rES\\values-es-rES.xml",

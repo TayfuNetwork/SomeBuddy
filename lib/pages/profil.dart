@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/models/user.dart';
@@ -197,6 +199,7 @@ class _ProfileState extends State<Profile> {
                           );
 
                           // ignore: unused_local_variable
+
                           MyUser myUser = MyUser(
                             email: user.email ?? "email",
                             userName: ad ?? "isimsiz",
@@ -206,7 +209,27 @@ class _ProfileState extends State<Profile> {
                             bio: bio,
                             soyisim: soyisim,
                           );
+
                           AuthService().user = MyUser();
+                          final fcmToken =
+                              await FirebaseMessaging.instance.getToken();
+                          FirebaseFirestore.instance
+                              .collection('Users')
+                              .doc(user.uid)
+                              .set(
+                                  {'token': fcmToken}, SetOptions(merge: true));
+                          AuthService().user!.token = fcmToken;
+                          await AuthService().updateUser(myUser);
+
+                          myUser = MyUser(
+                              email: user.email ?? "email",
+                              userName: ad ?? "isimsiz",
+                              id: user.uid,
+                              yas: yas,
+                              sex: (sex)!.sex,
+                              bio: bio,
+                              soyisim: soyisim,
+                              token: fcmToken);
                           await AuthService().updateUser(myUser);
                           await Navigator.of(context).push(CupertinoPageRoute(
                               builder: (context) => bilgilerim()));

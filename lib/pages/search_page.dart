@@ -94,7 +94,7 @@ class _searchPageState extends State<searchPage> {
               ),
             ),
           );
-          print("${(user.il)},${(user.ilce)},${(user.brans)}, ${(user.mevki)}");
+          
         },
       );
     }
@@ -396,17 +396,13 @@ class _searchPageState extends State<searchPage> {
                                     izlendi = true;
                                   });
                                 },
-                                child: Container(
-                                    decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.blue),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(2.0),
-                                      child: Text(
-                                        "İzle",
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ))),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Text(
+                                    "İzle",
+                                    style: TextStyle(color: Colors.blue),
+                                  ),
+                                )),
                           ],
                         ),
                       ),

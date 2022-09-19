@@ -7,6 +7,7 @@ import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/services/auth_service.dart';
+//import 'package:version1/services/notification.dart';
 import '../services/ad_helper.dart';
 import '../control_pages/json-models.dart';
 import 'package:geocoding/geocoding.dart';
@@ -443,12 +444,12 @@ class _bilgilerimState extends State<bilgilerim> {
             desiredAccuracy: LocationAccuracy.best,
             forceAndroidLocationManager: true)
         .then((Position position) async {
-      print(position);
+      
 
       _currentPosition = position;
       await _getAddressFromLatLng();
     }).catchError((e) {
-      print(e);
+     
     });
   }
 
@@ -522,7 +523,7 @@ class _bilgilerimState extends State<bilgilerim> {
         _konumIlce = "${place.locality}";
       }
     } catch (e) {
-      print(e);
+     
     }
   }
 

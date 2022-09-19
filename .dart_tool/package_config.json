@@ -141,13 +141,13 @@
     },
     {
       "name": "firebase_core_platform_interface",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.5.0",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.5.1",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
     {
       "name": "firebase_core_web",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.7.1",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.7.2",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
@@ -166,6 +166,24 @@
     {
       "name": "firebase_database_web",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database_web-0.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "firebase_messaging",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-13.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "firebase_messaging_platform_interface",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging_platform_interface-4.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "firebase_messaging_web",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging_web-3.1.4",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
@@ -339,7 +357,7 @@
     },
     {
       "name": "http",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.4",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.5",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -656,7 +674,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-09-17T01:49:29.752507Z",
+  "generated": "2022-09-18T16:23:20.995759Z",
   "generator": "pub",
   "generatorVersion": "2.18.1"
 }

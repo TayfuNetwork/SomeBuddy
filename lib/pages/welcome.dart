@@ -14,8 +14,8 @@ class welcome extends StatefulWidget {
 var userControl = AuthService().user!;
 var user = AuthService();
 
-String? isim = AuthService().user!.userName;
-String? ne = AuthService().user!.sex;
+String? isim = AuthService().user?.userName;
+String? ne = AuthService().user?.sex;
 String? cinsiyet = ne == "Kadın" ? "Hanım" : "Bey";
 
 class _welcomeState extends State<welcome> {
@@ -32,7 +32,7 @@ class _welcomeState extends State<welcome> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Merhaba ! Tekrar hoşgeldiniz $isim $cinsiyet."),
+                  isim_deneme(),
                   TextButton(
                       onPressed: bilgilerimeGit, child: Text("Partner bul"))
                 ],
@@ -40,6 +40,14 @@ class _welcomeState extends State<welcome> {
             )),
       ),
     );
+  }
+
+  Text isim_deneme() {
+    if (user.isHaveProfile) {
+      return Text("Merhaba ! Tekrar hoşgeldiniz $isim $cinsiyet.");
+    } else {
+      return Text("Merhaba ! Sizi aramızda görmek ne güzel.");
+    }
   }
 
   bilgilerimeGit() {

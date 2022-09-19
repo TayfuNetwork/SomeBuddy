@@ -1,8 +1,11 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:version1/pages/emailpassword.dart';
 import 'package:version1/pages/profil.dart';
@@ -117,27 +120,24 @@ class _SignInPageState extends State<SignInPage> {
     GoogleSignInAccount? _googleUser = await _googleSignIn.signIn();
     if (_googleUser != null) {
       GoogleSignInAuthentication _googleAuth = await _googleUser.authentication;
+      try {
+        if (_googleAuth.idToken != null && _googleAuth.accessToken != null) {
+          UserCredential sonuc = await FirebaseAuth.instance
+              .signInWithCredential(GoogleAuthProvider.credential(
+                  idToken: _googleAuth.idToken,
+                  accessToken: _googleAuth.accessToken));
+          User? _user = sonuc.user;
 
-      if (_googleAuth.idToken != null && _googleAuth.accessToken != null) {
-        UserCredential sonuc = await FirebaseAuth.instance.signInWithCredential(
-            GoogleAuthProvider.credential(
-                idToken: _googleAuth.idToken,
-                accessToken: _googleAuth.accessToken));
-        User? _user = sonuc.user;
+          if (_user != null) {
+            await AuthService().checkUser();
 
-        if (_user != null) {
-          await AuthService().checkUser();
-
-          if (AuthService().isHaveProfile) {
-            return Navigator.of(context).pushAndRemoveUntil(
-                CupertinoPageRoute(builder: (context) => welcome()),
-                ((route) => false));
-          } else {
             return Navigator.of(context).pushAndRemoveUntil(
                 CupertinoPageRoute(builder: (context) => welcome()),
                 ((route) => false));
           }
         }
+      } on PlatformException catch (e) {
+        debugPrint(e.message);
       }
     } else {
       return null;

@@ -20,6 +20,7 @@ class MyUser {
   String? bio;
   bool? premium;
   List<Medya>? gPic;
+  String? token;
 
   MyUser(
       {this.soyisim,
@@ -35,9 +36,11 @@ class MyUser {
       this.yas,
       this.sex,
       this.bio,
+      this.token,
       this.premium = false});
 
   MyUser copyWith({
+    String? token,
     String? soyisim,
     String? image,
     String? email,
@@ -54,6 +57,7 @@ class MyUser {
     List<Medya>? gPic,
   }) {
     return MyUser(
+      token: token ?? this.token,
       soyisim: soyisim ?? this.soyisim,
       gPic: gPic ?? this.gPic,
       image: image ?? this.image,
@@ -73,6 +77,7 @@ class MyUser {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'token': token,
       'soyisim': soyisim,
       'image': image,
       'email': email,
@@ -93,6 +98,7 @@ class MyUser {
 
   factory MyUser.fromMap(Map<String, dynamic> map) {
     return MyUser(
+      token: map['token'] != null ? map['token'] as String : null,
       soyisim: map['soyisim'] != null ? map['soyisim'] as String : null,
       image: map['image'] != null ? map['image'] as String : null,
       email: map['email'] != null ? map['email'] as String : null,
@@ -120,7 +126,7 @@ class MyUser {
 
   @override
   String toString() {
-    return 'MyUser(image: $image, email: $email, userName: $userName, id: $id, il: $il, ilce: $ilce, brans: $brans, soyisim: $soyisim, mevki: $mevki, yas: $yas, sex: $sex, bio: $bio, gPic: $gPic)';
+    return 'MyUser(token: $token, image: $image, email: $email, userName: $userName, id: $id, il: $il, ilce: $ilce, brans: $brans, soyisim: $soyisim, mevki: $mevki, yas: $yas, sex: $sex, bio: $bio, gPic: $gPic)';
   }
 
   @override
@@ -129,6 +135,7 @@ class MyUser {
 
     return other.image == image &&
         other.email == email &&
+        other.token == token &&
         other.userName == userName &&
         other.id == id &&
         other.il == il &&
@@ -145,6 +152,7 @@ class MyUser {
   @override
   int get hashCode {
     return image.hashCode ^
+        token.hashCode ^
         email.hashCode ^
         userName.hashCode ^
         id.hashCode ^

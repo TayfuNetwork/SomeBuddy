@@ -210,10 +210,6 @@ class _private_profilState extends State<private_profil> {
                       },
                       child: const Text('Değişiklikleri Kaydet')),
                 ),
-                const Text(
-                  'Medya',
-                  style: TextStyle(color: Colors.grey),
-                ),
                 Padding(
                   padding: const EdgeInsets.all(0.1),
                   child: Row(

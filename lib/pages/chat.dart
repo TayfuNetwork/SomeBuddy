@@ -8,6 +8,7 @@ import 'package:version1/pages/search_page.dart';
 
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
+import 'package:version1/services/notification.dart';
 
 import '../control_pages/myDrawer.dart';
 import '../models/mesaj.dart';
@@ -141,6 +142,10 @@ class _SohbetState extends State<Sohbet> {
                               );
                               _mesajController.clear();
                               await AuthService.saveMessage(_kaydedilecekMesaj);
+                              /*  NotificationService().sendPushMessage(
+                                  widget.konusulanUser.token,
+                                  widget.currentUser.userName!,
+                                  _mesajController.text); */
                             }
                           },
                         ),
@@ -161,7 +166,7 @@ class _SohbetState extends State<Sohbet> {
     try {
       _saatDakikaDegeri = _saatDakikaGoster(oankiMesaj.date ?? Timestamp(1, 1));
     } catch (e) {
-      print("Gecikme Hatası" + e.toString());
+      
     }
     var _benimMesajimMi = oankiMesaj.bendenMi;
     if (_benimMesajimMi) {

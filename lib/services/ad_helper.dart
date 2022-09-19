@@ -23,11 +23,11 @@ class AdHelper {
         adLoadCallback: InterstitialAdLoadCallback(onAdLoaded: (ad) {
           _isIntertitialLoaded = true;
           interstitialAd = ad;
-          print("İnterstitialdAd Loaded");
+          
         }, onAdFailedToLoad: (err) {
           _isIntertitialLoaded = false;
           interstitialAd = null;
-          print("failed to load an insterstitital ad: ${err.message}");
+         
         }));
   }
 
@@ -37,11 +37,11 @@ class AdHelper {
       adUnitId: _bannerAdUnitId,
       listener: BannerAdListener(
         onAdLoaded: (ad) {
-          print("reklam gösterildi");
+    
         },
         onAdFailedToLoad: (ad, e) {
           ad.dispose();
-          print("hata oluştu ${e.message}");
+         
         },
       ),
       request: AdRequest(),
@@ -57,26 +57,26 @@ class AdHelper {
         rewardedAdLoadCallback: RewardedAdLoadCallback(onAdLoaded: (ad) {
           _isRewardedAdLoaded = true;
           rewardedAd = ad;
-          print("revarded ad loaded");
+         
         }, onAdFailedToLoad: (err) {
           _isRewardedAdLoaded = false;
           rewardedAd = null;
-          print("${err.message}");
+         
         }));
   }
 
   Future<void> showInterstitialAd(Function(InterstitialAd)? function) async {
     if (interstitialAd == null) {
       createInterstitialAd();
-      print('Warning: attempt to show interstitial before loaded.');
+      
       return;
     }
     if (_isIntertitialLoaded) {
-      print("Show Ads isLoaded");
+      
       interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
         onAdShowedFullScreenContent: function,
         onAdDismissedFullScreenContent: (InterstitialAd ad) {
-          print('$ad onAdDismissedFullScreenContent.');
+         
           ad.dispose();
         },
         onAdFailedToShowFullScreenContent: (InterstitialAd ad, AdError error) {
@@ -88,7 +88,7 @@ class AdHelper {
         await interstitialAd!.show();
         // _isShowAds = false;
       } on Exception catch (e) {
-        print("Hata: " + e.toString());
+        
         // _isShowAds = true;
       }
       interstitialAd = null;
@@ -97,24 +97,24 @@ class AdHelper {
       // if (_isShowAds)
       createInterstitialAd();
     } else {
-      print("Dont show Ad isNotLoaded");
+
     }
   }
 
   Future<void> showRewardedAd(Function(RewardedAd)? function) async {
     if (rewardedAd == null) {
       createRewardedAd();
-      print('Warning: attempt to show rewarded before loaded.');
+   
       return;
     }
     if (_isRewardedAdLoaded) {
-      print("Show Ads isLoaded");
+   
       rewardedAd!.fullScreenContentCallback = FullScreenContentCallback(
         onAdShowedFullScreenContent: (RewardedAd ad) {
-          print('ad ödül reklamı gösterildi.');
+       
         },
         onAdDismissedFullScreenContent: (RewardedAd ad) {
-          print('$ad ödül reklamı kapatıldı.');
+      
           ad.dispose();
         },
         onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) {
@@ -133,7 +133,7 @@ class AdHelper {
           },
         );
       } on Exception catch (e) {
-        print("Hata: " + e.toString());
+     
       }
       rewardedAd = null;
 
@@ -141,7 +141,7 @@ class AdHelper {
       // if (_isShowAds)
       createRewardedAd();
     } else {
-      print("Dont show Ad isNotLoaded");
+     
     }
   }
 
