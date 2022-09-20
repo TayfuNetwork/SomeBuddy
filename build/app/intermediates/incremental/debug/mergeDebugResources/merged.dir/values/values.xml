@@ -410,9 +410,9 @@
     <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
     <string name="firebase_database_url" translatable="false">https://birini-bul-default-rtdb.firebaseio.com</string>
     <string name="gcm_defaultSenderId" translatable="false">160528578459</string>
-    <string name="google_api_key" translatable="false">AIzaSyCDubH7rEREBcT2i1WVT_iU6P8tmrmJzQk</string>
+    <string name="google_api_key" translatable="false">AIzaSyA-PV-s9HDhncIYHG_Lnab6pziFPFYORk8</string>
     <string name="google_app_id" translatable="false">1:160528578459:android:73784fd4d9c73005d5d33e</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCDubH7rEREBcT2i1WVT_iU6P8tmrmJzQk</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyA-PV-s9HDhncIYHG_Lnab6pziFPFYORk8</string>
     <string name="google_storage_bucket" translatable="false">birini-bul.appspot.com</string>
     <string description="Text of the notification which directs the user to the landing page of the ad. [CHAR_LIMIT=NONE]" name="offline_notification_text">
       Tap to open ad</string>

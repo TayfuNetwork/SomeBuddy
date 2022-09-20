@@ -113,10 +113,10 @@ class AuthService {
       return true;
     } on Exception catch (e) {
       Fluttertoast.showToast(
-              msg: e.toString(),
-              gravity: ToastGravity.BOTTOM,
-              toastLength: Toast.LENGTH_LONG,
-            );
+        msg: e.toString(),
+        gravity: ToastGravity.BOTTOM,
+        toastLength: Toast.LENGTH_LONG,
+      );
       return false;
     }
   }
@@ -194,8 +194,10 @@ class AuthService {
 
       var userToken = _to.data()?['token'];
 
-      NotificationService().sendPushMessage(
+      await NotificationService().sendPushMessage(
           userToken, AuthService().user!.userName!, kaydedilecekMesaj.mesaj);
+      print(
+          "$userToken + ${AuthService().user!.userName!} + ${kaydedilecekMesaj.mesaj} ");
     } catch (e) {
       return false;
     }
