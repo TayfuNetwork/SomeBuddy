@@ -9,11 +9,13 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
+import 'package:version1/services/notification.dart';
+
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp(options: NotificationService.currentPlatform);
   await setupFlutterNotifications();
   showFlutterNotification(message);
-  // If you're going to use other Firebase services in the background, such as Firestore,
-  // make sure you call `initializeApp` before using other Firebase services.
+
   print('Handling a background message ${message.messageId}');
 }
 
@@ -74,15 +76,18 @@ late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: NotificationService.currentPlatform);
+
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
   if (!kIsWeb) {
     await setupFlutterNotifications();
   }
-  FirebaseMessaging.onMessage.listen(showFlutterNotification);
+
+  await Firebase.initializeApp();
   await AuthService().checkUser();
   MobileAds.instance.initialize();
+
   adHelper.createInterstitialAd();
   adHelper.createRewardedAd();
   runApp(const MyApp());
@@ -98,7 +103,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       home: const LandingPage(),
-      //theme değiştirilebilir.
     );
   }
 }
