@@ -27,8 +27,8 @@ class NotificationService {
       print('User declined or has not accepted permission');
     }
 
-    vapidKey:
-    "$Token";
+    /* vapidKey:
+    "$Token"; */
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       print('Got a message whilst in the foreground!');

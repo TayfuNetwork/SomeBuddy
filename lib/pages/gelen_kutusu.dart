@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:version1/models/konusma.dart';
-import 'package:version1/models/mesaj.dart';
+
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/chat.dart';
 import 'package:version1/pages/search_page.dart';
@@ -235,8 +235,7 @@ class _InboxState extends State<Inbox> {
                                               ),
                                               onTap: () async {
                                                 setState(() {
-                                                  var userID =
-                                                      AuthService().user!.id;
+                                                 
                                                   FirebaseFirestore.instance
                                                       .collection("konusmalar")
                                                       .doc(
