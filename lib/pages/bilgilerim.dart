@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ import '../control_pages/json-models.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:version1/services/message_notification.dart';
 
 import 'gelen_kutusu.dart';
 
@@ -48,6 +50,7 @@ class _bilgilerimState extends State<bilgilerim> {
   String? _konumIlce = "Place";
   bool _isloading = true;
   String _durum = "Kayıt Oluştur";
+  int ccounter = Message_Notification().CCounter() ?? 0;
   @override
   void initState() {
     super.initState();
@@ -77,12 +80,7 @@ class _bilgilerimState extends State<bilgilerim> {
             fontSize: 22,
           ),
           actions: [
-            IconButton(
-                onPressed: _mesajlaraGit,
-                icon: const Icon(
-                  Icons.chat,
-                  color: Colors.white,
-                )),
+            mesajKontrol(),
             IconButton(
               icon: const Icon(Icons.search, color: Colors.white),
               onPressed: _searchPage,
@@ -358,6 +356,28 @@ class _bilgilerimState extends State<bilgilerim> {
     );
   }
 
+  Badge mesajKontrol() {
+    setState(() {
+      ccounter;
+    });
+
+    return Badge(
+      animationDuration: Duration(milliseconds: 300),
+      position: BadgePosition.topEnd(top: 10, end: 10),
+      animationType: BadgeAnimationType.slide,
+      badgeContent: Text(
+        ccounter.toString(),
+        style: TextStyle(color: Colors.white),
+      ),
+      child: IconButton(
+          onPressed: _mesajlaraGit,
+          icon: const Icon(
+            Icons.chat,
+            color: Colors.white,
+          )),
+    );
+  }
+
   Column info() {
     return Column(
       children: [
@@ -444,13 +464,9 @@ class _bilgilerimState extends State<bilgilerim> {
             desiredAccuracy: LocationAccuracy.best,
             forceAndroidLocationManager: true)
         .then((Position position) async {
-      
-
       _currentPosition = position;
       await _getAddressFromLatLng();
-    }).catchError((e) {
-     
-    });
+    }).catchError((e) {});
   }
 
   Future<void> getLocation() async {
@@ -522,9 +538,7 @@ class _bilgilerimState extends State<bilgilerim> {
         _konumIl = " ${place.administrativeArea}";
         _konumIlce = "${place.locality}";
       }
-    } catch (e) {
-     
-    }
+    } catch (e) {}
   }
 
   Text ControlName() {

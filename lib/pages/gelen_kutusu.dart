@@ -13,6 +13,7 @@ import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
 
 import '../control_pages/myDrawer.dart';
+import '../services/message_notification.dart';
 import 'bilgilerim.dart';
 
 class Inbox extends StatefulWidget {
@@ -22,9 +23,8 @@ class Inbox extends StatefulWidget {
   State<Inbox> createState() => _InboxState();
 }
 
-Color? editColor;
-
 class _InboxState extends State<Inbox> {
+  int okunmamis = 0;
   @override
   Widget build(BuildContext context) {
     var _userModel = AuthService().user!;
@@ -235,16 +235,19 @@ class _InboxState extends State<Inbox> {
                                               ),
                                               onTap: () async {
                                                 setState(() {
-                                                 
                                                   FirebaseFirestore.instance
                                                       .collection("konusmalar")
                                                       .doc(
                                                           "${_userModel.id}--${user.id}")
                                                       .update(
                                                           {"goruldu": true});
-                                                  print(
-                                                      "${_userModel.id}--${user.id}");
                                                 });
+                                                if (okunmamis < 1) {
+                                                  okunmamis--;
+                                                  Message_Notification()
+                                                      .Counter(okunmamis);
+                                                }
+
                                                 await Navigator.of(context)
                                                     .push(CupertinoPageRoute(
                                                         builder: (context) =>
@@ -285,6 +288,8 @@ class _InboxState extends State<Inbox> {
           color: Colors.white,
         );
       } else {
+        okunmamis++;
+        Message_Notification().Counter(okunmamis);
         return Icon(
           Icons.chat,
           color: Colors.red,

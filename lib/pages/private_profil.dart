@@ -542,7 +542,7 @@ class _private_profilState extends State<private_profil> {
 
   _mesajlaraGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => const Inbox()));
+        .push(CupertinoPageRoute(builder: (context) => Inbox()));
   }
 
   _searchPage() {

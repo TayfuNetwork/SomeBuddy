@@ -261,7 +261,7 @@ class _showState extends State<show> {
 
   _mesajlaraGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => const Inbox()));
+        .push(CupertinoPageRoute(builder: (context) =>  Inbox()));
   }
 
   _bilgilerimeGit() {

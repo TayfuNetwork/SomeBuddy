@@ -32,6 +32,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "badges",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/badges-2.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0",
       "packageUri": "lib/",
@@ -794,7 +800,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-09-23T02:40:46.516229Z",
+  "generated": "2022-09-23T14:28:35.581374Z",
   "generator": "pub",
   "generatorVersion": "2.18.1"
 }

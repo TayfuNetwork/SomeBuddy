@@ -215,7 +215,7 @@ class _Results2State extends State<Results2> {
 
   _mesajlaraGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => const Inbox()));
+        .push(CupertinoPageRoute(builder: (context) =>  Inbox()));
   }
 
   _bilgilerimeGit() {

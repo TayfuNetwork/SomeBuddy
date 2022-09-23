@@ -452,7 +452,7 @@ class _searchPageState extends State<searchPage> {
 
   _mesajlaraGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => const Inbox()));
+        .push(CupertinoPageRoute(builder: (context) =>  Inbox()));
   }
 
   _bilgilerimeGit() {
