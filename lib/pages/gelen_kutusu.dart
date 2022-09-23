@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:version1/models/konusma.dart';
+import 'package:version1/models/mesaj.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/chat.dart';
 import 'package:version1/pages/search_page.dart';
@@ -21,7 +22,7 @@ class Inbox extends StatefulWidget {
   State<Inbox> createState() => _InboxState();
 }
 
-Color? editIconColor;
+Color? editColor;
 
 class _InboxState extends State<Inbox> {
   @override
@@ -214,13 +215,18 @@ class _InboxState extends State<Inbox> {
                                                   children: [
                                                     kimden(oankiKonusma
                                                         .sonMesajBenimMi),
-                                                    Text(oankiKonusma
-                                                        .son_yollanan_mesaj!),
+                                                    Text(
+                                                      oankiKonusma
+                                                          .son_yollanan_mesaj!,
+                                                    ),
                                                     Text("..."),
                                                     Text(_saatDakikaDegeri),
                                                   ],
                                                 ),
                                               ),
+                                              trailing: isReaded(
+                                                  oankiKonusma.sonMesajBenimMi,
+                                                  oankiKonusma.goruldu!),
                                               leading: GestureDetector(
                                                 onTap: git,
                                                 child: CircleAvatar(
@@ -228,6 +234,18 @@ class _InboxState extends State<Inbox> {
                                                 ),
                                               ),
                                               onTap: () async {
+                                                setState(() {
+                                                  var userID =
+                                                      AuthService().user!.id;
+                                                  FirebaseFirestore.instance
+                                                      .collection("konusmalar")
+                                                      .doc(
+                                                          "${_userModel.id}--${user.id}")
+                                                      .update(
+                                                          {"goruldu": true});
+                                                  print(
+                                                      "${_userModel.id}--${user.id}");
+                                                });
                                                 await Navigator.of(context)
                                                     .push(CupertinoPageRoute(
                                                         builder: (context) =>
@@ -257,6 +275,28 @@ class _InboxState extends State<Inbox> {
     var _formater = DateFormat.Hm();
     var _formatlanmisTarih = _formater.format(date!.toDate());
     return _formatlanmisTarih;
+  }
+
+  Icon isReaded(bendenMi, bool x) {
+    var user = AuthService().user!;
+    if (x == false) {
+      if (bendenMi == user.id) {
+        return Icon(
+          Icons.chat,
+          color: Colors.white,
+        );
+      } else {
+        return Icon(
+          Icons.chat,
+          color: Colors.red,
+        );
+      }
+    } else {
+      return Icon(
+        Icons.chat,
+        color: Colors.white,
+      );
+    }
   }
 
   Future<Null> _konusmalariYenile() async {

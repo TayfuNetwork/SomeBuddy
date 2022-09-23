@@ -11,7 +11,20 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 import 'package:version1/services/notification.dart';
 
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+
+
+
+
+
+/* Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  
+  await Firebase.initializeApp();
+
+  print("Handling a background message: ${message.messageId}");
+} */
+
+
+ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(options: NotificationService.currentPlatform);
   await setupFlutterNotifications();
   showFlutterNotification(message);
@@ -25,23 +38,22 @@ late AndroidNotificationChannel channel;
 bool isFlutterLocalNotificationsInitialized = false;
 
 Future<void> setupFlutterNotifications() async {
+  const AndroidNotificationChannel channel = AndroidNotificationChannel(
+  'high_importance_channel', // id
+  'High Importance Notifications', // title
+  importance: Importance.max,
+);
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+
+await flutterLocalNotificationsPlugin
+  .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+  ?.createNotificationChannel(channel);
+
   if (isFlutterLocalNotificationsInitialized) {
     return;
   }
-  channel = const AndroidNotificationChannel(
-    'high_importance_channel', // id
-    'High Importance Notifications', // title
-    description:
-        'This channel is used for important notifications.', // description
-    importance: Importance.high,
-  );
 
-  flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
-
-  await flutterLocalNotificationsPlugin
-      .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin>()
-      ?.createNotificationChannel(channel);
 
   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
     alert: true,

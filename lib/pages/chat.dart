@@ -164,9 +164,7 @@ class _SohbetState extends State<Sohbet> {
     var _saatDakikaDegeri = "";
     try {
       _saatDakikaDegeri = _saatDakikaGoster(oankiMesaj.date ?? Timestamp(1, 1));
-    } catch (e) {
-      
-    }
+    } catch (e) {}
     var _benimMesajimMi = oankiMesaj.bendenMi;
     if (_benimMesajimMi) {
       return Padding(
