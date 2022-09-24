@@ -1,11 +1,11 @@
-import 'package:badges/badges.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
-//import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:version1/control_pages/badge_control.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
+import 'package:version1/pages/gelen_kutusu.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/services/auth_service.dart';
 //import 'package:version1/services/notification.dart';
@@ -14,9 +14,6 @@ import '../control_pages/json-models.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:version1/services/message_notification.dart';
-
-import 'gelen_kutusu.dart';
 
 // sadece oturum açmış kişiler bu sayfayı görebilir.
 // ignore: camel_case_types
@@ -50,11 +47,12 @@ class _bilgilerimState extends State<bilgilerim> {
   String? _konumIlce = "Place";
   bool _isloading = true;
   String _durum = "Kayıt Oluştur";
-  int ccounter = Message_Notification().CCounter() ?? 0;
+  /* int ccounter = Message_Notification().CCounter() ?? 0; */
   @override
   void initState() {
     super.initState();
     isShown;
+    Inbox();
   }
 
   @override
@@ -80,7 +78,7 @@ class _bilgilerimState extends State<bilgilerim> {
             fontSize: 22,
           ),
           actions: [
-            mesajKontrol(),
+            badge_control(),
             IconButton(
               icon: const Icon(Icons.search, color: Colors.white),
               onPressed: _searchPage,
@@ -356,28 +354,6 @@ class _bilgilerimState extends State<bilgilerim> {
     );
   }
 
-  Badge mesajKontrol() {
-    setState(() {
-      ccounter;
-    });
-
-    return Badge(
-      animationDuration: Duration(milliseconds: 300),
-      position: BadgePosition.topEnd(top: 10, end: 10),
-      animationType: BadgeAnimationType.slide,
-      badgeContent: Text(
-        ccounter.toString(),
-        style: TextStyle(color: Colors.white),
-      ),
-      child: IconButton(
-          onPressed: _mesajlaraGit,
-          icon: const Icon(
-            Icons.chat,
-            color: Colors.white,
-          )),
-    );
-  }
-
   Column info() {
     return Column(
       children: [
@@ -565,11 +541,6 @@ class _bilgilerimState extends State<bilgilerim> {
         color: Colors.white,
       ),
     );
-  }
-
-  _mesajlaraGit() {
-    return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => const Inbox()));
   }
 
   _searchPage() {

@@ -12,7 +12,7 @@ class welcome extends StatefulWidget {
 }
 
 var userControl = AuthService().user!;
-var user = AuthService();
+var _user = AuthService();
 
 String? isim = AuthService().user?.userName;
 String? ne = AuthService().user?.sex;
@@ -43,7 +43,7 @@ class _welcomeState extends State<welcome> {
   }
 
   Text isim_deneme() {
-    if (user.isHaveProfile) {
+    if (_user.isHaveProfile) {
       return Text("Merhaba ! Tekrar hoşgeldiniz $isim $cinsiyet.");
     } else {
       return Text("Merhaba ! Sizi aramızda görmek ne güzel.");
@@ -52,7 +52,7 @@ class _welcomeState extends State<welcome> {
 
   bilgilerimeGit() {
     setState(() {
-      if (user.isHaveProfile) {
+      if (_user.isHaveProfile) {
         Navigator.of(context).pushAndRemoveUntil(
             CupertinoPageRoute(builder: (context) => bilgilerim()),
             ((route) => false));

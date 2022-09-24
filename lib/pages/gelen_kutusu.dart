@@ -5,15 +5,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:version1/models/konusma.dart';
-
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/chat.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
-
 import '../control_pages/myDrawer.dart';
-import '../services/message_notification.dart';
 import 'bilgilerim.dart';
 
 class Inbox extends StatefulWidget {
@@ -96,6 +93,7 @@ class _InboxState extends State<Inbox> {
                                     if (snapshot.hasData) {
                                       var myuser = AuthService().user!.id;
                                       MyUser user = snapshot.data!;
+                                      _konusmalariYenile();
                                       git() {
                                         Navigator.of(context).push(
                                             CupertinoPageRoute(
@@ -242,11 +240,11 @@ class _InboxState extends State<Inbox> {
                                                       .update(
                                                           {"goruldu": true});
                                                 });
-                                                if (okunmamis < 1) {
-                                                  okunmamis--;
-                                                  Message_Notification()
-                                                      .Counter(okunmamis);
-                                                }
+                                                /*  if (oankiKonusma
+                                                        .sonMesajBenimMi !=
+                                                    false) {
+                                                  if (okunmamis > 0) {}
+                                                } */
 
                                                 await Navigator.of(context)
                                                     .push(CupertinoPageRoute(
@@ -279,7 +277,7 @@ class _InboxState extends State<Inbox> {
     return _formatlanmisTarih;
   }
 
-  Icon isReaded(bendenMi, bool x) {
+  isReaded(bendenMi, bool x) {
     var user = AuthService().user!;
     if (x == false) {
       if (bendenMi == user.id) {
@@ -288,8 +286,6 @@ class _InboxState extends State<Inbox> {
           color: Colors.white,
         );
       } else {
-        okunmamis++;
-        Message_Notification().Counter(okunmamis);
         return Icon(
           Icons.chat,
           color: Colors.red,
@@ -304,7 +300,6 @@ class _InboxState extends State<Inbox> {
   }
 
   Future<Null> _konusmalariYenile() async {
-    setState(() {});
     await Future.delayed(const Duration(seconds: 1));
     return null;
   }

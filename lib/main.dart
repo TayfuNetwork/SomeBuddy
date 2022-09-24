@@ -8,13 +8,7 @@ import 'dart:async';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-
 import 'package:version1/services/notification.dart';
-
-
-
-
-
 
 /* Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   
@@ -23,8 +17,7 @@ import 'package:version1/services/notification.dart';
   print("Handling a background message: ${message.messageId}");
 } */
 
-
- Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(options: NotificationService.currentPlatform);
   await setupFlutterNotifications();
   showFlutterNotification(message);
@@ -39,21 +32,21 @@ bool isFlutterLocalNotificationsInitialized = false;
 
 Future<void> setupFlutterNotifications() async {
   const AndroidNotificationChannel channel = AndroidNotificationChannel(
-  'high_importance_channel', // id
-  'High Importance Notifications', // title
-  importance: Importance.max,
-);
-final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-    FlutterLocalNotificationsPlugin();
+    'high_importance_channel', // id
+    'High Importance Notifications', // title
+    importance: Importance.max,
+  );
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
 
-await flutterLocalNotificationsPlugin
-  .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
-  ?.createNotificationChannel(channel);
+  await flutterLocalNotificationsPlugin
+      .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>()
+      ?.createNotificationChannel(channel);
 
   if (isFlutterLocalNotificationsInitialized) {
     return;
   }
-
 
   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
     alert: true,
@@ -99,7 +92,6 @@ void main() async {
   await Firebase.initializeApp();
   await AuthService().checkUser();
   MobileAds.instance.initialize();
-
   adHelper.createInterstitialAd();
   adHelper.createRewardedAd();
   runApp(const MyApp());

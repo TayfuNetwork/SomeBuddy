@@ -23,6 +23,8 @@ MERGED from [:google_mobile_ads] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBu
 MERGED from [:google_mobile_ads] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\google_mobile_ads\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-15:19
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\041b27d38198d104baa2ef8fafea15d7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\041b27d38198d104baa2ef8fafea15d7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
+MERGED from [com.google.firebase:firebase-messaging-ktx:23.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\f747f079fa99c047f6a8e029491b12ed\transformed\jetified-firebase-messaging-ktx-23.0.8\AndroidManifest.xml:25:5-33:19
+MERGED from [com.google.firebase:firebase-messaging-ktx:23.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\f747f079fa99c047f6a8e029491b12ed\transformed\jetified-firebase-messaging-ktx-23.0.8\AndroidManifest.xml:25:5-33:19
 MERGED from [com.google.firebase:firebase-auth:21.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\bc40233202636aab301813045f086fba\transformed\jetified-firebase-auth-21.0.8\AndroidManifest.xml:26:5-71:19
 MERGED from [com.google.firebase:firebase-auth:21.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\bc40233202636aab301813045f086fba\transformed\jetified-firebase-auth-21.0.8\AndroidManifest.xml:26:5-71:19
 MERGED from [com.google.firebase:firebase-firestore:24.3.1] C:\Users\tayfu\.gradle\caches\transforms-3\b0140bfd9a71f5655591308e4259da7f\transformed\jetified-firebase-firestore-24.3.1\AndroidManifest.xml:16:5-24:19
@@ -41,6 +43,8 @@ MERGED from [com.google.firebase:firebase-datatransport:18.1.6] C:\Users\tayfu\.
 MERGED from [com.google.firebase:firebase-datatransport:18.1.6] C:\Users\tayfu\.gradle\caches\transforms-3\dea5f28e8e9c14d7a38275f6045bd1f9\transformed\jetified-firebase-datatransport-18.1.6\AndroidManifest.xml:24:5-32:19
 MERGED from [com.google.firebase:firebase-installations:17.0.3] C:\Users\tayfu\.gradle\caches\transforms-3\efc93183d1825e60cf98a9161c0e20ba\transformed\jetified-firebase-installations-17.0.3\AndroidManifest.xml:14:5-22:19
 MERGED from [com.google.firebase:firebase-installations:17.0.3] C:\Users\tayfu\.gradle\caches\transforms-3\efc93183d1825e60cf98a9161c0e20ba\transformed\jetified-firebase-installations-17.0.3\AndroidManifest.xml:14:5-22:19
+MERGED from [com.google.firebase:firebase-common-ktx:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\55d84fbc00aa2388c19d9d27980d63e0\transformed\jetified-firebase-common-ktx-20.1.2\AndroidManifest.xml:11:5-19:19
+MERGED from [com.google.firebase:firebase-common-ktx:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\55d84fbc00aa2388c19d9d27980d63e0\transformed\jetified-firebase-common-ktx-20.1.2\AndroidManifest.xml:11:5-19:19
 MERGED from [com.google.firebase:firebase-common:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\7a3eb077db330dceec460048b8b75913\transformed\jetified-firebase-common-20.1.2\AndroidManifest.xml:25:5-38:19
 MERGED from [com.google.firebase:firebase-common:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\7a3eb077db330dceec460048b8b75913\transformed\jetified-firebase-common-20.1.2\AndroidManifest.xml:25:5-38:19
 MERGED from [com.google.android.gms:play-services-auth:20.0.1] C:\Users\tayfu\.gradle\caches\transforms-3\5fb3f8552bde3f5ea95d53c07d1ec7ab\transformed\jetified-play-services-auth-20.0.1\AndroidManifest.xml:22:5-38:19
@@ -117,6 +121,7 @@ MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\tayfu\.gradle\caches\tra
 MERGED from [com.google.android.gms:play-services-ads:21.2.0] C:\Users\tayfu\.gradle\caches\transforms-3\b8dd4f967e2d72a8ed038fdd7d58c17d\transformed\jetified-play-services-ads-21.2.0\AndroidManifest.xml:17:1-25:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\8bffc0e5dda3b83649c900720739e56d\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\041b27d38198d104baa2ef8fafea15d7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
+MERGED from [com.google.firebase:firebase-messaging-ktx:23.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\f747f079fa99c047f6a8e029491b12ed\transformed\jetified-firebase-messaging-ktx-23.0.8\AndroidManifest.xml:17:1-35:12
 MERGED from [com.google.firebase:firebase-auth:21.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\bc40233202636aab301813045f086fba\transformed\jetified-firebase-auth-21.0.8\AndroidManifest.xml:17:1-73:12
 MERGED from [com.google.firebase:firebase-firestore:24.3.1] C:\Users\tayfu\.gradle\caches\transforms-3\b0140bfd9a71f5655591308e4259da7f\transformed\jetified-firebase-firestore-24.3.1\AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.firebase:firebase-messaging:23.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\bcd647cf1095f3c3623c6fa22b885590\transformed\jetified-firebase-messaging-23.0.8\AndroidManifest.xml:17:1-62:12
@@ -126,6 +131,7 @@ MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\tayfu\.g
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.2] C:\Users\tayfu\.gradle\caches\transforms-3\01557a5921552dac79d1af9f8c3e9508\transformed\jetified-firebase-appcheck-interop-16.0.2\AndroidManifest.xml:15:1-26:12
 MERGED from [com.google.firebase:firebase-datatransport:18.1.6] C:\Users\tayfu\.gradle\caches\transforms-3\dea5f28e8e9c14d7a38275f6045bd1f9\transformed\jetified-firebase-datatransport-18.1.6\AndroidManifest.xml:15:1-34:12
 MERGED from [com.google.firebase:firebase-installations:17.0.3] C:\Users\tayfu\.gradle\caches\transforms-3\efc93183d1825e60cf98a9161c0e20ba\transformed\jetified-firebase-installations-17.0.3\AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-common-ktx:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\55d84fbc00aa2388c19d9d27980d63e0\transformed\jetified-firebase-common-ktx-20.1.2\AndroidManifest.xml:2:1-21:12
 MERGED from [com.google.firebase:firebase-common:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\7a3eb077db330dceec460048b8b75913\transformed\jetified-firebase-common-20.1.2\AndroidManifest.xml:15:1-40:12
 MERGED from [androidx.media:media:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\91c42c5798d1e9a004b23d04fa0a9fd0\transformed\media-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.browser:browser:1.4.0] C:\Users\tayfu\.gradle\caches\transforms-3\9b4f20a241ce59269efe65e7658f2d2a\transformed\browser-1.4.0\AndroidManifest.xml:17:1-24:12
@@ -288,6 +294,8 @@ MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\tayfu\.gradle\ca
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\8bffc0e5dda3b83649c900720739e56d\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\041b27d38198d104baa2ef8fafea15d7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\041b27d38198d104baa2ef8fafea15d7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-messaging-ktx:23.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\f747f079fa99c047f6a8e029491b12ed\transformed\jetified-firebase-messaging-ktx-23.0.8\AndroidManifest.xml:21:5-23:41
+MERGED from [com.google.firebase:firebase-messaging-ktx:23.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\f747f079fa99c047f6a8e029491b12ed\transformed\jetified-firebase-messaging-ktx-23.0.8\AndroidManifest.xml:21:5-23:41
 MERGED from [com.google.firebase:firebase-auth:21.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\bc40233202636aab301813045f086fba\transformed\jetified-firebase-auth-21.0.8\AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-auth:21.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\bc40233202636aab301813045f086fba\transformed\jetified-firebase-auth-21.0.8\AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-firestore:24.3.1] C:\Users\tayfu\.gradle\caches\transforms-3\b0140bfd9a71f5655591308e4259da7f\transformed\jetified-firebase-firestore-24.3.1\AndroidManifest.xml:7:5-9:41
@@ -306,6 +314,8 @@ MERGED from [com.google.firebase:firebase-datatransport:18.1.6] C:\Users\tayfu\.
 MERGED from [com.google.firebase:firebase-datatransport:18.1.6] C:\Users\tayfu\.gradle\caches\transforms-3\dea5f28e8e9c14d7a38275f6045bd1f9\transformed\jetified-firebase-datatransport-18.1.6\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-installations:17.0.3] C:\Users\tayfu\.gradle\caches\transforms-3\efc93183d1825e60cf98a9161c0e20ba\transformed\jetified-firebase-installations-17.0.3\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-installations:17.0.3] C:\Users\tayfu\.gradle\caches\transforms-3\efc93183d1825e60cf98a9161c0e20ba\transformed\jetified-firebase-installations-17.0.3\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-common-ktx:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\55d84fbc00aa2388c19d9d27980d63e0\transformed\jetified-firebase-common-ktx-20.1.2\AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-common-ktx:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\55d84fbc00aa2388c19d9d27980d63e0\transformed\jetified-firebase-common-ktx-20.1.2\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-common:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\7a3eb077db330dceec460048b8b75913\transformed\jetified-firebase-common-20.1.2\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-common:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\7a3eb077db330dceec460048b8b75913\transformed\jetified-firebase-common-20.1.2\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.media:media:1.1.0] C:\Users\tayfu\.gradle\caches\transforms-3\91c42c5798d1e9a004b23d04fa0a9fd0\transformed\media-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -446,6 +456,8 @@ MERGED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeB
 MERGED from [:firebase_messaging] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_messaging\intermediates\merged_manifest\debug\AndroidManifest.xml:37:9-41:19
 MERGED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
 MERGED from [:firebase_core] C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
+MERGED from [com.google.firebase:firebase-messaging-ktx:23.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\f747f079fa99c047f6a8e029491b12ed\transformed\jetified-firebase-messaging-ktx-23.0.8\AndroidManifest.xml:26:9-32:19
+MERGED from [com.google.firebase:firebase-messaging-ktx:23.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\f747f079fa99c047f6a8e029491b12ed\transformed\jetified-firebase-messaging-ktx-23.0.8\AndroidManifest.xml:26:9-32:19
 MERGED from [com.google.firebase:firebase-auth:21.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\bc40233202636aab301813045f086fba\transformed\jetified-firebase-auth-21.0.8\AndroidManifest.xml:64:9-70:19
 MERGED from [com.google.firebase:firebase-auth:21.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\bc40233202636aab301813045f086fba\transformed\jetified-firebase-auth-21.0.8\AndroidManifest.xml:64:9-70:19
 MERGED from [com.google.firebase:firebase-firestore:24.3.1] C:\Users\tayfu\.gradle\caches\transforms-3\b0140bfd9a71f5655591308e4259da7f\transformed\jetified-firebase-firestore-24.3.1\AndroidManifest.xml:17:9-23:19
@@ -460,10 +472,12 @@ MERGED from [com.google.firebase:firebase-datatransport:18.1.6] C:\Users\tayfu\.
 MERGED from [com.google.firebase:firebase-datatransport:18.1.6] C:\Users\tayfu\.gradle\caches\transforms-3\dea5f28e8e9c14d7a38275f6045bd1f9\transformed\jetified-firebase-datatransport-18.1.6\AndroidManifest.xml:25:9-31:19
 MERGED from [com.google.firebase:firebase-installations:17.0.3] C:\Users\tayfu\.gradle\caches\transforms-3\efc93183d1825e60cf98a9161c0e20ba\transformed\jetified-firebase-installations-17.0.3\AndroidManifest.xml:15:9-21:19
 MERGED from [com.google.firebase:firebase-installations:17.0.3] C:\Users\tayfu\.gradle\caches\transforms-3\efc93183d1825e60cf98a9161c0e20ba\transformed\jetified-firebase-installations-17.0.3\AndroidManifest.xml:15:9-21:19
+MERGED from [com.google.firebase:firebase-common-ktx:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\55d84fbc00aa2388c19d9d27980d63e0\transformed\jetified-firebase-common-ktx-20.1.2\AndroidManifest.xml:12:9-18:19
+MERGED from [com.google.firebase:firebase-common-ktx:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\55d84fbc00aa2388c19d9d27980d63e0\transformed\jetified-firebase-common-ktx-20.1.2\AndroidManifest.xml:12:9-18:19
 MERGED from [com.google.firebase:firebase-common:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\7a3eb077db330dceec460048b8b75913\transformed\jetified-firebase-common-20.1.2\AndroidManifest.xml:33:9-37:35
 MERGED from [com.google.firebase:firebase-common:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\7a3eb077db330dceec460048b8b75913\transformed\jetified-firebase-common-20.1.2\AndroidManifest.xml:33:9-37:35
 	android:exported
-		ADDED from [com.google.firebase:firebase-auth:21.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\bc40233202636aab301813045f086fba\transformed\jetified-firebase-auth-21.0.8\AndroidManifest.xml:66:13-37
+		ADDED from [com.google.firebase:firebase-messaging-ktx:23.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\f747f079fa99c047f6a8e029491b12ed\transformed\jetified-firebase-messaging-ktx-23.0.8\AndroidManifest.xml:28:13-37
 	tools:targetApi
 		ADDED from [com.google.firebase:firebase-common:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\7a3eb077db330dceec460048b8b75913\transformed\jetified-firebase-common-20.1.2\AndroidManifest.xml:37:13-32
 	android:directBootAware
@@ -704,6 +718,12 @@ ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\t
 		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\041b27d38198d104baa2ef8fafea15d7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
 	android:name
 		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\tayfu\.gradle\caches\transforms-3\041b27d38198d104baa2ef8fafea15d7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+meta-data#com.google.firebase.components:com.google.firebase.messaging.ktx.FirebaseMessagingKtxRegistrar
+ADDED from [com.google.firebase:firebase-messaging-ktx:23.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\f747f079fa99c047f6a8e029491b12ed\transformed\jetified-firebase-messaging-ktx-23.0.8\AndroidManifest.xml:29:13-31:85
+	android:value
+		ADDED from [com.google.firebase:firebase-messaging-ktx:23.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\f747f079fa99c047f6a8e029491b12ed\transformed\jetified-firebase-messaging-ktx-23.0.8\AndroidManifest.xml:31:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging-ktx:23.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\f747f079fa99c047f6a8e029491b12ed\transformed\jetified-firebase-messaging-ktx-23.0.8\AndroidManifest.xml:30:17-126
 activity#com.google.firebase.auth.internal.GenericIdpActivity
 ADDED from [com.google.firebase:firebase-auth:21.0.8] C:\Users\tayfu\.gradle\caches\transforms-3\bc40233202636aab301813045f086fba\transformed\jetified-firebase-auth-21.0.8\AndroidManifest.xml:27:9-44:20
 	android:excludeFromRecents
@@ -816,6 +836,12 @@ ADDED from [com.google.firebase:firebase-installations:17.0.3] C:\Users\tayfu\.g
 		ADDED from [com.google.firebase:firebase-installations:17.0.3] C:\Users\tayfu\.gradle\caches\transforms-3\efc93183d1825e60cf98a9161c0e20ba\transformed\jetified-firebase-installations-17.0.3\AndroidManifest.xml:20:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-installations:17.0.3] C:\Users\tayfu\.gradle\caches\transforms-3\efc93183d1825e60cf98a9161c0e20ba\transformed\jetified-firebase-installations-17.0.3\AndroidManifest.xml:19:17-127
+meta-data#com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar
+ADDED from [com.google.firebase:firebase-common-ktx:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\55d84fbc00aa2388c19d9d27980d63e0\transformed\jetified-firebase-common-ktx-20.1.2\AndroidManifest.xml:15:13-17:85
+	android:value
+		ADDED from [com.google.firebase:firebase-common-ktx:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\55d84fbc00aa2388c19d9d27980d63e0\transformed\jetified-firebase-common-ktx-20.1.2\AndroidManifest.xml:17:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-common-ktx:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\55d84fbc00aa2388c19d9d27980d63e0\transformed\jetified-firebase-common-ktx-20.1.2\AndroidManifest.xml:16:17-113
 provider#com.google.firebase.provider.FirebaseInitProvider
 ADDED from [com.google.firebase:firebase-common:20.1.2] C:\Users\tayfu\.gradle\caches\transforms-3\7a3eb077db330dceec460048b8b75913\transformed\jetified-firebase-common-20.1.2\AndroidManifest.xml:26:9-31:39
 	android:authorities
