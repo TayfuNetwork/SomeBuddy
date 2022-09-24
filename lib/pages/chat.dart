@@ -47,9 +47,7 @@ class _SohbetState extends State<Sohbet> {
               "Sohbet",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
             ),
-            shape: RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(8))),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(bottom: Radius.circular(8))),
             titleTextStyle: TextStyle(
               color: Colors.white,
               fontSize: 22,
@@ -76,8 +74,7 @@ class _SohbetState extends State<Sohbet> {
               children: [
                 Expanded(
                   child: StreamBuilder<List<Mesaj>>(
-                    stream: getMessages(
-                        widget.currentUser.id!, widget.konusulanUser.id!),
+                    stream: getMessages(widget.currentUser.id!, widget.konusulanUser.id!),
                     builder: (context, StreamMesajlarlistesi) {
                       if (!StreamMesajlarlistesi.hasData) {
                         return const Center(
@@ -112,8 +109,7 @@ class _SohbetState extends State<Sohbet> {
                             filled: true,
                             hintText: 'Mesajınızı yazın',
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30.0),
-                                borderSide: BorderSide.none),
+                                borderRadius: BorderRadius.circular(30.0), borderSide: BorderSide.none),
                           ),
                         ),
                       ),
@@ -227,19 +223,16 @@ class _SohbetState extends State<Sohbet> {
   }
 
   _bilgilerimeGit() {
-    return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => bilgilerim()));
+    return Navigator.of(context).push(CupertinoPageRoute(builder: (context) => bilgilerim()));
   }
 
   _mesajlaraGit() {
-    return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) =>  Inbox()));
+    return Navigator.of(context).push(CupertinoPageRoute(builder: (context) => Inbox()));
   }
 
   _searchPage() {
-    return Navigator.of(context).pushAndRemoveUntil(
-        CupertinoPageRoute(builder: (context) => const searchPage()),
-        ((route) => false));
+    return Navigator.of(context)
+        .pushAndRemoveUntil(CupertinoPageRoute(builder: (context) => const searchPage()), ((route) => false));
   }
 
   String _saatDakikaGoster(Timestamp? date) {
@@ -281,6 +274,5 @@ Stream<List<Mesaj>> getMessages(String currentUserID, String konusulanUserID) {
       .collection("mesajlar")
       .orderBy("date", descending: true)
       .snapshots();
-  return snapShot.map((mesajListesi) =>
-      mesajListesi.docs.map((mesaj) => Mesaj.fromMap(mesaj.data())).toList());
+  return snapShot.map((mesajListesi) => mesajListesi.docs.map((mesaj) => Mesaj.fromMap(mesaj.data())).toList());
 }

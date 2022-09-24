@@ -25,59 +25,46 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print('Handling a background message ${message.messageId}');
 }
 
-/// Create a [AndroidNotificationChannel] for heads up notifications
-late AndroidNotificationChannel channel;
-
-bool isFlutterLocalNotificationsInitialized = false;
-
 Future<void> setupFlutterNotifications() async {
   const AndroidNotificationChannel channel = AndroidNotificationChannel(
     'high_importance_channel', // id
     'High Importance Notifications', // title
     importance: Importance.max,
   );
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
   await flutterLocalNotificationsPlugin
-      .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin>()
-      ?.createNotificationChannel(channel);
+      .initialize(InitializationSettings(android: AndroidInitializationSettings("logo")));
 
-  if (isFlutterLocalNotificationsInitialized) {
-    return;
-  }
+  await flutterLocalNotificationsPlugin
+      .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+      ?.createNotificationChannel(channel);
 
   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
     alert: true,
     badge: true,
     sound: true,
   );
-  isFlutterLocalNotificationsInitialized = true;
 }
 
 void showFlutterNotification(RemoteMessage message) {
   RemoteNotification? notification = message.notification;
-  AndroidNotification? android = message.notification?.android;
-  if (notification != null && android != null && !kIsWeb) {
-    flutterLocalNotificationsPlugin.show(
+
+  if (notification != null && !kIsWeb) {
+    FlutterLocalNotificationsPlugin().show(
       notification.hashCode,
       notification.title,
       notification.body,
       NotificationDetails(
         android: AndroidNotificationDetails(
-          channel.id,
-          channel.name,
-          channelDescription: channel.description,
+          'high_importance_channel',
+          'High Importance Notifications',
           icon: 'launch_background',
         ),
       ),
     );
   }
 }
-
-/// Initialize the [FlutterLocalNotificationsPlugin] package.
-late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -89,7 +76,6 @@ void main() async {
     await setupFlutterNotifications();
   }
 
-  await Firebase.initializeApp();
   await AuthService().checkUser();
   MobileAds.instance.initialize();
   adHelper.createInterstitialAd();
