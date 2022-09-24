@@ -20,8 +20,7 @@ class NotificationService {
     print('User granted permission: ${settings.authorizationStatus}');
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       print('User granted permission');
-    } else if (settings.authorizationStatus ==
-        AuthorizationStatus.provisional) {
+    } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
       print('User granted provisional permission');
     } else {
       print('User declined or has not accepted permission');
@@ -42,22 +41,21 @@ class NotificationService {
 
   String constructFCMPayload(String? token, String? tittle, String? body) {
     return jsonEncode({
-      "to": "$token",
+      "to": token,
       "priority": "high",
+      "click_action": "FLUTTER_NOTIFICATION_CLICK",
       "notification": {"title": "$tittle", "body": "$body"}
     });
   }
 
-  Future<void> sendPushMessage(
-      String? token, String tittle, String body) async {
+  Future<void> sendPushMessage(String? token, String tittle, String body) async {
     if (token == null) {
       return print("token geçersiz");
     }
 
     try {
       await http.post(
-        Uri.parse(
-            'https://fcm.googleapis.com/v1/projects/project-160528578459/messages:send HTTP/1.1'),
+        Uri.parse("https://fcm.googleapis.com/fcm/send"),
         headers: <String, String>{
           'Content-Type': 'application/json',
           'Authorization':

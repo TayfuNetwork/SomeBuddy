@@ -9,6 +9,9 @@
 			android:label="SomeBuddy"
 			android:name="${applicationName}"
 			android:icon="@mipmap/ic_launcher">
+		<meta-data
+				android:name="com.google.firebase.messaging.default_notification_channel_id"
+				android:value="high_importance_channel" />
 		<activity
 				android:name=".MainActivity"
 				android:exported="true"
@@ -47,13 +50,6 @@
 				android:value="ca-app-pub-1753932827820630~3378195279" />
 		<service
 				android:name=".java.MyFirebaseMessagingService"
-				android:exported="false">
-			<meta-data
-					android:name="com.google.firebase.messaging.default_notification_channel_id"
-					android:value="Message-Notification" />
-			<intent-filter>
-				<action android:name="com.google.firebase.MESSAGING_EVENT" />
-			</intent-filter>
-		</service>
+				android:exported="false"></service>
 	</application>
 </manifest>
