@@ -1,4 +1,3 @@
-import 'package:badges/badges.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,18 +5,14 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/badge_goster.dart';
-import 'package:version1/pages/gelen_kutusu.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/services/auth_service.dart';
-//import 'package:version1/services/notification.dart';
-import '../models/konusma.dart';
 import '../services/ad_helper.dart';
 import '../control_pages/json-models.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import '../services/search_service.dart';
 
 // sadece oturum açmış kişiler bu sayfayı görebilir.
 // ignore: camel_case_types

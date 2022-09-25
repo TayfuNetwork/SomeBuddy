@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
-import 'package:version1/pages/gelen_kutusu.dart';
+import 'package:version1/pages/badge_goster.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
@@ -59,12 +59,7 @@ class _Results2State extends State<Results2> {
             fontSize: 22,
           ),
           actions: [
-            IconButton(
-                onPressed: _mesajlaraGit,
-                icon: const Icon(
-                  Icons.chat,
-                  color: Colors.white,
-                )),
+            baddge(),
             IconButton(
               icon: const Icon(Icons.search, color: Colors.white),
               onPressed: _searchPage,
@@ -211,11 +206,6 @@ class _Results2State extends State<Results2> {
         ),
       ),
     );
-  }
-
-  _mesajlaraGit() {
-    return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) =>  Inbox()));
   }
 
   _bilgilerimeGit() {

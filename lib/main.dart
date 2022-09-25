@@ -10,12 +10,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:version1/services/notification.dart';
 
-
-
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(options: NotificationService.currentPlatform);
   await setupFlutterNotifications();
-  showFlutterNotification(message);
 }
 
 Future<void> setupFlutterNotifications() async {
@@ -27,7 +24,7 @@ Future<void> setupFlutterNotifications() async {
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
-   await flutterLocalNotificationsPlugin.initialize(
+  await flutterLocalNotificationsPlugin.initialize(
       InitializationSettings(android: AndroidInitializationSettings("logo")));
 
   await flutterLocalNotificationsPlugin
@@ -40,25 +37,6 @@ Future<void> setupFlutterNotifications() async {
     badge: true,
     sound: true,
   );
-}
-
-void showFlutterNotification(RemoteMessage message) {
-  RemoteNotification? notification = message.notification;
-
-  if (notification != null && !kIsWeb) {
-    FlutterLocalNotificationsPlugin().show(
-      notification.hashCode,
-      notification.title,
-      notification.body,
-      NotificationDetails(
-        android: AndroidNotificationDetails(
-          'high_importance_channel',
-          'High Importance Notifications',
-          icon: 'launch_background',
-        ),
-      ),
-    );
-  }
 }
 
 void main() async {
@@ -87,8 +65,7 @@ class MyApp extends StatelessWidget {
       title: 'SomeBuddy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: 
-      const LandingPage(),
+      home: const LandingPage(),
     );
   }
 }

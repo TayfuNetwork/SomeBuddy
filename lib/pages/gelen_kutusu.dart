@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:version1/models/konusma.dart';
 import 'package:version1/models/user.dart';
-import 'package:version1/pages/badge_goster.dart';
 import 'package:version1/pages/chat.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/pages/show.dart';

@@ -135,7 +135,7 @@ class _SignInPageState extends State<SignInPage> {
           }
         }
       } on PlatformException catch (e) {
-        debugPrint(e.message);
+        e.code;
       }
     } else {
       return null;

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/pages/badge_goster.dart';
 import 'package:version1/pages/bilgilerim.dart';
-import 'package:version1/pages/gelen_kutusu.dart';
 import 'package:version1/pages/result_Sex.dart';
 import 'package:version1/pages/results.dart';
 import 'package:version1/services/ad_helper.dart';
@@ -443,11 +442,6 @@ class _searchPageState extends State<searchPage> {
         ),
       ),
     );
-  }
-
-  _mesajlaraGit() {
-    return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => Inbox()));
   }
 
   _bilgilerimeGit() {

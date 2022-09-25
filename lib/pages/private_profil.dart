@@ -14,8 +14,6 @@ import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/services/auth_service.dart';
 
-import 'gelen_kutusu.dart';
-
 // ignore: camel_case_types
 class private_profil extends StatefulWidget {
   const private_profil({Key? key}) : super(key: key);
@@ -534,11 +532,6 @@ class _private_profilState extends State<private_profil> {
   _bilgilerimeGit() {
     return Navigator.of(context)
         .push(CupertinoPageRoute(builder: (context) => bilgilerim()));
-  }
-
-  _mesajlaraGit() {
-    return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) => Inbox()));
   }
 
   _searchPage() {
