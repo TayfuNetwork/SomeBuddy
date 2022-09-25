@@ -109,7 +109,7 @@ class ReadControl {
 
   Future<List<Konusma>> search() async {
     QuerySnapshot<Map<String, dynamic>> maps = await userCollection
-        .where("kimle_konusuyor", isEqualTo: I)
+        .where("konusma_sahibi", isEqualTo: I)
         .where("goruldu", isEqualTo: "false")
         .get();
     return maps.docs.map((e) => Konusma.fromMap(e.data())).toList();
@@ -117,7 +117,7 @@ class ReadControl {
 
   Stream<QuerySnapshot<Map<String, dynamic>>> ReadStream() {
     return userCollection
-        .where("kimle_konusuyor", isEqualTo: I)
+        .where("konusma_sahibi", isEqualTo: I)
         .where("goruldu", isEqualTo: "false")
         .snapshots();
   }

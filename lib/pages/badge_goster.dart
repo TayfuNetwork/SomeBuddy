@@ -13,8 +13,6 @@ class baddge extends StatefulWidget {
   @override
   State<baddge> createState() => _baddgeState();
 }
-
-Set<dynamic> a = {};
 Text? Texxt;
 var I = AuthService().user!.id;
 
@@ -28,32 +26,16 @@ class _baddgeState extends State<baddge> {
             List<Konusma> mesajlar =
                 snap.data!.docs.map((e) => Konusma.fromMap(e.data())).toList();
 
-            mesajlar
-                .map((e) => {
-                      print("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee $e"),
-                      if (e.goruldu == "false")
-                        {
-                          a.add(e.sonMesajBenimMi),
-                          Texxt = Text(
-                            a.length.toString(),
-                            style: TextStyle(color: Colors.red),
-                          )
-                        }
-                      else
-                        {
-                          a.clear(),
-                          Texxt = Text(a.length.toString(),
-                              style: TextStyle(color: Colors.red))
-                        },
-                      print("aaaaaaaaaaaaaaaaaaaaa $a")
-                    })
-                .toList();
+            mesajlar.map((e) => {}).toList();
             return Badge(
                 badgeColor: Colors.white,
                 animationDuration: Duration(milliseconds: 300),
                 position: BadgePosition.topEnd(top: 10, end: 10),
                 animationType: BadgeAnimationType.slide,
-                badgeContent: Texxt,
+                badgeContent: Text(
+                  mesajlar.length.toString(),
+                  style: TextStyle(color: Colors.red),
+                ),
                 child: IconButton(
                   onPressed: _mesajlaraGit,
                   icon: Icon(Icons.chat),

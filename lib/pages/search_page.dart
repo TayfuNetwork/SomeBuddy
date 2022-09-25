@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:version1/control_pages/json-models.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/control_pages/myDrawer.dart';
+import 'package:version1/pages/badge_goster.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/gelen_kutusu.dart';
 import 'package:version1/pages/result_Sex.dart';
@@ -94,7 +95,6 @@ class _searchPageState extends State<searchPage> {
               ),
             ),
           );
-          
         },
       );
     }
@@ -125,12 +125,7 @@ class _searchPageState extends State<searchPage> {
             fontSize: 22,
           ),
           actions: [
-            IconButton(
-                onPressed: _mesajlaraGit,
-                icon: const Icon(
-                  Icons.chat,
-                  color: Colors.white,
-                )),
+            baddge(),
             IconButton(
               icon: const Icon(Icons.home, color: Colors.white),
               onPressed: _bilgilerimeGit,
@@ -452,7 +447,7 @@ class _searchPageState extends State<searchPage> {
 
   _mesajlaraGit() {
     return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) =>  Inbox()));
+        .push(CupertinoPageRoute(builder: (context) => Inbox()));
   }
 
   _bilgilerimeGit() {

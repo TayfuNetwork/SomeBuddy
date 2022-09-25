@@ -93,18 +93,18 @@ class _InboxState extends State<Inbox> {
                                         oankiKonusma.olusturulma_tarihi!);
                                     if (snapshot.hasData) {
                                       var myuser = AuthService().user!.id;
-                                      MyUser user = snapshot.data!;
+                                      MyUser alici = snapshot.data!;
                                       _konusmalariYenile();
                                       git() {
                                         Navigator.of(context).push(
                                             CupertinoPageRoute(
                                                 builder: (context) =>
-                                                    show(whoData: user)));
+                                                    show(whoData: alici)));
                                       }
 
                                       ImageProvider _havePhoto() {
-                                        if (user.image != null) {
-                                          return NetworkImage(user.image!);
+                                        if (alici.image != null) {
+                                          return NetworkImage(alici.image!);
                                         } else {
                                           return const AssetImage(
                                               "images/logo.png");
@@ -145,7 +145,7 @@ class _InboxState extends State<Inbox> {
                                                                   .collection(
                                                                       "konusmalar")
                                                                   .doc(
-                                                                      "${myuser}--${user.id}")
+                                                                      "${myuser}--${alici.id}")
                                                                   .delete();
 
                                                               var collection = FirebaseFirestore
@@ -153,7 +153,7 @@ class _InboxState extends State<Inbox> {
                                                                   .collection(
                                                                       'konusmalar')
                                                                   .doc(
-                                                                      "${myuser}--${user.id}")
+                                                                      "${myuser}--${alici.id}")
                                                                   .collection(
                                                                       "mesajlar");
                                                               var snapshots =
@@ -206,7 +206,7 @@ class _InboxState extends State<Inbox> {
                                                   bottomRight:
                                                       Radius.circular(80))),
                                           child: ListTile(
-                                              title: Text(user.userName!),
+                                              title: Text(alici.userName!),
                                               subtitle: SingleChildScrollView(
                                                 scrollDirection:
                                                     Axis.horizontal,
@@ -237,26 +237,19 @@ class _InboxState extends State<Inbox> {
                                                   FirebaseFirestore.instance
                                                       .collection("konusmalar")
                                                       .doc(
-                                                          "${_userModel.id}--${user.id}")
+                                                          "${_userModel.id}--${alici.id}")
                                                       .update({
-                                                    "gorulduMu": "true"
+                                                    "gorulduMu": "true",
+                                                    "goruldu": "true"
                                                   });
-                                                  FirebaseFirestore.instance
+
+                                                  /* FirebaseFirestore.instance
                                                       .collection("konusmalar")
                                                       .doc(
-                                                          "${user.id}--${_userModel.id}")
+                                                          "${alici.id}--${_userModel.id}")
                                                       .update({
                                                     "gorulduMu": "true"
-                                                  });
-                                                  FirebaseFirestore.instance
-                                                      .collection("konusmalar")
-                                                      .doc(
-                                                          "${user.id}--${_userModel.id}")
-                                                      .update(
-                                                          {"goruldu": "true"});
-                                                  setState(() {
-                                                    baddge();
-                                                  });
+                                                  }); */
                                                 });
 
                                                 await Navigator.of(context)
@@ -266,7 +259,7 @@ class _InboxState extends State<Inbox> {
                                                               currentUser:
                                                                   _userModel,
                                                               konusulanUser:
-                                                                  user,
+                                                                  alici,
                                                             )));
                                               }),
                                         ),

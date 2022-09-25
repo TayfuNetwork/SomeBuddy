@@ -9,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/medya.dart';
 import 'package:version1/models/user.dart';
+import 'package:version1/pages/badge_goster.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/services/auth_service.dart';
@@ -69,12 +70,7 @@ class _private_profilState extends State<private_profil> {
             fontSize: 22,
           ),
           actions: [
-            IconButton(
-                onPressed: _mesajlaraGit,
-                icon: const Icon(
-                  Icons.chat,
-                  color: Colors.white,
-                )),
+            baddge(),
             IconButton(
               icon: const Icon(Icons.search, color: Colors.white),
               onPressed: _searchPage,

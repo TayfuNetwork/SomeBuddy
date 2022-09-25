@@ -164,7 +164,7 @@ class AuthService {
         "son_yollanan_mesaj": kaydedilecekMesaj.mesaj,
         "sonMesajBenimMi": kaydedilecekMesaj.kimden,
         "olusturulma_tarihi": DateTime.now(),
-        "goruldu": "false",
+        "goruldu": "true",
         "gorulduMu": "false"
       });
 
@@ -186,7 +186,8 @@ class AuthService {
         "son_yollanan_mesaj": kaydedilecekMesaj.mesaj,
         "olusturulma_tarihi": DateTime.now(),
         "sonMesajBenimMi": kaydedilecekMesaj.kimden,
-        "gorulduMu": "false"
+        "gorulduMu": "false",
+        "goruldu": "false"
       });
       var _to = await FirebaseFirestore.instance
           .collection('Users')
@@ -197,8 +198,6 @@ class AuthService {
 
       await NotificationService().sendPushMessage(
           userToken, AuthService().user!.userName!, kaydedilecekMesaj.mesaj);
-      print(
-          "$userToken + ${AuthService().user!.userName!} + ${kaydedilecekMesaj.mesaj} ");
     } catch (e) {
       return false;
     }
