@@ -10,19 +10,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:version1/services/notification.dart';
 
-/* Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  
-  await Firebase.initializeApp();
 
-  print("Handling a background message: ${message.messageId}");
-} */
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(options: NotificationService.currentPlatform);
   await setupFlutterNotifications();
   showFlutterNotification(message);
-
-  print('Handling a background message ${message.messageId}');
 }
 
 Future<void> setupFlutterNotifications() async {
@@ -31,13 +24,15 @@ Future<void> setupFlutterNotifications() async {
     'High Importance Notifications', // title
     importance: Importance.max,
   );
-  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
+
+   await flutterLocalNotificationsPlugin.initialize(
+      InitializationSettings(android: AndroidInitializationSettings("logo")));
 
   await flutterLocalNotificationsPlugin
-      .initialize(InitializationSettings(android: AndroidInitializationSettings("logo")));
-
-  await flutterLocalNotificationsPlugin
-      .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+      .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>()
       ?.createNotificationChannel(channel);
 
   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
@@ -92,7 +87,8 @@ class MyApp extends StatelessWidget {
       title: 'SomeBuddy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: const LandingPage(),
+      home: 
+      const LandingPage(),
     );
   }
 }

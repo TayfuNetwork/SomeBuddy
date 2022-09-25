@@ -20,14 +20,13 @@ class NotificationService {
     print('User granted permission: ${settings.authorizationStatus}');
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
       print('User granted permission');
-    } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
+    } else if (settings.authorizationStatus ==
+        AuthorizationStatus.provisional) {
       print('User granted provisional permission');
     } else {
       print('User declined or has not accepted permission');
     }
 
-    /* vapidKey:
-    "$Token"; */
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       print('Got a message whilst in the foreground!');
@@ -48,7 +47,8 @@ class NotificationService {
     });
   }
 
-  Future<void> sendPushMessage(String? token, String tittle, String body) async {
+  Future<void> sendPushMessage(
+      String? token, String tittle, String body) async {
     if (token == null) {
       return print("token geçersiz");
     }

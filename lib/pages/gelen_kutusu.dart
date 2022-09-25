@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:version1/models/konusma.dart';
 import 'package:version1/models/user.dart';
+import 'package:version1/pages/badge_goster.dart';
 import 'package:version1/pages/chat.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/pages/show.dart';
@@ -224,7 +225,7 @@ class _InboxState extends State<Inbox> {
                                               ),
                                               trailing: isReaded(
                                                   oankiKonusma.sonMesajBenimMi,
-                                                  oankiKonusma.goruldu!),
+                                                  oankiKonusma.gorulduMu!),
                                               leading: GestureDetector(
                                                 onTap: git,
                                                 child: CircleAvatar(
@@ -237,14 +238,26 @@ class _InboxState extends State<Inbox> {
                                                       .collection("konusmalar")
                                                       .doc(
                                                           "${_userModel.id}--${user.id}")
+                                                      .update({
+                                                    "gorulduMu": "true"
+                                                  });
+                                                  FirebaseFirestore.instance
+                                                      .collection("konusmalar")
+                                                      .doc(
+                                                          "${user.id}--${_userModel.id}")
+                                                      .update({
+                                                    "gorulduMu": "true"
+                                                  });
+                                                  FirebaseFirestore.instance
+                                                      .collection("konusmalar")
+                                                      .doc(
+                                                          "${user.id}--${_userModel.id}")
                                                       .update(
-                                                          {"goruldu": true});
+                                                          {"goruldu": "true"});
+                                                  setState(() {
+                                                    baddge();
+                                                  });
                                                 });
-                                                /*  if (oankiKonusma
-                                                        .sonMesajBenimMi !=
-                                                    false) {
-                                                  if (okunmamis > 0) {}
-                                                } */
 
                                                 await Navigator.of(context)
                                                     .push(CupertinoPageRoute(
@@ -277,9 +290,9 @@ class _InboxState extends State<Inbox> {
     return _formatlanmisTarih;
   }
 
-  isReaded(bendenMi, bool x) {
+  isReaded(bendenMi, x) {
     var user = AuthService().user!;
-    if (x == false) {
+    if (x == "false") {
       if (bendenMi == user.id) {
         return Icon(
           Icons.chat,

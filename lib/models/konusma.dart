@@ -3,7 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Konusma {
   final String? konusma_sahibi;
   late final String? kimle_konusuyor;
-  final bool? goruldu;
+  final String? goruldu;
+  final String? gorulduMu;
   final Timestamp? olusturulma_tarihi;
   final String? son_yollanan_mesaj;
   final Timestamp? gorulme_tarihi;
@@ -14,6 +15,7 @@ class Konusma {
   String? sonMesajBenimMi;
   Konusma(
       {required this.konusma_sahibi,
+      required this.gorulduMu,
       required this.kimle_konusuyor,
       required this.goruldu,
       required this.olusturulma_tarihi,
@@ -23,7 +25,8 @@ class Konusma {
 
   Map<String, dynamic> toMap() {
     return {
-      'sonMesajBenimMi':sonMesajBenimMi,
+      'gorulduMu':gorulduMu,
+      'sonMesajBenimMi': sonMesajBenimMi,
       'konusma_sahibi': konusma_sahibi,
       'kimle_konusuyor': kimle_konusuyor,
       'goruldu': goruldu,
@@ -35,6 +38,7 @@ class Konusma {
 
   Konusma.fromMap(Map<String, dynamic> map)
       : konusma_sahibi = map['konusma_sahibi'],
+      gorulduMu = map['gorulduMu'],
         kimle_konusuyor = map['kimle_konusuyor'],
         goruldu = map['goruldu'],
         olusturulma_tarihi = map['olusturulma_tarihi'],
@@ -44,6 +48,6 @@ class Konusma {
 
   @override
   String toString() {
-    return 'Konusma{konusma_sahibi: $konusma_sahibi, kimle_konusuyor: $kimle_konusuyor, goruldu: $goruldu, olusturulma_tarihi: $olusturulma_tarihi, son_yollanan_mesaj: $son_yollanan_mesaj, gorulme_tarihi: $gorulme_tarihi, sonMesajBenimMi: $sonMesajBenimMi}';
+    return 'Konusma{gorulduMu:$gorulduMu konusma_sahibi: $konusma_sahibi, kimle_konusuyor: $kimle_konusuyor, goruldu: $goruldu, olusturulma_tarihi: $olusturulma_tarihi, son_yollanan_mesaj: $son_yollanan_mesaj, gorulme_tarihi: $gorulme_tarihi, sonMesajBenimMi: $sonMesajBenimMi}';
   }
 }

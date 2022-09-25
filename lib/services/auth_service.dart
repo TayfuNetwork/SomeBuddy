@@ -162,10 +162,10 @@ class AuthService {
         "konusma_sahibi": kaydedilecekMesaj.kimden,
         "kimle_konusuyor": kaydedilecekMesaj.kime,
         "son_yollanan_mesaj": kaydedilecekMesaj.mesaj,
-        "konusma_goruldu": false,
         "sonMesajBenimMi": kaydedilecekMesaj.kimden,
         "olusturulma_tarihi": DateTime.now(),
-        "goruldu": false
+        "goruldu": "false",
+        "gorulduMu": "false"
       });
 
       _kaydedilecekMesajYapisi.update("bendenMi", (deger) => false);
@@ -184,10 +184,9 @@ class AuthService {
         "konusma_sahibi": kaydedilecekMesaj.kime,
         "kimle_konusuyor": kaydedilecekMesaj.kimden,
         "son_yollanan_mesaj": kaydedilecekMesaj.mesaj,
-        "konusma_goruldu": false,
         "olusturulma_tarihi": DateTime.now(),
         "sonMesajBenimMi": kaydedilecekMesaj.kimden,
-        "goruldu": false
+        "gorulduMu": "false"
       });
       var _to = await FirebaseFirestore.instance
           .collection('Users')
