@@ -9,7 +9,7 @@ import 'package:version1/services/auth_service.dart';
 import '../control_pages/myDrawer.dart';
 import '../models/mesaj.dart';
 import '../models/user.dart';
-import 'badge_goster.dart';
+import '../control_pages/badge_goster.dart';
 import 'bilgilerim.dart';
 
 // ignore: must_be_immutable

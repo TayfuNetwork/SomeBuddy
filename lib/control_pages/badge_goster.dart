@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../models/konusma.dart';
 import '../services/auth_service.dart';
 import '../services/search_service.dart';
-import 'gelen_kutusu.dart';
+import '../pages/gelen_kutusu.dart';
 
 class baddge extends StatefulWidget {
   const baddge({Key? key}) : super(key: key);

@@ -2,6 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:version1/control_pages/language.dart';
 import 'package:version1/pages/usage.dart';
 import '../models/user.dart';
 import '../pages/private_profil.dart';
@@ -88,6 +89,16 @@ class _MyDrawerState extends State<MyDrawer> {
                       onTap: () {
                         _cikisYap();
                       }),
+                  ListTile(
+                      leading: const Icon(Icons.language),
+                      title: const Text("DİLİ DEĞİŞ",
+                          style: TextStyle(fontSize: 12)),
+                      trailing: const Icon(Icons.keyboard_arrow_right),
+                      onTap: () {
+                        Navigator.of(context).push(CupertinoPageRoute(
+                            builder: (context) =>
+                                language(title: 'language_picker Example')));
+                      }),
                   const SizedBox(
                     height: 30,
                   ),
@@ -157,7 +168,7 @@ class _MyDrawerState extends State<MyDrawer> {
     }
   } */
 
-   _imageController() {
+  _imageController() {
     var whoData = AuthService().user;
     if (whoData!.image != null) {
       return NetworkImage(whoData.image!);

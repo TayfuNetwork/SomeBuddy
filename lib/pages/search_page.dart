@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:version1/control_pages/json-models.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/control_pages/myDrawer.dart';
-import 'package:version1/pages/badge_goster.dart';
+import 'package:version1/control_pages/badge_goster.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/result_Sex.dart';
 import 'package:version1/pages/results.dart';

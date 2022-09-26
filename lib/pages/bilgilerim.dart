@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
-import 'package:version1/pages/badge_goster.dart';
+import 'package:version1/control_pages/badge_goster.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/services/auth_service.dart';
 import '../services/ad_helper.dart';
@@ -12,7 +13,6 @@ import '../control_pages/json-models.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-
 
 // sadece oturum açmış kişiler bu sayfayı görebilir.
 // ignore: camel_case_types
@@ -31,6 +31,16 @@ Future<bool> isShown = Permission.contacts.shouldShowRequestRationale;
 String? ili, ilcesi, bransi, mevkisi;
 Color? ppColor;
 
+@override
+void initState() async {
+  final fcmToken = await FirebaseMessaging.instance.getToken();
+  AuthService().user!.token = fcmToken;
+  FirebaseFirestore.instance
+      .collection("Users")
+      .doc(AuthService().user!.id)
+      .update({'token': fcmToken});
+}
+
 // ignore: camel_case_types
 class _bilgilerimState extends State<bilgilerim> {
   Brans? brans;
@@ -46,7 +56,6 @@ class _bilgilerimState extends State<bilgilerim> {
   String? _konumIlce = "Place";
   bool _isloading = true;
   String _durum = "Kayıt Oluştur";
-  List? a = [];
   @override
   void initState() {
     super.initState();

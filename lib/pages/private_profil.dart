@@ -9,7 +9,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/medya.dart';
 import 'package:version1/models/user.dart';
-import 'package:version1/pages/badge_goster.dart';
+import 'package:version1/control_pages/badge_goster.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/services/auth_service.dart';

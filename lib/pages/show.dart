@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:version1/control_pages/badge_goster.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/services/ad_helper.dart';
 import '../control_pages/myDrawer.dart';
@@ -9,7 +10,6 @@ import '../models/user.dart';
 import '../services/auth_service.dart';
 import 'bilgilerim.dart';
 import 'chat.dart';
-import 'gelen_kutusu.dart';
 
 class show extends StatefulWidget {
   final MyUser whoData;
@@ -49,12 +49,7 @@ class _showState extends State<show> {
             fontSize: 22,
           ),
           actions: [
-            IconButton(
-                onPressed: _mesajlaraGit,
-                icon: const Icon(
-                  Icons.chat,
-                  color: Colors.white,
-                )),
+            baddge(),
             IconButton(
               icon: const Icon(Icons.search, color: Colors.white),
               onPressed: _searchPage,
@@ -257,11 +252,6 @@ class _showState extends State<show> {
     } else {
       return ppColor = Colors.blue;
     }
-  }
-
-  _mesajlaraGit() {
-    return Navigator.of(context)
-        .push(CupertinoPageRoute(builder: (context) =>  Inbox()));
   }
 
   _bilgilerimeGit() {
