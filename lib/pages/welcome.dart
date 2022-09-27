@@ -44,7 +44,7 @@ class _welcomeState extends State<welcome> {
 
   Text isim_deneme() {
     if (_user.isHaveProfile) {
-      return Text("Merhaba ! Tekrar hoşgeldiniz $isim $cinsiyet.");
+      return Text("Merhaba ! Tekrar hoşgeldiniz "" $isim $cinsiyet.");
     } else {
       return Text("Merhaba ! Sizi aramızda görmek ne güzel.");
     }

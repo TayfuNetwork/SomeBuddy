@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,7 @@ class _bilgilerimState extends State<bilgilerim> {
   String? _konumIl;
   String? _konumIlce = "Place";
   bool _isloading = true;
-  String _durum = "Kayıt Oluştur";
+  String _durum = "AnaSayfaKayitOlusturButonu".tr();
   @override
   void initState() {
     super.initState();
@@ -74,8 +75,8 @@ class _bilgilerimState extends State<bilgilerim> {
           toolbarHeight: 80,
           toolbarOpacity: 0.8,
           shadowColor: Colors.black,
-          title: const Text(
-            "Ana Sayfa",
+          title: Text(
+            "AnaSayfaAppBarTittle".tr(),
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
           ),
           shape: RoundedRectangleBorder(
@@ -119,7 +120,7 @@ class _bilgilerimState extends State<bilgilerim> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        const Text('Kimlik',
+                         Text("AnaSayfaKimlik".tr(),
                             style: TextStyle(color: Colors.grey)),
                         ListTile(
                           textColor: Colors.black,
@@ -141,11 +142,11 @@ class _bilgilerimState extends State<bilgilerim> {
                           TextButton(
                               onPressed: () async {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
+                                     SnackBar(
                                         backgroundColor: Colors.blue,
                                         duration: Duration(seconds: 5),
                                         content: Text(
-                                            "Kaydınız silindi, artık arama sonuçlarında görünmezsiniz. Keşfedilmek için bilgilerinizi doldurunuz.",
+                                           'KaydinizSilindi'.tr() ,
                                             style: TextStyle(
                                                 color: Colors.white))));
 
@@ -170,8 +171,8 @@ class _bilgilerimState extends State<bilgilerim> {
                                   setState(() {});
                                 } on Exception {}
                               },
-                              child: const Text(
-                                'Kaydı Sil !',
+                              child: Text(
+                                'AnaSayfaHobiKatiniSil'.tr(),
                                 style: TextStyle(color: Colors.pink),
                                 softWrap: true,
                               )),
@@ -180,8 +181,8 @@ class _bilgilerimState extends State<bilgilerim> {
                           color: Colors.blueAccent,
                         ),
                         const SizedBox(height: 10),
-                        const Text(
-                            'Konum oluşturarak kaydınızı başlatabilirsiniz',
+                         Text(
+                            'AnaSayfaKonumAcıklama'.tr(),
                             style: TextStyle(color: Colors.grey)),
                         const SizedBox(height: 10),
                         Column(
@@ -207,18 +208,18 @@ class _bilgilerimState extends State<bilgilerim> {
                                       il = _konumIl;
                                       ilce = _konumIlce;
                                       _isloading = true;
-                                      _durum = "Konum Belirlendi";
+                                      _durum = "AnaSayfaKonumBelirlendiButonu".tr();
                                     });
                                     await Future.delayed(Duration(seconds: 3));
                                     setState(() {
-                                      _durum = "Konum Oluştur";
+                                      _durum = "AnaSayfaTekrarTaratButonu".tr();
                                     });
                                   } catch (e) {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(
+                                         SnackBar(
                                             backgroundColor: Colors.blue,
                                             content: Text(
-                                                "Konumunuza erişilemiyor, açık olduğundan emin olun.",
+                                                "AnaSayfaKonumErisilemiyorHata".tr(),
                                                 style: TextStyle(
                                                     color: Colors.white))));
                                   }
@@ -233,7 +234,7 @@ class _bilgilerimState extends State<bilgilerim> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              const Text("Branş:",
+                               Text("Brans".tr(),
                                   style: TextStyle(color: Colors.blue)),
                               DropdownButton<int>(
                                 menuMaxHeight: 400,
@@ -264,7 +265,7 @@ class _bilgilerimState extends State<bilgilerim> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              const Text("mevki:",
+                              Text("Mevki:".tr(),
                                   style: TextStyle(color: Colors.blue)),
                               DropdownButton<String>(
                                 menuMaxHeight: 400,
@@ -323,7 +324,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                               builder: (context) =>
                                                   const searchPage()));
                                     },
-                                    child: const Text('Kaydet ve partner bul'),
+                                    child: Text('AnaSayfaKaydetvePartnerBulButonu'.tr()),
                                   ),
                                 ],
                               ),
@@ -335,7 +336,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                             builder: (context) =>
                                                 const searchPage()));
                                   },
-                                  child: const Text('Gezinti')),
+                                  child: Text('AnaSayfaGezintiButonu'.tr())),
                             SizedBox(
                               height: 20,
                             ),
@@ -370,7 +371,7 @@ class _bilgilerimState extends State<bilgilerim> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                "il :",
+                "Il".tr(),
                 style: TextStyle(color: Colors.blue),
               ),
               Text(
@@ -390,7 +391,7 @@ class _bilgilerimState extends State<bilgilerim> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                "ilce :",
+                "Ilce".tr(),
                 style: TextStyle(color: Colors.blue),
               ),
               Text(
@@ -435,7 +436,7 @@ class _bilgilerimState extends State<bilgilerim> {
   } */
 
   Color renk() {
-    if (AuthService().user!.sex == 'Kadın') {
+    if (AuthService().user!.sex == 'Female') {
       return ppColor = Colors.pink.shade400;
     } else {
       return ppColor = Colors.blueAccent;

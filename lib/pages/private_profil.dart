@@ -401,7 +401,7 @@ class _private_profilState extends State<private_profil> {
         _userModel.user!.userName = _userNameController.text;
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             backgroundColor: Colors.blue,
-            content: Text("Kullanıcı adı değştirme işlemi başarılı",
+            content: Text("Kullanıcı adı değiştirme işlemi başarılı",
                 style: TextStyle(color: Colors.white))));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(

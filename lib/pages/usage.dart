@@ -43,7 +43,7 @@ class usage extends StatelessWidget {
                       const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
-                            "Profil sayfasından bilgilerini doldurduktan sonra kendisini 'Bilgilerim' sayfası karşılar."),
+                            "Profil sayfasından bilgilerini doldurduktan sonra kendisini 'Ana Sayfa' sayfası karşılar."),
                       ),
                       const Text(
                         "Sol açılır menü",

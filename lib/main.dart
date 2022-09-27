@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:version1/control_pages/landing_page.dart';
@@ -41,6 +42,7 @@ Future<void> setupFlutterNotifications() async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(options: NotificationService.currentPlatform);
 
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
@@ -53,7 +55,15 @@ void main() async {
   MobileAds.instance.initialize();
   adHelper.createInterstitialAd();
   adHelper.createRewardedAd();
-  runApp(const MyApp());
+  runApp(EasyLocalization(
+    supportedLocales: [
+      Locale('en', 'US'),
+      Locale('tr', 'TR'),
+    ],
+    path: 'assets/translations',
+    fallbackLocale: Locale('en','US'),
+    child: MyApp(),
+ ));
 }
 
 class MyApp extends StatelessWidget {
@@ -62,6 +72,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.deviceLocale,
       title: 'SomeBuddy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),

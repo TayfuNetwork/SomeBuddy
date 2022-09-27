@@ -54,7 +54,7 @@ dependencies:
   http: ^0.13.5
   firebase_admin: ^0.2.0
   badges: ^2.0.3
-  language_picker: ^0.4.1
+  easy_localization: ^3.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -87,6 +87,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/
+    - assets/translations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
