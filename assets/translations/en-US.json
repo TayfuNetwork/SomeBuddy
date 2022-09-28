@@ -28,13 +28,16 @@
     "ProfilSayfaBilgilerDogrulugu":"You are responsible for the accuracy of the information.",
     "Isim":"Name",
     "Soyisim":"Last name",
-    "Yas":"Age",
+    "Yas":"Age (cannot be changed)",
     "Biografi":"Biography",
     "Cinsiyet":"Gender",
+    "KaydetveDevamEt":"save and continue",
     "OturumAcKaydol":"Login / Register",
     "EmailileOturum":"With Email",
     "GoogleileOturum":"With Google",
     "EmailPassword":"Passwords did not match",
+    "EmailGirisYap":"Login",
+    "EmailKayitOl":"Register",
     "ZatenHesapVar":"Already registered? Sign in",
     "HesabinizYokMu":"Don't have an account? Register Now",
     "Sifre":"Password",
@@ -47,6 +50,8 @@
     "MesajlarSilinecek":"Messages will be deleted",
     "Sil":"Delete",
     "Vazgec":"Turn back",
+    "Gelen":"Received: ",
+    "Gonderilen":"Sent: ",
     "PrivateProfilAppbarTitle":"Profile",
     "KameradanCek":"With camera",
     "Galeriden":"From gallery",
@@ -56,6 +61,7 @@
     "DegisiklikKaydet":"Save the changes",
     "ProfilResmiYap":"Set profile photo",
     "KayitliResimYok":"There is no photo",
+    "ResmiSil":"Delete photo",
     "KullaniciAdDegistirmeBasarili":"Username change successful",
     "BuKullaniciAdiAlindi":"this username has been using",
     "BiografiDegisBasarili":"Biography change succesful",
@@ -89,6 +95,7 @@
     "Kapat":"Close",
     "DevamEdebilirsin":"you can continue",
     "KayitliKullaniciYok":"User not found",
+    "SifreKisa":"Weak password",
     "HataliSifer":"Wrong password",
     "GecersizMail":"Invaid email",
     "BilinmeyenHata":"Error",
@@ -98,7 +105,7 @@
     "UygulamaHakkinda":"About app",
     "ParolaSifirlama":"Password reset",
     "BilgileriniPaylasma":"Please do not share your information with anyone.",
-    "SifirlamaMailiGonder":"Send reset password mail"
-
+    "SifirlamaMailiGonder":"Send reset password mail",
+    "SifirlamaGonderildi":"Reset email sent"
 
 }

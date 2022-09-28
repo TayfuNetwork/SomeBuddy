@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -130,7 +131,7 @@ class AdHelper {
         await rewardedAd!.show(
           onUserEarnedReward: (ad, reward) {
             Fluttertoast.showToast(
-              msg: "Devam edebilirsin",
+              msg: "DevamEdebilirsin".tr(),
               gravity: ToastGravity.BOTTOM,
               toastLength: Toast.LENGTH_LONG,
             );

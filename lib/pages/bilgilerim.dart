@@ -535,7 +535,7 @@ class _bilgilerimState extends State<bilgilerim> {
       );
     } else {
       return Text(
-        "Hobi kaydı bulunmuyor.",
+        "HobiKaydiBulunmuyor.".tr(),
         style: const TextStyle(color: Colors.orange),
       );
     }

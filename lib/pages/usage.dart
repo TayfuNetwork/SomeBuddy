@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class usage extends StatelessWidget {
@@ -7,7 +8,7 @@ class usage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Nasıl Kullanılır ?"),
+        title: Text("UsageAppbarTitle".tr()),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -36,50 +37,50 @@ class usage extends StatelessWidget {
                       ]),
                   child: Column(
                     children: [
-                      const Text(
-                        "Kullanıcı oturum açmıştır",
+                       Text(
+                        "kullaniciOturum".tr(),
                         style: TextStyle(fontSize: 18),
                       ),
-                      const Padding(
+                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
-                            "Profil sayfasından bilgilerini doldurduktan sonra kendisini 'Ana Sayfa' sayfası karşılar."),
+                            "ProfilSayfasinda".tr()),
                       ),
-                      const Text(
-                        "Sol açılır menü",
+                       Text(
+                        "SolAcilirMenu".tr(),
                         style: TextStyle(fontSize: 18),
                       ),
-                      const Padding(
+                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
-                            "Bu menü aracılığı ile mesajlarının bulunduğu sayfaya gidebilir, aynı şekilde 'Profil' butonuna tıklayarak aramalarda nasıl görüneceğini düzenleyebilir, profil resmi yükleyebilir, kendisini tanımlayabilir ve de galerisine yeni resimler ekleyebilir"),
+                            "BuMenuAraciligi".tr()),
                       ),
-                      const Text(
-                        "Bilgilerini doldurma",
+                       Text(
+                        "BilgileriniDoldurma".tr(),
                         style: TextStyle(fontSize: 18),
                       ),
-                      const Padding(
+                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
-                            " Karşısına çıkan açılır menüler aracılığı ile hangi şehirde, hangi hobi dalında aktif oluğunu belirtir ve 'Kaydet ve partner bul' butonuna tıklar. Kullanıcı bilgilerini girmek istemezse 'Gezinti' adlı butona tıklayarak sadece arama yapabilir veya kayıt yaptıktan hemen sonra karşısına çıkacak 'hobi kaydımı sil' butonuna basarak kaydını silebilir."),
+                            "KarsisinaCikan".tr()),
                       ),
-                      const Text(
-                        "Arama sayfası",
+                       Text(
+                        "UsageAramaSayfası".tr(),
                         style: TextStyle(fontSize: 18),
                       ),
-                      const Padding(
+                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
-                            "Bu sayfada hangi ilde, ne tür aktivitelerle ilgilenen insanları bulmak istediğini açılır menüler vasıtasıyla belirtir ve 'Ara' butonuna tıklar."),
+                            "BySayfaHangi".tr()),
                       ),
-                      const Text(
-                        "Arama sonuçları",
+                       Text(
+                        "UsageAramaSonuclari".tr(),
                         style: TextStyle(fontSize: 18),
                       ),
-                      const Padding(
+                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
-                            "Bu sayfada girilen kriterlere uygun eşleşmeler listelenir. Listelenen kullanıcının üstüne tıklayarak üyelerin profiline gidip kendisi hakkında daha fazla bilgiye ( Resimler ve biografisi ) ulaşabilirsiniz."),
+                            "BuSayfaGirilen".tr()),
                       ),
                       Padding(
                         padding: EdgeInsets.all(8.0),
@@ -87,8 +88,8 @@ class usage extends StatelessWidget {
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            child: const Text(
-                              'Kapat',
+                            child: Text(
+                              'Kapat'.tr(),
                               style: TextStyle(color: Colors.red),
                             )),
                       )

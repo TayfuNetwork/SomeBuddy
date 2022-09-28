@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/control_pages/badge_goster.dart';
@@ -125,10 +126,10 @@ class _showState extends State<show> {
                 const Divider(
                   height: 2,
                 ),
-                const Padding(
+                 Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
-                    'Bana ait bazı fotoğraflar aşağıdadır.',
+                    'BanaAitFotolar'.tr(),
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
@@ -240,14 +241,14 @@ class _showState extends State<show> {
       );
     } else {
       return Text(
-        "Hobi kaydı bulunmuyor.",
+        "HobiKaydiBulunmuyor".tr(),
         style: const TextStyle(color: Colors.orange),
       );
     }
   }
 
   Color ControlColor() {
-    if (widget.whoData.sex == 'Kadın') {
+    if (widget.whoData.sex == 'Female') {
       return ppColor = Colors.pink.shade400;
     } else {
       return ppColor = Colors.blue;

@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -36,8 +37,8 @@ class _SignInPageState extends State<SignInPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              "Oturum Açın / Kaydolun",
+             Text(
+              "OturumAcKaydol".tr(),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -72,8 +73,8 @@ class _SignInPageState extends State<SignInPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Icon(Icons.email),
-          const Text(
-            'Email ile oturum aç',
+           Text(
+            'EmailileOturum'.tr(),
             style: TextStyle(color: Colors.white, fontSize: 16),
           ),
           Icon(Icons.email, color: Colors.white.withOpacity(0)),
@@ -91,8 +92,8 @@ class _SignInPageState extends State<SignInPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Image.asset("images/google-logo.png"),
-          const Text(
-            'Google ile oturum aç',
+           Text(
+            'GoogleileOturum'.tr(),
             style: TextStyle(color: Colors.black87, fontSize: 16),
           ),
           Image.asset(

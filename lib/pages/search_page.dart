@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -113,8 +114,8 @@ class _searchPageState extends State<searchPage> {
           toolbarHeight: 80,
           toolbarOpacity: 0.8,
           shadowColor: Colors.black,
-          title: const Text(
-            "Gezinti",
+          title: Text(
+            "AnaSayfaGezintiButonu".tr(),
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
           ),
           shape: RoundedRectangleBorder(
@@ -161,9 +162,9 @@ class _searchPageState extends State<searchPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0),
                     child: Text(
-                      "! Yazım yanlışına dikkat ediniz !",
+                      "YazimYanlisiDikkat".tr(),
                       style: TextStyle(color: Colors.red),
                     ),
                   ),
@@ -176,12 +177,12 @@ class _searchPageState extends State<searchPage> {
                     ],
                     maxLines: 1,
                     style: const TextStyle(color: Colors.black),
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue, width: 1)),
                       focusColor: Colors.blue,
-                      hintText: 'İli giriniz',
+                      hintText: 'IlıGiriniz'.tr(),
                       enabled: true,
                     ),
                     autofocus: false,
@@ -201,12 +202,12 @@ class _searchPageState extends State<searchPage> {
                     textCapitalization: TextCapitalization.words,
                     maxLines: 1,
                     style: const TextStyle(color: Colors.black),
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue, width: 1)),
                       focusColor: Colors.blue,
-                      hintText: 'İlçeyi giriniz',
+                      hintText: 'IlceGiriniz'.tr(),
                       enabled: true,
                     ),
                     autofocus: false,
@@ -220,8 +221,7 @@ class _searchPageState extends State<searchPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text("Branş:",
-                          style: TextStyle(color: Colors.blue)),
+                      Text("Brans:".tr(), style: TextStyle(color: Colors.blue)),
                       DropdownButton<int>(
                         menuMaxHeight: 400,
                         iconEnabledColor: Colors.blue,
@@ -255,7 +255,7 @@ class _searchPageState extends State<searchPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text("mevki:",
+                        Text("Mevki:".tr(),
                             style: TextStyle(color: Colors.blue)),
                         DropdownButton<String>(
                           menuMaxHeight: 400,
@@ -296,15 +296,15 @@ class _searchPageState extends State<searchPage> {
                             TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    secilenCinsiyet = "Erkek";
+                                    secilenCinsiyet = "Male";
                                     sex = secilenCinsiyet;
                                   });
                                 },
                                 child: Text(
-                                  "Erkek",
+                                  "Male",
                                   style: TextStyle(color: Colors.black),
                                 )),
-                            if (secilenCinsiyet == "Erkek")
+                            if (secilenCinsiyet == "Male")
                               Icon(
                                 Icons.download_done_outlined,
                                 color: Colors.green,
@@ -317,15 +317,15 @@ class _searchPageState extends State<searchPage> {
                             TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    secilenCinsiyet = "Kadın";
+                                    secilenCinsiyet = "Female";
                                     sex = secilenCinsiyet;
                                   });
                                 },
                                 child: Text(
-                                  "Kadın",
+                                  "Female",
                                   style: TextStyle(color: Colors.black),
                                 )),
-                            if (secilenCinsiyet == "Kadın")
+                            if (secilenCinsiyet == "Female")
                               Icon(
                                 Icons.download_done_outlined,
                                 color: Colors.green,
@@ -357,15 +357,15 @@ class _searchPageState extends State<searchPage> {
                               }
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
+                                  SnackBar(
                                       backgroundColor: Colors.blue,
                                       content: Text(
-                                          "Bütün alanları eksiksiz doldurmalısınız.",
+                                          "ButunAlanlarıEksiksiDoldur".tr(),
                                           style:
                                               TextStyle(color: Colors.white))));
                             }
                           },
-                          child: const Text('Ara')),
+                          child: Text('Ara'.tr())),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
@@ -376,7 +376,7 @@ class _searchPageState extends State<searchPage> {
                               color: Colors.red,
                             ),
                             Text(
-                              "Cinsiyet filtrelemesi için reklam ",
+                              "CinsiyetFiltrele".tr(),
                               style: TextStyle(color: Colors.red),
                             ),
                             Icon(
@@ -393,7 +393,7 @@ class _searchPageState extends State<searchPage> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(2.0),
                                   child: Text(
-                                    "İzle",
+                                    "Izle".tr(),
                                     style: TextStyle(color: Colors.blue),
                                   ),
                                 )),
@@ -411,7 +411,7 @@ class _searchPageState extends State<searchPage> {
                                 onPressed: () {
                                   yakinArama();
                                 },
-                                child: Text(" En yakın partneri bul")),
+                                child: Text("EnYakinPartner".tr())),
                           ],
                         ),
                       Row(
@@ -419,7 +419,7 @@ class _searchPageState extends State<searchPage> {
                           Icon(Icons.navigate_next, color: Colors.red),
                           TextButton(
                               onPressed: sonAramaTekrar,
-                              child: Text("Bir önceki aramayı tekrarla")),
+                              child: Text("BirOncekiAramaTekrar".tr())),
                         ],
                       ),
                       SizedBox(
@@ -467,20 +467,22 @@ class _searchPageState extends State<searchPage> {
     bulunanMevki = preferences.get("sonMevki").toString();
     setState(() {});
 
-    await Navigator.of(context).push(CupertinoPageRoute(
-        builder: (context) => Results(
-              il: bulunanIl!,
-              ilce: bulunanIlce!,
-              brans: bulunanBrans!,
-              mevki: bulunanMevki!,
-              ppColor: Colors.blue,
-              sIcon: Icon(Icons.person),
-            )));
-
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        backgroundColor: Colors.blue,
-        content: Text("Üzgünüz, son arama kaydınıza ulaşamadık!",
-            style: TextStyle(color: Colors.white))));
+    if (preferences.get("sonIl") != null) {
+      await Navigator.of(context).push(CupertinoPageRoute(
+          builder: (context) => Results(
+                il: bulunanIl!,
+                ilce: bulunanIlce!,
+                brans: bulunanBrans!,
+                mevki: bulunanMevki!,
+                ppColor: Colors.blue,
+                sIcon: Icon(Icons.person),
+              )));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          backgroundColor: Colors.blue,
+          content: Text("SonAramaKaydiUok".tr(),
+              style: TextStyle(color: Colors.white))));
+    }
   }
 }
 

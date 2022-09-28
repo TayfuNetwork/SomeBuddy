@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -36,8 +37,8 @@ class _InboxState extends State<Inbox> {
             toolbarHeight: 80,
             toolbarOpacity: 0.8,
             shadowColor: Colors.black,
-            title: const Text(
-              "Mesajlar",
+            title:  Text(
+              "GelenKutusuAppbarTitle".tr(),
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
             ),
             shape: RoundedRectangleBorder(
@@ -77,7 +78,7 @@ class _InboxState extends State<Inbox> {
                   var _saatDakikaDegeri = "";
 
                   return tumKonusmalar.isEmpty
-                      ? const Center(child: Text('Hiç mesajınız yok'))
+                      ? Center(child: Text('HicMesajYok'.tr()))
                       : ListView.builder(
                           itemCount: tumKonusmalar.length,
                           itemBuilder: (context, index) {
@@ -122,8 +123,8 @@ class _InboxState extends State<Inbox> {
                                                           BorderRadius.circular(
                                                               20.0)),
                                                   title: Center(
-                                                    child: const Text(
-                                                      "Mesajlar silinecek",
+                                                    child: Text(
+                                                      "MesajlarSilinecek".tr(),
                                                       style: TextStyle(
                                                           color: Colors.red),
                                                     ),
@@ -169,8 +170,8 @@ class _InboxState extends State<Inbox> {
                                                               Navigator.pop(
                                                                   context);
                                                             },
-                                                            child: const Text(
-                                                              "Sil",
+                                                            child: Text(
+                                                              "Sil".tr(),
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .blue),
@@ -181,8 +182,8 @@ class _InboxState extends State<Inbox> {
                                                             Navigator.pop(
                                                                 context);
                                                           },
-                                                          child: const Text(
-                                                              "Vazgeç",
+                                                          child:  Text(
+                                                              "Vazgeç".tr(),
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .blue)),
@@ -324,11 +325,11 @@ class _InboxState extends State<Inbox> {
     var user = AuthService().user!;
     if (bendenMi == user.id) {
       return Text(
-        "Gönderilen: ",
+        "Gonderilen".tr(),
         style: TextStyle(color: Colors.white),
       );
     } else {
-      return Text("Gelen: ", style: TextStyle(color: Colors.white));
+      return Text("Gelen".tr(), style: TextStyle(color: Colors.white));
     }
   }
 }

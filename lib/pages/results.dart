@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/control_pages/myDrawer.dart';
@@ -47,8 +48,8 @@ class _ResultsState extends State<Results> {
           toolbarHeight: 80,
           toolbarOpacity: 0.8,
           shadowColor: Colors.black,
-          title: const Text(
-            "Sonuçlar",
+          title: Text(
+            "ResultPageAppbarTitle".tr(),
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
           ),
           shape: RoundedRectangleBorder(
@@ -94,7 +95,7 @@ class _ResultsState extends State<Results> {
                               widget.brans +
                               "/ " +
                               widget.mevki),
-                          Text("Malesef, bu kriterlerdeki tek üyemiz sizsiniz"),
+                          Text("BuKriterdeTekUye".tr()),
                         ],
                       ),
                     );
@@ -113,8 +114,8 @@ class _ResultsState extends State<Results> {
                               widget.brans +
                               "/ " +
                               widget.mevki),
-                          const Text(
-                              "Malesef, bu kriterlere uygun bir üyemiz yok"),
+                           Text(
+                              "BuKriterdeUyeYok".tr()),
                         ],
                       ),
                     ),
@@ -134,7 +135,7 @@ class _ResultsState extends State<Results> {
                           widget.mevki),
                       Column(
                         children: users.map((e) {
-                          if (e.sex == 'Kadın') {
+                          if (e.sex == 'Female') {
                             widget.ppColor = Colors.pink.shade400;
                           } else {
                             widget.ppColor = Colors.blue;

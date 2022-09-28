@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
@@ -35,9 +36,9 @@ class _EmailPasswordState extends State<EmailPassword> {
 
     if (_formType == FormType.Register) {
       if (_sifre != _sifreTekrar) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar( SnackBar(
             backgroundColor: Colors.blue,
-            content: Text("Şifreler eşleşmedi",
+            content: Text("EmailPassword".tr(),
                 style: TextStyle(color: Colors.white))));
         return;
       }
@@ -71,10 +72,10 @@ class _EmailPasswordState extends State<EmailPassword> {
 
   @override
   Widget build(BuildContext context) {
-    _butonText = _formType == FormType.Login ? "Giriş Yap" : "Kayıt Ol";
+    _butonText = _formType == FormType.Login ? "EmailGirisYap".tr() : "EmailKayitOl".tr();
     _linkText = _formType == FormType.Register
-        ? "Zaten kayıtlı mısınız? Oturum açın"
-        : "Hesabınız yok mu? Hemen Kayıt Olun";
+        ? "ZatenHesapVar".tr()
+        : "HesabinizYokMu".tr();
 
     return Scaffold(
         body: Container(
@@ -102,10 +103,10 @@ class _EmailPasswordState extends State<EmailPassword> {
                 const SizedBox(height: 8),
                 TextFormField(
                   obscureText: true,
-                  decoration: const InputDecoration(
+                  decoration:  InputDecoration(
                     prefixIcon: Icon(Icons.key),
-                    hintText: 'Şifre',
-                    labelText: 'Şifre',
+                    hintText: 'Sifre'.tr(),
+                    labelText: 'Sifre'.tr(),
                     border: OutlineInputBorder(),
                   ),
                   onSaved: (String? girilensifre) {
@@ -116,16 +117,16 @@ class _EmailPasswordState extends State<EmailPassword> {
                 GestureDetector(
                   onTap: () => Navigator.of(context).push(CupertinoPageRoute(
                       builder: (context) => const ForgotPasswordPage())),
-                  child: const Text('Şifreni mi unuttun?'),
+                  child:  Text('SifreUnuttun'.tr()),
                 ),
                 const SizedBox(height: 8),
                 if (_formType == FormType.Register) ...[
                   TextFormField(
                     obscureText: true,
-                    decoration: const InputDecoration(
+                    decoration:  InputDecoration(
                       prefixIcon: Icon(Icons.key),
-                      hintText: 'Şifre Tekrar',
-                      labelText: 'Şifre Tekrar',
+                      hintText: 'TekrarSifre'.tr(),
+                      labelText: 'TekrarSifre'.tr(),
                       border: OutlineInputBorder(),
                     ),
                     onSaved: (String? girilensifre) {

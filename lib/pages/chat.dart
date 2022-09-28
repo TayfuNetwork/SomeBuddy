@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -43,8 +44,8 @@ class _SohbetState extends State<Sohbet> {
             toolbarHeight: 80,
             toolbarOpacity: 0.8,
             shadowColor: Colors.black,
-            title: const Text(
-              "Sohbet",
+            title: Text(
+              "ChatAppbarTittle".tr(),
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
             ),
             shape: RoundedRectangleBorder(
@@ -105,7 +106,7 @@ class _SohbetState extends State<Sohbet> {
                           decoration: InputDecoration(
                             fillColor: Colors.white,
                             filled: true,
-                            hintText: 'Mesajınızı yazın',
+                            hintText: 'ChatMesajiniziYazin'.tr(),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(30.0),
                                 borderSide: BorderSide.none),
@@ -239,7 +240,7 @@ class _SohbetState extends State<Sohbet> {
   }
 
   Color stateColor() {
-    if (widget.currentUser.sex == 'Kadın') {
+    if (widget.currentUser.sex == 'Female') {
       Color statu = Colors.pink;
       return statu;
     } else {

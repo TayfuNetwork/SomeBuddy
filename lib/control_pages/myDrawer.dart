@@ -1,4 +1,5 @@
 // ignore: file_names
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -45,8 +46,8 @@ class _MyDrawerState extends State<MyDrawer> {
                     leading: const Icon(
                       Icons.person,
                     ),
-                    title: const Text(
-                      "PROFIL",
+                    title: Text(
+                      "Profil".tr(),
                       style: TextStyle(fontSize: 15),
                     ),
                     trailing: const Icon(Icons.keyboard_arrow_right),
@@ -71,7 +72,7 @@ class _MyDrawerState extends State<MyDrawer> {
                       onTap: () {}), */
                   ListTile(
                       leading: const Icon(Icons.video_collection_outlined),
-                      title: const Text("NASIL KULLANILIR ?",
+                      title:  Text("UsageAppbarTitle".tr(),
                           style: TextStyle(fontSize: 12)),
                       trailing: const Icon(Icons.keyboard_arrow_right),
                       onTap: () {
@@ -80,8 +81,8 @@ class _MyDrawerState extends State<MyDrawer> {
                       }),
                   ListTile(
                       leading: const Icon(Icons.no_accounts),
-                      title: const Text(
-                        "ÇIKIŞ YAP",
+                      title: Text(
+                        "CikisYap".tr(),
                         style: TextStyle(color: Colors.red, fontSize: 12),
                       ),
                       trailing: const Icon(Icons.keyboard_arrow_right),
@@ -101,11 +102,11 @@ class _MyDrawerState extends State<MyDrawer> {
                   const SizedBox(
                     height: 30,
                   ),
-                  const AboutListTile(
-                    applicationName: " LİSANS",
+                   AboutListTile(
+                    applicationName: "Lisans".tr(),
                     applicationIcon: Icon(Icons.file_open),
                     applicationVersion: "3.8",
-                    child: Text("UYGULAMA HAKKINDA",
+                    child: Text("UygulamaHakkinda".tr(),
                         style: TextStyle(fontSize: 12)),
                     icon: Icon(Icons.info),
                     applicationLegalese: null,

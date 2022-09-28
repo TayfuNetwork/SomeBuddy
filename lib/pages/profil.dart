@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
@@ -36,12 +37,12 @@ class _ProfileState extends State<Profile> {
       appBar: AppBar(
         elevation: 9,
         automaticallyImplyLeading: false,
-        title: const Text('Profil'),
+        title: Text('Profil'.tr()),
         actions: <Widget>[
           TextButton(
             onPressed: _cikisYap,
-            child: const Text(
-              'Çıkış Yap',
+            child: Text(
+              'CikisYap'.tr(),
               style: TextStyle(color: (Colors.red)),
             ),
           )
@@ -64,7 +65,7 @@ class _ProfileState extends State<Profile> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 const SizedBox(height: 10),
-                const Text('Bilgilerin doğruluğundan şahsınız sorumludur',
+                 Text('ProfilSayfaBilgilerDogrulugu'.tr(),
                     style: TextStyle(color: Colors.grey)),
                 const SizedBox(height: 10),
 
@@ -72,12 +73,12 @@ class _ProfileState extends State<Profile> {
                   style: const TextStyle(color: Colors.white),
                   maxLength: 11,
                   maxLines: 1,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.blue, width: 1)),
                     focusColor: Colors.blue,
-                    hintText: 'İsim',
+                    hintText: 'Isim'.tr(),
                     enabled: true,
                   ),
                   autofocus: false,
@@ -94,12 +95,12 @@ class _ProfileState extends State<Profile> {
                   maxLength: 11,
                   maxLines: 1,
                   style: const TextStyle(color: Colors.white),
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.blue, width: 1)),
                     focusColor: Colors.blue,
-                    hintText: 'Soyisim',
+                    hintText: 'Soyisim'.tr(),
                     enabled: true,
                   ),
                   autofocus: false,
@@ -116,12 +117,12 @@ class _ProfileState extends State<Profile> {
                     style: const TextStyle(color: Colors.white),
                     maxLength: 2,
                     keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue, width: 1)),
                       focusColor: Colors.blue,
-                      hintText: 'Yaşınız - ( Değiştirilemez! )',
+                      hintText: 'Yas'.tr(),
                     ),
                     autofocus: false,
                     onChanged: (deger) {
@@ -131,12 +132,12 @@ class _ProfileState extends State<Profile> {
                 const SizedBox(height: 10),
                 TextField(
                     style: const TextStyle(color: Colors.white),
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue, width: 1)),
                       focusColor: Colors.blue,
-                      hintText: 'Biografi',
+                      hintText: 'Biografi'.tr(),
                     ),
                     autofocus: false,
                     onChanged: (deger) {
@@ -148,8 +149,8 @@ class _ProfileState extends State<Profile> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    const Text(
-                      "Cinsiyet:",
+                    Text(
+                      "Cinsiyet:".tr(),
                       style: TextStyle(color: Colors.blue),
                     ),
                     DropdownButton<int>(

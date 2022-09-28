@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/pages/bilgilerim.dart';
@@ -16,7 +17,7 @@ var _user = AuthService();
 
 String? isim = AuthService().user?.userName;
 String? ne = AuthService().user?.sex;
-String? cinsiyet = ne == "Kadın" ? "Hanım" : "Bey";
+String? cinsiyet = ne == "Female" ? "Hanim".tr() : "Bey".tr();
 
 class _welcomeState extends State<welcome> {
   @override
@@ -34,7 +35,7 @@ class _welcomeState extends State<welcome> {
                 children: [
                   isim_deneme(),
                   TextButton(
-                      onPressed: bilgilerimeGit, child: Text("Partner bul"))
+                      onPressed: bilgilerimeGit, child: Text("WelcomeSayfaParterBulButon".tr()))
                 ],
               ),
             )),
@@ -44,9 +45,9 @@ class _welcomeState extends State<welcome> {
 
   Text isim_deneme() {
     if (_user.isHaveProfile) {
-      return Text("Merhaba ! Tekrar hoşgeldiniz "" $isim $cinsiyet.");
+      return Text("WelcomeSayfaTekrarHosGeldiniz".tr()+" $isim $cinsiyet.");
     } else {
-      return Text("Merhaba ! Sizi aramızda görmek ne güzel.");
+      return Text("WelcomeSayfaAramizdaGormek".tr());
     }
   }
 

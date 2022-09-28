@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -40,17 +41,17 @@ class AuthService {
     } on FirebaseAuthException catch (e) {
       if (e.code == "email-already-in-use") {
         ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Kayıtlı bir kullanıcı mevcut")));
+             SnackBar(content: Text("EmailZatenKullaniliyor".tr())));
       } else if (e.code == "weak-password") {
         ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text("Şifre çok kısa")));
+            .showSnackBar( SnackBar(content: Text("SifreKisa".tr())));
       } else if (e.code == "invalid-email") {
         ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text("Geçersiz email")));
+            .showSnackBar( SnackBar(content: Text("GecersizMail".tr())));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Bilinmeyen bir hata oluştu"),
+           SnackBar(
+            content: Text("BilinmeyenHata"),
           ),
         );
       }
@@ -68,17 +69,17 @@ class AuthService {
     } on FirebaseAuthException catch (e) {
       if (e.code == "user-not-found") {
         ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Kayıtlı kullanıcı yok")));
+             SnackBar(content: Text("KayitliKullaniciYok".tr())));
       } else if (e.code == "wrong-password") {
         ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text("Hatalı şifre")));
+            .showSnackBar( SnackBar(content: Text("HataliSifer".tr())));
       } else if (e.code == "invalid-email") {
         ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text("Geçersiz email")));
+            .showSnackBar( SnackBar(content: Text("GecersizMail".tr())));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Bilinmeyen bir hata oluştu"),
+           SnackBar(
+            content: Text("BilinmeyenHata".tr()),
           ),
         );
       }

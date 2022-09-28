@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -31,14 +32,14 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: const Text(
-                      "PAROLA SIFIRLAMA",
+                    child: Text(
+                      "ParolaSifirlama".tr(),
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
-                  const Text(
-                    "Lütfen bilgilerinizi kimseyle paylaşmayın!",
+                   Text(
+                    "BilgileriniPaylasma".tr(),
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 18, color: Colors.orange),
                   ),
@@ -67,8 +68,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           resetPassword();
                         },
                         icon: const Icon(Icons.email_outlined),
-                        label: const Text(
-                          'Sıfırlama Maili Gönder',
+                        label: Text(
+                          'SifirlamaMailiGonder'.tr(),
                           style: TextStyle(fontSize: 18),
                         )),
                   )
@@ -85,9 +86,9 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     try {
       await FirebaseAuth.instance
           .sendPasswordResetEmail(email: emailController.text.trim());
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
           backgroundColor: Colors.blue,
-          content: Text('Sıfırlama e-postası gönderildi',
+          content: Text('SifirlamaGonderildi'.tr(),
               style: TextStyle(color: Colors.white))));
       Navigator.of(context).popUntil((route) => route.isFirst);
     } on FirebaseAuthException catch (e) {

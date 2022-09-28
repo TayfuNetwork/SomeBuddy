@@ -2,6 +2,7 @@
 
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -57,8 +58,8 @@ class _private_profilState extends State<private_profil> {
           toolbarHeight: 80,
           toolbarOpacity: 0.8,
           shadowColor: Colors.black,
-          title: const Text(
-            "Profil",
+          title: Text(
+            "PrivateProfilAppbarTitle".tr(),
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
           ),
           shape: RoundedRectangleBorder(
@@ -104,21 +105,21 @@ class _private_profilState extends State<private_profil> {
                                   children: <Widget>[
                                     ListTile(
                                       leading: const Icon(Icons.camera),
-                                      title: const Text("Kameradan Çek"),
+                                      title: Text("KameradanCek".tr()),
                                       onTap: () {
                                         uploadProfilPhoto(ImageSource.camera);
                                       },
                                     ),
                                     ListTile(
                                       leading: const Icon(Icons.image),
-                                      title: const Text("Galeriden Seç"),
+                                      title: Text("Galeriden".tr()),
                                       onTap: () {
                                         uploadProfilPhoto(ImageSource.gallery);
                                       },
                                     ),
                                     ListTile(
                                       leading: const Icon(Icons.no_accounts),
-                                      title: const Text("Fotoğrafı Kaldır"),
+                                      title:  Text("FotoKaldir".tr()),
                                       onTap: () {
                                         deleteProfilPhoto();
                                         Navigator.pop(context);
@@ -163,9 +164,9 @@ class _private_profilState extends State<private_profil> {
                     enabled: false,
                     initialValue: _userModel.email,
                     readOnly: true,
-                    decoration: const InputDecoration(
-                        labelText: 'Email',
-                        hintText: 'Email',
+                    decoration: InputDecoration(
+                        labelText: 'Email'.tr(),
+                        hintText: 'Email'.tr(),
                         border: OutlineInputBorder()),
                   ),
                 ),
@@ -177,9 +178,9 @@ class _private_profilState extends State<private_profil> {
                     controller: _userNameController,
                     //initialValue: _userModel.user!.userName,
                     readOnly: false,
-                    decoration: const InputDecoration(
-                        labelText: 'Kullanıcı Adı',
-                        hintText: 'Kullanıcı Adı',
+                    decoration: InputDecoration(
+                        labelText: 'KullaniciAdi'.tr(),
+                        hintText: 'KullaniciAdi'.tr(),
                         border: OutlineInputBorder()),
                   ),
                 ),
@@ -189,10 +190,10 @@ class _private_profilState extends State<private_profil> {
                     controller: _bioController,
                     //initialValue: _userModel.user!.userName,
                     readOnly: false,
-                    decoration: const InputDecoration(
-                        labelText: 'Biografi',
+                    decoration: InputDecoration(
+                        labelText: 'Biografi'.tr(),
                         hintText:
-                            'Örn: Satranç oynamak için de iletişime geçebilirsiniz..',
+                            'BioOrnek'.tr(),
                         border: OutlineInputBorder()),
                   ),
                 ),
@@ -202,7 +203,7 @@ class _private_profilState extends State<private_profil> {
                       onPressed: () {
                         _savetheChanges(context);
                       },
-                      child: const Text('Değişiklikleri Kaydet')),
+                      child: Text('DegisiklikKaydet'.tr())),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(0.1),
@@ -213,15 +214,15 @@ class _private_profilState extends State<private_profil> {
                           onPressed: () {
                             uploadGalleryPhotoCamera(ImageSource.camera);
                           },
-                          child: const Text(
-                            'Kameradan resim ekle',
+                          child: Text(
+                            'KameradanCek'.tr(),
                             style: TextStyle(color: Colors.black),
                           )),
                       TextButton(
                           onPressed: () {
                             uploadGalleryPhotoCamera(ImageSource.gallery);
                           },
-                          child: const Text('Galeriden resim ekle',
+                          child: Text('Galeriden'.tr(),
                               style: TextStyle(color: Colors.black))),
                     ],
                   ),
@@ -289,8 +290,8 @@ class _private_profilState extends State<private_profil> {
                                                                   merge: true));
                                                       Navigator.pop(context);
                                                     },
-                                                    child: const Text(
-                                                        "Profil resmi yap"),
+                                                    child: Text(
+                                                        "ProfilResmiYap".tr()),
                                                   ),
                                                   TextButton(
                                                     onPressed: () async {
@@ -322,18 +323,18 @@ class _private_profilState extends State<private_profil> {
                                                       } else {
                                                         ScaffoldMessenger.of(
                                                                 context)
-                                                            .showSnackBar(const SnackBar(
+                                                            .showSnackBar(SnackBar(
                                                                 backgroundColor:
                                                                     Colors.blue,
                                                                 content: Text(
-                                                                    "Kayıtlı bir resim bulunmuyor",
+                                                                    "KayitliResimYok".tr(),
                                                                     style: TextStyle(
                                                                         color: Colors
                                                                             .white))));
                                                       }
                                                     },
                                                     child:
-                                                        const Text("Resmi Sil"),
+                                                        Text("ResmiSil".tr()),
                                                   ),
                                                 ],
                                               ),
@@ -399,14 +400,14 @@ class _private_profilState extends State<private_profil> {
           (_userModel.user!.id).toString(), _userNameController.text);
       if (updateResult == true) {
         _userModel.user!.userName = _userNameController.text;
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar( SnackBar(
             backgroundColor: Colors.blue,
-            content: Text("Kullanıcı adı değiştirme işlemi başarılı",
+            content: Text("KullaniciAdDegistirmeBasarili".tr(),
                 style: TextStyle(color: Colors.white))));
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar( SnackBar(
             backgroundColor: Colors.blue,
-            content: Text("Bu kullanıcı adı daha önce alınmış!",
+            content: Text("BuKullaniciAdiAlindi".tr(),
                 style: TextStyle(color: Colors.white))));
       }
     }
@@ -423,9 +424,9 @@ class _private_profilState extends State<private_profil> {
           .update({'bio': _bioController.text});
 
       _userModel.user!.bio = _bioController.text; //auth servisdeki user
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
           backgroundColor: Colors.blue,
-          content: Text("Biografi değştirme işlemi başarılı",
+          content: Text("BiografiDegisBasarili".tr(),
               style: TextStyle(color: Colors.white))));
     }
   }
@@ -449,9 +450,9 @@ class _private_profilState extends State<private_profil> {
     }
     // ignore: unnecessary_null_comparison
     adres == null
-        ? ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        ? ScaffoldMessenger.of(context).showSnackBar( SnackBar(
             backgroundColor: Colors.blue,
-            content: Text("Kayıtlı bir resim bulunmuyor",
+            content: Text("KayitliBirResimBulunmuyo".tr(),
                 style: TextStyle(color: Colors.white))))
         : "";
   }
@@ -488,9 +489,9 @@ class _private_profilState extends State<private_profil> {
         }, SetOptions(merge: true));
       });
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
           backgroundColor: Colors.blue,
-          content: Text("Yükleme işlemi iptal edildi",
+          content: Text("Yuklemeİslemiİptal".tr(),
               style: TextStyle(color: Colors.white))));
     }
   }
@@ -515,9 +516,9 @@ class _private_profilState extends State<private_profil> {
             .set({'image': _url}, SetOptions(merge: true));
       });
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
           backgroundColor: Colors.blue,
-          content: Text("Yükleme işlemi iptal edildi",
+          content: Text("Yuklemeİslemiİptal".tr(),
               style: TextStyle(color: Colors.white))));
     }
   }
