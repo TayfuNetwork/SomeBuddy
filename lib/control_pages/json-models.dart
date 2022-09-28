@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 class BransServices {
   List<Brans> get branslar {
     List branslar = jsonDecode(_bransData) as List;
@@ -70,7 +69,6 @@ class Sex {
     return data;
   }
 }
-
 
 const String _bransData = """[
   {
@@ -1190,7 +1188,7 @@ const String _bransData = """[
 // ignore: constant_identifier_names
 const String _SexData = """[
   {
-    "sex": "Seçiniz",
+    "sex": "Seçiniz / Choice",
     "x": 1000
   },
   {

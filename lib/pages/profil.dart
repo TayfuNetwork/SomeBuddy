@@ -65,8 +65,8 @@ class _ProfileState extends State<Profile> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 const SizedBox(height: 10),
-                 Text('ProfilSayfaBilgilerDogrulugu'.tr(),
-                    style: TextStyle(color: Colors.grey)),
+                Text('ProfilSayfaBilgilerDogrulugu'.tr(),
+                    style: TextStyle(color: Colors.yellow)),
                 const SizedBox(height: 10),
 
                 TextField(
@@ -199,8 +199,6 @@ class _ProfileState extends State<Profile> {
                             ad! + " " + soyad!,
                           );
 
-                          // ignore: unused_local_variable
-
                           MyUser myUser = MyUser(
                             email: user.email ?? "email",
                             userName: ad ?? "isimsiz",
@@ -219,6 +217,7 @@ class _ProfileState extends State<Profile> {
                               .doc(user.uid)
                               .set(
                                   {'token': fcmToken}, SetOptions(merge: true));
+
                           AuthService().user!.token = fcmToken;
                           await AuthService().updateUser(myUser);
 
@@ -236,7 +235,7 @@ class _ProfileState extends State<Profile> {
                               builder: (context) => bilgilerim()));
                           Navigator.of(context).pop();
                         },
-                        child: const Text('Kaydet ve devam et',
+                        child: Text('KaydetveDevamEt'.tr(),
                             style: TextStyle(color: Colors.white)),
                       ),
                   ],

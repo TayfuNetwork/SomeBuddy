@@ -36,7 +36,7 @@ class _EmailPasswordState extends State<EmailPassword> {
 
     if (_formType == FormType.Register) {
       if (_sifre != _sifreTekrar) {
-        ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.blue,
             content: Text("EmailPassword".tr(),
                 style: TextStyle(color: Colors.white))));
@@ -72,7 +72,9 @@ class _EmailPasswordState extends State<EmailPassword> {
 
   @override
   Widget build(BuildContext context) {
-    _butonText = _formType == FormType.Login ? "EmailGirisYap".tr() : "EmailKayitOl".tr();
+    _butonText = _formType == FormType.Login
+        ? "EmailGirisYap".tr()
+        : "EmailKayitOl".tr();
     _linkText = _formType == FormType.Register
         ? "ZatenHesapVar".tr()
         : "HesabinizYokMu".tr();
@@ -103,7 +105,7 @@ class _EmailPasswordState extends State<EmailPassword> {
                 const SizedBox(height: 8),
                 TextFormField(
                   obscureText: true,
-                  decoration:  InputDecoration(
+                  decoration: InputDecoration(
                     prefixIcon: Icon(Icons.key),
                     hintText: 'Sifre'.tr(),
                     labelText: 'Sifre'.tr(),
@@ -114,16 +116,17 @@ class _EmailPasswordState extends State<EmailPassword> {
                   },
                 ),
                 const SizedBox(height: 8),
-                GestureDetector(
-                  onTap: () => Navigator.of(context).push(CupertinoPageRoute(
-                      builder: (context) => const ForgotPasswordPage())),
-                  child:  Text('SifreUnuttun'.tr()),
-                ),
+                if (_formType == FormType.Login)
+                  GestureDetector(
+                    onTap: () => Navigator.of(context).push(CupertinoPageRoute(
+                        builder: (context) => ForgotPasswordPage())),
+                    child: Text('SifreUnuttun'.tr()),
+                  ),
                 const SizedBox(height: 8),
                 if (_formType == FormType.Register) ...[
                   TextFormField(
                     obscureText: true,
-                    decoration:  InputDecoration(
+                    decoration: InputDecoration(
                       prefixIcon: Icon(Icons.key),
                       hintText: 'TekrarSifre'.tr(),
                       labelText: 'TekrarSifre'.tr(),

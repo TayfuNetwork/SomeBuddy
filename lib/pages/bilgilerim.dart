@@ -120,7 +120,7 @@ class _bilgilerimState extends State<bilgilerim> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                         Text("AnaSayfaKimlik".tr(),
+                        Text("AnaSayfaKimlik".tr(),
                             style: TextStyle(color: Colors.grey)),
                         ListTile(
                           textColor: Colors.black,
@@ -142,11 +142,10 @@ class _bilgilerimState extends State<bilgilerim> {
                           TextButton(
                               onPressed: () async {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                     SnackBar(
+                                    SnackBar(
                                         backgroundColor: Colors.blue,
                                         duration: Duration(seconds: 5),
-                                        content: Text(
-                                           'KaydinizSilindi'.tr() ,
+                                        content: Text('KaydinizSilindi'.tr(),
                                             style: TextStyle(
                                                 color: Colors.white))));
 
@@ -181,8 +180,7 @@ class _bilgilerimState extends State<bilgilerim> {
                           color: Colors.blueAccent,
                         ),
                         const SizedBox(height: 10),
-                         Text(
-                            'AnaSayfaKonumAcıklama'.tr(),
+                        Text('AnaSayfaKonumAcıklama'.tr(),
                             style: TextStyle(color: Colors.grey)),
                         const SizedBox(height: 10),
                         Column(
@@ -208,7 +206,8 @@ class _bilgilerimState extends State<bilgilerim> {
                                       il = _konumIl;
                                       ilce = _konumIlce;
                                       _isloading = true;
-                                      _durum = "AnaSayfaKonumBelirlendiButonu".tr();
+                                      _durum =
+                                          "AnaSayfaKonumBelirlendiButonu".tr();
                                     });
                                     await Future.delayed(Duration(seconds: 3));
                                     setState(() {
@@ -216,10 +215,11 @@ class _bilgilerimState extends State<bilgilerim> {
                                     });
                                   } catch (e) {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                         SnackBar(
+                                        SnackBar(
                                             backgroundColor: Colors.blue,
                                             content: Text(
-                                                "AnaSayfaKonumErisilemiyorHata".tr(),
+                                                "AnaSayfaKonumErisilemiyorHata"
+                                                    .tr(),
                                                 style: TextStyle(
                                                     color: Colors.white))));
                                   }
@@ -234,7 +234,7 @@ class _bilgilerimState extends State<bilgilerim> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                               Text("Brans".tr(),
+                              Text("Brans".tr(),
                                   style: TextStyle(color: Colors.blue)),
                               DropdownButton<int>(
                                 menuMaxHeight: 400,
@@ -309,6 +309,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                       ilcesi = ilce;
                                       bransi = (brans)!.brans;
                                       mevkisi = mevki;
+
                                       MyUser user = AuthService().user!;
                                       user = user.copyWith(
                                         brans: bransi,
@@ -316,6 +317,16 @@ class _bilgilerimState extends State<bilgilerim> {
                                         ilce: ilce,
                                         mevki: mevki,
                                       );
+                                      var dateTime = DateTime.now();
+                                      var ddd = DateFormat('MM/dd/yyyy HH:mm')
+                                          .format(dateTime);
+                                      await FirebaseMessaging.instance
+                                          .getToken();
+                                      FirebaseFirestore.instance
+                                          .collection('Users')
+                                          .doc(user.id)
+                                          .set({'date': ddd},
+                                              SetOptions(merge: true));
 
                                       await AuthService().updateUser(user);
 
@@ -324,7 +335,9 @@ class _bilgilerimState extends State<bilgilerim> {
                                               builder: (context) =>
                                                   const searchPage()));
                                     },
-                                    child: Text('AnaSayfaKaydetvePartnerBulButonu'.tr()),
+                                    child: Text(
+                                        'AnaSayfaKaydetvePartnerBulButonu'
+                                            .tr()),
                                   ),
                                 ],
                               ),

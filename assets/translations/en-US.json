@@ -106,6 +106,7 @@
     "ParolaSifirlama":"Password reset",
     "BilgileriniPaylasma":"Please do not share your information with anyone.",
     "SifirlamaMailiGonder":"Send reset password mail",
-    "SifirlamaGonderildi":"Reset email sent"
+    "SifirlamaGonderildi":"Reset email sent",
+    "Seciniz":"Choice"
 
 }

@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';

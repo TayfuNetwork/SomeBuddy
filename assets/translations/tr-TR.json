@@ -1,5 +1,4 @@
 {
-
     "AnaSayfaAppBarTittle":"Ana Sayfa",
     "AnaSayfaKimlik":"Ön izleme",
     "AnaSayfaKonumAcıklama":"Kayıt oluşturmak için tıkla.",
@@ -106,7 +105,7 @@
     "ParolaSifirlama":"Parola sıfırla",
     "BilgileriniPaylasma":"Lütfen bilgilerinizi kimseyle paylaşmayın!",
     "SifirlamaMailiGonder":"Sıfırlama Maili Gönder",
-    "SifirlamaGonderildi":"Şifre sıfırlama maili gönderildi"
-
+    "SifirlamaGonderildi":"Şifre sıfırlama maili gönderildi",
+    "Seciniz":"Seçiniz"
 
 }
