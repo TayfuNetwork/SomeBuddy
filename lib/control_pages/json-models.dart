@@ -857,64 +857,87 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Paradal-Serey",
+    "brans": "Oyun",
     "no": 151,
+    "mevki": [
+      "101",
+      "Batak",
+      "Okey"
+    ]
+  },
+   {
+    "brans": "Online-Oyun",
+    "no": 152,
+    "mevki": [
+      "Call-of-Duty",
+      "CrossfireX",
+      "Destiny-2",
+      "Fornite",
+      "GTA",
+      "Sea-of-Thieves",
+      "Hood",
+      "Overcooked"
+    ]
+  },
+  {
+    "brans": "Paradal-Serey",
+    "no": 153,
     "mevki": [
       "Farketmez"
     ]
   },
   {
     "brans": "Paten",
-    "no": 152,
+    "no": 154,
     "mevki": [
       "Patenci"
     ]
   },
   {
     "brans": "Parasail",
-    "no": 153,
+    "no": 155,
     "mevki": [
       "Sörfçü"
     ]
   },
   {
     "brans": "Pencak-Silat",
-    "no": 154,
+    "no": 156,
     "mevki": [
       "Farketmez"
     ]
   },
   {
     "brans": "Pentatlon",
-    "no": 155,
+    "no": 157,
     "mevki": [
       "Pentatlon"
     ]
   },
   {
     "brans": "Picigin",
-    "no": 156,
+    "no": 158,
     "mevki": [
       "Sporcu"
     ]
   },
   {
     "brans": "Pencak-Sılat",
-    "no": 157,
+    "no": 159,
     "mevki": [
       "Farketmez"
     ]
   },
   {
     "brans": "Rafting",
-    "no": 158,
+    "no": 160,
     "mevki": [
       "Rafting"
     ]
   },
   {
     "brans": "Resim",
-    "no": 159,
+    "no": 161,
     "mevki": [
       "Farketmez",
       "Kara-Kalem",
@@ -927,28 +950,28 @@ const String _bransData = """[
   },
   {
     "brans": "Rüzgar-Sörfü",
-    "no": 160,
+    "no": 162,
     "mevki": [
       "Sörfçü"
     ]
   },
   {
     "brans": "Sanguchi",
-    "no": 161,
+    "no": 163,
     "mevki": [
       "Farketmez"
     ]
   },
   {
     "brans": "Sambo",
-    "no": 162,
+    "no": 164,
     "mevki": [
       "Farketmez"
     ]
   },
   {
     "brans": "Satranç",
-    "no": 163,
+    "no": 165,
     "mevki": [
       "Farketmez",
       "Süreli",
@@ -956,15 +979,29 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Shorinji-Kampo",
-    "no": 164,
+    "brans": "Sayokan",
+    "no": 166,
     "mevki": [
       "Farketmez"
     ]
   },
   {
+    "brans": "Shorinji-Kampo",
+    "no": 167,
+    "mevki": [
+      "Farketmez"
+    ]
+  },
+  {
+    "brans": "Skimboard",
+    "no": 168,
+    "mevki": [
+      "Sörfçü"
+    ]
+  },
+  {
     "brans": "Sınav-Hazırlık",
-    "no": 165,
+    "no": 169,
     "mevki": [
       "LGS",
       "YKS",
@@ -982,35 +1019,57 @@ const String _bransData = """[
   },
   {
     "brans": "Sindo",
-    "no": 166,
+    "no": 170,
     "mevki": [
       "Farketmez"
     ]
   },
   {
     "brans": "Sip-Kwon-Do",
-    "no": 167,
+    "no": 171,
     "mevki": [
       "Farketmez"
     ]
   },
   {
-    "brans": "Sayokan",
-    "no": 168,
+    "brans": "Sinema",
+    "no": 172,
     "mevki": [
-      "Farketmez"
+      "Farketmez",
+      "Aksiyon",
+      "Animasyon",
+      "Belgesel",
+      "Bilim-Kurgu",
+      "Çizgifilm"
+      "Dini"
+      "Dram",
+      "Duygusal",
+      "Erotik",
+      "Fantastik",
+      "Gerilim",
+      "Komedi",
+      "Korku",
+      "Macera",
+      "Müzikat",
+      "Politik",
+      "Pornografik",
+      "Romantik",
+      "Savaş",
+      "Spor",
+      "Suç",
+      "Western"
     ]
   },
   {
     "brans": "Sit-Down-Hydrofoil",
-    "no": 169,
+    "no": 173,
     "mevki": [
       "Sporcu"
     ]
   },
   {
     "brans": "Su-Topu",
-    "no": 170,
+    "no": 174,
     "mevki": [
       "Farketmez",
       "Kaleci",
@@ -1019,63 +1078,64 @@ const String _bransData = """[
   },
   {
     "brans": "Sumo",
-    "no": 171,
+    "no": 175,
     "mevki": [
       "Sumo"
     ]
   },
   {
     "brans": "Systema",
-    "no": 172,
-    "mevki": [
-      "Farketmez"
-    ]
-  },
-  {
-    "brans": "Sörf",
-    "no": 173,
-    "mevki": [
-      "Sörfçü"
-    ]
-  },
-  {
-    "brans": "Skimboard",
-    "no": 174,
-    "mevki": [
-      "Sörfçü"
-    ]
-  },
-  {
-    "brans": "Şnorkel-Dalışı",
-    "no": 175,
-    "mevki": [
-      "Dalışçı"
-    ]
-  },
-  {
-    "brans": "Tai-Chai",
     "no": 176,
     "mevki": [
       "Farketmez"
     ]
   },
   {
-    "brans": "Taekyon",
+    "brans": "Sörf",
     "no": 177,
+    "mevki": [
+      "Sörfçü"
+    ]
+  },
+  {
+    "brans": "Şnorkel-Dalışı",
+    "no": 178,
+    "mevki": [
+      "Dalışçı"
+    ]
+  },
+  {
+    "brans": "Tai-Chai",
+    "no": 179,
+    "mevki": [
+      "Farketmez"
+    ]
+  },
+  {
+    "brans": "Taekyon",
+    "no": 180,
     "mevki": [
       "Farketmez"
     ]
   },
   {
     "brans": "Taekwon-Do",
-    "no": 178,
+    "no": 181,
     "mevki": [
       "Taekwon-Do"
     ]
   },
   {
+    "brans": "Takılmak",
+    "no": 182,
+    "mevki": [
+      "Dam",
+      "Ev-Arkadaşı"
+    ]
+  },
+  {
     "brans": "Tırmanış",
-    "no": 179,
+    "no": 183,
     "mevki": [
       "Farketmez",
       "Serbest",
@@ -1088,28 +1148,28 @@ const String _bransData = """[
   },
   {
     "brans": "Trekking",
-    "no": 180,
+    "no": 184,
     "mevki": [
       "Trekking"
     ]
   },
   {
     "brans": "Triatlon",
-    "no": 181,
+    "no": 185,
     "mevki": [
       "Triatlon"
     ]
   },
   {
     "brans": "Tüplü-Dalış",
-    "no": 182,
+    "no": 186,
     "mevki": [
       "Dalışçı"
     ]
   },
   {
     "brans": "Valorant",
-    "no": 183,
+    "no": 187,
     "mevki": [
       "Farketmez",
       "Nan",
@@ -1120,7 +1180,7 @@ const String _bransData = """[
   },
   {
     "brans": "Voleybol",
-    "no": 184,
+    "no": 188,
     "mevki": [
       "Farketmez",
       "Smacor",
@@ -1131,14 +1191,14 @@ const String _bransData = """[
   },
   {
     "brans": "Yelken",
-    "no": 185,
+    "no": 189,
     "mevki": [
       "Yelken"
     ]
   },
   {
     "brans": "Yazılım",
-    "no": 186,
+    "no": 190,
     "mevki": [
       "Farketmez",
       "C",
@@ -1153,9 +1213,11 @@ const String _bransData = """[
   },
   {
     "brans": "Yuzme",
-    "no": 187,
+    "no": 191,
     "mevki": [
       "Farketmez",
+      "Deniz",
+      "Havuz",
       "Serbest",
       "Kurbağalama",
       "Kelebekleme",
@@ -1165,21 +1227,21 @@ const String _bransData = """[
   },
   {
     "brans": "Waboba",
-    "no": 188,
+    "no": 192,
     "mevki": [
       "Waboba"
     ]
   },
   {
     "brans": "Wing-Chun",
-    "no": 189,
+    "no": 193,
     "mevki": [
       "Farketmez"
     ]
   },
   {
     "brans": "Xingyiquan",
-    "no": 190,
+    "no": 194,
     "mevki": [
       "Farketmez"
     ]

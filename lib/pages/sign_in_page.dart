@@ -37,7 +37,7 @@ class _SignInPageState extends State<SignInPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-             Text(
+            Text(
               "OturumAcKaydol".tr(),
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -73,7 +73,7 @@ class _SignInPageState extends State<SignInPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Icon(Icons.email),
-           Text(
+          Text(
             'EmailileOturum'.tr(),
             style: TextStyle(color: Colors.white, fontSize: 16),
           ),
@@ -86,23 +86,23 @@ class _SignInPageState extends State<SignInPage> {
   // ignore: non_constant_identifier_names
   ElevatedButton GoogleGirisi() {
     return ElevatedButton(
-      onPressed: _googleGirisi,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Image.asset("images/google-logo.png"),
-           Text(
-            'GoogleileOturum'.tr(),
-            style: TextStyle(color: Colors.black87, fontSize: 16),
-          ),
-          Image.asset(
-            "images/google-logo.png",
-            color: Colors.white.withOpacity(0),
-          ),
-        ],
-      ),
-    );
+        onPressed: _googleGirisi,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Image.asset("images/google-logo.png"),
+            Text(
+              'GoogleileOturum'.tr(),
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+            Image.asset(
+              "images/google-logo.png",
+              color: Colors.white.withOpacity(0),
+            ),
+          ],
+        ),
+        style: ElevatedButton.styleFrom(primary: Colors.blue));
   }
 //******************************************************************//
 
