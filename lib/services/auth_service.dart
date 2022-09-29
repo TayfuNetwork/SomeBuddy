@@ -41,16 +41,16 @@ class AuthService {
     } on FirebaseAuthException catch (e) {
       if (e.code == "email-already-in-use") {
         ScaffoldMessenger.of(context).showSnackBar(
-             SnackBar(content: Text("EmailZatenKullaniliyor".tr())));
+            SnackBar(content: Text("EmailZatenKullaniliyor".tr())));
       } else if (e.code == "weak-password") {
         ScaffoldMessenger.of(context)
-            .showSnackBar( SnackBar(content: Text("SifreKisa".tr())));
+            .showSnackBar(SnackBar(content: Text("SifreKisa".tr())));
       } else if (e.code == "invalid-email") {
         ScaffoldMessenger.of(context)
-            .showSnackBar( SnackBar(content: Text("GecersizMail".tr())));
+            .showSnackBar(SnackBar(content: Text("GecersizMail".tr())));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-           SnackBar(
+          SnackBar(
             content: Text("BilinmeyenHata"),
           ),
         );
@@ -68,17 +68,17 @@ class AuthService {
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == "user-not-found") {
-        ScaffoldMessenger.of(context).showSnackBar(
-             SnackBar(content: Text("KayitliKullaniciYok".tr())));
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("KayitliKullaniciYok".tr())));
       } else if (e.code == "wrong-password") {
         ScaffoldMessenger.of(context)
-            .showSnackBar( SnackBar(content: Text("HataliSifer".tr())));
+            .showSnackBar(SnackBar(content: Text("HataliSifer".tr())));
       } else if (e.code == "invalid-email") {
         ScaffoldMessenger.of(context)
-            .showSnackBar( SnackBar(content: Text("GecersizMail".tr())));
+            .showSnackBar(SnackBar(content: Text("GecersizMail".tr())));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-           SnackBar(
+          SnackBar(
             content: Text("BilinmeyenHata".tr()),
           ),
         );

@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:version1/pages/usage.dart';
 import '../models/user.dart';
 import '../pages/private_profil.dart';
@@ -72,7 +73,7 @@ class _MyDrawerState extends State<MyDrawer> {
                       onTap: () {}), */
                   ListTile(
                       leading: const Icon(Icons.video_collection_outlined),
-                      title:  Text("UsageAppbarTitle".tr(),
+                      title: Text("UsageAppbarTitle".tr(),
                           style: TextStyle(fontSize: 12)),
                       trailing: const Icon(Icons.keyboard_arrow_right),
                       onTap: () {
@@ -102,7 +103,7 @@ class _MyDrawerState extends State<MyDrawer> {
                   const SizedBox(
                     height: 30,
                   ),
-                   AboutListTile(
+                  AboutListTile(
                     applicationName: "Lisans".tr(),
                     applicationIcon: Icon(Icons.file_open),
                     applicationVersion: "3.8",
@@ -121,7 +122,8 @@ class _MyDrawerState extends State<MyDrawer> {
   }
 
   Future _cikisYap() async {
-    FirebaseAuth.instance.signOut();
+    await FirebaseAuth.instance.signOut();
+    await GoogleSignIn().signOut();
     await Navigator.of(context).pushAndRemoveUntil(
         CupertinoPageRoute(builder: (context) => const SignInPage()),
         (route) => false);

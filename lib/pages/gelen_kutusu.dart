@@ -242,13 +242,13 @@ class _InboxState extends State<Inbox> {
                                                     "goruldu": "true"
                                                   });
 
-                                                  /* FirebaseFirestore.instance
+                                                   FirebaseFirestore.instance
                                                       .collection("konusmalar")
                                                       .doc(
                                                           "${alici.id}--${_userModel.id}")
                                                       .update({
-                                                    "gorulduMu": "true"
-                                                  }); */
+                                                    "goruldu": "true"
+                                                  }); 
                                                 });
 
                                                 await Navigator.of(context)

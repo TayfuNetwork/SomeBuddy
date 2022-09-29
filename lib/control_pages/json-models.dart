@@ -1040,8 +1040,8 @@ const String _bransData = """[
       "Animasyon",
       "Belgesel",
       "Bilim-Kurgu",
-      "Çizgifilm"
-      "Dini"
+      "Çizgifilm",
+      "Dini",
       "Dram",
       "Duygusal",
       "Erotik",
