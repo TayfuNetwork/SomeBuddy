@@ -160,7 +160,7 @@ class _ProfileState extends State<Profile> {
                       value: sex?.x ?? 1000,
                       items: model1.sexs.map((a) {
                         return DropdownMenuItem(
-                          child: Text(a.sex,
+                          child: Text(a.sex.tr(),
                               style: const TextStyle(color: Colors.white)),
                           value: a.x,
                           onTap: () {

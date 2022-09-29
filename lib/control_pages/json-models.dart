@@ -148,10 +148,10 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Atıcılık",
+    "brans": "Aticilik",
     "no": 92,
     "mevki": [
-      "Atıcı"
+      "Farketmez"
     ]
   },
   {
@@ -159,41 +159,41 @@ const String _bransData = """[
     "no": 93,
     "mevki": [
       "Farketmez",
-      "100m-Koşu",
-      "200m-Koşu",
-      "400m-Koşu",
-      "110m-Engelli-Koşu-Erkek",
-      "100m-Engelli-Koşu-Kadın",
-      "800m-Koşu",
-      "1500m-Koşu",
-      "1mil-Koşu",
-      "3000m-Koşu",
-      "5000m-Koşu",
-      "10000m-Koşu",
+      "100m-Kosu",
+      "200m-Kosu",
+      "400m-Kosu",
+      "110m-Engelli-Kosu-Erkek",
+      "100m-Engelli-Kosu-Kadın",
+      "800m-Kosu",
+      "1500m-Kosu",
+      "1mil-Kosu",
+      "3000m-Kosu",
+      "5000m-Kosu",
+      "10000m-Kosu",
       "3000m-Su-Engeli",
-      "Bayrak-Koşuları",
-      "42km-Maraton-Koşusu",
-      "21km-Yarı-Maraton-Koşusu",
+      "Bayrak-Kosuları",
+      "42km-Maraton-Kosusu",
+      "21km-Yari-Maraton-Kosusu",
       "10km-Maraton",
       "15km-Maraton",
-      "Yürüyüş",
+      "Yuruyus",
       "Atlama",
       "Atma",
-      "Kros-Dağ-Koşusu"
+      "Kros-Dag-Kosusu"
     ]
   },
   {
-    "brans": "Ayakta-Kürek-Sörf",
+    "brans": "Ayakta-Kurek-Sorf",
     "no": 94,
     "mevki": [
-      "Sörfçü"
+      "Farketmez"
     ]
   },
   {
     "brans": "Badminton",
     "no": 95,
     "mevki": [
-      "Badminton"
+      "Farketmez"
     ]
   },
   {
@@ -211,13 +211,13 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Balıkçılık",
+    "brans": "Balikcilik",
     "no": 98,
     "mevki": [
       "Farketmez",
-      "Oltalı",
-      "Ağlı",
-      "Zıpkınlı",
+      "Oltali",
+      "Agli",
+      "Zipkinli",
       "Tekneli"
     ]
   },
@@ -1250,7 +1250,7 @@ const String _bransData = """[
 // ignore: constant_identifier_names
 const String _SexData = """[
   {
-    "sex": "Seçiniz / Choice",
+    "sex": "Seciniz",
     "x": 1000
   },
   {
