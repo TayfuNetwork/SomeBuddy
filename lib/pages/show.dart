@@ -82,10 +82,8 @@ class _showState extends State<show> {
                 ListTile(
                   onTap: () async {
                     if (adHelper.rewardedAd != null) {
+                      await adHelper.showRewardedAd((p1) => git());
                       git();
-                      await adHelper.showRewardedAd((p2) {
-                        git();
-                      });
                     }
                   },
                   textColor: Colors.black,
@@ -126,7 +124,7 @@ class _showState extends State<show> {
                 const Divider(
                   height: 2,
                 ),
-                 Padding(
+                Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     'BanaAitFotolar'.tr(),
@@ -248,7 +246,7 @@ class _showState extends State<show> {
   }
 
   Color ControlColor() {
-     if (widget.whoData.sex == 'Female'|| widget.whoData.sex =='Kadın') {
+    if (widget.whoData.sex == 'Female' || widget.whoData.sex == 'Kadın') {
       return ppColor = Colors.pink.shade400;
     } else {
       return ppColor = Colors.blue;

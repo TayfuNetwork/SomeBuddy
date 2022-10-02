@@ -93,6 +93,9 @@ class _EmailPasswordState extends State<EmailPassword> {
                 Text("googleEmailDuo".tr(),
                     style: TextStyle(color: Colors.yellow),
                     textAlign: TextAlign.center),
+                    Text("uyari".tr(),
+                    style: TextStyle(color: Colors.yellow),
+                    textAlign: TextAlign.center),
                 SizedBox(
                   height: 40,
                 ),

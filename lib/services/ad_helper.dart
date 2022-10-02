@@ -97,8 +97,8 @@ class AdHelper {
     } else {}
   }
 
-  Future<void> showRewardedAd(Function(RewardedAd)? function) async {
-    if (rewardedAd != null) {
+  Future showRewardedAd(Function(RewardedAd)? function) async {
+    if (rewardedAd == null) {
       createRewardedAd();
 
       return;
