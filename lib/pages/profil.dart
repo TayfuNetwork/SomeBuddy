@@ -67,6 +67,7 @@ class _ProfileState extends State<Profile> {
                 const SizedBox(height: 10),
                 Text('ProfilSayfaBilgilerDogrulugu'.tr(),
                     style: TextStyle(color: Colors.yellow)),
+                Text('uyari'.tr()),
                 const SizedBox(height: 10),
 
                 TextField(

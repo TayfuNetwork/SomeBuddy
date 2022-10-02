@@ -182,7 +182,7 @@ class _searchPageState extends State<searchPage> {
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.blue, width: 1)),
                       focusColor: Colors.blue,
-                      hintText: 'IlıGiriniz'.tr(),
+                      hintText: 'IliGiriniz'.tr(),
                       enabled: true,
                     ),
                     autofocus: false,
@@ -230,8 +230,8 @@ class _searchPageState extends State<searchPage> {
                         value: brans?.no ?? 82,
                         items: model.branslar.map((b) {
                           return DropdownMenuItem(
-                            child: Text(b.brans,
-                                style: const TextStyle(color: Colors.black)),
+                            child: Text(b.brans.tr(),
+                                style: TextStyle(color: Colors.black)),
                             value: b.no,
                             onTap: () {
                               setState(() {
@@ -267,8 +267,8 @@ class _searchPageState extends State<searchPage> {
                           items: model.mevki(brans!.no).map((b) {
                             return DropdownMenuItem(
                               child: Text(
-                                b,
-                                style: const TextStyle(color: Colors.black),
+                                b.tr(),
+                                style: TextStyle(color: Colors.black),
                               ),
                               value: b,
                               onTap: () {
@@ -360,7 +360,7 @@ class _searchPageState extends State<searchPage> {
                                   SnackBar(
                                       backgroundColor: Colors.blue,
                                       content: Text(
-                                          "ButunAlanlarıEksiksiDoldur".tr(),
+                                          "ButunAlanlariEksiksiDoldur".tr(),
                                           style:
                                               TextStyle(color: Colors.white))));
                             }

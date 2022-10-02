@@ -114,8 +114,7 @@ class _ResultsState extends State<Results> {
                               widget.brans +
                               "/ " +
                               widget.mevki),
-                           Text(
-                              "BuKriterdeUyeYok".tr()),
+                          Text("BuKriterdeUyeYok".tr()),
                         ],
                       ),
                     ),
@@ -135,7 +134,7 @@ class _ResultsState extends State<Results> {
                           widget.mevki),
                       Column(
                         children: users.map((e) {
-                          if (e.sex == 'Female') {
+                          if (e.sex == 'Female' || e.sex == 'Kadın') {
                             widget.ppColor = Colors.pink.shade400;
                           } else {
                             widget.ppColor = Colors.blue;

@@ -248,7 +248,7 @@ class _showState extends State<show> {
   }
 
   Color ControlColor() {
-    if (widget.whoData.sex == 'Female') {
+     if (widget.whoData.sex == 'Female'|| widget.whoData.sex =='Kadın') {
       return ppColor = Colors.pink.shade400;
     } else {
       return ppColor = Colors.blue;

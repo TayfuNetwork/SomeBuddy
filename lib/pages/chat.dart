@@ -239,7 +239,7 @@ class _SohbetState extends State<Sohbet> {
   }
 
   Color stateColor() {
-    if (widget.currentUser.sex == 'Female') {
+     if (widget.currentUser.sex == 'Female'|| widget.currentUser.sex =='Kadın') {
       Color statu = Colors.pink;
       return statu;
     } else {

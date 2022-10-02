@@ -140,7 +140,7 @@ class _Results2State extends State<Results2> {
                           widget.sex),
                       Column(
                         children: users.map((e) {
-                          if (e.sex == 'Female') {
+                          if (e.sex == 'Female'|| e.sex =='Kadın') {
                             widget.ppColor = Colors.pink.shade400;
                           } else {
                             widget.ppColor = Colors.blue;

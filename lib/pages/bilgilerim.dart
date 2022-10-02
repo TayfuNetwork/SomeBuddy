@@ -180,7 +180,7 @@ class _bilgilerimState extends State<bilgilerim> {
                           color: Colors.blueAccent,
                         ),
                         const SizedBox(height: 10),
-                        Text('AnaSayfaKonumAcıklama'.tr(),
+                        Text('AnaSayfaKonumAciklama'.tr(),
                             style: TextStyle(color: Colors.grey)),
                         const SizedBox(height: 10),
                         Column(
@@ -449,7 +449,8 @@ class _bilgilerimState extends State<bilgilerim> {
   } */
 
   Color renk() {
-    if (AuthService().user!.sex == 'Female') {
+    if (AuthService().user!.sex == 'Female' ||
+        AuthService().user!.sex == 'Kadın') {
       return ppColor = Colors.pink.shade400;
     } else {
       return ppColor = Colors.blueAccent;

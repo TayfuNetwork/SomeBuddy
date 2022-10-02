@@ -163,7 +163,7 @@ const String _bransData = """[
       "200m-Kosu",
       "400m-Kosu",
       "110m-Engelli-Kosu-Erkek",
-      "100m-Engelli-Kosu-Kadın",
+      "100m-Engelli-Kosu-Kadin",
       "800m-Kosu",
       "1500m-Kosu",
       "1mil-Kosu",
@@ -171,7 +171,7 @@ const String _bransData = """[
       "5000m-Kosu",
       "10000m-Kosu",
       "3000m-Su-Engeli",
-      "Bayrak-Kosuları",
+      "Bayrak-Kosulari",
       "42km-Maraton-Kosusu",
       "21km-Yari-Maraton-Kosusu",
       "10km-Maraton",
@@ -252,10 +252,10 @@ const String _bransData = """[
       "Engel-Atlama",
       "At-Terbiyesi",
       "Engelli-At-Terbiyesi",
-      "Atlı-Dayanıklılık",
+      "Atli-Dayaniklilik",
       "Voltij",
-      "Atlı-Arabacılık",
-      "Engelli-Atlı-Arabacılık",
+      "Atli-Arabacilik",
+      "Engelli-Atli-Arabacilik",
       "Dizginleme"
     ]
   },
@@ -277,8 +277,8 @@ const String _bransData = """[
       "Farketmez",
       "Kol",
       "Omuz",
-      "Sırt",
-      "Karın",
+      "Sirt",
+      "Karin",
       "Bacak",
       "Squat",
       "Kanat",
@@ -289,7 +289,7 @@ const String _bransData = """[
     "brans": "BodyBoarding",
     "no": 105,
     "mevki": [
-      "Sörfçü"
+      "Farketemz"
     ]
   },
   {
@@ -304,26 +304,26 @@ const String _bransData = """[
       "63-67kg",
       "69-73kg",
       "76-80kg",
-      "90-Üstü"
+      "90-Ustu"
     ]
   },
   {
     "brans": "Bowls",
     "no": 107,
     "mevki": [
-      "Bowls"
+      "Farketmez"
     ]
   },
   {
-    "brans": "Çadır",
+    "brans": "Cadir",
     "no": 108,
     "mevki": [
-      "Dağ-Kamp-Gecelik(Çadırım-Var)",
-      "Dağ-Kamp-Gecelik(Çadırım-Yok)",
-      "Tur-Birçok-Yer(Çadırım-Var)",
-      "Tur-Birçok-Yer(Çadırım-Yok)",
-      "Sahil(Çadırım-Var)",
-      "Sahil(Çadırım-Yok)"
+      "Dag-Kamp-Gecelik(Cadirim-Var)",
+      "Dag-Kamp-Gecelik(Cadirim-Yok)",
+      "Tur-Bircok-Yer(Cadirim-Var)",
+      "Tur-Bircok-Yer(Cadirim-Yok)",
+      "Sahil(Cadirim-Var)",
+      "Sahil(Cadirim-Yok)"
     ]
   },
   {
@@ -335,12 +335,12 @@ const String _bransData = """[
       "Broadway",
       "Bale",
       "Capoeira",
-      "Ça-Ça",
+      "Ca-Ca",
       "Disko",
       "Foxtrot",
       "Salsa",
       "Breakdance",
-      "Halk-Oyunları",
+      "Halk-Oyunlari",
       "Hip-Hop",
       "Jazz",
       "Jive",
@@ -359,7 +359,7 @@ const String _bransData = """[
       "Vals",
       "Zeybek",
       "Zumba",
-      "Tap-Dansı",
+      "Tap-Dansi",
       "Oryantal",
       "Sirtaki",
       "Roman"
@@ -377,9 +377,9 @@ const String _bransData = """[
     "no": 111,
     "mevki": [
       "Farketmez",
-      "Flöre",
+      "Flore",
       "Epe",
-      "Kılıç"
+      "Kilic"
     ]
   },
   {
@@ -388,16 +388,16 @@ const String _bransData = """[
     "mevki": [
       "Farketmez",
       "Esneklik",
-      "Kardiyovasküler/aerobik",
+      "Kardiyovaskuler/aerobik",
       "Anaerobik",
-      "Dayanıklılık"
+      "Dayaniklilik"
     ]
   },
   {
     "brans": "Flyboard",
     "no": 113,
     "mevki": [
-      "Sörfçü"
+      "Farketmez"
     ]
   },
   {
@@ -450,7 +450,7 @@ const String _bransData = """[
     "brans": "Heykel",
     "no": 119,
     "mevki": [
-      "Heykeltraş"
+      "Heykeltras"
     ]
   },
   {
@@ -458,7 +458,7 @@ const String _bransData = """[
     "no": 120,
     "mevki": [
       "Farketmez",
-      "Açık-Alan",
+      "Acik-Alan",
       "Salon",
       "Analig",
       "Okul",
@@ -483,7 +483,7 @@ const String _bransData = """[
     "brans": "Jet-Ski",
     "no": 123,
     "mevki": [
-      "Sörfçü"
+      "Farketmez"
     ]
   },
   {
@@ -516,7 +516,7 @@ const String _bransData = """[
       "50-55kg",
       "60-66kg",
       "73-81kg",
-      "90-Üstü"
+      "90kg-Ustu"
     ]
   },
   {
@@ -530,7 +530,7 @@ const String _bransData = """[
     "brans": "Kablolu-Kayak",
     "no": 128,
     "mevki": [
-      "Sörfçü"
+      "Farketmez"
     ]
   },
   {
@@ -566,7 +566,7 @@ const String _bransData = """[
       "Half-Pipe",
       "Biatlon",
       "Snowboard",
-      "Kayaklı-Koşu",
+      "Kayakli-Kosu",
       "Skiboarding"
     ]
   },
@@ -601,7 +601,7 @@ const String _bransData = """[
     "brans": "Kiteboat",
     "no": 135,
     "mevki": [
-      "Sörfçü"
+      "Farketmez"
     ]
   },
   {
@@ -619,17 +619,17 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Kürek",
+    "brans": "Kurek",
     "no": 138,
     "mevki": [
       "Farketmez",
-      "Kıyı-Okyanus",
-      "Üniversite",
+      "Kiyi-Okyanus",
+      "Universite",
       "Okyanus",
-      "Yarış-Teknesi",
-      "Kürek-Egzersizi",
-      "Tek-Kürek",
-      "Kürek-Çekme"
+      "Yaris-Teknesi",
+      "Kurek-Egzersizi",
+      "Tek-Kurek",
+      "Kurek-Cekme"
     ]
   },
   {
@@ -637,10 +637,10 @@ const String _bransData = """[
     "no": 139,
     "mevki": [
       "Farketmez",
-      "Açık-Alan",
-      "Kapalı-Alan",
+      "Acik-Alan",
+      "Kapali-Alan",
       "Toprak-Saha",
-      "Çim-Saha",
+      "Cim-Saha",
       "Sert-Saha"
     ]
   },
@@ -688,7 +688,7 @@ const String _bransData = """[
     "brans": "Masa-Tenisi",
     "no": 145,
     "mevki": [
-      "Tenisçi"
+      "Tenisci"
     ]
   },
   {
@@ -701,26 +701,26 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Mühendis",
+    "brans": "Muhendis",
     "no": 147,
     "mevki": [
-      "Ağaç-Endüstri",
+      "Agac-Endustri",
       "Bilgisayar",
-      "Bilişim-Sistemleri",
-      "Biyomühendislik",
-      "Çevre",
+      "Bilisim-Sistemleri",
+      "Biyomuhendislik",
+      "Cevre",
       "Enerji-Sistemleri",
-      "Endüstriyel-Tasarım",
+      "Endustriyel-Tasarim",
       "Elektrik",
       "Elektrik-Elektronik",
-      "Endüstri",
+      "Endustri",
       "Fizik",
-      "Gemi-Makinaları-İşletme",
+      "Gemi-Makinalari-İsletme",
       "Geomatik",
-      "Gıda",
+      "Gida",
       "Harita",
-      "Havacılık-Uzay",
-      "İnşaat",
+      "Havacilik-Uzay",
+      "İnsaat",
       "Jeoloji",
       "Matematik",
       "Maden",
@@ -730,31 +730,31 @@ const String _bransData = """[
       "Nanoteknoloji",
       "Malzeme-Bilimi",
       "Orman",
-      "Orman-Endüstri",
+      "Orman-Endustri",
       "Kimya",
-      "Nükleer-Enerji",
+      "Nukleer-Enerji",
       "Otomotiv",
-      "Raylı-Sistemler",
+      "Rayli-Sistemler",
       "Sistem",
       "Tekstil",
-      "Yazılım",
+      "Yazilim",
       "Ziraat"
     ]
   },
   {
-    "brans": "Müzisyen",
+    "brans": "Muzisyen",
     "no": 148,
     "mevki": [
       "Farketmez",
-      "Ahşap-Blok",
+      "Ahsap-Blok",
       "Armonika",
       "Afoxe",
       "Agogo",
       "Agung",
       "Angklung",
       "Akordeon",
-      "Bağlama-Kısa",
-      "Bağlama-Uzun",
+      "Baglama-Kisa",
+      "Baglama-Uzun",
       "Babendil",
       "Bak",
       "Bamileke",
@@ -762,7 +762,7 @@ const String _bransData = """[
       "Bata-Davulu",
       "Bateri",
       "Bayan",
-      "BlokFlüt",
+      "BlokFlut",
       "Boru",
       "Bifora",
       "Cabasa",
@@ -775,14 +775,14 @@ const String _bransData = """[
       "Clapstick",
       "Def",
       "Claves",
-      "İnek-Çanı",
+      "İnek-Cani",
       "Crotales",
       "Cornet",
       "Cymbal",
       "Ferrinho",
       "Flexaton",
       "Fagot",
-      "Flüt",
+      "Flut",
       "Gitar",
       "Okta-Vibraton",
       "Gandingan",
@@ -790,16 +790,16 @@ const String _bransData = """[
       "Ghatam",
       "Glockenspiel",
       "Gong",
-      "Güiro",
-      "Islık",
+      "Guiro",
+      "Islik",
       "Harmoneon",
       "Handpan",
       "Hang",
-      "Kamış",
+      "Kamis",
       "Kayamb",
       "Keman",
       "Kemanak",
-      "Kemençe",
+      "Kemence",
       "Khartal",
       "Ksilofon",
       "Klarnet",
@@ -817,23 +817,23 @@ const String _bransData = """[
       "Piyano",
       "Shekere",
       "Saksafon",
-      "Saz-Kısa",
+      "Saz-Kisa",
       "Saz-Uzun",
       "Trombon",
       "Kesik-Davul",
-      "Kaşık",
-      "Çelik-Davul",
+      "Kasik",
+      "Celik-Davul",
       "Teponaztli",
-      "Üzgen",
-      "Çöp-Tüpü",
+      "Uzgen",
+      "Cop-Tupu",
       "Txalaparta",
       "Vibrafon",
       "Vibraslap",
-      "Müzik-Tahtası",
+      "Muzik-Tahtasi",
       "Tenor",
-      "Tahta-Balık",
-      "Üfleme-Şişesi",
-      "Yan-Flüt",
+      "Tahta-Balik",
+      "Ufleme-Sisesi",
+      "Yan-Flut",
       "Zil",
       "Zurna"
     ]
@@ -850,10 +850,10 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Okçuluk",
+    "brans": "Okculuk",
     "no": 150,
     "mevki": [
-      "Okçuluk"
+      "Okculuk"
     ]
   },
   {
@@ -890,14 +890,14 @@ const String _bransData = """[
     "brans": "Paten",
     "no": 154,
     "mevki": [
-      "Patenci"
+      "Paten"
     ]
   },
   {
     "brans": "Parasail",
     "no": 155,
     "mevki": [
-      "Sörfçü"
+      "Sorfcu"
     ]
   },
   {
@@ -922,7 +922,7 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Pencak-Sılat",
+    "brans": "Pencak-Silat",
     "no": 159,
     "mevki": [
       "Farketmez"
@@ -941,18 +941,18 @@ const String _bransData = """[
     "mevki": [
       "Farketmez",
       "Kara-Kalem",
-      "Yağlı-Boya",
+      "Yagli-Boya",
       "Kuru-Boya",
-      "Nü",
+      "Nu",
       "Narural",
-      "Diğer"
+      "Diger"
     ]
   },
   {
-    "brans": "Rüzgar-Sörfü",
+    "brans": "Ruzgar-Sorfu",
     "no": 162,
     "mevki": [
-      "Sörfçü"
+      "Sorfcu"
     ]
   },
   {
@@ -970,12 +970,12 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Satranç",
+    "brans": "Satranc",
     "no": 165,
     "mevki": [
       "Farketmez",
-      "Süreli",
-      "Süresiz"
+      "Sureli",
+      "Suresiz"
     ]
   },
   {
@@ -996,19 +996,19 @@ const String _bransData = """[
     "brans": "Skimboard",
     "no": 168,
     "mevki": [
-      "Sörfçü"
+      "Sorfcu"
     ]
   },
   {
-    "brans": "Sınav-Hazırlık",
+    "brans": "Sinav-Hazirlik",
     "no": 169,
     "mevki": [
       "LGS",
       "YKS",
       "AYT",
       "TYT",
-      "Orta-Öğretim-Lise-KPSS",
-      "Önlisans-KPSS",
+      "Orta-Ogretim-Lise-KPSS",
+      "Onlisans-KPSS",
       "Lisans-KPSS",
       "ALES",
       "TUS",
@@ -1040,7 +1040,7 @@ const String _bransData = """[
       "Animasyon",
       "Belgesel",
       "Bilim-Kurgu",
-      "Çizgifilm",
+      "Cizgifilm",
       "Dini",
       "Dram",
       "Duygusal",
@@ -1050,13 +1050,13 @@ const String _bransData = """[
       "Komedi",
       "Korku",
       "Macera",
-      "Müzikat",
+      "Muzikat",
       "Politik",
       "Pornografik",
       "Romantik",
-      "Savaş",
+      "Savas",
       "Spor",
-      "Suç",
+      "Suc",
       "Western"
     ]
   },
@@ -1091,17 +1091,17 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Sörf",
+    "brans": "Sorf",
     "no": 177,
     "mevki": [
-      "Sörfçü"
+      "Sorfcu"
     ]
   },
   {
-    "brans": "Şnorkel-Dalışı",
+    "brans": "Snorkel-Dalisi",
     "no": 178,
     "mevki": [
-      "Dalışçı"
+      "Dalisci"
     ]
   },
   {
@@ -1126,22 +1126,22 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Takılmak",
+    "brans": "Takilmak",
     "no": 182,
     "mevki": [
       "Dam",
-      "Ev-Arkadaşı"
+      "Ev-Arkadasi"
     ]
   },
   {
-    "brans": "Tırmanış",
+    "brans": "Tirmanis",
     "no": 183,
     "mevki": [
       "Farketmez",
       "Serbest",
       "Free-Solo",
       "Yapay",
-      "Eğitim",
+      "Egitim",
       "Uzun-Duvar",
       "Yapay-Duvar"
     ]
@@ -1161,32 +1161,24 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Tüplü-Dalış",
+    "brans": "Tuplu-Dalis",
     "no": 186,
     "mevki": [
-      "Dalışçı"
+      "Dalgic"
     ]
   },
   {
     "brans": "Valorant",
     "no": 187,
     "mevki": [
-      "Farketmez",
-      "Nan",
-      "Shaolin",
-      "Wudang",
-      "hui"
+      "Farketmez"
     ]
   },
   {
     "brans": "Voleybol",
     "no": 188,
     "mevki": [
-      "Farketmez",
-      "Smacor",
-      "pasor",
-      "servis",
-      "orta"
+      "Farketmez"
     ]
   },
   {
@@ -1197,7 +1189,7 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Yazılım",
+    "brans": "Yazilim",
     "no": 190,
     "mevki": [
       "Farketmez",
@@ -1219,10 +1211,10 @@ const String _bransData = """[
       "Deniz",
       "Havuz",
       "Serbest",
-      "Kurbağalama",
+      "Kurbagalama",
       "Kelebekleme",
-      "Sırtüstü",
-      "Karışık"
+      "Sirtustu",
+      "Karisik"
     ]
   },
   {
@@ -1250,7 +1242,7 @@ const String _bransData = """[
 // ignore: constant_identifier_names
 const String _SexData = """[
   {
-    "sex": "Seciniz",
+    "sex": "Seçiniz",
     "x": 1000
   },
   {

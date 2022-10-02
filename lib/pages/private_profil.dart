@@ -491,7 +491,7 @@ class _private_profilState extends State<private_profil> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar( SnackBar(
           backgroundColor: Colors.blue,
-          content: Text("Yuklemeİslemiİptal".tr(),
+          content: Text("YuklemeIslemiIptal".tr(),
               style: TextStyle(color: Colors.white))));
     }
   }

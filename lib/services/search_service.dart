@@ -30,7 +30,6 @@ class SearchService {
         .where("ilce", isEqualTo: ilce)
         .where("brans", isEqualTo: brans)
         .where("mevki", isEqualTo: mevki)
-        .orderBy("date", descending: false)
         .get();
     return maps.docs.map((e) => MyUser.fromMap(e.data())).toList();
   }
@@ -73,7 +72,7 @@ class SearchService2 {
         .where("brans", isEqualTo: brans)
         .where("mevki", isEqualTo: mevki)
         .where("sex", isEqualTo: sex)
-        .orderBy("date", descending: false)
+        .orderBy("date", descending: true)
         .get();
     return maps.docs.map((e) => MyUser.fromMap(e.data())).toList();
   }

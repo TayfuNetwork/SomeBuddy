@@ -65,7 +65,7 @@ class usage extends StatelessWidget {
                             "KarsisinaCikan".tr()),
                       ),
                        Text(
-                        "UsageAramaSayfası".tr(),
+                        "UsageAramaSayfasi".tr(),
                         style: TextStyle(fontSize: 18),
                       ),
                        Padding(

@@ -392,6 +392,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "google_fonts",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/google_fonts-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "google_mobile_ads",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/google_mobile_ads-2.0.1",
       "packageUri": "lib/",
@@ -554,8 +560,32 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "path_provider",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.11",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "path_provider_android",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_android-2.0.20",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "path_provider_ios",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_ios-2.0.11",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "path_provider_linux",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_provider_macos",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.6",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -818,7 +848,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-09-27T03:13:48.255999Z",
+  "generated": "2022-10-02T15:27:55.643425Z",
   "generator": "pub",
   "generatorVersion": "2.18.1"
 }

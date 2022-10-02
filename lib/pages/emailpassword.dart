@@ -90,6 +90,12 @@ class _EmailPasswordState extends State<EmailPassword> {
             key: _formKey,
             child: Column(
               children: [
+                Text("googleEmailDuo".tr(),
+                    style: TextStyle(color: Colors.yellow),
+                    textAlign: TextAlign.center),
+                SizedBox(
+                  height: 40,
+                ),
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
                   decoration: const InputDecoration(
