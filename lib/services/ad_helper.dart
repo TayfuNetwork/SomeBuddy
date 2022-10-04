@@ -35,9 +35,7 @@ class AdHelper {
       size: AdSize.banner,
       adUnitId: _bannerAdUnitId,
       listener: BannerAdListener(
-        onAdLoaded: (ad) {
-          
-        },
+        onAdLoaded: (ad) {},
         onAdFailedToLoad: (ad, e) {
           ad.dispose();
         },
@@ -63,8 +61,8 @@ class AdHelper {
 
   Future<void> showInterstitialAd(Function(InterstitialAd)? function) async {
     if (interstitialAd == null) {
-      createInterstitialAd();
-
+      // createInterstitialAd();
+      print('Hata');
       return;
     }
     if (_isIntertitialLoaded) {
@@ -94,13 +92,19 @@ class AdHelper {
       _isIntertitialLoaded = false;
       // if (_isShowAds)
       createInterstitialAd();
-    } else {}
+    } else {
+      Fluttertoast.showToast(
+        msg: "Reklam yüklenemedi.",
+        gravity: ToastGravity.BOTTOM,
+        toastLength: Toast.LENGTH_LONG,
+      );
+    }
   }
 
   Future showRewardedAd(Function(RewardedAd)? function) async {
     if (rewardedAd == null) {
-      createRewardedAd();
-
+      // createRewardedAd();
+      print('Hata');
       return;
     }
     if (_isRewardedAdLoaded) {
@@ -136,18 +140,24 @@ class AdHelper {
       _isRewardedAdLoaded = false;
       // if (_isShowAds)
       createRewardedAd();
-    } else {}
+    } else {
+      Fluttertoast.showToast(
+        msg: "Reklam yüklenemedi.",
+        gravity: ToastGravity.BOTTOM,
+        toastLength: Toast.LENGTH_LONG,
+      );
+    }
   }
 
   String _bannerAdUnitId = Platform.isAndroid
       ? 'ca-app-pub-3940256099942544/6300978111'
-      : ""; //  test ca-app-pub-1753932827820630/5568784899
+      : ""; //     anaId:ca-app-pub-1753932827820630/5568784899
   String _interstitialAdUnitId = Platform.isAndroid
       ? 'ca-app-pub-3940256099942544/1033173712'
-      : ""; //  test ca-app-pub-1753932827820630/4490086060
+      : ""; //     anaId: ca-app-pub-1753932827820630/4490086060
   String _rewardedAdUnitId = Platform.isAndroid
       ? 'ca-app-pub-3940256099942544/5224354917'
-      : ""; //  ca-app-pub-1753932827820630/7528147096
+      : ""; //     anaId: ca-app-pub-1753932827820630/7528147096
 
   bool _isIntertitialLoaded = false;
   bool _isRewardedAdLoaded = false;

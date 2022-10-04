@@ -353,6 +353,7 @@ class _bilgilerimState extends State<bilgilerim> {
                             SizedBox(
                               height: 20,
                             ),
+                            if(adHelper.createBannerAd() != null)
                             Container(
                               width: AdSize.banner.width.toDouble(),
                               height: AdSize.banner.height.toDouble(),
