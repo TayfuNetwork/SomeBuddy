@@ -13,6 +13,7 @@ class baddge extends StatefulWidget {
   @override
   State<baddge> createState() => _baddgeState();
 }
+
 Text? Texxt;
 var I = AuthService().user!.id;
 
@@ -27,19 +28,24 @@ class _baddgeState extends State<baddge> {
                 snap.data!.docs.map((e) => Konusma.fromMap(e.data())).toList();
 
             mesajlar.map((e) => {}).toList();
-            return Badge(
-                badgeColor: Colors.white,
-                animationDuration: Duration(milliseconds: 300),
-                position: BadgePosition.topEnd(top: 10, end: 10),
-                animationType: BadgeAnimationType.slide,
-                badgeContent: Text(
-                  mesajlar.length.toString(),
-                  style: TextStyle(color: Colors.red),
-                ),
-                child: IconButton(
-                  onPressed: _mesajlaraGit,
-                  icon: Icon(Icons.chat),
-                ));
+            return mesajlar.length == 0
+                ? IconButton(
+                    onPressed: _mesajlaraGit,
+                    icon: Icon(Icons.chat),
+                  )
+                : Badge(
+                    badgeColor: Colors.white,
+                    animationDuration: Duration(milliseconds: 300),
+                    position: BadgePosition.topEnd(top: 10, end: 10),
+                    animationType: BadgeAnimationType.slide,
+                    badgeContent: Text(
+                      mesajlar.length.toString(),
+                      style: TextStyle(color: Colors.red),
+                    ),
+                    child: IconButton(
+                      onPressed: _mesajlaraGit,
+                      icon: Icon(Icons.chat),
+                    ));
           } else {
             return Text("?");
           }

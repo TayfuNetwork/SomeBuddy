@@ -82,8 +82,8 @@ class _showState extends State<show> {
                 ListTile(
                   onTap: () async {
                     if (adHelper.rewardedAd != null) {
-                      await adHelper.showRewardedAd((p1) => git());
-                      git();
+                      await adHelper.showRewardedAd(
+                          onUserEarnedReward: (p0, p1) => git());
                     }
                   },
                   textColor: Colors.black,

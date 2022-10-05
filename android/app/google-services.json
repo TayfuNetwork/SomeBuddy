@@ -8,26 +8,26 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:160528578459:android:73784fd4d9c73005d5d33e",
+        "mobilesdk_app_id": "1:160528578459:android:3643990cfd8aecf7d5d33e",
         "android_client_info": {
-          "package_name": "com.example.version1"
+          "package_name": "com.somebuddy.version1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "160528578459-egs4jaaik1vk5f4a5hg6esl9c8kmjj4k.apps.googleusercontent.com",
+          "client_id": "160528578459-lrpi1men43i95kdo5r0i9km7033ol9bl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.version1",
-            "certificate_hash": "77e2fdca8c8f9c3cde7acfbb7e7d0a3966320930"
+            "package_name": "com.somebuddy.version1",
+            "certificate_hash": "4fac4da11023ec7e6d9c25e29c651fcff2ac156d"
           }
         },
         {
-          "client_id": "160528578459-m01blsibgea62uq67aqhecfo3h77dqop.apps.googleusercontent.com",
+          "client_id": "160528578459-nlsc38oa4rjm0e9c6mmceqe74a6kvnhg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.version1",
-            "certificate_hash": "4fac4da11023ec7e6d9c25e29c651fcff2ac156d"
+            "package_name": "com.somebuddy.version1",
+            "certificate_hash": "77e2fdca8c8f9c3cde7acfbb7e7d0a3966320930"
           }
         },
         {

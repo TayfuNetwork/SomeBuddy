@@ -1,4 +1,4 @@
-package com.example.version1
+package com.somebuddy.version1
 
 import io.flutter.embedding.android.FlutterActivity
 

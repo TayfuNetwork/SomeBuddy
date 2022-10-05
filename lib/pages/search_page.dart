@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:version1/control_pages/json-models.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,15 @@ class _searchPageState extends State<searchPage> {
   bool? izlendi = false;
   Future<void> cinsiyetArama() async {
     if (adHelper.rewardedAd != null) {
-      await adHelper.showRewardedAd((p1) => izlendi = true);
+      await adHelper.showRewardedAd(onUserEarnedReward: (p0, p1) {
+        izlendi = true;
+      });
+    } else {
+      Fluttertoast.showToast(
+        msg: "Gösterilecek Reklam yok",
+        gravity: ToastGravity.BOTTOM,
+        toastLength: Toast.LENGTH_LONG,
+      );
     }
   }
 
@@ -384,11 +393,20 @@ class _searchPageState extends State<searchPage> {
                               color: Colors.red,
                             ),
                             TextButton(
-                                onPressed: () {
-                                  cinsiyetArama();
-                                  setState(() {
-                                    izlendi = true;
-                                  });
+                                onPressed: () async {
+                                  if (adHelper.rewardedAd != null) {
+                                    await adHelper.showRewardedAd(
+                                        onUserEarnedReward: (p0, p1) {
+                                      izlendi = true;
+                                      setState(() {});
+                                    });
+                                  } else {
+                                    Fluttertoast.showToast(
+                                      msg: "Gösterilecek Reklam yok",
+                                      gravity: ToastGravity.BOTTOM,
+                                      toastLength: Toast.LENGTH_LONG,
+                                    );
+                                  }
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.all(2.0),

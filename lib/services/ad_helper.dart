@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -101,15 +100,17 @@ class AdHelper {
     }
   }
 
-  Future showRewardedAd(Function(RewardedAd)? function) async {
+  Future showRewardedAd({required Function(AdWithoutView, RewardItem) onUserEarnedReward}) async {
     if (rewardedAd == null) {
-      // createRewardedAd();
+      createRewardedAd();
       print('Hata');
       return;
     }
     if (_isRewardedAdLoaded) {
       rewardedAd!.fullScreenContentCallback = FullScreenContentCallback(
-        onAdShowedFullScreenContent: (RewardedAd ad) {},
+        onAdShowedFullScreenContent: (RewardedAd ad) {
+          
+        },
         onAdDismissedFullScreenContent: (RewardedAd ad) {
           ad.dispose();
         },
@@ -120,13 +121,7 @@ class AdHelper {
       );
       try {
         await rewardedAd!.show(
-          onUserEarnedReward: (ad, reward) {
-            Fluttertoast.showToast(
-              msg: "DevamEdebilirsin".tr(),
-              gravity: ToastGravity.BOTTOM,
-              toastLength: Toast.LENGTH_LONG,
-            );
-          },
+          onUserEarnedReward: onUserEarnedReward,
         );
       } on Exception catch (e) {
         Fluttertoast.showToast(
@@ -150,14 +145,14 @@ class AdHelper {
   }
 
   String _bannerAdUnitId = Platform.isAndroid
-      ? 'ca-app-pub-1753932827820630/5568784899'
-      : ""; //     anaId:
+      ? 'ca-app-pub-3940256099942544/6300978111'
+      : ""; //     anaId: ca-app-pub-1753932827820630/5568784899
   String _interstitialAdUnitId = Platform.isAndroid
-      ? 'ca-app-pub-1753932827820630/4490086060'
-      : ""; //     anaId:
+      ? 'ca-app-pub-3940256099942544/1033173712'
+      : ""; //     anaId: ca-app-pub-1753932827820630/4490086060
   String _rewardedAdUnitId = Platform.isAndroid
-      ? 'ca-app-pub-1753932827820630/7528147096'
-      : ""; //     anaId:
+      ? 'ca-app-pub-3940256099942544/5224354917'
+      : ""; //     anaId: ca-app-pub-1753932827820630/7528147096
 
   bool _isIntertitialLoaded = false;
   bool _isRewardedAdLoaded = false;
