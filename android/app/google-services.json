@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "160528578459-m01blsibgea62uq67aqhecfo3h77dqop.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.version1",
+            "certificate_hash": "4fac4da11023ec7e6d9c25e29c651fcff2ac156d"
+          }
+        },
+        {
           "client_id": "160528578459-2oc1gepbkkit85muprgr04tagspula2g.apps.googleusercontent.com",
           "client_type": 3
         }

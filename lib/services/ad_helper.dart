@@ -150,14 +150,14 @@ class AdHelper {
   }
 
   String _bannerAdUnitId = Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/6300978111'
-      : ""; //     anaId:ca-app-pub-1753932827820630/5568784899
+      ? 'ca-app-pub-1753932827820630/5568784899'
+      : ""; //     anaId:
   String _interstitialAdUnitId = Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/1033173712'
-      : ""; //     anaId: ca-app-pub-1753932827820630/4490086060
+      ? 'ca-app-pub-1753932827820630/4490086060'
+      : ""; //     anaId:
   String _rewardedAdUnitId = Platform.isAndroid
-      ? 'ca-app-pub-3940256099942544/5224354917'
-      : ""; //     anaId: ca-app-pub-1753932827820630/7528147096
+      ? 'ca-app-pub-1753932827820630/7528147096'
+      : ""; //     anaId:
 
   bool _isIntertitialLoaded = false;
   bool _isRewardedAdLoaded = false;

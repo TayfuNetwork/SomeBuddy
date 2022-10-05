@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:version1/pages/emailpassword.dart';
 import 'package:version1/pages/profil.dart';
@@ -136,7 +137,11 @@ class _SignInPageState extends State<SignInPage> {
           }
         }
       } on PlatformException catch (e) {
-        e.code;
+        Fluttertoast.showToast(
+              msg: e.message.toString(),
+              gravity: ToastGravity.BOTTOM,
+              toastLength: Toast.LENGTH_LONG,
+            );
       }
     } else {
       return null;
