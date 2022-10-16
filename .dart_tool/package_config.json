@@ -2,12 +2,6 @@
   "configVersion": 2,
   "packages": [
     {
-      "name": "_discoveryapis_commons",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/_discoveryapis_commons-1.0.3",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "archive",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/archive-3.3.1",
       "packageUri": "lib/",
@@ -16,12 +10,6 @@
     {
       "name": "args",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/args-2.3.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "asn1lib",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/asn1lib-1.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -92,12 +80,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "convert",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/convert-3.0.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "cross_file",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/cross_file-0.3.3+2",
       "packageUri": "lib/",
@@ -108,12 +90,6 @@
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-3.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.14"
-    },
-    {
-      "name": "crypto_keys",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/crypto_keys-0.3.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "cupertino_icons",
@@ -128,12 +104,6 @@
       "languageVersion": "2.15"
     },
     {
-      "name": "dotenv",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/dotenv-4.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.16"
-    },
-    {
       "name": "easy_localization",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/easy_localization-3.0.1",
       "packageUri": "lib/",
@@ -142,12 +112,6 @@
     {
       "name": "easy_logger",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/easy_logger-0.0.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "expressions",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/expressions-0.2.4",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -166,12 +130,6 @@
     {
       "name": "file",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.4",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "firebase_admin",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_admin-0.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -210,12 +168,6 @@
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.7.2",
       "packageUri": "lib/",
       "languageVersion": "2.16"
-    },
-    {
-      "name": "firebase_dart",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_dart-1.0.11",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "firebase_database",
@@ -332,12 +284,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "gcloud",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/gcloud-0.8.6",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "geocoding",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/geocoding-2.0.5",
       "packageUri": "lib/",
@@ -392,12 +338,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "google_fonts",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/google_fonts-3.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "google_mobile_ads",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/google_mobile_ads-2.0.1",
       "packageUri": "lib/",
@@ -430,24 +370,6 @@
     {
       "name": "google_sign_in_web",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_web-0.10.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "googleapis",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/googleapis-9.2.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "googleapis_auth",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/googleapis_auth-1.3.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.13"
-    },
-    {
-      "name": "hive",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/hive-2.2.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -506,12 +428,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "jose",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/jose-0.3.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "js",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.4",
       "packageUri": "lib/",
@@ -522,12 +438,6 @@
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/json_annotation-4.7.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
-    },
-    {
-      "name": "logging",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/logging-1.0.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "matcher",
@@ -548,44 +458,14 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "openid_client",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/openid_client-0.4.6",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "path",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
-      "name": "path_provider",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.11",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
-    },
-    {
-      "name": "path_provider_android",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_android-2.0.20",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
-    },
-    {
-      "name": "path_provider_ios",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_ios-2.0.11",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
-    },
-    {
       "name": "path_provider_linux",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.1.7",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "path_provider_macos",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.6",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -650,12 +530,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "pointycastle",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/pointycastle-3.6.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "process",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.2.4",
       "packageUri": "lib/",
@@ -664,12 +538,6 @@
     {
       "name": "quiver",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-3.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "rxdart",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.27.5",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -728,12 +596,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "sortedmap",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/sortedmap-0.5.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "source_span",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.9.0",
       "packageUri": "lib/",
@@ -756,12 +618,6 @@
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
-    },
-    {
-      "name": "synchronized",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/synchronized-3.0.0+3",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
     },
     {
       "name": "term_glyph",
@@ -788,12 +644,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "uuid",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/uuid-3.0.6",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "vector_math",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2",
       "packageUri": "lib/",
@@ -806,22 +656,10 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "web_socket_channel",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/web_socket_channel-2.2.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "win32",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/win32-3.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.17"
-    },
-    {
-      "name": "x509",
-      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/x509-0.2.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "xdg_directories",
@@ -848,7 +686,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-10-03T06:34:45.997089Z",
+  "generated": "2022-10-14T15:04:42.587520Z",
   "generator": "pub",
   "generatorVersion": "2.18.1"
 }
