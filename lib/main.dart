@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:version1/control_pages/landing_page.dart';
 import 'package:version1/services/ad_helper.dart';
 import 'package:version1/services/auth_service.dart';
@@ -41,37 +40,9 @@ Future<void> setupFlutterNotifications() async {
   );
 }
 
-Future<Position> determinePosition() async {
-  bool serviceEnabled;
-  LocationPermission permission;
-
-  serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!serviceEnabled) {
-    return Future.error('Location services are disabled.');
-  }
-
-  permission = await Geolocator.checkPermission();
-  if (permission == LocationPermission.denied) {
-    permission = await Geolocator.requestPermission();
-    if (permission == LocationPermission.denied) {
-      return Future.error('Location permissions are denied');
-    }
-  }
-
-  if (permission == LocationPermission.deniedForever) {
-    return Future.error(
-        'Location permissions are permanently denied, we cannot request permissions.');
-  }
-
-  Position position = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.low);
-  return position;
-}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  determinePosition();
-
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(options: NotificationService.currentPlatform);
 
@@ -108,6 +79,7 @@ class MyApp extends StatelessWidget {
       title: 'SomeBuddy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
+      
       home: const LandingPage(),
     );
   }

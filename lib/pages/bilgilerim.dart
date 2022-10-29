@@ -9,7 +9,6 @@ import 'package:version1/models/user.dart';
 import 'package:version1/control_pages/badge_goster.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/services/auth_service.dart';
-import '../services/ad_helper.dart';
 import '../control_pages/json-models.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -31,20 +30,13 @@ var status = Permission.location.status;
 Future<bool> isShown = Permission.contacts.shouldShowRequestRationale;
 String? ili, ilcesi, bransi, mevkisi;
 Color? ppColor;
-
-@override
-void initState() async {
-  final fcmToken = await FirebaseMessaging.instance.getToken();
-  AuthService().user!.token = fcmToken;
-  FirebaseFirestore.instance
-      .collection("Users")
-      .doc(AuthService().user!.id)
-      .update({'token': fcmToken});
-}
+late BannerAd _bottomBannerAd;
+bool _isBottomAdLoaded = false;
 
 // ignore: camel_case_types
 class _bilgilerimState extends State<bilgilerim> {
   Brans? brans;
+
   String? mevki;
   BransServices model = BransServices();
   String? il;
@@ -57,10 +49,58 @@ class _bilgilerimState extends State<bilgilerim> {
   String? _konumIlce = "Place";
   bool _isloading = true;
   String _durum = "AnaSayfaKayitOlusturButonu".tr();
+
+  //final fcmToken = AuthService().user!.token;
+
+  late var a;
+
+  fcmGetir() async {
+    await FirebaseMessaging.instance.getToken().then((value) {
+      print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:" + "$value");
+      if (value != null) {
+        a = value.toString();
+      }
+    });
+
+    AuthService().user!.token = a;
+    FirebaseFirestore.instance
+        .collection("Users")
+        .doc(AuthService().user!.id)
+        .update({'token': a});
+  }
+
   @override
   void initState() {
+    fcmGetir();
+    bannercrate();
     super.initState();
     isShown;
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _bottomBannerAd.dispose();
+  }
+
+  bannercrate() {
+    _bottomBannerAd = BannerAd(
+      size: AdSize.banner,
+      adUnitId:
+          'ca-app-pub-1753932827820630/5568784899',//'ca-app-pub-3940256099942544/6300978111',
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          setState(() {
+            _isBottomAdLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (ad, e) {
+          ad.dispose();
+        },
+      ),
+      request: AdRequest(),
+    );
+    _bottomBannerAd.load();
   }
 
   @override
@@ -94,281 +134,420 @@ class _bilgilerimState extends State<bilgilerim> {
             //controlPremium()
           ],
         ),
-        body: Column(
+        body: Stack(
           children: [
-            Expanded(
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("images/background.png"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: SingleChildScrollView(
+            Column(
+              children: [
+                Expanded(
                   child: Container(
-                    width: double.maxFinite,
-                    padding: const EdgeInsets.all(15),
-                    margin: const EdgeInsets.all(20),
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
                     decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: const [
-                          BoxShadow(color: Colors.grey, blurRadius: 6),
-                        ]),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Text("AnaSayfaKimlik".tr(),
-                            style: TextStyle(color: Colors.grey)),
-                        ListTile(
-                          textColor: Colors.black,
-                          title: Text("${user.userName}"),
-                          leading: CircleAvatar(
-                            child: Text(
-                              "${user.yas}",
-                              style: const TextStyle(
-                                  fontSize: 20, color: Colors.white),
+                      image: DecorationImage(
+                        image: AssetImage("images/background.png"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    child: SingleChildScrollView(
+                      child: Container(
+                        width: double.maxFinite,
+                        padding: const EdgeInsets.all(15),
+                        margin: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: const [
+                              BoxShadow(color: Colors.grey, blurRadius: 6),
+                            ]),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Text("AnaSayfaKimlik".tr(),
+                                style: TextStyle(color: Colors.grey)),
+                            ListTile(
+                              textColor: Colors.black,
+                              title: Text("${user.userName}"),
+                              leading: CircleAvatar(
+                                child: Text(
+                                  "${user.yas}",
+                                  style: const TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                ),
+                                backgroundColor: renk(),
+                              ),
+                              subtitle: ControlName(),
+                              trailing: const Icon(Icons.message),
+                              onTap: () {},
                             ),
-                            backgroundColor: renk(),
-                          ),
-                          subtitle: ControlName(),
-                          trailing: const Icon(Icons.message),
-                          onTap: () {},
-                        ),
-                        const SizedBox(height: 5),
-                        if (AuthService().user!.il != null)
-                          TextButton(
-                              onPressed: () async {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                        backgroundColor: Colors.blue,
-                                        duration: Duration(seconds: 5),
-                                        content: Text('KaydinizSilindi'.tr(),
-                                            style: TextStyle(
-                                                color: Colors.white))));
-
-                                var userID = AuthService().user!.id;
-                                try {
-                                  await FirebaseFirestore.instance
-                                      .collection("Users")
-                                      .doc(userID)
-                                      .update({
-                                    'il': null,
-                                    'ilce': null,
-                                    'brans': null,
-                                    'mevki': null
-                                  });
-                                  AuthService().user =
-                                      AuthService().user!.copyWith(
-                                            il: null,
-                                            ilce: null,
-                                            brans: null,
-                                            mevki: null,
-                                          );
-                                  setState(() {});
-                                } on Exception {}
-                              },
-                              child: Text(
-                                'AnaSayfaHobiKatiniSil'.tr(),
-                                style: TextStyle(color: Colors.pink),
-                                softWrap: true,
-                              )),
-                        const Divider(
-                          thickness: 2,
-                          color: Colors.blueAccent,
-                        ),
-                        const SizedBox(height: 10),
-                        Text('AnaSayfaKonumAciklama'.tr(),
-                            style: TextStyle(color: Colors.grey)),
-                        const SizedBox(height: 10),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            ElevatedButton(
-                                onPressed: () async {
-                                  try {
-                                    _currentPosition =
-                                        await determinePosition();
-                                    await _getAddressFromLatLng();
-                                    _getCurrentLocation();
-                                    il = _konumIl;
-                                    ilce = _konumIlce;
-
-                                    setState(() {});
-                                    setState(() {
-                                      _isloading = false;
-                                    });
-                                    await Future.delayed(Duration(seconds: 3));
-                                    setState(() {
-                                      _getCurrentLocation();
-                                      il = _konumIl;
-                                      ilce = _konumIlce;
-                                      _isloading = true;
-                                      _durum =
-                                          "AnaSayfaKonumBelirlendiButonu".tr();
-                                    });
-                                    await Future.delayed(Duration(seconds: 3));
-                                    setState(() {
-                                      _durum = "AnaSayfaTekrarTaratButonu".tr();
-                                    });
-                                  } catch (e) {
+                            const SizedBox(height: 5),
+                            if (AuthService().user!.il != null)
+                              TextButton(
+                                  onPressed: () async {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                         SnackBar(
+                                            backgroundColor: Colors.blue,
+                                            duration: Duration(seconds: 5),
+                                            content: Text(
+                                                'KaydinizSilindi'.tr(),
+                                                style: TextStyle(
+                                                    color: Colors.white))));
+
+                                    var userID = AuthService().user!.id;
+                                    try {
+                                      await FirebaseFirestore.instance
+                                          .collection("Users")
+                                          .doc(userID)
+                                          .update({
+                                        'il': null,
+                                        'ilce': null,
+                                        'brans': null,
+                                        'mevki': null
+                                      });
+                                      AuthService().user =
+                                          AuthService().user!.copyWith(
+                                                il: null,
+                                                ilce: null,
+                                                brans: null,
+                                                mevki: null,
+                                              );
+                                      setState(() {});
+                                    } on Exception {}
+                                  },
+                                  child: Text(
+                                    'AnaSayfaHobiKatiniSil'.tr(),
+                                    style: TextStyle(color: Colors.pink),
+                                    softWrap: true,
+                                  )),
+                            const Divider(
+                              thickness: 2,
+                              color: Colors.blueAccent,
+                            ),
+                            const SizedBox(height: 10),
+                            Text('AnaSayfaKonumAciklama'.tr(),
+                                style: TextStyle(color: Colors.grey)),
+                            const SizedBox(height: 10),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () async {
+                                      LocationPermission permission;
+                                      permission =
+                                          await Geolocator.checkPermission();
+                                      if (permission ==
+                                          LocationPermission.denied) {
+                                        showDialog(
+                                            barrierDismissible: false,
+                                            context: context,
+                                            builder: (builder) =>
+                                                Stack(children: [
+                                                  AlertDialog(
+                                                    content: Card(
+                                                      child: Text(
+                                                          "konumaIzinver".tr()),
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(15.0),
+                                                      ),
+                                                    ),
+                                                    actions: <Widget>[
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          TextButton(
+                                                            onPressed:
+                                                                () async {
+                                                              Navigator.pop(
+                                                                  context);
+                                                              try {
+                                                                _currentPosition =
+                                                                    await determinePosition();
+                                                                await _getAddressFromLatLng();
+                                                                _getCurrentLocation();
+                                                                il = _konumIl;
+                                                                ilce =
+                                                                    _konumIlce;
+
+                                                                setState(() {});
+                                                                setState(() {
+                                                                  _isloading =
+                                                                      false;
+                                                                });
+                                                                await Future.delayed(
+                                                                    Duration(
+                                                                        seconds:
+                                                                            3));
+                                                                setState(() {
+                                                                  _getCurrentLocation();
+                                                                  il = _konumIl;
+                                                                  ilce =
+                                                                      _konumIlce;
+                                                                  _isloading =
+                                                                      true;
+                                                                  _durum =
+                                                                      "AnaSayfaKonumBelirlendiButonu"
+                                                                          .tr();
+                                                                });
+                                                                await Future.delayed(
+                                                                    Duration(
+                                                                        seconds:
+                                                                            3));
+                                                                setState(() {
+                                                                  _durum =
+                                                                      "AnaSayfaTekrarTaratButonu"
+                                                                          .tr();
+                                                                });
+                                                              } catch (e) {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                        SnackBar(
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .blue,
+                                                                  content: Text(
+                                                                      "AnaSayfaKonumErisilemiyorHata"
+                                                                          .tr(),
+                                                                      style: TextStyle(
+                                                                          color:
+                                                                              Colors.white)),
+                                                                  duration:
+                                                                      Duration(
+                                                                          seconds:
+                                                                              5),
+                                                                ));
+                                                              }
+                                                            },
+                                                            child:
+                                                                Text("İzinVer"),
+                                                          ),
+                                                          TextButton(
+                                                            onPressed:
+                                                                () async {
+                                                              Navigator.pop(
+                                                                  context);
+                                                            },
+                                                            child: Text(
+                                                                "İzinVerme"),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  )
+                                                ]));
+                                      } else {
+                                        try {
+                                          _currentPosition =
+                                              await determinePosition();
+                                          await _getAddressFromLatLng();
+                                          _getCurrentLocation();
+                                          il = _konumIl;
+                                          ilce = _konumIlce;
+
+                                          setState(() {});
+                                          setState(() {
+                                            _isloading = false;
+                                          });
+                                          await Future.delayed(
+                                              Duration(seconds: 3));
+                                          setState(() {
+                                            _getCurrentLocation();
+                                            il = _konumIl;
+                                            ilce = _konumIlce;
+                                            _isloading = true;
+                                            _durum =
+                                                "AnaSayfaKonumBelirlendiButonu"
+                                                    .tr();
+                                          });
+                                          await Future.delayed(
+                                              Duration(seconds: 3));
+                                          setState(() {
+                                            _durum = "AnaSayfaTekrarTaratButonu"
+                                                .tr();
+                                          });
+                                        } catch (e) {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(SnackBar(
                                             backgroundColor: Colors.blue,
                                             content: Text(
                                                 "AnaSayfaKonumErisilemiyorHata"
                                                     .tr(),
                                                 style: TextStyle(
-                                                    color: Colors.white))));
-                                  }
-                                },
-                                child: !_isloading
-                                    ? buildSmallButton()
-                                    : Text(_durum)),
-                            if (il != null) info()
-                          ],
-                        ),
-                        if (il != null)
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Text("Brans".tr(),
-                                  style: TextStyle(color: Colors.blue)),
-                              DropdownButton<int>(
-                                menuMaxHeight: 400,
-                                iconEnabledColor: Colors.blue,
-                                dropdownColor:
-                                    const Color.fromARGB(255, 28, 185, 242),
-                                style: const TextStyle(color: Colors.black),
-                                value: brans?.no ?? 82,
-                                items: model.branslar.map((b) {
-                                  return DropdownMenuItem(
-                                    child: Text(b.brans,
-                                        style: const TextStyle(
-                                            color: Colors.black)),
-                                    value: b.no,
-                                    onTap: () {
-                                      setState(() {
-                                        brans = b;
-                                        mevki = b.mevki.first;
-                                      });
+                                                    color: Colors.white)),
+                                            duration: Duration(seconds: 5),
+                                          ));
+                                        }
+                                      }
                                     },
-                                  );
-                                }).toList(),
-                                onChanged: (s) {},
-                              ),
-                            ],
-                          ),
-                        if (mevki != null)
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Text("Mevki:".tr(),
-                                  style: TextStyle(color: Colors.blue)),
-                              DropdownButton<String>(
-                                menuMaxHeight: 400,
-                                iconEnabledColor: Colors.blue,
-                                dropdownColor:
-                                    const Color.fromARGB(255, 28, 185, 242),
-                                value: mevki ?? brans!.mevki.first,
-                                style: const TextStyle(color: Colors.black),
-                                items: model.mevki(brans!.no).map((b) {
-                                  return DropdownMenuItem(
-                                    child: Text(
-                                      b,
-                                      style:
-                                          const TextStyle(color: Colors.black),
-                                    ),
-                                    value: b,
-                                    onTap: () {
-                                      setState(() {
-                                        mevki = b;
-                                      });
-                                    },
-                                  );
-                                }).toList(),
-                                onChanged: (s) {},
-                              ),
-                              Icon(
-                                Icons.abc,
-                                color: Colors.white.withOpacity(0),
-                              )
-                            ],
-                          ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            if (ilce != null && brans != null)
-                              Column(
+                                    child: !_isloading
+                                        ? buildSmallButton()
+                                        : Text(_durum)),
+                                if (il != null) info()
+                              ],
+                            ),
+                            if (il != null)
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: [
-                                  ElevatedButton(
-                                    onPressed: () async {
-                                      ili = (il)!;
-                                      ilcesi = ilce;
-                                      bransi = (brans)!.brans;
-                                      mevkisi = mevki;
-
-                                      MyUser user = AuthService().user!;
-                                      user = user.copyWith(
-                                        brans: bransi,
-                                        il: ili,
-                                        ilce: ilce,
-                                        mevki: mevki,
+                                  Text("Brans".tr(),
+                                      style: TextStyle(color: Colors.blue)),
+                                  DropdownButton<int>(
+                                    menuMaxHeight: 400,
+                                    iconEnabledColor: Colors.blue,
+                                    dropdownColor:
+                                        const Color.fromARGB(255, 28, 185, 242),
+                                    style: const TextStyle(color: Colors.black),
+                                    value: brans?.no ?? 82,
+                                    items: model.branslar.map((b) {
+                                      return DropdownMenuItem(
+                                        child: Text(b.brans,
+                                            style: const TextStyle(
+                                                color: Colors.black)),
+                                        value: b.no,
+                                        onTap: () {
+                                          setState(() {
+                                            brans = b;
+                                            mevki = b.mevki.first;
+                                          });
+                                        },
                                       );
-                                      var dateTime = DateTime.now();
-                                      var ddd = DateFormat('MM/dd/yyyy HH:mm')
-                                          .format(dateTime);
-                                      await FirebaseMessaging.instance
-                                          .getToken();
-                                      FirebaseFirestore.instance
-                                          .collection('Users')
-                                          .doc(user.id)
-                                          .set({'date': ddd},
-                                              SetOptions(merge: true));
-
-                                      await AuthService().updateUser(user);
-
-                                      Navigator.of(context).push(
-                                          CupertinoPageRoute(
-                                              builder: (context) =>
-                                                  const searchPage()));
-                                    },
-                                    child: Text(
-                                        'AnaSayfaKaydetvePartnerBulButonu'
-                                            .tr()),
+                                    }).toList(),
+                                    onChanged: (s) {},
                                   ),
                                 ],
                               ),
-                            if (ilce == null || brans == null)
-                              ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.of(context).push(
-                                        CupertinoPageRoute(
-                                            builder: (context) =>
-                                                const searchPage()));
-                                  },
-                                  child: Text('AnaSayfaGezintiButonu'.tr())),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Container(
-                              width: AdSize.banner.width.toDouble(),
-                              height: AdSize.banner.height.toDouble(),
-                              alignment: Alignment.bottomCenter,
-                              child: AdWidget(
-                                ad: adHelper.createBannerAd(),
+                            if (mevki != null)
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text("Mevki:".tr(),
+                                      style: TextStyle(color: Colors.blue)),
+                                  DropdownButton<String>(
+                                    menuMaxHeight: 400,
+                                    iconEnabledColor: Colors.blue,
+                                    dropdownColor:
+                                        const Color.fromARGB(255, 28, 185, 242),
+                                    value: mevki ?? brans!.mevki.first,
+                                    style: const TextStyle(color: Colors.black),
+                                    items: model.mevki(brans!.no).map((b) {
+                                      return DropdownMenuItem(
+                                        child: Text(
+                                          b,
+                                          style: const TextStyle(
+                                              color: Colors.black),
+                                        ),
+                                        value: b,
+                                        onTap: () {
+                                          setState(() {
+                                            mevki = b;
+                                          });
+                                        },
+                                      );
+                                    }).toList(),
+                                    onChanged: (s) {},
+                                  ),
+                                  Icon(
+                                    Icons.abc,
+                                    color: Colors.white.withOpacity(0),
+                                  )
+                                ],
                               ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                if (ilce != null && brans != null)
+                                  Column(
+                                    children: [
+                                      ElevatedButton(
+                                        onPressed: () async {
+                                          ili = (il)!;
+                                          ilcesi = ilce;
+                                          bransi = (brans)!.brans;
+                                          mevkisi = mevki;
+
+                                          MyUser user = AuthService().user!;
+                                          user = user.copyWith(
+                                            brans: bransi,
+                                            il: ili,
+                                            ilce: ilce,
+                                            mevki: mevki,
+                                          );
+                                          var dateTime = DateTime.now();
+                                          var ddd =
+                                              DateFormat('MM/dd/yyyy HH:mm')
+                                                  .format(dateTime);
+                                          await FirebaseMessaging.instance
+                                              .getToken();
+                                          FirebaseFirestore.instance
+                                              .collection('Users')
+                                              .doc(user.id)
+                                              .set({'date': ddd},
+                                                  SetOptions(merge: true));
+
+                                          await AuthService().updateUser(user);
+
+                                          Navigator.of(context).push(
+                                              CupertinoPageRoute(
+                                                  builder: (context) =>
+                                                      const searchPage()));
+                                        },
+                                        child: Text(
+                                            'AnaSayfaKaydetvePartnerBulButonu'
+                                                .tr()),
+                                      ),
+                                    ],
+                                  ),
+                                if (ilce == null || brans == null)
+                                  ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                            CupertinoPageRoute(
+                                                builder: (context) =>
+                                                    const searchPage()));
+                                      },
+                                      child:
+                                          Text('AnaSayfaGezintiButonu'.tr())),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                /*  Container(
+                                  width: AdSize.banner.width.toDouble(),
+                                  height: AdSize.banner.height.toDouble(),
+                                  alignment: Alignment.bottomCenter,
+                                  child: AdWidget(
+                                    ad: adHelper.createBannerAd(),
+                                  ),
+                                ), */
+                              ],
                             ),
                           ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-              ),
+              ],
             ),
+            _isBottomAdLoaded
+                ? Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      width: _bottomBannerAd.size.width.toDouble(),
+                      height: _bottomBannerAd.size.height.toDouble(),
+                      child: AdWidget(
+                        ad: _bottomBannerAd,
+                      ),
+                    ),
+                  )
+                : SizedBox()
           ],
         ),
       ),

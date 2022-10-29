@@ -50,7 +50,7 @@ class _SignInPageState extends State<SignInPage> {
             ),
             const SizedBox(height: 48),
             //******************************************************************//
-            GoogleGirisi(),
+            //GoogleGirisi(),
             //******************************************************************//
 
             eMailGirisi(context),

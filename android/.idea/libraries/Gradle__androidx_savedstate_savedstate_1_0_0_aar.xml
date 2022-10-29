@@ -8,6 +8,8 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/34548995aa1d91cf2f02c2c797edacc7/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/34548995aa1d91cf2f02c2c797edacc7/transformed/jetified-savedstate-1.0.0/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/34548995aa1d91cf2f02c2c797edacc7/transformed/jetified-savedstate-1.0.0/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/cab32e6f4031ea5f577dd85ad0fa2056/transformed/jetified-savedstate-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/cab32e6f4031ea5f577dd85ad0fa2056/transformed/jetified-savedstate-1.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

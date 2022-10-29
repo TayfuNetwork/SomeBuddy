@@ -32,7 +32,7 @@ class AdHelper {
   BannerAd createBannerAd() {
     BannerAd bannerAd = BannerAd(
       size: AdSize.banner,
-      adUnitId: _bannerAdUnitId,
+      adUnitId: bannerAdUnitId,
       listener: BannerAdListener(
         onAdLoaded: (ad) {},
         onAdFailedToLoad: (ad, e) {
@@ -143,7 +143,7 @@ class AdHelper {
     }
   }
 
-  String _bannerAdUnitId = Platform.isAndroid
+  String bannerAdUnitId = Platform.isAndroid
       ? 'ca-app-pub-1753932827820630/5568784899'
       : ""; //     anaId:
   String _interstitialAdUnitId = Platform.isAndroid

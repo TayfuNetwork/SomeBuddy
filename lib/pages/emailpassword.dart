@@ -75,9 +75,8 @@ class _EmailPasswordState extends State<EmailPassword> {
     _butonText = _formType == FormType.Login
         ? "EmailGirisYap".tr()
         : "EmailKayitOl".tr();
-    _linkText = _formType == FormType.Register
-        ? "ZatenHesapVar".tr()
-        : "HesabinizYokMu".tr();
+    Text _linkText =
+        _formType == FormType.Register ? hesapVar() : HesabinizYokMu();
 
     return Scaffold(
         body: Container(
@@ -90,10 +89,10 @@ class _EmailPasswordState extends State<EmailPassword> {
             key: _formKey,
             child: Column(
               children: [
-                Text("googleEmailDuo".tr(),
+                /* Text("googleEmailDuo".tr(),
                     style: TextStyle(color: Colors.yellow),
-                    textAlign: TextAlign.center),
-                    Text("uyari".tr(),
+                    textAlign: TextAlign.center), */
+                Text("uyari".tr(),
                     style: TextStyle(color: Colors.yellow),
                     textAlign: TextAlign.center),
                 SizedBox(
@@ -153,7 +152,7 @@ class _EmailPasswordState extends State<EmailPassword> {
                 const SizedBox(height: 8),
                 TextButton(
                   onPressed: () => degistir(),
-                  child: Text(_linkText!),
+                  child: _linkText,
                 )
               ],
             ),
@@ -161,6 +160,20 @@ class _EmailPasswordState extends State<EmailPassword> {
         ),
       ),
     ));
+  }
+
+  Text hesapVar() {
+    return Text(
+      "ZatenHesapVar".tr(),
+      style: TextStyle(color: Colors.yellow),
+    );
+  }
+
+  Text HesabinizYokMu() {
+    return Text(
+      "HesabinizYokMu".tr(),
+      style: TextStyle(color: Colors.yellow),
+    );
   }
 
   degistir() {
