@@ -167,9 +167,11 @@ class _ResultsState extends State<Results> {
                                 ),
                                 backgroundColor: widget.ppColor,
                               ),
-                              subtitle: Text(
-                                "${e.bio}",
-                                style: const TextStyle(color: Colors.blue),
+                              subtitle: SingleChildScrollView(
+                                child: Text(
+                                  "${e.bio}",
+                                  style: const TextStyle(color: Colors.blue),
+                                ),
                               ),
                               trailing: widget.sIcon,
                               onTap: () {
