@@ -168,7 +168,7 @@ class _ResultsState extends State<Results> {
                                 backgroundColor: widget.ppColor,
                               ),
                               subtitle: Text(
-                                "${e.il}/ ${e.ilce} - ${e.brans}/ ${e.mevki}",
+                                "${e.bio}",
                                 style: const TextStyle(color: Colors.blue),
                               ),
                               trailing: widget.sIcon,

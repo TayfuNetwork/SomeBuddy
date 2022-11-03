@@ -41,19 +41,6 @@ class _searchPageState extends State<searchPage> {
   String? Cinsiyet;
   String? secilenCinsiyet;
   bool? izlendi = false;
-  Future<void> cinsiyetArama() async {
-    if (adHelper.rewardedAd != null) {
-      await adHelper.showRewardedAd(onUserEarnedReward: (p0, p1) {
-        izlendi = true;
-      });
-    } else {
-      Fluttertoast.showToast(
-        msg: "Gösterilecek Reklam yok",
-        gravity: ToastGravity.BOTTOM,
-        toastLength: Toast.LENGTH_LONG,
-      );
-    }
-  }
 
   Future<void> arama() async {
     if (adHelper.interstitialAd != null) {
@@ -105,6 +92,32 @@ class _searchPageState extends State<searchPage> {
             ),
           );
         },
+      );
+    } else {
+      Fluttertoast.showToast(
+        msg: "Reklam Yüklenemedi",
+        gravity: ToastGravity.BOTTOM,
+        toastLength: Toast.LENGTH_LONG,
+      );
+      var user = AuthService().user!;
+
+      bulunanIl = (user.il);
+      bulunanIlce = user.ilce!;
+      bulunanBrans = user.brans!;
+      bulunanMevki = user.mevki!;
+      ppColor = Colors.blue;
+
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => Results(
+            il: bulunanIl!,
+            ilce: bulunanIlce!,
+            brans: bulunanBrans!,
+            mevki: bulunanMevki!,
+            ppColor: Colors.blue,
+            sIcon: const Icon(Icons.photo),
+          ),
+        ),
       );
     }
   }
@@ -406,6 +419,9 @@ class _searchPageState extends State<searchPage> {
                                       gravity: ToastGravity.BOTTOM,
                                       toastLength: Toast.LENGTH_LONG,
                                     );
+                                    setState(() {
+                                      izlendi = true;
+                                    });
                                   }
                                 },
                                 child: Padding(
