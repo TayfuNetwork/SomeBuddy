@@ -95,7 +95,7 @@ class _searchPageState extends State<searchPage> {
       );
     } else {
       Fluttertoast.showToast(
-        msg: "Reklam Yüklenemedi",
+        msg: "ReklamYuklenemedi".tr(),
         gravity: ToastGravity.BOTTOM,
         toastLength: Toast.LENGTH_LONG,
       );
@@ -122,6 +122,22 @@ class _searchPageState extends State<searchPage> {
     }
   }
 
+  @override
+  void initState() {
+    super.initState();
+    if (adHelper.interstitialAd != null) {
+      adHelper.interstitialAd;
+    }
+    if (adHelper.rewardedAd != null) {
+      adHelper.rewardedAd;
+    }
+  }
+  @override
+  void dispose() {
+    super.dispose();
+    adHelper.rewardedAd;
+    adHelper.interstitialAd;
+  }
   String? sex;
   SexServices model1 = SexServices();
   @override
@@ -415,7 +431,7 @@ class _searchPageState extends State<searchPage> {
                                     });
                                   } else {
                                     Fluttertoast.showToast(
-                                      msg: "Gösterilecek Reklam yok",
+                                      msg: "ReklamYuklenemedi".tr(),
                                       gravity: ToastGravity.BOTTOM,
                                       toastLength: Toast.LENGTH_LONG,
                                     );

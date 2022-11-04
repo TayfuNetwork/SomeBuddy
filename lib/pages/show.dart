@@ -84,6 +84,8 @@ class _showState extends State<show> {
                     if (adHelper.rewardedAd != null) {
                       await adHelper.showRewardedAd(
                           onUserEarnedReward: (p0, p1) => git());
+                    } else {
+                      git();
                     }
                   },
                   textColor: Colors.black,

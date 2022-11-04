@@ -353,4 +353,5 @@
     "googleEmailDuo":"If you have logged in with Gmail before, you can send a password creation e-mail to your g-mail by clicking I 'forgot my password'.",
     "izinverilmedi":"You can then allow SomeBuddy's location service to be used from the app permissions menu",
     "konumaIzinver":"SomeBuddy needs your location permission when the app is in use to prevent you from reporting fake location when creating your hobby listing. If you do not allow, you can browse, but you cannot create a record, someone else cannot find you. SomeBuddy does not use or accumulate your location information when the app is closed or not in use."
+    ,"ReklamYuklenemedi":"ad could not be loaded"
 }

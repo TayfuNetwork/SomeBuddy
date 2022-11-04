@@ -352,5 +352,6 @@
     "uyari":"Şifrenizi unutrsanız, parola sıfırlama maili bu mail adresine gelecektir.",
     "googleEmailDuo":"Daha önceden Gmail ile giriş yaptıysanız, şifremi unuttum diyerek g-mailinize uygulama için şifre oluşturma maili atabilirsiniz.",
     "izinverilmedi":"You can then allow SomeBuddy's location service to be used from the app permissions menu",
-    "konumaIzinver":"SomeBuddy, hobi kaydınızı oluştururken sahte konum bildirmenizi önlemek sebebiyle, uygulama kullanmdayken konum izninize gereksinim duyar. İzin vermediğiniz taktirde gezinti yapabilir fakat kayıt oluşturamazsınız, bir başkası sizi bulamaz. SomeBuddy, uygulama kapalıyken veya kullanımda değilken konum bilginizi kullanmaz, biriktirmez."
+    "konumaIzinver":"SomeBuddy, hobi kaydınızı oluştururken sahte konum bildirmenizi önlemek sebebiyle, uygulama kullanmdayken konum izninize gereksinim duyar. İzin vermediğiniz taktirde gezinti yapabilir fakat kayıt oluşturamazsınız, bir başkası sizi bulamaz. SomeBuddy, uygulama kapalıyken veya kullanımda değilken konum bilginizi kullanmaz, biriktirmez.",
+    "ReklamYuklenemedi":"Reklam Yüklenemedi"
 }
