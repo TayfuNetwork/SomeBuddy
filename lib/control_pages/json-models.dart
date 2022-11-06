@@ -134,7 +134,7 @@ const String _bransData = """[
     ]
   },
   {
-    "brans": "Aromatik-Bitikler",
+    "brans": "Aromatik-Bitkiler",
     "no": 90,
     "mevki": [
       "Farketmez"
@@ -267,7 +267,8 @@ const String _bransData = """[
       "Yol",
       "Pist",
       "Cyclo-Cross",
-      "BMX"
+      "BMX",
+      "MTB"
     ]
   },
   {

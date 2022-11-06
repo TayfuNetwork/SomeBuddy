@@ -60,6 +60,19 @@ class _searchPageState extends State<searchPage> {
           );
         },
       );
+    } else {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => Results(
+            il: il!,
+            ilce: ilce!,
+            brans: brans!.brans,
+            mevki: mevki!,
+            ppColor: Colors.blue,
+            sIcon: const Icon(Icons.photo),
+          ),
+        ),
+      );
     }
 
     setState(() {
@@ -132,12 +145,14 @@ class _searchPageState extends State<searchPage> {
       adHelper.rewardedAd;
     }
   }
+
   @override
   void dispose() {
     super.dispose();
     adHelper.rewardedAd;
     adHelper.interstitialAd;
   }
+
   String? sex;
   SexServices model1 = SexServices();
   @override

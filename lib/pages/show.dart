@@ -23,6 +23,12 @@ class show extends StatefulWidget {
 
 bool? rewardP = false;
 Color ppColor = Colors.blue;
+@override
+void initState() {
+  if (adHelper.interstitialAd != null) {
+    adHelper.interstitialAd;
+  }
+}
 
 class _showState extends State<show> {
   @override
@@ -82,8 +88,9 @@ class _showState extends State<show> {
                 ListTile(
                   onTap: () async {
                     if (adHelper.rewardedAd != null) {
-                      await adHelper.showRewardedAd(
-                          onUserEarnedReward: (p0, p1) => git());
+                      await adHelper.showInterstitialAd((p0) {
+                        git();
+                      });
                     } else {
                       git();
                     }

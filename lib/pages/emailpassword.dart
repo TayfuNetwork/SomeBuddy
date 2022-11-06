@@ -24,6 +24,7 @@ class EmailPassword extends StatefulWidget {
 // ignore: camel_case_types
 class _EmailPasswordState extends State<EmailPassword> {
   String? _email, _sifre, _sifreTekrar;
+  // ignore: unused_field
   String? _butonText, _linkText;
   var _formType = FormType.Login;
   final _formKey = GlobalKey<FormState>();
@@ -55,7 +56,7 @@ class _EmailPasswordState extends State<EmailPassword> {
             CupertinoPageRoute(builder: (context) => const Profile()),
             (route) => false);
       }
-    } else {
+    } if (_formType == FormType.Login)  {
       user = await service.signIn(_sifre!, _email!, context);
       if (user != null) {
         await AuthService().checkUser();

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:version1/models/user.dart';
 
 import '../models/konusma.dart';
@@ -36,12 +37,20 @@ class SearchService {
 
   Stream<QuerySnapshot<Map<String, dynamic>>> searchStream(
       String il, String ilce, String brans, String mevki) {
-    return userCollection
-        .where("il", isEqualTo: il)
-        .where("ilce", isEqualTo: ilce)
-        .where("brans", isEqualTo: brans)
-        .where("mevki", isEqualTo: mevki)
-        .snapshots();
+    if (mevki == 'Farketmez'.tr()) {
+      return userCollection
+          .where("il", isEqualTo: il)
+          .where("ilce", isEqualTo: ilce)
+          .where("brans", isEqualTo: brans)
+          .snapshots();
+    } else {
+      return userCollection
+          .where("il", isEqualTo: il)
+          .where("ilce", isEqualTo: ilce)
+          .where("brans", isEqualTo: brans)
+          .where("mevki", isEqualTo: mevki)
+          .snapshots();
+    }
   }
 }
 
@@ -79,13 +88,22 @@ class SearchService2 {
 
   Stream<QuerySnapshot<Map<String, dynamic>>> searchStream1(
       String il, String ilce, String brans, String mevki, String sex) {
-    return userCollection
-        .where("il", isEqualTo: il)
-        .where("ilce", isEqualTo: ilce)
-        .where("brans", isEqualTo: brans)
-        .where("mevki", isEqualTo: mevki)
-        .where("sex", isEqualTo: sex)
-        .snapshots();
+    if (mevki == "Farketmez".tr()) {
+      return userCollection
+          .where("il", isEqualTo: il)
+          .where("ilce", isEqualTo: ilce)
+          .where("brans", isEqualTo: brans)
+          .where("sex", isEqualTo: sex)
+          .snapshots();
+    } else {
+      return userCollection
+          .where("il", isEqualTo: il)
+          .where("ilce", isEqualTo: ilce)
+          .where("brans", isEqualTo: brans)
+          .where("mevki", isEqualTo: mevki)
+          .where("sex", isEqualTo: sex)
+          .snapshots();
+    }
   }
 }
 
