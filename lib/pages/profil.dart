@@ -67,7 +67,7 @@ class _ProfileState extends State<Profile> {
                 const SizedBox(height: 10),
                 Text('ProfilSayfaBilgilerDogrulugu'.tr(),
                     style: TextStyle(color: Colors.yellow)),
-                
+
                 const SizedBox(height: 10),
 
                 TextField(
@@ -132,6 +132,7 @@ class _ProfileState extends State<Profile> {
 
                 const SizedBox(height: 10),
                 TextField(
+                    maxLines: 2,
                     style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),

@@ -51,7 +51,7 @@ class AuthService {
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text("BilinmeyenHata"),
+            content: Text("BilinmeyenHata".tr()),
           ),
         );
       }

@@ -195,21 +195,21 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 33, extension level 3 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="io.flutter.plugins.firebase.core.android.firebase_core.main" />
+    <orderEntry type="module" module-name="io.flutter.plugins.firebase.core.android.firebase_core.main~1" />
     <orderEntry type="module" module-name="android.geolocator_android.main" />
     <orderEntry type="module" module-name="android.flutter_plugin_android_lifecycle.main" />
-    <orderEntry type="module" module-name="io.flutter.plugins.firebase.database.android.firebase_database.main" />
+    <orderEntry type="module" module-name="io.flutter.plugins.firebase.database.android.firebase_database.main~1" />
     <orderEntry type="module" module-name="android.flutter_local_notifications.main" />
-    <orderEntry type="module" module-name="io.flutter.plugins.googlesignin.android.google_sign_in_android.main" />
-    <orderEntry type="module" module-name="io.flutter.plugins.firebase.cloudfirestore.android.cloud_firestore.main" />
+    <orderEntry type="module" module-name="io.flutter.plugins.googlesignin.android.google_sign_in_android.main~1" />
+    <orderEntry type="module" module-name="io.flutter.plugins.firebase.cloudfirestore.android.cloud_firestore.main~1" />
     <orderEntry type="module" module-name="android.shared_preferences_android.main" />
     <orderEntry type="module" module-name="android.permission_handler_android.main" />
     <orderEntry type="module" module-name="android.geocoding.main" />
-    <orderEntry type="module" module-name="android.google_mobile_ads.main" />
-    <orderEntry type="module" module-name="io.flutter.plugins.firebase.auth.android.firebase_auth.main" />
+    <orderEntry type="module" module-name="io.flutter.plugins.googlemobileads.android.google_mobile_ads.main" />
+    <orderEntry type="module" module-name="io.flutter.plugins.firebase.auth.android.firebase_auth.main~1" />
     <orderEntry type="module" module-name="android.fluttertoast.main" />
-    <orderEntry type="module" module-name="io.flutter.plugins.firebase.storage.android.firebase_storage.main" />
-    <orderEntry type="module" module-name="io.flutter.plugins.imagepicker.android.image_picker_android.main" />
+    <orderEntry type="module" module-name="io.flutter.plugins.firebase.storage.android.firebase_storage.main~1" />
+    <orderEntry type="module" module-name="io.flutter.plugins.imagepicker.android.image_picker_android.main~1" />
     <orderEntry type="module" module-name="android.firebase_messaging.main" />
     <orderEntry type="library" name="Gradle: io.flutter:flutter_embedding_debug:1.0.0-a4ff2c53d84ca78702bc3be6c7ef0788ffca01d3" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-common:2.5.0" level="project" />

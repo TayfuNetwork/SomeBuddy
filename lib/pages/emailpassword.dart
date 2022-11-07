@@ -29,6 +29,16 @@ class _EmailPasswordState extends State<EmailPassword> {
   var _formType = FormType.Login;
   final _formKey = GlobalKey<FormState>();
   final auth = FirebaseAuth.instance;
+  bool _isloading = true;
+  buildSmallButton() {
+    return Container(
+      decoration:
+          BoxDecoration(shape: BoxShape.circle, color: Colors.blueAccent),
+      child: CircularProgressIndicator(
+        color: Colors.white,
+      ),
+    );
+  }
 
   _fromSubmit(BuildContext context) async {
     _formKey.currentState?.save();
@@ -52,11 +62,12 @@ class _EmailPasswordState extends State<EmailPassword> {
             .doc(user.uid)
             .set({'token': fcmToken}, SetOptions(merge: true));
         AuthService().user!.token = fcmToken;
-        Navigator.of(context).pushAndRemoveUntil(
+        await Navigator.of(context).pushAndRemoveUntil(
             CupertinoPageRoute(builder: (context) => const Profile()),
             (route) => false);
       }
-    } if (_formType == FormType.Login)  {
+    }
+    if (_formType == FormType.Login) {
       user = await service.signIn(_sifre!, _email!, context);
       if (user != null) {
         await AuthService().checkUser();
@@ -146,10 +157,30 @@ class _EmailPasswordState extends State<EmailPassword> {
                     },
                   ),
                 ],
-                ElevatedButton(
-                  onPressed: () => _fromSubmit(context),
-                  child: Text(_butonText!),
-                ),
+
+
+
+                
+                _isloading
+                    ? ElevatedButton(
+                        onPressed: () {
+                          try {
+                            _fromSubmit(context);
+                            setState(() {
+                              _isloading == false;
+                            });
+                          } catch (e) {
+                            setState(() {
+                              _isloading == true;
+                            });
+                          }
+                        },
+                        child: Text(_butonText!),
+                      )
+                    : buildSmallButton(),
+
+
+
                 const SizedBox(height: 8),
                 TextButton(
                   onPressed: () => degistir(),

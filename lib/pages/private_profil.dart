@@ -119,7 +119,7 @@ class _private_profilState extends State<private_profil> {
                                     ),
                                     ListTile(
                                       leading: const Icon(Icons.no_accounts),
-                                      title:  Text("FotoKaldir".tr()),
+                                      title: Text("FotoKaldir".tr()),
                                       onTap: () {
                                         deleteProfilPhoto();
                                         Navigator.pop(context);
@@ -187,13 +187,13 @@ class _private_profilState extends State<private_profil> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
+                    maxLines: 2,
                     controller: _bioController,
                     //initialValue: _userModel.user!.userName,
                     readOnly: false,
                     decoration: InputDecoration(
                         labelText: 'Biografi'.tr(),
-                        hintText:
-                            'BioOrnek'.tr(),
+                        hintText: 'BioOrnek'.tr(),
                         border: OutlineInputBorder()),
                   ),
                 ),
@@ -327,7 +327,8 @@ class _private_profilState extends State<private_profil> {
                                                                 backgroundColor:
                                                                     Colors.blue,
                                                                 content: Text(
-                                                                    "KayitliResimYok".tr(),
+                                                                    "KayitliResimYok"
+                                                                        .tr(),
                                                                     style: TextStyle(
                                                                         color: Colors
                                                                             .white))));
@@ -400,12 +401,12 @@ class _private_profilState extends State<private_profil> {
           (_userModel.user!.id).toString(), _userNameController.text);
       if (updateResult == true) {
         _userModel.user!.userName = _userNameController.text;
-        ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.blue,
             content: Text("KullaniciAdDegistirmeBasarili".tr(),
                 style: TextStyle(color: Colors.white))));
       } else {
-        ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.blue,
             content: Text("BuKullaniciAdiAlindi".tr(),
                 style: TextStyle(color: Colors.white))));
@@ -424,7 +425,7 @@ class _private_profilState extends State<private_profil> {
           .update({'bio': _bioController.text});
 
       _userModel.user!.bio = _bioController.text; //auth servisdeki user
-      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           backgroundColor: Colors.blue,
           content: Text("BiografiDegisBasarili".tr(),
               style: TextStyle(color: Colors.white))));
@@ -450,7 +451,7 @@ class _private_profilState extends State<private_profil> {
     }
     // ignore: unnecessary_null_comparison
     adres == null
-        ? ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        ? ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.blue,
             content: Text("KayitliBirResimBulunmuyo".tr(),
                 style: TextStyle(color: Colors.white))))
@@ -489,7 +490,7 @@ class _private_profilState extends State<private_profil> {
         }, SetOptions(merge: true));
       });
     } else {
-      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           backgroundColor: Colors.blue,
           content: Text("YuklemeIslemiIptal".tr(),
               style: TextStyle(color: Colors.white))));
@@ -516,7 +517,7 @@ class _private_profilState extends State<private_profil> {
             .set({'image': _url}, SetOptions(merge: true));
       });
     } else {
-      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           backgroundColor: Colors.blue,
           content: Text("Yuklemeİslemiİptal".tr(),
               style: TextStyle(color: Colors.white))));
