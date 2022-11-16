@@ -90,108 +90,131 @@ class _EmailPasswordState extends State<EmailPassword> {
     Text _linkText =
         _formType == FormType.Register ? hesapVar() : HesabinizYokMu();
 
-    return Scaffold(
-        body: Container(
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("images/background.png"), fit: BoxFit.cover)),
-      child: Center(
-        child: SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                /* Text("googleEmailDuo".tr(),
-                    style: TextStyle(color: Colors.yellow),
-                    textAlign: TextAlign.center), */
-                Text("uyari".tr(),
-                    style: TextStyle(color: Colors.yellow),
-                    textAlign: TextAlign.center),
-                SizedBox(
-                  height: 40,
-                ),
-                TextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.email),
-                    hintText: 'Email',
-                    labelText: 'Email',
-                    border: OutlineInputBorder(),
+    return SafeArea(
+      child: Scaffold(
+          body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("images/background.png"), fit: BoxFit.cover)),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  /* Text("googleEmailDuo".tr(),
+                      style: TextStyle(color: Colors.yellow),
+                      textAlign: TextAlign.center), */
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("uyari".tr(),
+                        style: TextStyle(color: Colors.yellow),
+                        textAlign: TextAlign.center),
                   ),
-                  onSaved: (String? girilenemail) {
-                    _email = girilenemail;
-                  },
-                ),
-                const SizedBox(height: 8),
-                TextFormField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.key),
-                    hintText: 'Sifre'.tr(),
-                    labelText: 'Sifre'.tr(),
-                    border: OutlineInputBorder(),
+                  SizedBox(
+                    height: 40,
                   ),
-                  onSaved: (String? girilensifre) {
-                    _sifre = girilensifre;
-                  },
-                ),
-                const SizedBox(height: 8),
-                if (_formType == FormType.Login)
-                  GestureDetector(
-                    onTap: () => Navigator.of(context).push(CupertinoPageRoute(
-                        builder: (context) => ForgotPasswordPage())),
-                    child: Text('SifreUnuttun'.tr()),
-                  ),
-                const SizedBox(height: 8),
-                if (_formType == FormType.Register) ...[
-                  TextFormField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.key),
-                      hintText: 'TekrarSifre'.tr(),
-                      labelText: 'TekrarSifre'.tr(),
-                      border: OutlineInputBorder(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: const InputDecoration(
+                          hintStyle: TextStyle(color: Colors.white),
+                          prefixIcon: Icon(Icons.email),
+                          hintText: 'Email',
+                          //labelText: 'Email',
+                          border: OutlineInputBorder(),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1)),
+                          enabled: true),
+                      onSaved: (String? girilenemail) {
+                        _email = girilenemail;
+                      },
                     ),
-                    onSaved: (String? girilensifre) {
-                      _sifreTekrar = girilensifre;
-                    },
                   ),
-                ],
-
-
-
-                
-                _isloading
-                    ? ElevatedButton(
-                        onPressed: () {
-                          try {
-                            _fromSubmit(context);
-                            setState(() {
-                              _isloading == false;
-                            });
-                          } catch (e) {
-                            setState(() {
-                              _isloading == true;
-                            });
-                          }
+                  const SizedBox(height: 8),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintStyle: TextStyle(color: Colors.white),
+                        prefixIcon: Icon(Icons.key),
+                        hintText: 'Sifre'.tr(),
+                        //labelText: 'Sifre'.tr(),
+                        border: OutlineInputBorder(),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 1)),
+                      ),
+                      onSaved: (String? girilensifre) {
+                        _sifre = girilensifre;
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  if (_formType == FormType.Login)
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).push(
+                          CupertinoPageRoute(
+                              builder: (context) => ForgotPasswordPage())),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('SifreUnuttun'.tr()),
+                      ),
+                    ),
+                  const SizedBox(height: 8),
+                  if (_formType == FormType.Register) ...[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextFormField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1)),
+                          hintStyle: (TextStyle(color: Colors.white)),
+                          prefixIcon: Icon(Icons.key),
+                          hintText: 'TekrarSifre'.tr(),
+                          //labelText: 'TekrarSifre'.tr(),
+                          border: OutlineInputBorder(),
+                        ),
+                        onSaved: (String? girilensifre) {
+                          _sifreTekrar = girilensifre;
                         },
-                        child: Text(_butonText!),
-                      )
-                    : buildSmallButton(),
-
-
-
-                const SizedBox(height: 8),
-                TextButton(
-                  onPressed: () => degistir(),
-                  child: _linkText,
-                )
-              ],
+                      ),
+                    ),
+                  ],
+                  _isloading
+                      ? ElevatedButton(
+                          onPressed: () {
+                            try {
+                              _fromSubmit(context);
+                              setState(() {
+                                _isloading == false;
+                              });
+                            } catch (e) {
+                              setState(() {
+                                _isloading == true;
+                              });
+                            }
+                          },
+                          child: Text(_butonText!),
+                        )
+                      : buildSmallButton(),
+                  const SizedBox(height: 8),
+                  TextButton(
+                    onPressed: () => degistir(),
+                    child: _linkText,
+                  )
+                ],
+              ),
             ),
           ),
         ),
-      ),
-    ));
+      )),
+    );
   }
 
   Text hesapVar() {

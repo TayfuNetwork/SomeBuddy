@@ -87,7 +87,7 @@ class _bilgilerimState extends State<bilgilerim> {
     _bottomBannerAd = BannerAd(
       size: AdSize.banner,
       adUnitId:
-          'ca-app-pub-1753932827820630/5568784899',//'ca-app-pub-3940256099942544/6300978111',
+          'ca-app-pub-1753932827820630/5568784899', //'ca-app-pub-3940256099942544/6300978111',
       listener: BannerAdListener(
         onAdLoaded: (ad) {
           setState(() {

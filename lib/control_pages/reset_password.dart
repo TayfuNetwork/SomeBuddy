@@ -20,61 +20,74 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("images/background.png"), fit: BoxFit.cover)),
-          child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Form(
-                  child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "ParolaSifirlama".tr(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 18),
+        body: SafeArea(
+          child: Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("images/background.png"),
+                    fit: BoxFit.cover)),
+            child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Form(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("ParolaSifirlama".tr(),
+                            textAlign: TextAlign.center,
+                            style:
+                                TextStyle(fontSize: 18, color: Colors.yellow)),
+                      ),
                     ),
-                  ),
-                   Text(
-                    "BilgileriniPaylasma".tr(),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 18, color: Colors.orange),
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  TextField(
-                    controller: emailController,
-                    style: const TextStyle(color: Colors.white),
-                    decoration: const InputDecoration(
-                      hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 1)),
-                      focusColor: Colors.blue,
-                      hintText: 'Email',
-                      enabled: true,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "BilgileriniPaylasma".tr(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18, color: Colors.yellow),
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(50),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextField(
+                        controller: emailController,
+                        style: const TextStyle(color: Colors.white),
+                        decoration: const InputDecoration(
+                          hintStyle:
+                              TextStyle(fontSize: 16.0, color: Colors.yellow),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1)),
+                          focusColor: Colors.blue,
+                          hintText: 'Email',
+                          enabled: true,
                         ),
-                        onPressed: () {
-                          resetPassword();
-                        },
-                        icon: const Icon(Icons.email_outlined),
-                        label: Text(
-                          'SifirlamaMailiGonder'.tr(),
-                          style: TextStyle(fontSize: 18),
-                        )),
-                  )
-                ],
-              ))),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton.icon(
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: const Size.fromHeight(50),
+                          ),
+                          onPressed: () {
+                            resetPassword();
+                          },
+                          icon: const Icon(Icons.email_outlined),
+                          label: Text(
+                            'SifirlamaMailiGonder'.tr(),
+                            style: TextStyle(fontSize: 18),
+                          )),
+                    )
+                  ],
+                ))),
+          ),
         ),
       );
   Future resetPassword() async {
@@ -86,7 +99,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     try {
       await FirebaseAuth.instance
           .sendPasswordResetEmail(email: emailController.text.trim());
-      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           backgroundColor: Colors.blue,
           content: Text('SifirlamaGonderildi'.tr(),
               style: TextStyle(color: Colors.white))));

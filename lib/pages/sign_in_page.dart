@@ -25,39 +25,47 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-//******************************************************************//
-
-      body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("images/background.png"), fit: BoxFit.cover)),
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "OturumAcKaydol".tr(),
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
-                color: Colors.white,
-                fontStyle: FontStyle.italic,
+    return SafeArea(
+      child: Scaffold(
+    //******************************************************************//
+    
+        body: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("images/background.png"), fit: BoxFit.cover)),
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "OturumAcKaydol".tr(),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                    color: Colors.white,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
               ),
-            ),
-            const SizedBox(height: 48),
-            //******************************************************************//
-            //GoogleGirisi(),
-            //******************************************************************//
-
-            eMailGirisi(context),
-
-            //AnonimGiris(),
-            //******************************************************************//
-          ],
+              const SizedBox(height: 48),
+              //******************************************************************//
+              //GoogleGirisi(),
+              //******************************************************************//
+    
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: eMailGirisi(context),
+              ),
+    
+              //AnonimGiris(),
+              //******************************************************************//
+            ],
+          ),
         ),
       ),
     );
@@ -138,10 +146,10 @@ class _SignInPageState extends State<SignInPage> {
         }
       } on PlatformException catch (e) {
         Fluttertoast.showToast(
-              msg: e.message.toString(),
-              gravity: ToastGravity.BOTTOM,
-              toastLength: Toast.LENGTH_LONG,
-            );
+          msg: e.message.toString(),
+          gravity: ToastGravity.BOTTOM,
+          toastLength: Toast.LENGTH_LONG,
+        );
       }
     } else {
       return null;
