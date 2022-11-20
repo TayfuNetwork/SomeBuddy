@@ -153,11 +153,27 @@ class _ResultsState extends State<Results> {
                               borderRadius: BorderRadius.circular(15.0),
                             ),
                             child: ListTile(
-                              title: Text(
-                                "${e.userName} ${e.soyisim}",
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
+                              title: SingleChildScrollView(
+                                child: Row(
+                                  children: [
+                                    SingleChildScrollView(
+                                      child: Text(
+                                        "${e.userName} ${e.soyisim} -",
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        "${e.ilce}/ ${e.brans}",
+                                        style: const TextStyle(
+                                            fontSize: 12, color: Colors.blue),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                               leading: CircleAvatar(
                                 child: Text(

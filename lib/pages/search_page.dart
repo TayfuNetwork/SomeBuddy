@@ -349,15 +349,15 @@ class _searchPageState extends State<searchPage> {
                             TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    secilenCinsiyet = "Male";
+                                    secilenCinsiyet = "Male".tr();
                                     sex = secilenCinsiyet;
                                   });
                                 },
                                 child: Text(
-                                  "Male",
+                                  "Erkek".tr(),
                                   style: TextStyle(color: Colors.black),
                                 )),
-                            if (secilenCinsiyet == "Male")
+                            if (secilenCinsiyet == "Male".tr())
                               Icon(
                                 Icons.download_done_outlined,
                                 color: Colors.green,
@@ -370,15 +370,15 @@ class _searchPageState extends State<searchPage> {
                             TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    secilenCinsiyet = "Female";
+                                    secilenCinsiyet = "Female".tr();
                                     sex = secilenCinsiyet;
                                   });
                                 },
                                 child: Text(
-                                  "Female",
+                                  "Kadın".tr(),
                                   style: TextStyle(color: Colors.black),
                                 )),
-                            if (secilenCinsiyet == "Female")
+                            if (secilenCinsiyet == "Female".tr())
                               Icon(
                                 Icons.download_done_outlined,
                                 color: Colors.green,
@@ -394,8 +394,11 @@ class _searchPageState extends State<searchPage> {
                       ),
                       ElevatedButton(
                           onPressed: () {
-                            if (il != null && ilce != null && brans != null) {
+                            if (il != null && brans != null) {
                               if (izlendi == true) {
+                                if (ilce == null) {
+                                  ilce = "null";
+                                }
                                 Navigator.of(context).push(CupertinoPageRoute(
                                     builder: (context) => Results2(
                                         sex: sex!,
@@ -450,7 +453,9 @@ class _searchPageState extends State<searchPage> {
                                       gravity: ToastGravity.BOTTOM,
                                       toastLength: Toast.LENGTH_LONG,
                                     );
-                                    setState(() {
+                                    setState(() async {
+                                      await Future.delayed(
+                                          Duration(seconds: 2));
                                       izlendi = true;
                                     });
                                   }
@@ -515,6 +520,9 @@ class _searchPageState extends State<searchPage> {
   }
 
   Future<void> sonAramaSakla() async {
+    if (ilce == null) {
+      ilce = "null";
+    }
     final preferences = await SharedPreferences.getInstance();
 
     preferences.setString("sonIl", il!);

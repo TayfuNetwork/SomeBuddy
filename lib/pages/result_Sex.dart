@@ -117,8 +117,7 @@ class _Results2State extends State<Results2> {
                               widget.mevki +
                               "/ " +
                               widget.sex),
-                           Text(
-                              "BuKriterdeUyeYok".tr()),
+                          Text("BuKriterdeUyeYok".tr()),
                         ],
                       ),
                     ),
@@ -140,7 +139,7 @@ class _Results2State extends State<Results2> {
                           widget.sex),
                       Column(
                         children: users.map((e) {
-                          if (e.sex == 'Female'|| e.sex =='Kadın') {
+                          if (e.sex == 'Female' || e.sex == 'Kadın') {
                             widget.ppColor = Colors.pink.shade400;
                           } else {
                             widget.ppColor = Colors.blue;
@@ -159,11 +158,27 @@ class _Results2State extends State<Results2> {
                               borderRadius: BorderRadius.circular(15.0),
                             ),
                             child: ListTile(
-                              title: Text(
-                                "${e.userName} ${e.soyisim}",
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
+                              title: SingleChildScrollView(
+                                child: Row(
+                                  children: [
+                                    SingleChildScrollView(
+                                      child: Text(
+                                        "${e.userName} ${e.soyisim} -",
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        "${e.ilce} ${e.brans}",
+                                        style: const TextStyle(
+                                            fontSize: 12, color: Colors.blue),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                               leading: CircleAvatar(
                                 child: Text(

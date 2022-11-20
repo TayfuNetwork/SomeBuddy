@@ -36,14 +36,26 @@ class SearchService {
   }
 
   Stream<QuerySnapshot<Map<String, dynamic>>> searchStream(
-      String il, String ilce, String brans, String mevki) {
+      String il, String? ilce, String brans, String mevki) {
     if (mevki == 'Farketmez'.tr()) {
+      if(ilce == "null"){
+        return userCollection
+          .where("il", isEqualTo: il)
+          .where("brans", isEqualTo: brans)
+          .snapshots();
+      }
       return userCollection
           .where("il", isEqualTo: il)
           .where("ilce", isEqualTo: ilce)
           .where("brans", isEqualTo: brans)
           .snapshots();
     } else {
+      if(ilce == "null"){
+        return userCollection
+          .where("il", isEqualTo: il)
+          .where("brans", isEqualTo: brans)
+          .snapshots();
+      }
       return userCollection
           .where("il", isEqualTo: il)
           .where("ilce", isEqualTo: ilce)
