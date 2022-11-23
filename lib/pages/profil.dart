@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/sign_in_page.dart';
@@ -188,42 +189,24 @@ class _ProfileState extends State<Profile> {
                         // ignore: prefer_const_constructors
 
                         onPressed: () async {
-                          setState(() {
-                            ad = isim!;
-                            soyad = soyisim!;
-                            yasi = yas.toString();
-                            cinsiyeti = (sex)!.sex;
-                            bio = bio;
-                          });
-                          User user = FirebaseAuth.instance.currentUser!;
+                          if (isim!.length > 0 &&
+                              soyisim!.length > 0 &&
+                              sex != null &&
+                              bio!.length > 0) {
+                            setState(() {
+                              ad = isim!;
+                              soyad = soyisim!;
+                              yasi = yas.toString();
+                              cinsiyeti = (sex)!.sex;
+                              bio = bio;
+                            });
+                            User user = FirebaseAuth.instance.currentUser!;
 
-                          await user.updateDisplayName(
-                            ad! + " " + soyad!,
-                          );
+                            await user.updateDisplayName(
+                              ad! + " " + soyad!,
+                            );
 
-                          MyUser myUser = MyUser(
-                            email: user.email ?? "email",
-                            userName: ad ?? "isimsiz",
-                            id: user.uid,
-                            yas: yas,
-                            sex: (sex)!.sex,
-                            bio: bio,
-                            soyisim: soyisim,
-                          );
-
-                          AuthService().user = MyUser();
-                          final fcmToken =
-                              await FirebaseMessaging.instance.getToken();
-                          FirebaseFirestore.instance
-                              .collection('Users')
-                              .doc(user.uid)
-                              .set(
-                                  {'token': fcmToken}, SetOptions(merge: true));
-
-                          AuthService().user!.token = fcmToken;
-                          await AuthService().updateUser(myUser);
-
-                          myUser = MyUser(
+                            MyUser myUser = MyUser(
                               email: user.email ?? "email",
                               userName: ad ?? "isimsiz",
                               id: user.uid,
@@ -231,11 +214,40 @@ class _ProfileState extends State<Profile> {
                               sex: (sex)!.sex,
                               bio: bio,
                               soyisim: soyisim,
-                              token: fcmToken);
-                          await AuthService().updateUser(myUser);
-                          await Navigator.of(context).push(CupertinoPageRoute(
-                              builder: (context) => bilgilerim()));
-                          Navigator.of(context).pop();
+                            );
+
+                            AuthService().user = MyUser();
+                            final fcmToken =
+                                await FirebaseMessaging.instance.getToken();
+                            FirebaseFirestore.instance
+                                .collection('Users')
+                                .doc(user.uid)
+                                .set({'token': fcmToken},
+                                    SetOptions(merge: true));
+
+                            AuthService().user!.token = fcmToken;
+                            await AuthService().updateUser(myUser);
+
+                            myUser = MyUser(
+                                email: user.email ?? "email",
+                                userName: ad ?? "isimsiz",
+                                id: user.uid,
+                                yas: yas,
+                                sex: (sex)!.sex,
+                                bio: bio,
+                                soyisim: soyisim,
+                                token: fcmToken);
+                            await AuthService().updateUser(myUser);
+                            await Navigator.of(context).push(CupertinoPageRoute(
+                                builder: (context) => bilgilerim()));
+                            Navigator.of(context).pop();
+                          } else {
+                            Fluttertoast.showToast(
+                              msg: "ButunAlanlariEksiksiDoldur".tr(),
+                              gravity: ToastGravity.BOTTOM,
+                              toastLength: Toast.LENGTH_LONG,
+                            );
+                          }
                         },
                         child: Text('KaydetveDevamEt'.tr(),
                             style: TextStyle(color: Colors.white)),

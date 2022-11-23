@@ -95,6 +95,7 @@
     "DevamEdebilirsin":"Devam edebilirsin",
     "KayitliKullaniciYok":"Kayıtlı bir kullanıcı yok",
     "SifreKisa":"Şifre çok kısa!",
+    "GirisYapabilirsin":"You can sign in now",
     "HataliSifer":"Hatalı şifre",
     "GecersizMail":"Geçersiz email",
     "BilinmeyenHata":"Bilinmeyen bir hata oluştu",
@@ -107,8 +108,8 @@
     "SifirlamaMailiGonder":"Sıfırlama Maili Gönder",
     "SifirlamaGonderildi":"Şifre sıfırlama maili gönderildi",
     "Seciniz":"Seçiniz",
-    "Male":"Erkek",
-    "Female":"Kadın",
+    "Male":"Male",
+    "Female":"Female",
 
     "Farketmez":"Farketmez",
     "Aromatik-Bitkiler":"Aromatik Bitkiler",

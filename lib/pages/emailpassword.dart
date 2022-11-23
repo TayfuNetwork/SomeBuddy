@@ -62,8 +62,12 @@ class _EmailPasswordState extends State<EmailPassword> {
             .doc(user.uid)
             .set({'token': fcmToken}, SetOptions(merge: true));
         AuthService().user!.token = fcmToken;
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            backgroundColor: Colors.blue,
+            content: Text("GirisYapabilirsin".tr(),
+                style: TextStyle(color: Colors.white))));
         await Navigator.of(context).pushAndRemoveUntil(
-            CupertinoPageRoute(builder: (context) => const Profile()),
+            CupertinoPageRoute(builder: (context) => const EmailPassword()),
             (route) => false);
       }
     }

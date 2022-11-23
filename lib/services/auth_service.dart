@@ -123,18 +123,27 @@ class AuthService {
   }
 
   Future<bool> updateUserName(String userID, String yeniUserName) async {
-    var _users = await FirebaseFirestore.instance
-        .collection("Users")
-        .where("userName", isEqualTo: yeniUserName)
-        .get();
-    if (_users.docs.isNotEmpty) {
-      return false;
-    } else {
-      await FirebaseFirestore.instance
+    if (yeniUserName.length < 0) {
+      var _users = await FirebaseFirestore.instance
           .collection("Users")
-          .doc(userID)
-          .update({"userName": yeniUserName});
-      return true;
+          .where("userName", isEqualTo: yeniUserName)
+          .get();
+      if (_users.docs.isNotEmpty) {
+        return false;
+      } else {
+        await FirebaseFirestore.instance
+            .collection("Users")
+            .doc(userID)
+            .update({"userName": yeniUserName});
+        return true;
+      }
+    } else {
+      Fluttertoast.showToast(
+        msg: "ButunAlanlariEksiksiDoldur".tr(),
+        gravity: ToastGravity.BOTTOM,
+        toastLength: Toast.LENGTH_LONG,
+      );
+      return false;
     }
   }
 
