@@ -349,7 +349,7 @@ class _searchPageState extends State<searchPage> {
                             TextButton(
                                 onPressed: () {
                                   setState(() {
-                                    secilenCinsiyet = "Male".tr();
+                                    secilenCinsiyet = "Male";
                                     sex = secilenCinsiyet;
                                   });
                                 },
@@ -357,7 +357,7 @@ class _searchPageState extends State<searchPage> {
                                   "Erkek".tr(),
                                   style: TextStyle(color: Colors.black),
                                 )),
-                            if (secilenCinsiyet == "Male".tr())
+                            if (secilenCinsiyet == "Male")
                               Icon(
                                 Icons.download_done_outlined,
                                 color: Colors.green,

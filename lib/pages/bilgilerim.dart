@@ -325,7 +325,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                                               }
                                                             },
                                                             child:
-                                                                Text("İzinVer"),
+                                                                Text("İzinVer").tr(),
                                                           ),
                                                           TextButton(
                                                             onPressed:
@@ -334,7 +334,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                                                   context);
                                                             },
                                                             child: Text(
-                                                                "İzinVerme"),
+                                                                "İzinVerme").tr(),
                                                           ),
                                                         ],
                                                       ),

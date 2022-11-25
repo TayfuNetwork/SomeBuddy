@@ -108,6 +108,7 @@ class _private_profilState extends State<private_profil> {
                                       title: Text("KameradanCek".tr()),
                                       onTap: () {
                                         uploadProfilPhoto(ImageSource.camera);
+                                        Navigator.pop(context);
                                       },
                                     ),
                                     ListTile(
@@ -115,6 +116,7 @@ class _private_profilState extends State<private_profil> {
                                       title: Text("Galeriden".tr()),
                                       onTap: () {
                                         uploadProfilPhoto(ImageSource.gallery);
+                                        Navigator.pop(context);
                                       },
                                     ),
                                     ListTile(

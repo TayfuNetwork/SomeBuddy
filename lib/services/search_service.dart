@@ -38,11 +38,11 @@ class SearchService {
   Stream<QuerySnapshot<Map<String, dynamic>>> searchStream(
       String il, String? ilce, String brans, String mevki) {
     if (mevki == 'Farketmez'.tr()) {
-      if(ilce == "null"){
+      if (ilce == "null") {
         return userCollection
-          .where("il", isEqualTo: il)
-          .where("brans", isEqualTo: brans)
-          .snapshots();
+            .where("il", isEqualTo: il)
+            .where("brans", isEqualTo: brans)
+            .snapshots();
       }
       return userCollection
           .where("il", isEqualTo: il)
@@ -50,11 +50,11 @@ class SearchService {
           .where("brans", isEqualTo: brans)
           .snapshots();
     } else {
-      if(ilce == "null"){
+      if (ilce == "null") {
         return userCollection
-          .where("il", isEqualTo: il)
-          .where("brans", isEqualTo: brans)
-          .snapshots();
+            .where("il", isEqualTo: il)
+            .where("brans", isEqualTo: brans)
+            .snapshots();
       }
       return userCollection
           .where("il", isEqualTo: il)
@@ -101,6 +101,13 @@ class SearchService2 {
   Stream<QuerySnapshot<Map<String, dynamic>>> searchStream1(
       String il, String ilce, String brans, String mevki, String sex) {
     if (mevki == "Farketmez".tr()) {
+      if (ilce == "null") {
+        return userCollection
+            .where("il", isEqualTo: il)
+            .where("brans", isEqualTo: brans)
+            .where("sex", isEqualTo: sex)
+            .snapshots();
+      }
       return userCollection
           .where("il", isEqualTo: il)
           .where("ilce", isEqualTo: ilce)

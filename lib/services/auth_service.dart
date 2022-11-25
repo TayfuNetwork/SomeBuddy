@@ -36,6 +36,7 @@ class AuthService {
       UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: sifre);
       if (userCredential.user != null) {
+        await checkUser();
         return userCredential.user;
       }
     } on FirebaseAuthException catch (e) {
@@ -64,6 +65,7 @@ class AuthService {
       UserCredential userCredential =
           await _auth.signInWithEmailAndPassword(email: email, password: sifre);
       if (userCredential.user != null) {
+        await checkUser();
         return userCredential.user;
       }
     } on FirebaseAuthException catch (e) {

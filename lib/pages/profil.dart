@@ -26,6 +26,7 @@ String? ad, soyad, yasi, cinsiyeti;
 
 class _ProfileState extends State<Profile> {
   SexServices model1 = SexServices();
+  int sonuc = 0;
   int yas = 0;
   String? isim;
   String? soyisim;
@@ -117,7 +118,7 @@ class _ProfileState extends State<Profile> {
 
                 TextField(
                     style: const TextStyle(color: Colors.white),
-                    maxLength: 2,
+                    maxLength: 4,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
@@ -128,7 +129,10 @@ class _ProfileState extends State<Profile> {
                     ),
                     autofocus: false,
                     onChanged: (deger) {
-                      yas = int.tryParse(deger) ?? 0;
+                      int date = DateTime.now().year;
+
+                      sonuc = int.tryParse(deger) ?? 0;
+                      yas = (date - sonuc);
                     }),
 
                 const SizedBox(height: 10),
@@ -154,7 +158,7 @@ class _ProfileState extends State<Profile> {
                   children: [
                     Text(
                       "Cinsiyet:".tr(),
-                      style: TextStyle(color: Colors.blue),
+                      style: TextStyle(color: Colors.white),
                     ),
                     DropdownButton<int>(
                       iconEnabledColor: Colors.blue,
@@ -184,7 +188,9 @@ class _ProfileState extends State<Profile> {
                     if (isim != null &&
                         soyisim != null &&
                         sex != null &&
-                        bio != null)
+                        bio != null &&
+                        yas > 10 &&
+                        yas < 100)
                       ElevatedButton(
                         // ignore: prefer_const_constructors
 
@@ -192,7 +198,9 @@ class _ProfileState extends State<Profile> {
                           if (isim!.length > 0 &&
                               soyisim!.length > 0 &&
                               sex != null &&
-                              bio!.length > 0) {
+                              bio!.length > 0 &&
+                              yas > 10 &&
+                              yas < 100) {
                             setState(() {
                               ad = isim!;
                               soyad = soyisim!;
@@ -243,7 +251,7 @@ class _ProfileState extends State<Profile> {
                             Navigator.of(context).pop();
                           } else {
                             Fluttertoast.showToast(
-                              msg: "ButunAlanlariEksiksiDoldur".tr(),
+                              msg: "BilgilerDogruMu".tr(),
                               gravity: ToastGravity.BOTTOM,
                               toastLength: Toast.LENGTH_LONG,
                             );
@@ -261,7 +269,7 @@ class _ProfileState extends State<Profile> {
       ),
     );
   }
-//******************************************************************//
+  //******************************************************************//
 
   Future _cikisYap() async {
     FirebaseAuth.instance.signOut();
