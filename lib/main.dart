@@ -10,12 +10,10 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:version1/services/notification.dart';
-
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(options: NotificationService.currentPlatform);
   await setupFlutterNotifications();
 }
-
 Future<void> setupFlutterNotifications() async {
   const AndroidNotificationChannel channel = AndroidNotificationChannel(
     'high_importance_channel', // id
@@ -24,34 +22,26 @@ Future<void> setupFlutterNotifications() async {
   );
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
-
   await flutterLocalNotificationsPlugin.initialize(
       InitializationSettings(android: AndroidInitializationSettings("logo")));
-
   await flutterLocalNotificationsPlugin
       .resolvePlatformSpecificImplementation<
           AndroidFlutterLocalNotificationsPlugin>()
       ?.createNotificationChannel(channel);
-
   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
     alert: true,
     badge: true,
     sound: true,
   );
 }
-
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(options: NotificationService.currentPlatform);
-
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
   if (!kIsWeb) {
     await setupFlutterNotifications();
   }
-
   await AuthService().checkUser();
   await MobileAds.instance.initialize();
   await adHelper.createInterstitialAd();
@@ -66,10 +56,8 @@ void main() async {
     child: MyApp(),
   ));
 }
-
-class MyApp extends StatelessWidget {
+  class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -79,7 +67,6 @@ class MyApp extends StatelessWidget {
       title: 'SomeBuddy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      
       home: const LandingPage(),
     );
   }
