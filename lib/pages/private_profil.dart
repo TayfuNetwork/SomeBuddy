@@ -175,7 +175,7 @@ class _private_profilState extends State<private_profil> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    maxLength: 11,
+                    maxLength: 13,
                     maxLines: 1,
                     controller: _userNameController,
                     //initialValue: _userModel.user!.userName,
