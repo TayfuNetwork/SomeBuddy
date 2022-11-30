@@ -139,12 +139,12 @@ class _ResultsState extends State<Results> {
                           } else {
                             widget.ppColor = Colors.blue;
                           }
-                          if (e.premium == false) {
+                          if (e.sex == 'Female' || e.sex == 'Kadın') {
                             widget.sIcon =
-                                const Icon(Icons.person, color: Colors.red);
+                                const Icon(Icons.person, color: Colors.pink);
                           } else {
                             widget.sIcon = const Icon(
-                              Icons.message,
+                              Icons.person,
                               color: Colors.blue,
                             );
                           }
@@ -167,9 +167,9 @@ class _ResultsState extends State<Results> {
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                        "${e.ilce}/ ${e.brans}",
+                                        "${e.mevki}",
                                         style: const TextStyle(
-                                            fontSize: 12, color: Colors.blue),
+                                            fontSize: 12, color: Colors.yellow),
                                       ),
                                     ),
                                   ],

@@ -23,6 +23,7 @@ class show extends StatefulWidget {
 
 bool? rewardP = false;
 Color ppColor = Colors.blue;
+double boyut = 75;
 @override
 void initState() {
   if (adHelper.interstitialAd != null) {
@@ -45,7 +46,7 @@ class _showState extends State<show> {
           shadowColor: Colors.black,
           title: Center(
             child: Text(
-              "${widget.whoData.userName} ${widget.whoData.soyisim}",
+              "${widget.whoData.userName}",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
             ),
           ),
@@ -69,6 +70,8 @@ class _showState extends State<show> {
         ),
         body: SingleChildScrollView(
           child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("images/background.png"),
@@ -79,10 +82,13 @@ class _showState extends State<show> {
               child: Column(
                 children: [
                   Center(
-                    child: CircleAvatar(
-                      backgroundColor: Colors.blue,
-                      backgroundImage: controlPP(),
-                      radius: 75,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.blue,
+                        backgroundImage: controlPP(),
+                        radius: 75,
+                      ),
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -104,15 +110,16 @@ class _showState extends State<show> {
                     leading: CircleAvatar(
                       child: Text(
                         "${widget.whoData.yas}",
-                        style: const TextStyle(fontSize: 20, color: Colors.white),
+                        style:
+                            const TextStyle(fontSize: 20, color: Colors.white),
                       ),
                       backgroundColor: ControlColor(),
                     ),
                     subtitle: ControlName(),
-                    trailing: const Icon(
+                    /* trailing: const Icon(
                       Icons.message,
                       color: Colors.yellow,
-                    ),
+                    ), */
                   ),
                   const SizedBox(width: 18),
                   const Divider(
@@ -132,15 +139,9 @@ class _showState extends State<show> {
                         )),
                   ),
                   const Divider(
-                    height: 2,
+                    height: 5,
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      'BanaAitFotolar'.tr(),
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
+                  SizedBox(height: 20),
                   SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: StreamBuilder<
@@ -150,7 +151,7 @@ class _showState extends State<show> {
                             if (snap.hasData) {
                               MyUser user = MyUser.fromMap(snap.data!.data()!);
                               List<Medya> photos = user.gPic ?? [];
-        
+
                               return SingleChildScrollView(
                                   child: Row(
                                 children: photos.map((e) {
@@ -218,6 +219,35 @@ class _showState extends State<show> {
                               return Container();
                             }
                           })),
+                  SizedBox(height: 20),
+                  CircleAvatar(
+                    radius: 70,
+                    child: GestureDetector(
+                      onTap: () async {
+                        if (adHelper.rewardedAd != null) {
+                          await adHelper.showInterstitialAd((p0) {
+                            git();
+                          });
+                        } else {
+                          await git();
+                        }
+                      },
+                      onLongPress: () async {
+                        setState(() {
+                          boyut = 95;
+                        });
+                        await Future.delayed(Duration(seconds: 1));
+                        setState(() {
+                          boyut = 75;
+                        });
+                      },
+                      child: Icon(
+                        Icons.email_rounded,
+                        size: boyut,
+                        color: Colors.red,
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

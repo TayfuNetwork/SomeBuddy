@@ -43,23 +43,23 @@ class _searchPageState extends State<searchPage> {
   bool? izlendi = false;
 
   Future<void> arama() async {
-    if (adHelper.interstitialAd != null) {
+     if (adHelper.interstitialAd != null) {
       await adHelper.showInterstitialAd(
-        (p0) {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => Results(
-                il: il!,
-                ilce: ilce!,
-                brans: brans!.brans,
-                mevki: mevki!,
-                ppColor: Colors.blue,
-                sIcon: const Icon(Icons.photo),
-              ),
-            ),
-          );
-        },
-      );
+        (p0) { 
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => Results(
+          il: il!,
+          ilce: ilce!,
+          brans: brans!.brans,
+          mevki: mevki!,
+          ppColor: Colors.blue,
+          sIcon: const Icon(Icons.photo),
+        ),
+      ),
+    );
+     },
+      ); 
     } else {
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -73,7 +73,7 @@ class _searchPageState extends State<searchPage> {
           ),
         ),
       );
-    }
+    } 
 
     setState(() {
       sonAramaSakla();
@@ -133,9 +133,9 @@ class _searchPageState extends State<searchPage> {
         ),
       );
     }
-  }
+  } 
 
-  @override
+   @override
   void initState() {
     super.initState();
     if (adHelper.interstitialAd != null) {
@@ -151,7 +151,7 @@ class _searchPageState extends State<searchPage> {
     super.dispose();
     adHelper.rewardedAd;
     adHelper.interstitialAd;
-  }
+  } 
 
   String? sex;
   SexServices model1 = SexServices();
@@ -480,6 +480,7 @@ class _searchPageState extends State<searchPage> {
                             TextButton(
                                 onPressed: () {
                                   yakinArama();
+                                  
                                 },
                                 child: Text("EnYakinPartner".tr())),
                           ],
@@ -495,14 +496,14 @@ class _searchPageState extends State<searchPage> {
                       SizedBox(
                         height: 10,
                       ),
-                      Container(
+                       Container(
                         width: AdSize.banner.width.toDouble(),
                         height: AdSize.banner.height.toDouble(),
                         alignment: Alignment.bottomCenter,
                         child: AdWidget(
                           ad: adHelper.createBannerAd(),
                         ),
-                      ),
+                      ), 
                     ],
                   ),
                 ],
