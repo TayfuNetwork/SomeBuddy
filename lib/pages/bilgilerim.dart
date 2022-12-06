@@ -273,7 +273,6 @@ class _bilgilerimState extends State<bilgilerim> {
                                                                 il = _konumIl;
                                                                 ilce =
                                                                     _konumIlce;
-
                                                                 setState(() {});
                                                                 setState(() {
                                                                   _isloading =
@@ -491,9 +490,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                               .doc(user.id)
                                               .set({'date': ddd},
                                                   SetOptions(merge: true));
-
                                           await AuthService().updateUser(user);
-
                                           Navigator.of(context).push(
                                               CupertinoPageRoute(
                                                   builder: (context) =>
@@ -518,14 +515,6 @@ class _bilgilerimState extends State<bilgilerim> {
                                 SizedBox(
                                   height: 20,
                                 ),
-                                /*  Container(
-                                  width: AdSize.banner.width.toDouble(),
-                                  height: AdSize.banner.height.toDouble(),
-                                  alignment: Alignment.bottomCenter,
-                                  child: AdWidget(
-                                    ad: adHelper.createBannerAd(),
-                                  ),
-                                ), */
                               ],
                             ),
                           ],
@@ -553,7 +542,6 @@ class _bilgilerimState extends State<bilgilerim> {
       ),
     );
   }
-
   Column info() {
     return Column(
       children: [
@@ -600,7 +588,6 @@ class _bilgilerimState extends State<bilgilerim> {
       ],
     );
   }
-
   /*  Widget controlPremium() {
     if (user.premium == true) {
       return IconButton(
@@ -626,7 +613,6 @@ class _bilgilerimState extends State<bilgilerim> {
           icon: const Icon(Icons.star));
     }
   } */
-
   Color renk() {
     if (AuthService().user!.sex == 'Female' ||
         AuthService().user!.sex == 'Kadın') {
@@ -635,7 +621,6 @@ class _bilgilerimState extends State<bilgilerim> {
       return ppColor = Colors.blueAccent;
     }
   }
-
   Future _getCurrentLocation() async {
     Geolocator.getCurrentPosition(
             desiredAccuracy: LocationAccuracy.best,
@@ -645,16 +630,13 @@ class _bilgilerimState extends State<bilgilerim> {
       await _getAddressFromLatLng();
     }).catchError((e) {});
   }
-
   Future<void> getLocation() async {
     bool serviceEnabled;
     LocationPermission permission;
-
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       return Future.error('Location services are disabled.');
     }
-
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
@@ -662,27 +644,22 @@ class _bilgilerimState extends State<bilgilerim> {
         return Future.error('Location permissions are denied');
       }
     }
-
     if (permission == LocationPermission.deniedForever) {
       return Future.error(
           'Location permissions are permanently denied, we cannot request permissions.');
     }
-
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.best);
     _currentPosition = position;
     _getAddressFromLatLng();
   }
-
   Future<Position> determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
-
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       return Future.error('Location services are disabled.');
     }
-
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
@@ -690,24 +667,19 @@ class _bilgilerimState extends State<bilgilerim> {
         return Future.error('Location permissions are denied');
       }
     }
-
     if (permission == LocationPermission.deniedForever) {
       return Future.error(
           'Location permissions are permanently denied, we cannot request permissions.');
     }
-
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.low);
     return position;
   }
-
   _getAddressFromLatLng() async {
     try {
       List<Placemark> placemarks = await placemarkFromCoordinates(
           _currentPosition!.latitude, _currentPosition!.longitude);
-
       Placemark place = placemarks[0];
-
       if (place.subAdministrativeArea!.length > 1) {
         _konumIl = "${place.administrativeArea}";
         _konumIlce = "${place.subAdministrativeArea}";
@@ -717,7 +689,6 @@ class _bilgilerimState extends State<bilgilerim> {
       }
     } catch (e) {}
   }
-
   Text ControlName() {
     if (user.il != null) {
       return Text(
@@ -733,7 +704,6 @@ class _bilgilerimState extends State<bilgilerim> {
       );
     }
   }
-
   buildSmallButton() {
     return Container(
       decoration:
@@ -743,7 +713,6 @@ class _bilgilerimState extends State<bilgilerim> {
       ),
     );
   }
-
   _searchPage() {
     return Navigator.of(context).pushAndRemoveUntil(
         CupertinoPageRoute(builder: (context) => const searchPage()),

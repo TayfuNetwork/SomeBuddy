@@ -11,7 +11,6 @@ import '../models/user.dart';
 import '../services/auth_service.dart';
 import 'bilgilerim.dart';
 import 'chat.dart';
-
 class show extends StatefulWidget {
   final MyUser whoData;
   show({
@@ -20,7 +19,6 @@ class show extends StatefulWidget {
   @override
   State<show> createState() => _showState();
 }
-
 bool? rewardP = false;
 Color ppColor = Colors.blue;
 double boyut = 75;
@@ -30,7 +28,6 @@ void initState() {
     adHelper.interstitialAd;
   }
 }
-
 class _showState extends State<show> {
   @override
   Widget build(BuildContext context) {
@@ -116,10 +113,6 @@ class _showState extends State<show> {
                       backgroundColor: ControlColor(),
                     ),
                     subtitle: ControlName(),
-                    /* trailing: const Icon(
-                      Icons.message,
-                      color: Colors.yellow,
-                    ), */
                   ),
                   const SizedBox(width: 18),
                   const Divider(
@@ -151,7 +144,6 @@ class _showState extends State<show> {
                             if (snap.hasData) {
                               MyUser user = MyUser.fromMap(snap.data!.data()!);
                               List<Medya> photos = user.gPic ?? [];
-
                               return SingleChildScrollView(
                                   child: Row(
                                 children: photos.map((e) {
@@ -256,7 +248,6 @@ class _showState extends State<show> {
       ),
     );
   }
-
   controlPP() {
     if (widget.whoData.image != null) {
       return NetworkImage(widget.whoData.image!);
@@ -264,14 +255,12 @@ class _showState extends State<show> {
       return AssetImage("images/logo.png");
     }
   }
-
   Stream<DocumentSnapshot<Map<String, dynamic>>> galeri() {
     var userID = widget.whoData.id;
     var galerinstance =
         FirebaseFirestore.instance.collection('Users').doc(userID).snapshots();
     return galerinstance;
   }
-
   Text ControlName() {
     if (widget.whoData.il != null) {
       return Text(
@@ -285,7 +274,6 @@ class _showState extends State<show> {
       );
     }
   }
-
   Color ControlColor() {
     if (widget.whoData.sex == 'Female' || widget.whoData.sex == 'Kadın') {
       return ppColor = Colors.pink.shade400;
@@ -293,18 +281,15 @@ class _showState extends State<show> {
       return ppColor = Colors.blue;
     }
   }
-
   _bilgilerimeGit() {
     return Navigator.of(context)
         .push(CupertinoPageRoute(builder: (context) => bilgilerim()));
   }
-
   _searchPage() {
     return Navigator.of(context).pushAndRemoveUntil(
         CupertinoPageRoute(builder: (context) => const searchPage()),
         ((route) => false));
   }
-
   git() {
     Navigator.of(context).push(CupertinoPageRoute(
         builder: (context) => Sohbet(

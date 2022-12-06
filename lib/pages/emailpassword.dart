@@ -220,21 +220,18 @@ class _EmailPasswordState extends State<EmailPassword> {
       )),
     );
   }
-
   Text hesapVar() {
     return Text(
       "ZatenHesapVar".tr(),
       style: TextStyle(color: Colors.yellow),
     );
   }
-
   Text HesabinizYokMu() {
     return Text(
       "HesabinizYokMu".tr(),
       style: TextStyle(color: Colors.yellow),
     );
   }
-
   degistir() {
     setState(() {
       _formType =
