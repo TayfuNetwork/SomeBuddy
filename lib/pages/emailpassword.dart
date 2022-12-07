@@ -106,9 +106,6 @@ class _EmailPasswordState extends State<EmailPassword> {
               key: _formKey,
               child: Column(
                 children: [
-                  /* Text("googleEmailDuo".tr(),
-                      style: TextStyle(color: Colors.yellow),
-                      textAlign: TextAlign.center), */
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text("uyari".tr(),
