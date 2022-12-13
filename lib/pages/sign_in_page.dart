@@ -27,12 +27,13 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-    //******************************************************************//
-    
+        //******************************************************************//
+
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("images/background.png"), fit: BoxFit.cover)),
+                  image: AssetImage("images/background.png"),
+                  fit: BoxFit.cover)),
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -56,12 +57,12 @@ class _SignInPageState extends State<SignInPage> {
               //******************************************************************//
               //GoogleGirisi(),
               //******************************************************************//
-    
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: eMailGirisi(context),
               ),
-    
+
               //AnonimGiris(),
               //******************************************************************//
             ],
@@ -135,13 +136,14 @@ class _SignInPageState extends State<SignInPage> {
                   idToken: _googleAuth.idToken,
                   accessToken: _googleAuth.accessToken));
           User? _user = sonuc.user;
-
           if (_user != null) {
             await AuthService().checkUser();
 
             return Navigator.of(context).pushAndRemoveUntil(
                 CupertinoPageRoute(builder: (context) => welcome()),
                 ((route) => false));
+          } else {
+            CircularProgressIndicator;
           }
         }
       } on PlatformException catch (e) {
@@ -152,7 +154,12 @@ class _SignInPageState extends State<SignInPage> {
         );
       }
     } else {
-      return null;
+      return Fluttertoast.showToast(
+        msg: "Weak Connection, Try the SignIn",
+        gravity: ToastGravity.BOTTOM,
+        toastLength: Toast.LENGTH_LONG,
+      );
+      ;
     }
   }
 }
