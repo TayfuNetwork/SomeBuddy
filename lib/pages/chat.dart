@@ -190,8 +190,11 @@ class _SohbetState extends State<Sohbet> {
           children: [
             Row(
               children: [
-                CircleAvatar(
-                  backgroundImage: _havePhoto(),
+                GestureDetector(
+                  onTap: showNavigation,
+                  child: CircleAvatar(
+                    backgroundImage: _havePhoto(),
+                  ),
                 ),
                 Flexible(
                   child: Container(
