@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:version1/control_pages/landing_page.dart';
 import 'package:version1/pages/emailpassword.dart';
 import 'package:version1/pages/profil.dart';
-import 'package:version1/pages/welcome.dart';
 import 'package:version1/services/auth_service.dart';
 
 class SignInPage extends StatefulWidget {
@@ -20,6 +20,8 @@ class SignInPage extends StatefulWidget {
   @override
   State<SignInPage> createState() => _SignInPageState();
 }
+
+bool _isloading = false;
 
 // ignore: duplicate_ignore
 class _SignInPageState extends State<SignInPage> {
@@ -55,7 +57,10 @@ class _SignInPageState extends State<SignInPage> {
               ),
               const SizedBox(height: 48),
               //******************************************************************//
-              //GoogleGirisi(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GoogleGirisi(),
+              ),
               //******************************************************************//
 
               Padding(
@@ -97,21 +102,23 @@ class _SignInPageState extends State<SignInPage> {
   ElevatedButton GoogleGirisi() {
     return ElevatedButton(
         onPressed: _googleGirisi,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset("images/google-logo.png"),
-            Text(
-              'GoogleileOturum'.tr(),
-              style: TextStyle(color: Colors.white, fontSize: 16),
-            ),
-            Image.asset(
-              "images/google-logo.png",
-              color: Colors.white.withOpacity(0),
-            ),
-          ],
-        ),
+        child: _isloading
+            ? buildSmallButton()
+            : Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset("images/google-logo.png"),
+                  Text(
+                    'GoogleileOturum'.tr(),
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                  Image.asset(
+                    "images/google-logo.png",
+                    color: Colors.white.withOpacity(0),
+                  ),
+                ],
+              ),
         style: ElevatedButton.styleFrom(primary: Colors.blue));
   }
 //******************************************************************//
@@ -125,6 +132,9 @@ class _SignInPageState extends State<SignInPage> {
 //******************************************************************//
 
   _googleGirisi() async {
+    setState(() {
+      _isloading = true;
+    });
     GoogleSignIn _googleSignIn = GoogleSignIn();
     GoogleSignInAccount? _googleUser = await _googleSignIn.signIn();
     if (_googleUser != null) {
@@ -140,7 +150,7 @@ class _SignInPageState extends State<SignInPage> {
             await AuthService().checkUser();
 
             return Navigator.of(context).pushAndRemoveUntil(
-                CupertinoPageRoute(builder: (context) => welcome()),
+                CupertinoPageRoute(builder: (context) => LandingPage()),
                 ((route) => false));
           } else {
             CircularProgressIndicator;
@@ -159,7 +169,16 @@ class _SignInPageState extends State<SignInPage> {
         gravity: ToastGravity.BOTTOM,
         toastLength: Toast.LENGTH_LONG,
       );
-      ;
+      
     }
   }
+}
+
+buildSmallButton() {
+  return Container(
+    decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.blueAccent),
+    child: CircularProgressIndicator(
+      color: Colors.white,
+    ),
+  );
 }

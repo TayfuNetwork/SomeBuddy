@@ -56,7 +56,7 @@ class _bilgilerimState extends State<bilgilerim> {
 
   fcmGetir() async {
     await FirebaseMessaging.instance.getToken().then((value) {
-      ;
+      
       if (value != null) {
         a = value.toString();
       }

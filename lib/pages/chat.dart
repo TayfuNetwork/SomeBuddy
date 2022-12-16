@@ -11,6 +11,7 @@ import '../models/mesaj.dart';
 import '../models/user.dart';
 import '../control_pages/badge_goster.dart';
 import 'bilgilerim.dart';
+
 // ignore: must_be_immutable
 class Sohbet extends StatefulWidget {
   final MyUser currentUser;
@@ -23,9 +24,11 @@ class Sohbet extends StatefulWidget {
   @override
   State<Sohbet> createState() => _SohbetState();
 }
+
 Color? statu;
 var _mesajController = TextEditingController();
 ScrollController _scrollController = ScrollController();
+
 class _SohbetState extends State<Sohbet> {
   @override
   Widget build(BuildContext context) => SafeArea(
@@ -143,7 +146,7 @@ class _SohbetState extends State<Sohbet> {
       );
   Widget _konusmaBalonuOlustur(Mesaj oankiMesaj) {
     Color _gelenMesajRenk = Colors.green;
-    Color _gidenMesajRenk = Theme.of(context).primaryColor;
+    Color _gidenMesajRenk = Colors.blueAccent; //Theme.of(context).primaryColor;
     var _saatDakikaDegeri = "";
     try {
       _saatDakikaDegeri = _saatDakikaGoster(oankiMesaj.date ?? Timestamp(1, 1));
@@ -210,22 +213,27 @@ class _SohbetState extends State<Sohbet> {
       );
     }
   }
+
   _bilgilerimeGit() {
     return Navigator.of(context)
         .push(CupertinoPageRoute(builder: (context) => bilgilerim()));
   }
+
   _searchPage() {
     return Navigator.of(context).pushAndRemoveUntil(
         CupertinoPageRoute(builder: (context) => const searchPage()),
         ((route) => false));
   }
+
   String _saatDakikaGoster(Timestamp? date) {
     var _formater = DateFormat.Hm();
     var _formatlanmisTarih = _formater.format(date!.toDate());
     return _formatlanmisTarih;
   }
+
   Color stateColor() {
-     if (widget.currentUser.sex == 'Female'|| widget.currentUser.sex =='Kadın') {
+    if (widget.currentUser.sex == 'Female' ||
+        widget.currentUser.sex == 'Kadın') {
       Color statu = Colors.pink;
       return statu;
     } else {
@@ -233,6 +241,7 @@ class _SohbetState extends State<Sohbet> {
       return statu;
     }
   }
+
   _havePhoto() {
     if (widget.konusulanUser.image != null) {
       return NetworkImage(widget.konusulanUser.image!);
@@ -240,6 +249,7 @@ class _SohbetState extends State<Sohbet> {
       return const AssetImage("images/logo.png");
     }
   }
+
   showNavigation() {
     return Navigator.of(context).push(CupertinoPageRoute(
         builder: (context) => show(
@@ -247,6 +257,7 @@ class _SohbetState extends State<Sohbet> {
             )));
   }
 }
+
 Stream<List<Mesaj>> getMessages(String currentUserID, String konusulanUserID) {
   var snapShot = FirebaseFirestore.instance
       .collection("konusmalar")
