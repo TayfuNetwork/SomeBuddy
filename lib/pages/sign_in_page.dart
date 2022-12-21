@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:version1/control_pages/landing_page.dart';
+import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/emailpassword.dart';
 import 'package:version1/pages/profil.dart';
 import 'package:version1/services/auth_service.dart';
@@ -149,9 +150,7 @@ class _SignInPageState extends State<SignInPage> {
           if (_user != null) {
             await AuthService().checkUser();
 
-            return Navigator.of(context).pushAndRemoveUntil(
-                CupertinoPageRoute(builder: (context) => LandingPage()),
-                ((route) => false));
+            return git();
           } else {
             CircularProgressIndicator;
           }
@@ -165,11 +164,22 @@ class _SignInPageState extends State<SignInPage> {
       }
     } else {
       return Fluttertoast.showToast(
-        msg: "Weak Connection, Try the SignIn",
+        msg: "Transaction could not be completed",
         gravity: ToastGravity.BOTTOM,
         toastLength: Toast.LENGTH_LONG,
       );
-      
+    }
+  }
+
+  git() {
+    if (AuthService().isHaveProfile) {
+      return Navigator.of(context).pushAndRemoveUntil(
+          CupertinoPageRoute(builder: (context) => bilgilerim()),
+          ((route) => false));
+    } else {
+      return Navigator.of(context).pushAndRemoveUntil(
+          CupertinoPageRoute(builder: (context) => Profile()),
+          ((route) => false));
     }
   }
 }

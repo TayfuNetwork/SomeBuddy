@@ -55,6 +55,7 @@ dependencies:
   badges: ^2.0.3
   easy_localization: ^3.0.1
   google_mobile_ads: ^2.2.0
+  in_app_update: ^4.0.1
  
 dev_dependencies:
   flutter_test:

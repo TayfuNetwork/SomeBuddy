@@ -9,6 +9,7 @@ import '../models/user.dart';
 import '../pages/private_profil.dart';
 import '../pages/sign_in_page.dart';
 import '../services/auth_service.dart';
+import 'package:in_app_update/in_app_update.dart';
 
 class MyDrawer extends StatefulWidget {
   MyDrawer({Key? key}) : super(key: key);
@@ -18,6 +19,30 @@ class MyDrawer extends StatefulWidget {
 }
 
 class _MyDrawerState extends State<MyDrawer> {
+  AppUpdateInfo? _updateInfo;
+
+  GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
+
+  bool _flexibleUpdateAvailable = false;
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> checkForUpdate() async {
+    InAppUpdate.checkForUpdate().then((info) {
+      setState(() {
+        _updateInfo = info;
+      });
+    }).catchError((e) {
+      showSnack(e.toString());
+    });
+  }
+
+  void showSnack(String text) {
+    if (_scaffoldKey.currentContext != null) {
+      ScaffoldMessenger.of(_scaffoldKey.currentContext!)
+          .showSnackBar(SnackBar(content: Text(text)));
+    }
+  }
+
   String? url = AuthService().user?.image;
   MyUser get user => AuthService().user!;
   @override
@@ -43,6 +68,23 @@ class _MyDrawerState extends State<MyDrawer> {
             Expanded(
               child: ListView(
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      child: _updateInfo?.updateAvailability ==
+                              UpdateAvailability.updateAvailable
+                          ? Text('Yeni sürüme güncelle !')
+                          : Text('Güncel sürüm'),
+                      onPressed: _updateInfo?.updateAvailability ==
+                              UpdateAvailability.updateAvailable
+                          ? () {
+                              InAppUpdate.performImmediateUpdate()
+                                  // ignore: invalid_return_type_for_catch_error
+                                  .catchError((e) => showSnack(e.toString()));
+                            }
+                          : null,
+                    ),
+                  ),
                   ListTile(
                     leading: const Icon(
                       Icons.person,
@@ -71,6 +113,7 @@ class _MyDrawerState extends State<MyDrawer> {
                           style: TextStyle(fontSize: 12)),
                       trailing: const Icon(Icons.keyboard_arrow_right),
                       onTap: () {}), */
+
                   ListTile(
                       leading: const Icon(Icons.video_collection_outlined),
                       title: Text("UsageAppbarTitle".tr(),
@@ -88,7 +131,47 @@ class _MyDrawerState extends State<MyDrawer> {
                       ),
                       trailing: const Icon(Icons.keyboard_arrow_right),
                       onTap: () {
-                        _cikisYap();
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0)),
+                                title: Center(
+                                  child: Text(
+                                    "UygulamadanCikiliyor".tr(),
+                                    style: TextStyle(color: Colors.red),
+                                  ),
+                                ),
+                                actions: <Widget>[
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      TextButton(
+                                          onPressed: () async {
+                                            _cikisYap();
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text(
+                                            "CikisYap".tr(),
+                                            style:
+                                                TextStyle(color: Colors.blue),
+                                          )),
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text("Vazgeç".tr(),
+                                            style:
+                                                TextStyle(color: Colors.blue)),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              );
+                            });
                       }),
                   /* ListTile(
                       leading: const Icon(Icons.language),
