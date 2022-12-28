@@ -9,7 +9,7 @@ import '../models/user.dart';
 import '../pages/private_profil.dart';
 import '../pages/sign_in_page.dart';
 import '../services/auth_service.dart';
-import 'package:in_app_update/in_app_update.dart';
+//import 'package:in_app_update/in_app_update.dart';
 
 class MyDrawer extends StatefulWidget {
   MyDrawer({Key? key}) : super(key: key);
@@ -19,10 +19,11 @@ class MyDrawer extends StatefulWidget {
 }
 
 class _MyDrawerState extends State<MyDrawer> {
-  AppUpdateInfo? _updateInfo;
+  /* AppUpdateInfo? _updateInfo;
 
   GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
 
+  // ignore: unused_field
   bool _flexibleUpdateAvailable = false;
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -41,7 +42,7 @@ class _MyDrawerState extends State<MyDrawer> {
       ScaffoldMessenger.of(_scaffoldKey.currentContext!)
           .showSnackBar(SnackBar(content: Text(text)));
     }
-  }
+  } */
 
   String? url = AuthService().user?.image;
   MyUser get user => AuthService().user!;
@@ -68,7 +69,7 @@ class _MyDrawerState extends State<MyDrawer> {
             Expanded(
               child: ListView(
                 children: [
-                  Padding(
+                  /* Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       child: _updateInfo?.updateAvailability ==
@@ -84,7 +85,7 @@ class _MyDrawerState extends State<MyDrawer> {
                             }
                           : null,
                     ),
-                  ),
+                  ), */
                   ListTile(
                     leading: const Icon(
                       Icons.person,

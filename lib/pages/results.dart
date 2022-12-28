@@ -88,13 +88,16 @@ class _ResultsState extends State<Results> {
                     return Center(
                       child: Column(
                         children: [
-                          Text(widget.il +
-                              "/ " +
-                              widget.ilce +
-                              "/ " +
-                              widget.brans +
-                              "/ " +
-                              widget.mevki),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(widget.il +
+                                "/ " +
+                                widget.ilce +
+                                "/ " +
+                                widget.brans +
+                                "/ " +
+                                widget.mevki),
+                          ),
                           Text("BuKriterdeTekUye".tr()),
                         ],
                       ),

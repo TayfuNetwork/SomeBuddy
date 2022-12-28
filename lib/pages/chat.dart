@@ -77,6 +77,19 @@ class _SohbetState extends State<Sohbet> {
                           child: CircularProgressIndicator(),
                         );
                       }
+
+                      FirebaseFirestore.instance
+                          .collection("konusmalar")
+                          .doc(
+                              "${widget.currentUser.id!}--${widget.konusulanUser.id!}")
+                          .update({"gorulduMu": "true", "goruldu": "true"});
+
+                      FirebaseFirestore.instance
+                          .collection("konusmalar")
+                          .doc(
+                              "${widget.konusulanUser.id!}--${widget.currentUser.id!}")
+                          .update({"goruldu": "true"});
+
                       List<Mesaj>? tumMesajar = StreamMesajlarlistesi.data;
                       return ListView.builder(
                           reverse: true,

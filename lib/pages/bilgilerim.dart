@@ -56,7 +56,6 @@ class _bilgilerimState extends State<bilgilerim> {
 
   fcmGetir() async {
     await FirebaseMessaging.instance.getToken().then((value) {
-      
       if (value != null) {
         a = value.toString();
       }
@@ -324,7 +323,8 @@ class _bilgilerimState extends State<bilgilerim> {
                                                               }
                                                             },
                                                             child:
-                                                                Text("İzinVer").tr(),
+                                                                Text("İzinVer")
+                                                                    .tr(),
                                                           ),
                                                           TextButton(
                                                             onPressed:
@@ -333,7 +333,8 @@ class _bilgilerimState extends State<bilgilerim> {
                                                                   context);
                                                             },
                                                             child: Text(
-                                                                "İzinVerme").tr(),
+                                                                    "İzinVerme")
+                                                                .tr(),
                                                           ),
                                                         ],
                                                       ),
@@ -391,36 +392,40 @@ class _bilgilerimState extends State<bilgilerim> {
                               ],
                             ),
                             if (il != null)
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text("Brans".tr(),
-                                      style: TextStyle(color: Colors.blue)),
-                                  DropdownButton<int>(
-                                    menuMaxHeight: 400,
-                                    iconEnabledColor: Colors.blue,
-                                    dropdownColor:
-                                        const Color.fromARGB(255, 28, 185, 242),
-                                    style: const TextStyle(color: Colors.black),
-                                    value: brans?.no ?? 82,
-                                    items: model.branslar.map((b) {
-                                      return DropdownMenuItem(
-                                        child: Text(b.brans,
-                                            style: const TextStyle(
-                                                color: Colors.black)),
-                                        value: b.no,
-                                        onTap: () {
-                                          setState(() {
-                                            brans = b;
-                                            mevki = b.mevki.first;
-                                          });
-                                        },
-                                      );
-                                    }).toList(),
-                                    onChanged: (s) {},
-                                  ),
-                                ],
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Text("Brans".tr(),
+                                        style: TextStyle(color: Colors.blue)),
+                                    DropdownButton<int>(
+                                      menuMaxHeight: 400,
+                                      iconEnabledColor: Colors.blue,
+                                      dropdownColor: const Color.fromARGB(
+                                          255, 28, 185, 242),
+                                      style:
+                                          const TextStyle(color: Colors.black),
+                                      value: brans?.no ?? 82,
+                                      items: model.branslar.map((b) {
+                                        return DropdownMenuItem(
+                                          child: Text(b.brans,
+                                              style: const TextStyle(
+                                                  color: Colors.black)),
+                                          value: b.no,
+                                          onTap: () {
+                                            setState(() {
+                                              brans = b;
+                                              mevki = b.mevki.first;
+                                            });
+                                          },
+                                        );
+                                      }).toList(),
+                                      onChanged: (s) {},
+                                    ),
+                                  ],
+                                ),
                               ),
                             if (mevki != null)
                               Row(
@@ -542,6 +547,7 @@ class _bilgilerimState extends State<bilgilerim> {
       ),
     );
   }
+
   Column info() {
     return Column(
       children: [
@@ -588,6 +594,7 @@ class _bilgilerimState extends State<bilgilerim> {
       ],
     );
   }
+
   /*  Widget controlPremium() {
     if (user.premium == true) {
       return IconButton(
@@ -621,6 +628,7 @@ class _bilgilerimState extends State<bilgilerim> {
       return ppColor = Colors.blueAccent;
     }
   }
+
   Future _getCurrentLocation() async {
     Geolocator.getCurrentPosition(
             desiredAccuracy: LocationAccuracy.best,
@@ -630,6 +638,7 @@ class _bilgilerimState extends State<bilgilerim> {
       await _getAddressFromLatLng();
     }).catchError((e) {});
   }
+
   Future<void> getLocation() async {
     bool serviceEnabled;
     LocationPermission permission;
@@ -653,6 +662,7 @@ class _bilgilerimState extends State<bilgilerim> {
     _currentPosition = position;
     _getAddressFromLatLng();
   }
+
   Future<Position> determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
@@ -675,6 +685,7 @@ class _bilgilerimState extends State<bilgilerim> {
         desiredAccuracy: LocationAccuracy.low);
     return position;
   }
+
   _getAddressFromLatLng() async {
     try {
       List<Placemark> placemarks = await placemarkFromCoordinates(
@@ -689,6 +700,7 @@ class _bilgilerimState extends State<bilgilerim> {
       }
     } catch (e) {}
   }
+
   Text ControlName() {
     if (user.il != null) {
       return Text(
@@ -704,6 +716,7 @@ class _bilgilerimState extends State<bilgilerim> {
       );
     }
   }
+
   buildSmallButton() {
     return Container(
       decoration:
@@ -713,6 +726,7 @@ class _bilgilerimState extends State<bilgilerim> {
       ),
     );
   }
+
   _searchPage() {
     return Navigator.of(context).pushAndRemoveUntil(
         CupertinoPageRoute(builder: (context) => const searchPage()),

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:in_app_update/in_app_update.dart';
 import 'package:version1/control_pages/landing_page.dart';
 import 'package:version1/services/ad_helper.dart';
 import 'package:version1/services/auth_service.dart';
@@ -10,10 +11,35 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:version1/services/notification.dart';
+
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(options: NotificationService.currentPlatform);
   await setupFlutterNotifications();
 }
+
+AppUpdateInfo? _updateInfo;
+
+GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
+
+// ignore: unused_field
+bool _flexibleUpdateAvailable = false;
+
+// Platform messages are asynchronous, so we initialize in an async method.
+Future<void> checkForUpdate() async {
+  InAppUpdate.checkForUpdate().then((info) {
+    _updateInfo = info;
+  }).catchError((e) {
+    showSnack(e.toString());
+  });
+}
+
+void showSnack(String text) {
+  if (_scaffoldKey.currentContext != null) {
+    ScaffoldMessenger.of(_scaffoldKey.currentContext!)
+        .showSnackBar(SnackBar(content: Text(text)));
+  }
+}
+
 Future<void> setupFlutterNotifications() async {
   const AndroidNotificationChannel channel = AndroidNotificationChannel(
     'high_importance_channel', // id
@@ -34,8 +60,12 @@ Future<void> setupFlutterNotifications() async {
     sound: true,
   );
 }
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  _updateInfo?.updateAvailability == UpdateAvailability.updateAvailable
+      ? InAppUpdate.performImmediateUpdate()
+      : null;
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(options: NotificationService.currentPlatform);
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
@@ -56,7 +86,8 @@ void main() async {
     child: MyApp(),
   ));
 }
-  class MyApp extends StatelessWidget {
+
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {

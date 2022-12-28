@@ -60,7 +60,27 @@ class _SignInPageState extends State<SignInPage> {
               //******************************************************************//
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: GoogleGirisi(),
+                child: ElevatedButton(
+                    onPressed: _googleGirisi,
+                    child: _isloading
+                        ? buildSmallButton()
+                        : Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Image.asset("images/google-logo.png"),
+                              Text(
+                                'GoogleileOturum'.tr(),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16),
+                              ),
+                              Image.asset(
+                                "images/google-logo.png",
+                                color: Colors.white.withOpacity(0),
+                              ),
+                            ],
+                          ),
+                    style: ElevatedButton.styleFrom(primary: Colors.blue)),
               ),
               //******************************************************************//
 
@@ -100,7 +120,7 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   // ignore: non_constant_identifier_names
-  ElevatedButton GoogleGirisi() {
+  /* ElevatedButton GoogleGirisi() {
     return ElevatedButton(
         onPressed: _googleGirisi,
         child: _isloading
@@ -121,7 +141,7 @@ class _SignInPageState extends State<SignInPage> {
                 ],
               ),
         style: ElevatedButton.styleFrom(primary: Colors.blue));
-  }
+  } */
 //******************************************************************//
 
   // ignore: unused_element
@@ -149,8 +169,13 @@ class _SignInPageState extends State<SignInPage> {
           User? _user = sonuc.user;
           if (_user != null) {
             await AuthService().checkUser();
-
-            return git();
+            setState(() {
+              _isloading = false;
+            });
+            return Navigator.of(context).pushAndRemoveUntil(
+                CupertinoPageRoute(builder: (context) => LandingPage()),
+                ((route) => false));
+            //git();
           } else {
             CircularProgressIndicator;
           }
@@ -171,7 +196,7 @@ class _SignInPageState extends State<SignInPage> {
     }
   }
 
-  git() {
+  /* git() {
     if (AuthService().isHaveProfile) {
       return Navigator.of(context).pushAndRemoveUntil(
           CupertinoPageRoute(builder: (context) => bilgilerim()),
@@ -182,13 +207,15 @@ class _SignInPageState extends State<SignInPage> {
           ((route) => false));
     }
   }
-}
+} */
 
-buildSmallButton() {
-  return Container(
-    decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.blueAccent),
-    child: CircularProgressIndicator(
-      color: Colors.white,
-    ),
-  );
+  buildSmallButton() {
+    return Container(
+      decoration:
+          BoxDecoration(shape: BoxShape.circle, color: Colors.blueAccent),
+      child: CircularProgressIndicator(
+        color: Colors.white,
+      ),
+    );
+  }
 }

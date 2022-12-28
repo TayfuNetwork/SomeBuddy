@@ -43,23 +43,23 @@ class _searchPageState extends State<searchPage> {
   bool? izlendi = false;
 
   Future<void> arama() async {
-     if (adHelper.interstitialAd != null) {
+    if (adHelper.interstitialAd != null) {
       await adHelper.showInterstitialAd(
-        (p0) { 
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => Results(
-          il: il!,
-          ilce: ilce!,
-          brans: brans!.brans,
-          mevki: mevki!,
-          ppColor: Colors.blue,
-          sIcon: const Icon(Icons.photo),
-        ),
-      ),
-    );
-     },
-      ); 
+        (p0) {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => Results(
+                il: il!,
+                ilce: ilce!,
+                brans: brans!.brans,
+                mevki: mevki!,
+                ppColor: Colors.blue,
+                sIcon: const Icon(Icons.photo),
+              ),
+            ),
+          );
+        },
+      );
     } else {
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -73,7 +73,7 @@ class _searchPageState extends State<searchPage> {
           ),
         ),
       );
-    } 
+    }
 
     setState(() {
       sonAramaSakla();
@@ -133,9 +133,9 @@ class _searchPageState extends State<searchPage> {
         ),
       );
     }
-  } 
+  }
 
-   @override
+  @override
   void initState() {
     super.initState();
     if (adHelper.interstitialAd != null) {
@@ -151,7 +151,7 @@ class _searchPageState extends State<searchPage> {
     super.dispose();
     adHelper.rewardedAd;
     adHelper.interstitialAd;
-  } 
+  }
 
   String? sex;
   SexServices model1 = SexServices();
@@ -233,7 +233,8 @@ class _searchPageState extends State<searchPage> {
                     decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 1)),
+                          borderSide: BorderSide(color: Colors.blue, width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(8.0))),
                       focusColor: Colors.blue,
                       hintText: 'IliGiriniz'.tr(),
                       enabled: true,
@@ -258,7 +259,8 @@ class _searchPageState extends State<searchPage> {
                     decoration: InputDecoration(
                       hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 1)),
+                          borderSide: BorderSide(color: Colors.blue, width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(8.0))),
                       focusColor: Colors.blue,
                       hintText: 'IlceGiriniz'.tr(),
                       enabled: true,
@@ -271,62 +273,29 @@ class _searchPageState extends State<searchPage> {
 
                   //******************************************************************//
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Brans:".tr(), style: TextStyle(color: Colors.blue)),
-                      DropdownButton<int>(
-                        menuMaxHeight: 400,
-                        iconEnabledColor: Colors.blue,
-                        dropdownColor: const Color.fromARGB(255, 28, 185, 242),
-                        style: const TextStyle(color: Colors.black),
-                        value: brans?.no ?? 82,
-                        items: model.branslar.map((b) {
-                          return DropdownMenuItem(
-                            child: Text(b.brans.tr(),
-                                style: TextStyle(color: Colors.black)),
-                            value: b.no,
-                            onTap: () {
-                              setState(() {
-                                brans = b;
-                                mevki = b.mevki.first;
-                              });
-                            },
-                          );
-                        }).toList(),
-                        onChanged: (s) {},
-                      ),
-                      Icon(
-                        Icons.download,
-                        color: Colors.blue,
-                      )
-                    ],
-                  ),
-                  //******************************************************************//
-
-                  if (brans != null)
-                    Row(
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Mevki:".tr(),
+                        Text("Brans:".tr(),
                             style: TextStyle(color: Colors.blue)),
-                        DropdownButton<String>(
+                        DropdownButton<int>(
                           menuMaxHeight: 400,
                           iconEnabledColor: Colors.blue,
                           dropdownColor:
                               const Color.fromARGB(255, 28, 185, 242),
-                          value: mevki ?? brans!.mevki.first,
                           style: const TextStyle(color: Colors.black),
-                          items: model.mevki(brans!.no).map((b) {
+                          value: brans?.no ?? 82,
+                          items: model.branslar.map((b) {
                             return DropdownMenuItem(
-                              child: Text(
-                                b.tr(),
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              value: b,
+                              child: Text(b.brans.tr(),
+                                  style: TextStyle(color: Colors.black)),
+                              value: b.no,
                               onTap: () {
                                 setState(() {
-                                  mevki = b;
+                                  brans = b;
+                                  mevki = b.mevki.first;
                                 });
                               },
                             );
@@ -336,56 +305,105 @@ class _searchPageState extends State<searchPage> {
                         Icon(
                           Icons.download,
                           color: Colors.blue,
-                        ),
+                        )
                       ],
+                    ),
+                  ),
+                  //******************************************************************//
+
+                  if (brans != null)
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Mevki:".tr(),
+                              style: TextStyle(color: Colors.blue)),
+                          DropdownButton<String>(
+                            menuMaxHeight: 400,
+                            iconEnabledColor: Colors.blue,
+                            dropdownColor:
+                                const Color.fromARGB(255, 28, 185, 242),
+                            value: mevki ?? brans!.mevki.first,
+                            style: const TextStyle(color: Colors.black),
+                            items: model.mevki(brans!.no).map((b) {
+                              return DropdownMenuItem(
+                                child: Text(
+                                  b.tr(),
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                value: b,
+                                onTap: () {
+                                  setState(() {
+                                    mevki = b;
+                                  });
+                                },
+                              );
+                            }).toList(),
+                            onChanged: (s) {},
+                          ),
+                          Icon(
+                            Icons.download,
+                            color: Colors.blue,
+                          ),
+                        ],
+                      ),
                     ),
                   //******************************************************************//
                   if (izlendi == true)
-                    Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextButton(
-                                onPressed: () {
-                                  setState(() {
-                                    secilenCinsiyet = "Male";
-                                    sex = secilenCinsiyet;
-                                  });
-                                },
-                                child: Text(
-                                  "Erkek".tr(),
-                                  style: TextStyle(color: Colors.black),
-                                )),
-                            if (secilenCinsiyet == "Male")
-                              Icon(
-                                Icons.download_done_outlined,
-                                color: Colors.green,
-                              )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextButton(
-                                onPressed: () {
-                                  setState(() {
-                                    secilenCinsiyet = "Female".tr();
-                                    sex = secilenCinsiyet;
-                                  });
-                                },
-                                child: Text(
-                                  "Kadın".tr(),
-                                  style: TextStyle(color: Colors.black),
-                                )),
-                            if (secilenCinsiyet == "Female".tr())
-                              Icon(
-                                Icons.download_done_outlined,
-                                color: Colors.green,
-                              )
-                          ],
-                        )
-                      ],
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const [
+                            BoxShadow(color: Colors.grey, blurRadius: 6),
+                          ]),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      secilenCinsiyet = "Male";
+                                      sex = secilenCinsiyet;
+                                    });
+                                  },
+                                  child: Text(
+                                    "Erkek".tr(),
+                                    style: TextStyle(color: Colors.black),
+                                  )),
+                              if (secilenCinsiyet == "Male")
+                                Icon(
+                                  Icons.download_done_outlined,
+                                  color: Colors.green,
+                                )
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      secilenCinsiyet = "Female".tr();
+                                      sex = secilenCinsiyet;
+                                    });
+                                  },
+                                  child: Text(
+                                    "Kadın".tr(),
+                                    style: TextStyle(color: Colors.black),
+                                  )),
+                              if (secilenCinsiyet == "Female".tr())
+                                Icon(
+                                  Icons.download_done_outlined,
+                                  color: Colors.green,
+                                )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   Column(
                     children: [
@@ -422,72 +440,73 @@ class _searchPageState extends State<searchPage> {
                             }
                           },
                           child: Text('Ara'.tr())),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Icon(
-                              Icons.navigate_next,
-                              color: Colors.red,
-                            ),
-                            Text(
-                              "CinsiyetFiltrele".tr(),
-                              style: TextStyle(color: Colors.red),
-                            ),
-                            Icon(
-                              Icons.navigate_next,
-                              color: Colors.red,
-                            ),
-                            TextButton(
-                                onPressed: () async {
-                                  if (adHelper.rewardedAd != null) {
-                                    await adHelper.showRewardedAd(
-                                        onUserEarnedReward: (p0, p1) {
-                                      izlendi = true;
-                                      setState(() {});
-                                    });
-                                  } else {
-                                    Fluttertoast.showToast(
-                                      msg: "ReklamYuklenemedi".tr(),
-                                      gravity: ToastGravity.BOTTOM,
-                                      toastLength: Toast.LENGTH_LONG,
-                                    );
-                                    setState(() async {
-                                      await Future.delayed(
-                                          Duration(seconds: 2));
-                                      izlendi = true;
-                                    });
-                                  }
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.all(2.0),
-                                  child: Text(
-                                    "Izle".tr(),
-                                    style: TextStyle(color: Colors.blue),
-                                  ),
-                                )),
-                          ],
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(
+                            Icons.touch_app,
+                            color: Colors.green,
+                          ),
+                          Text(
+                            "CinsiyetFiltrele".tr(),
+                            style: TextStyle(color: Colors.red),
+                          ),
+                          Icon(
+                            Icons.navigate_next,
+                            color: Colors.red,
+                          ),
+                          TextButton(
+                              onPressed: () async {
+                                if (adHelper.rewardedAd != null) {
+                                  await adHelper.showRewardedAd(
+                                      onUserEarnedReward: (p0, p1) {
+                                    izlendi = true;
+                                    setState(() {});
+                                  });
+                                } else {
+                                  Fluttertoast.showToast(
+                                    msg: "ReklamYuklenemedi".tr(),
+                                    gravity: ToastGravity.BOTTOM,
+                                    toastLength: Toast.LENGTH_LONG,
+                                  );
+                                  setState(() async {
+                                    await Future.delayed(Duration(seconds: 2));
+                                    izlendi = true;
+                                  });
+                                }
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: Text(
+                                  "Izle".tr(),
+                                  style: TextStyle(color: Colors.blue),
+                                ),
+                              )),
+                        ],
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       if (AuthService().user?.il != null)
                         Row(
                           children: [
-                            Icon(Icons.navigate_next, color: Colors.red),
+                            Icon(
+                              Icons.touch_app,
+                              color: Colors.green,
+                            ),
                             TextButton(
                                 onPressed: () {
                                   yakinArama();
-                                  
                                 },
                                 child: Text("EnYakinPartner".tr())),
                           ],
                         ),
                       Row(
                         children: [
-                          Icon(Icons.navigate_next, color: Colors.red),
+                          Icon(
+                            Icons.touch_app,
+                            color: Colors.green,
+                          ),
                           TextButton(
                               onPressed: sonAramaTekrar,
                               child: Text("BirOncekiAramaTekrar".tr())),
@@ -496,14 +515,14 @@ class _searchPageState extends State<searchPage> {
                       SizedBox(
                         height: 10,
                       ),
-                       Container(
+                      Container(
                         width: AdSize.banner.width.toDouble(),
                         height: AdSize.banner.height.toDouble(),
                         alignment: Alignment.bottomCenter,
                         child: AdWidget(
                           ad: adHelper.createBannerAd(),
                         ),
-                      ), 
+                      ),
                     ],
                   ),
                 ],
