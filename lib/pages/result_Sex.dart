@@ -166,7 +166,7 @@ class _Results2State extends State<Results2> {
                                   children: [
                                     SingleChildScrollView(
                                       child: Text(
-                                        "${e.userName} ${e.soyisim} -",
+                                        "${e.userName} ${e.soyisim} - ",
                                         style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white),
@@ -175,7 +175,7 @@ class _Results2State extends State<Results2> {
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                        "${e.ilce} ${e.brans}",
+                                        "${e.ilce} ${e.mevki}",
                                         style: const TextStyle(
                                             fontSize: 12, color: Colors.blue),
                                       ),
