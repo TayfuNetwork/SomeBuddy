@@ -8,9 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:version1/control_pages/landing_page.dart';
-import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/emailpassword.dart';
-import 'package:version1/pages/profil.dart';
 import 'package:version1/services/auth_service.dart';
 
 class SignInPage extends StatefulWidget {
@@ -30,14 +28,14 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        //******************************************************************//
+       
 
-        body: Container(
+    /*************/        body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("images/background.png"),
                   fit: BoxFit.cover)),
-          padding: const EdgeInsets.all(16.0),
+      /*************/        padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -56,12 +54,12 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 48),
-              //******************************************************************//
+          /*************/        const SizedBox(height: 48),
+      
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
-                    onPressed: _googleGirisi,
+                    onPressed: _isloading ? null : _googleGirisi,
                     child: _isloading
                         ? buildSmallButton()
                         : Row(
@@ -82,15 +80,14 @@ class _SignInPageState extends State<SignInPage> {
                           ),
                     style: ElevatedButton.styleFrom(primary: Colors.blue)),
               ),
-              //******************************************************************//
 
-              Padding(
+     /*************/             Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: eMailGirisi(context),
               ),
 
-              //AnonimGiris(),
-              //******************************************************************//
+             /*************/     //AnonimGiris(),
+              
             ],
           ),
         ),
@@ -118,39 +115,13 @@ class _SignInPageState extends State<SignInPage> {
       ),
     );
   }
-
-  // ignore: non_constant_identifier_names
-  /* ElevatedButton GoogleGirisi() {
-    return ElevatedButton(
-        onPressed: _googleGirisi,
-        child: _isloading
-            ? buildSmallButton()
-            : Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset("images/google-logo.png"),
-                  Text(
-                    'GoogleileOturum'.tr(),
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  ),
-                  Image.asset(
-                    "images/google-logo.png",
-                    color: Colors.white.withOpacity(0),
-                  ),
-                ],
-              ),
-        style: ElevatedButton.styleFrom(primary: Colors.blue));
-  } */
-//******************************************************************//
-
-  // ignore: unused_element
-  void _misafirGirisi() async {
-    //UserCredential sonuc = await FirebaseAuth.instance.signInAnonymously();
+ 
+/*   void _misafirGirisi() async {
+    UserCredential sonuc = await FirebaseAuth.instance.signInAnonymously();
     await Navigator.of(context)
         .push(CupertinoPageRoute(builder: (context) => const Profile()));
-  }
-//******************************************************************//
+  } */
+
 
   _googleGirisi() async {
     setState(() {
@@ -166,7 +137,7 @@ class _SignInPageState extends State<SignInPage> {
               .signInWithCredential(GoogleAuthProvider.credential(
                   idToken: _googleAuth.idToken,
                   accessToken: _googleAuth.accessToken));
-          User? _user = sonuc.user;
+          User? _user = await sonuc.user;
           if (_user != null) {
             await AuthService().checkUser();
             setState(() {
@@ -176,8 +147,6 @@ class _SignInPageState extends State<SignInPage> {
                 CupertinoPageRoute(builder: (context) => LandingPage()),
                 ((route) => false));
             //git();
-          } else {
-            CircularProgressIndicator;
           }
         }
       } on PlatformException catch (e) {
@@ -186,28 +155,17 @@ class _SignInPageState extends State<SignInPage> {
           gravity: ToastGravity.BOTTOM,
           toastLength: Toast.LENGTH_LONG,
         );
+        
       }
     } else {
-      return Fluttertoast.showToast(
+      Fluttertoast.showToast(
         msg: "Transaction could not be completed",
         gravity: ToastGravity.BOTTOM,
         toastLength: Toast.LENGTH_LONG,
       );
+    
     }
   }
-
-  /* git() {
-    if (AuthService().isHaveProfile) {
-      return Navigator.of(context).pushAndRemoveUntil(
-          CupertinoPageRoute(builder: (context) => bilgilerim()),
-          ((route) => false));
-    } else {
-      return Navigator.of(context).pushAndRemoveUntil(
-          CupertinoPageRoute(builder: (context) => Profile()),
-          ((route) => false));
-    }
-  }
-} */
 
   buildSmallButton() {
     return Container(

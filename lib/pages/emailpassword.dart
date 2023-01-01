@@ -57,17 +57,20 @@ class _EmailPasswordState extends State<EmailPassword> {
 
       if (user != null) {
         final fcmToken = await FirebaseMessaging.instance.getToken();
+
         FirebaseFirestore.instance
             .collection('Users')
             .doc(user.uid)
             .set({'token': fcmToken}, SetOptions(merge: true));
-        AuthService().user!.token = fcmToken;
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+         AuthService().user!.token = await fcmToken;
+
+        /* ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             backgroundColor: Colors.blue,
             content: Text("GirisYapabilirsin".tr(),
-                style: TextStyle(color: Colors.white))));
+                style: TextStyle(color: Colors.white)))); */
+
         await Navigator.of(context).pushAndRemoveUntil(
-            CupertinoPageRoute(builder: (context) => const EmailPassword()),
+            CupertinoPageRoute(builder: (context) => const Profile()),
             (route) => false);
       }
     }
@@ -217,18 +220,21 @@ class _EmailPasswordState extends State<EmailPassword> {
       )),
     );
   }
+
   Text hesapVar() {
     return Text(
       "ZatenHesapVar".tr(),
       style: TextStyle(color: Colors.yellow),
     );
   }
+
   Text HesabinizYokMu() {
     return Text(
       "HesabinizYokMu".tr(),
       style: TextStyle(color: Colors.yellow),
     );
   }
+
   degistir() {
     setState(() {
       _formType =

@@ -22,7 +22,7 @@ AppUpdateInfo? _updateInfo;
 GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
 
 // ignore: unused_field
-bool _flexibleUpdateAvailable = false;
+//bool _flexibleUpdateAvailable = false;
 
 // Platform messages are asynchronous, so we initialize in an async method.
 Future<void> checkForUpdate() async {
