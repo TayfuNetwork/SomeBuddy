@@ -28,14 +28,12 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-       
-
-    /*************/        body: Container(
+        /*************/ body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("images/background.png"),
                   fit: BoxFit.cover)),
-      /*************/        padding: const EdgeInsets.all(16.0),
+          /*************/ padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -54,8 +52,8 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
               ),
-          /*************/        const SizedBox(height: 48),
-      
+              /*************/ const SizedBox(height: 48),
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
@@ -81,13 +79,12 @@ class _SignInPageState extends State<SignInPage> {
                     style: ElevatedButton.styleFrom(primary: Colors.blue)),
               ),
 
-     /*************/             Padding(
+              /*************/ Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: eMailGirisi(context),
               ),
 
-             /*************/     //AnonimGiris(),
-              
+              /*************/ //AnonimGiris(),
             ],
           ),
         ),
@@ -115,13 +112,12 @@ class _SignInPageState extends State<SignInPage> {
       ),
     );
   }
- 
+
 /*   void _misafirGirisi() async {
     UserCredential sonuc = await FirebaseAuth.instance.signInAnonymously();
     await Navigator.of(context)
         .push(CupertinoPageRoute(builder: (context) => const Profile()));
   } */
-
 
   _googleGirisi() async {
     setState(() {
@@ -155,7 +151,6 @@ class _SignInPageState extends State<SignInPage> {
           gravity: ToastGravity.BOTTOM,
           toastLength: Toast.LENGTH_LONG,
         );
-        
       }
     } else {
       Fluttertoast.showToast(
@@ -163,7 +158,6 @@ class _SignInPageState extends State<SignInPage> {
         gravity: ToastGravity.BOTTOM,
         toastLength: Toast.LENGTH_LONG,
       );
-    
     }
   }
 
