@@ -17,26 +17,31 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await setupFlutterNotifications();
 }
 
-AppUpdateInfo? _updateInfo;
-
 GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
 
-// ignore: unused_field
-//bool _flexibleUpdateAvailable = false;
 
-// Platform messages are asynchronous, so we initialize in an async method.
-Future<void> checkForUpdate() async {
-  InAppUpdate.checkForUpdate().then((info) {
-    _updateInfo = info;
-  }).catchError((e) {
-    showSnack(e.toString());
-  });
-}
 
 void showSnack(String text) {
   if (_scaffoldKey.currentContext != null) {
     ScaffoldMessenger.of(_scaffoldKey.currentContext!)
         .showSnackBar(SnackBar(content: Text(text)));
+  }
+}
+
+Future<void> checkForUpdate() async {
+  try {
+    AppUpdateInfo info = await InAppUpdate.checkForUpdate();
+    if (info.updateAvailability == UpdateAvailability.updateAvailable) {
+      try {
+        await InAppUpdate.performImmediateUpdate();
+      } on Exception catch (e) {
+        ScaffoldMessenger.of(_scaffoldKey.currentContext!)
+            .showSnackBar(SnackBar(content: Text("$e")));
+      }
+    }
+  } on Exception catch (e) {
+    ScaffoldMessenger.of(_scaffoldKey.currentContext!)
+        .showSnackBar(SnackBar(content: Text("$e")));
   }
 }
 
@@ -63,9 +68,7 @@ Future<void> setupFlutterNotifications() async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  _updateInfo?.updateAvailability == UpdateAvailability.updateAvailable
-      ? InAppUpdate.performImmediateUpdate()
-      : null;
+  checkForUpdate();
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(options: NotificationService.currentPlatform);
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);

@@ -53,25 +53,30 @@ class _EmailPasswordState extends State<EmailPassword> {
                 style: TextStyle(color: Colors.white))));
         return;
       }
-      user = await service.signUp(_sifre!, _email!, context);
 
-      if (user != null) {
-        final fcmToken = await FirebaseMessaging.instance.getToken();
+      try {
+        user = await service.signUp(_sifre!, _email!, context);
+        await service.checkUser();
+        if (user != null) {
+          final fcmToken = await FirebaseMessaging.instance.getToken();
 
-        FirebaseFirestore.instance
-            .collection('Users')
-            .doc(user.uid)
-            .set({'token': fcmToken}, SetOptions(merge: true));
-         AuthService().user!.token = await fcmToken;
+          FirebaseFirestore.instance
+              .collection('Users')
+              .doc(user.uid)
+              .set({'token': fcmToken}, SetOptions(merge: true));
+          AuthService().user!.token = await fcmToken;
 
-        /* ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            backgroundColor: Colors.blue,
-            content: Text("GirisYapabilirsin".tr(),
-                style: TextStyle(color: Colors.white)))); */
+          /* ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: Colors.blue,
+        content: Text("GirisYapabilirsin".tr(),
+            style: TextStyle(color: Colors.white)))); */
 
-        await Navigator.of(context).pushAndRemoveUntil(
-            CupertinoPageRoute(builder: (context) => const Profile()),
-            (route) => false);
+          await Navigator.of(context).pushAndRemoveUntil(
+              CupertinoPageRoute(builder: (context) => const Profile()),
+              (route) => false);
+        }
+      } on Exception catch (e) {
+        print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa $e");
       }
     }
     if (_formType == FormType.Login) {

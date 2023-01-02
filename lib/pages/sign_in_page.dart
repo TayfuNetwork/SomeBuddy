@@ -133,8 +133,9 @@ class _SignInPageState extends State<SignInPage> {
               .signInWithCredential(GoogleAuthProvider.credential(
                   idToken: _googleAuth.idToken,
                   accessToken: _googleAuth.accessToken));
+          // ignore: unused_local_variable
           User? _user = await sonuc.user;
-          if (_user != null) {
+          try {
             await AuthService().checkUser();
             setState(() {
               _isloading = false;
@@ -142,7 +143,18 @@ class _SignInPageState extends State<SignInPage> {
             return Navigator.of(context).pushAndRemoveUntil(
                 CupertinoPageRoute(builder: (context) => LandingPage()),
                 ((route) => false));
-            //git();
+          } on Exception {
+            setState(() {
+              _isloading = false;
+            });
+            Fluttertoast.showToast(
+              msg: "googlegiremedi".tr(),
+              gravity: ToastGravity.BOTTOM,
+              toastLength: Toast.LENGTH_LONG,
+            );
+            return Navigator.of(context).pushAndRemoveUntil(
+                CupertinoPageRoute(builder: (context) => EmailPassword()),
+                ((route) => false));
           }
         }
       } on PlatformException catch (e) {

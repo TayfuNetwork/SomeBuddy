@@ -42,6 +42,7 @@
     <option name="KEY_STORE_PATH" value="C:\Users\tayfu\OneDrive\Belgeler\FLUTTER\SomeBuddy\key.jks" />
     <option name="KEY_ALIAS" value="key0" />
     <option name="REMEMBER_PASSWORDS" value="true" />
+    <option name="BUILD_TARGET_KEY" value="apk" />
   </component>
   <component name="ProjectId" id="2DXwNH5JYWtVZut0ucZ9yr26CCq" />
   <component name="ProjectViewState">

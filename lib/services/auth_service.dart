@@ -38,6 +38,12 @@ class AuthService {
       if (userCredential.user != null) {
         await checkUser();
         return userCredential.user;
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text("BilinmeyenHata".tr()),
+          ),
+        );
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == "email-already-in-use") {
@@ -57,6 +63,11 @@ class AuthService {
         );
       }
     }
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("return null hatası"),
+      ),
+    );
     return null;
   }
 

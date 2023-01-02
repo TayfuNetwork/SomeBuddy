@@ -72,8 +72,7 @@ class _ProfileState extends State<Profile> {
                   Text('ProfilSayfaBilgilerDogrulugu'.tr(),
                       style: TextStyle(color: Colors.yellow)),
 
-         /*************/             const SizedBox(height: 10),
-
+                  /*************/ const SizedBox(height: 10),
                   TextField(
                     style: const TextStyle(color: Colors.white),
                     maxLength: 11,
@@ -91,7 +90,7 @@ class _ProfileState extends State<Profile> {
                       isim = girilenisim;
                     },
                   ),
-       /*************/               const SizedBox(height: 10),
+                  /*************/ const SizedBox(height: 10),
                   TextField(
                     maxLength: 11,
                     maxLines: 1,
@@ -109,11 +108,8 @@ class _ProfileState extends State<Profile> {
                       soyisim = girilensoyad;
                     },
                   ),
-                  
 
-     /*************/             const SizedBox(height: 10),
-                  
-
+                  /*************/ const SizedBox(height: 10),
                   TextField(
                       style: const TextStyle(color: Colors.white),
                       maxLength: 4,
@@ -135,7 +131,7 @@ class _ProfileState extends State<Profile> {
                         yas = (date - sonuc);
                       }),
 
-         /*************/             const SizedBox(height: 10),
+                  /*************/ const SizedBox(height: 10),
                   TextField(
                       maxLines: 2,
                       style: const TextStyle(color: Colors.white),
@@ -153,8 +149,7 @@ class _ProfileState extends State<Profile> {
                         bio = deger;
                       }),
 
-           /*************/           const SizedBox(height: 10),
-                  
+                  /*************/ const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -183,7 +178,7 @@ class _ProfileState extends State<Profile> {
                       ),
                     ],
                   ),
-      /*************/                Row(
+                  /*************/ Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       //******************************************************************//
@@ -273,8 +268,8 @@ class _ProfileState extends State<Profile> {
       ),
     );
   }
-  
-    /*************/ 
+
+  /*************/
 
   Future _cikisYap() async {
     FirebaseAuth.instance.signOut();
