@@ -145,7 +145,7 @@ class _SignInPageState extends State<SignInPage> {
                 ((route) => false));
           } on Exception {
             setState(() {
-              _isloading = false;
+              _isloading = true;
             });
             Fluttertoast.showToast(
               msg: "googlegiremedi".tr(),

@@ -97,6 +97,7 @@ class _SohbetState extends State<Sohbet> {
                           itemBuilder: (context, index) {
                             return _konusmaBalonuOlustur(tumMesajar![index]);
                           },
+                          
                           itemCount: tumMesajar?.length);
                     },
                   ),
