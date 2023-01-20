@@ -8,6 +8,7 @@ import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/control_pages/badge_goster.dart';
 import 'package:version1/pages/search_page.dart';
+import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
 import '../control_pages/json-models.dart';
 import 'package:geocoding/geocoding.dart';
@@ -520,6 +521,104 @@ class _bilgilerimState extends State<bilgilerim> {
                                 SizedBox(
                                   height: 20,
                                 ),
+                                StreamBuilder(
+                                    stream:
+                                        getTakipciler(AuthService().user!.id!),
+                                    builder: (BuildContext context,
+                                        AsyncSnapshot snapshot) {
+                                      if (!snapshot.hasData) {
+                                        return Text("Hiç hobidaşınız yok");
+                                      }
+                                      if (snapshot.data.data() != null) {
+                                        MyUser user = MyUser.fromMap(
+                                            snapshot.data.data()!);
+
+                                        return SizedBox(
+                                          height: 250,
+                                          child: ListView(
+                                              children: user.takip!.map((u) {
+                                            return FutureBuilder<
+                                                    DocumentSnapshot<
+                                                        Map<String, dynamic>>>(
+                                                future: getUser(u),
+                                                builder: (context, snapshot) {
+                                                  if (snapshot.hasData) {
+                                                    if (snapshot.data!.data() !=
+                                                        null) {
+                                                      MyUser izlenen =
+                                                          MyUser.fromMap(
+                                                              snapshot.data!
+                                                                  .data()!);
+                                                      ImageProvider
+                                                          _havePhoto() {
+                                                        if (izlenen.image !=
+                                                            null) {
+                                                          return NetworkImage(
+                                                              izlenen.image!);
+                                                        } else {
+                                                          return const AssetImage(
+                                                              "images/logo.png");
+                                                        }
+                                                      }
+
+                                                      return Card(
+                                                        shape: RoundedRectangleBorder(
+                                                            borderRadius: BorderRadius.only(
+                                                                topLeft: Radius
+                                                                    .circular(
+                                                                        80),
+                                                                topRight: Radius
+                                                                    .circular(
+                                                                        80),
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        80),
+                                                                bottomRight: Radius
+                                                                    .circular(
+                                                                        80))),
+                                                        color: Colors.blue,
+                                                        child: ListTile(
+                                                          title: Text(
+                                                            izlenen.userName!,
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .black),
+                                                          ),
+                                                          subtitle: Text(
+                                                            izlenen.bio!,
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .black),
+                                                          ),
+                                                          leading:
+                                                              GestureDetector(
+                                                            onTap: () => Navigator
+                                                                    .of(context)
+                                                                .push(CupertinoPageRoute(
+                                                                    builder: (context) => show(
+                                                                        whoData:
+                                                                            izlenen))),
+                                                            child: CircleAvatar(
+                                                              backgroundImage:
+                                                                  _havePhoto(),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                  }
+                                                  return Text(
+                                                    "Deneme Sonuç",
+                                                    style: TextStyle(
+                                                        color: Colors.black),
+                                                  );
+                                                });
+                                          }).toList()),
+                                        );
+                                      } else {
+                                        return Text("Hiç hobidaşınız yok");
+                                      }
+                                    }),
                               ],
                             ),
                           ],
@@ -731,5 +830,16 @@ class _bilgilerimState extends State<bilgilerim> {
     return Navigator.of(context).pushAndRemoveUntil(
         CupertinoPageRoute(builder: (context) => const searchPage()),
         ((route) => false));
+  }
+
+  Stream getTakipciler(String currentUserID) {
+    return FirebaseFirestore.instance
+        .collection("Users")
+        .doc(currentUserID)
+        .snapshots();
+  }
+
+  Future<DocumentSnapshot<Map<String, dynamic>>> getUser(String u) {
+    return FirebaseFirestore.instance.collection("Users").doc(u).get();
   }
 }

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/control_pages/badge_goster.dart';
@@ -11,6 +12,7 @@ import '../models/user.dart';
 import '../services/auth_service.dart';
 import 'bilgilerim.dart';
 import 'chat.dart';
+
 class show extends StatefulWidget {
   final MyUser whoData;
   show({
@@ -19,15 +21,18 @@ class show extends StatefulWidget {
   @override
   State<show> createState() => _showState();
 }
+
 bool? rewardP = false;
 Color ppColor = Colors.blue;
 double boyut = 75;
+
 @override
 void initState() {
   if (adHelper.interstitialAd != null) {
     adHelper.interstitialAd;
   }
 }
+
 class _showState extends State<show> {
   @override
   Widget build(BuildContext context) {
@@ -90,7 +95,18 @@ class _showState extends State<show> {
                   ),
                   const SizedBox(width: 8),
                   ListTile(
-                    onTap: () async {
+                    onTap: () {
+                      bool? tamamMi = AuthService()
+                          .user
+                          ?.takip!
+                          .contains(widget.whoData.id);
+                      if (!tamamMi!) {
+                        takibeAl();
+                      } else {
+                        takiptenCikar();
+                      }
+                    },
+                    /* onTap: () async {
                       if (adHelper.rewardedAd != null) {
                         await adHelper.showInterstitialAd((p0) {
                           git();
@@ -98,7 +114,7 @@ class _showState extends State<show> {
                       } else {
                         git();
                       }
-                    },
+                    }, */
                     textColor: Colors.black,
                     title: Text(
                       "${widget.whoData.userName} ${widget.whoData.soyisim}",
@@ -112,6 +128,7 @@ class _showState extends State<show> {
                       ),
                       backgroundColor: ControlColor(),
                     ),
+                    trailing: takipteMi(),
                     subtitle: ControlName(),
                   ),
                   const SizedBox(width: 18),
@@ -248,6 +265,7 @@ class _showState extends State<show> {
       ),
     );
   }
+
   controlPP() {
     if (widget.whoData.image != null) {
       return NetworkImage(widget.whoData.image!);
@@ -255,12 +273,14 @@ class _showState extends State<show> {
       return AssetImage("images/logo.png");
     }
   }
+
   Stream<DocumentSnapshot<Map<String, dynamic>>> galeri() {
     var userID = widget.whoData.id;
     var galerinstance =
         FirebaseFirestore.instance.collection('Users').doc(userID).snapshots();
     return galerinstance;
   }
+
   Text ControlName() {
     if (widget.whoData.il != null) {
       return Text(
@@ -274,6 +294,7 @@ class _showState extends State<show> {
       );
     }
   }
+
   Color ControlColor() {
     if (widget.whoData.sex == 'Female' || widget.whoData.sex == 'Kadın') {
       return ppColor = Colors.pink.shade400;
@@ -281,20 +302,82 @@ class _showState extends State<show> {
       return ppColor = Colors.blue;
     }
   }
+
   _bilgilerimeGit() {
     return Navigator.of(context)
         .push(CupertinoPageRoute(builder: (context) => bilgilerim()));
   }
+
   _searchPage() {
     return Navigator.of(context).pushAndRemoveUntil(
         CupertinoPageRoute(builder: (context) => const searchPage()),
         ((route) => false));
   }
+
   git() {
     Navigator.of(context).push(CupertinoPageRoute(
         builder: (context) => Sohbet(
               currentUser: AuthService().user!,
               konusulanUser: widget.whoData,
             )));
+  }
+
+  takipteMi() {
+    bool? tamamMi = AuthService().user?.takip!.contains(widget.whoData.id);
+    setState(() {
+      tamamMi;
+    });
+    if (!tamamMi!) {
+      return Container(
+        decoration: BoxDecoration(
+            color: Colors.black,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: const [
+              BoxShadow(color: Colors.grey, blurRadius: 6),
+            ]),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            "Hobidaş Değil".tr(),
+            style: TextStyle(color: Colors.red),
+          ),
+        ),
+      );
+    } else {
+      return Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            "Hobidaş".tr(),
+            style: TextStyle(color: Colors.green),
+          ),
+        ),
+      );
+    }
+  }
+
+  takibeAl() {
+    AuthService().user?.takip!.add(widget.whoData.id!);
+    AuthService().updateUser(AuthService().user!);
+    bool? tamamMi = AuthService().user?.takip!.contains(widget.whoData.id);
+    setState(() {
+      tamamMi;
+    });
+  }
+
+  takiptenCikar() {
+    AuthService()
+        .user!
+        .takip!
+        .removeWhere((element) => element == widget.whoData.id!);
+    AuthService().updateUser(AuthService().user!);
+    bool? tamamMi = AuthService().user?.takip!.contains(widget.whoData.id);
+    setState(() {
+      tamamMi;
+    });
   }
 }

@@ -21,6 +21,7 @@ class MyUser {
   bool? premium;
   List<Medya>? gPic;
   String? token;
+  List<String>? takip = [];
 
   MyUser(
       {this.soyisim,
@@ -37,6 +38,7 @@ class MyUser {
       this.sex,
       this.bio,
       this.token,
+      this.takip,
       this.premium = false});
 
   MyUser copyWith({
@@ -55,8 +57,10 @@ class MyUser {
     String? bio,
     bool? premium,
     List<Medya>? gPic,
+    List<String>? takip,
   }) {
     return MyUser(
+      takip: takip ?? this.takip,
       token: token ?? this.token,
       soyisim: soyisim ?? this.soyisim,
       gPic: gPic ?? this.gPic,
@@ -77,6 +81,7 @@ class MyUser {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'takip': takip,
       'token': token,
       'soyisim': soyisim,
       'image': image,
@@ -98,6 +103,9 @@ class MyUser {
 
   factory MyUser.fromMap(Map<String, dynamic> map) {
     return MyUser(
+      takip: map['takip'] != null
+          ? (map['takip'] as List).map((e) => e.toString()).toList()
+          : [],
       token: map['token'] != null ? map['token'] as String : null,
       soyisim: map['soyisim'] != null ? map['soyisim'] as String : null,
       image: map['image'] != null ? map['image'] as String : null,

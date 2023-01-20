@@ -27,18 +27,21 @@ class private_profil extends StatefulWidget {
 class _private_profilState extends State<private_profil> {
   late TextEditingController _userNameController;
   late TextEditingController _bioController;
+  late TextEditingController _statuController;
 
   @override
   void initState() {
     super.initState();
     _userNameController = TextEditingController();
     _bioController = TextEditingController();
+    _statuController = TextEditingController();
   }
 
   @override
   void dispose() {
     _userNameController.dispose();
     _bioController.dispose();
+    _statuController.dispose();
     super.dispose();
   }
 

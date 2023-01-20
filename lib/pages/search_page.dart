@@ -42,7 +42,7 @@ class _searchPageState extends State<searchPage> {
   String? secilenCinsiyet;
   bool? izlendi = false;
 
-  Future<void> arama() async {
+  /* uture<void> arama() async {
     if (adHelper.interstitialAd != null) {
       await adHelper.showInterstitialAd(
         (p0) {
@@ -133,7 +133,7 @@ class _searchPageState extends State<searchPage> {
         ),
       );
     }
-  }
+  } */
 
   @override
   void initState() {
@@ -427,7 +427,19 @@ class _searchPageState extends State<searchPage> {
                                         ilce: ilce!,
                                         mevki: mevki!)));
                               } else {
-                                arama();
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => Results(
+                                      il: il!,
+                                      ilce: ilce!,
+                                      brans: brans!.brans,
+                                      mevki: mevki!,
+                                      ppColor: Colors.blue,
+                                      sIcon: const Icon(Icons.photo),
+                                    ),
+                                  ),
+                                );
+                                //arama();
                               }
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -496,7 +508,7 @@ class _searchPageState extends State<searchPage> {
                             ),
                             TextButton(
                                 onPressed: () {
-                                  yakinArama();
+                                  //yakinArama();
                                 },
                                 child: Text("EnYakinPartner".tr())),
                           ],
@@ -515,14 +527,14 @@ class _searchPageState extends State<searchPage> {
                       SizedBox(
                         height: 10,
                       ),
-                      Container(
+                      /* Container(
                         width: AdSize.banner.width.toDouble(),
                         height: AdSize.banner.height.toDouble(),
                         alignment: Alignment.bottomCenter,
                         child: AdWidget(
                           ad: adHelper.createBannerAd(),
                         ),
-                      ),
+                      ), */
                     ],
                   ),
                 ],

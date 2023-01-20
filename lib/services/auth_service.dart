@@ -227,4 +227,28 @@ class AuthService {
 
     return true;
   }
+  Future<bool> updateStatu(String userID, String newStatu) async {
+    if (newStatu.length < 0) {
+      var _users = await FirebaseFirestore.instance
+          .collection("Users")
+          .where("statu", isEqualTo: newStatu)
+          .get();
+      if (_users.docs.isNotEmpty) {
+        return false;
+      } else {
+        await FirebaseFirestore.instance
+            .collection("Users")
+            .doc(userID)
+            .update({"statu": newStatu});
+        return true;
+      }
+    } else {
+      Fluttertoast.showToast(
+        msg: "ButunAlanlariEksiksiDoldur".tr(),
+        gravity: ToastGravity.BOTTOM,
+        toastLength: Toast.LENGTH_LONG,
+      );
+      return false;
+    }
+  }
 }
