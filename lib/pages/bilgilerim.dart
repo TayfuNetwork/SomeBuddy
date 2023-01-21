@@ -583,7 +583,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                             snapshot.data.data()!);
 
                                         return SizedBox(
-                                          height: 200,
+                                          height: 100,
                                           child: ListView(
                                               children: user.takip!.map((u) {
                                             return FutureBuilder<
@@ -655,10 +655,18 @@ class _bilgilerimState extends State<bilgilerim> {
                                                           ),
                                                         ),
                                                       );
+                                                    } else {
+                                                      Text(
+                                                        "Hiç hobidaşınız yok"
+                                                            .tr(),
+                                                        style: TextStyle(
+                                                            color:
+                                                                Colors.black),
+                                                      );
                                                     }
                                                   }
                                                   return Text(
-                                                    "Deneme Sonuç",
+                                                    "Hiç hobidaşınız yok".tr(),
                                                     style: TextStyle(
                                                         color: Colors.black),
                                                   );
@@ -666,7 +674,10 @@ class _bilgilerimState extends State<bilgilerim> {
                                           }).toList()),
                                         );
                                       } else {
-                                        return Text("Hiç hobidaşınız yok");
+                                        return Text(
+                                          "Hiç hobidaşınız yok".tr(),
+                                          style: TextStyle(color: Colors.black),
+                                        );
                                       }
                                     }),
                               ],

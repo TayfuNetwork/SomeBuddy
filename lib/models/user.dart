@@ -22,6 +22,7 @@ class MyUser {
   List<Medya>? gPic;
   String? token;
   List<String>? takip = [];
+  int? kacKisi = 0;
 
   MyUser(
       {this.soyisim,
@@ -39,6 +40,7 @@ class MyUser {
       this.bio,
       this.token,
       this.takip,
+      this.kacKisi,
       this.premium = false});
 
   MyUser copyWith({
@@ -56,10 +58,12 @@ class MyUser {
     String? sex,
     String? bio,
     bool? premium,
+    int? kacKisi = 0,
     List<Medya>? gPic,
     List<String>? takip,
   }) {
     return MyUser(
+      kacKisi: kacKisi ?? this.kacKisi,
       takip: takip ?? this.takip,
       token: token ?? this.token,
       soyisim: soyisim ?? this.soyisim,
@@ -81,6 +85,7 @@ class MyUser {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'kacKisi': kacKisi,
       'takip': takip,
       'token': token,
       'soyisim': soyisim,
@@ -103,6 +108,7 @@ class MyUser {
 
   factory MyUser.fromMap(Map<String, dynamic> map) {
     return MyUser(
+      kacKisi: map['kacKisi'] != null ? map['kacKisi'] as int : null,
       takip: map['takip'] != null
           ? (map['takip'] as List).map((e) => e.toString()).toList()
           : [],
@@ -134,7 +140,7 @@ class MyUser {
 
   @override
   String toString() {
-    return 'MyUser(token: $token, image: $image, email: $email, userName: $userName, id: $id, il: $il, ilce: $ilce, brans: $brans, soyisim: $soyisim, mevki: $mevki, yas: $yas, sex: $sex, bio: $bio, gPic: $gPic)';
+    return 'MyUser(kacKisi: $kacKisi, $token, image: $image, email: $email, userName: $userName, id: $id, il: $il, ilce: $ilce, brans: $brans, soyisim: $soyisim, mevki: $mevki, yas: $yas, sex: $sex, bio: $bio, gPic: $gPic)';
   }
 
   @override
@@ -152,6 +158,7 @@ class MyUser {
         other.mevki == mevki &&
         other.yas == yas &&
         other.sex == sex &&
+        other.kacKisi == kacKisi &&
         other.soyisim == soyisim &&
         other.bio == bio &&
         other.gPic == gPic;
@@ -172,6 +179,7 @@ class MyUser {
         sex.hashCode ^
         bio.hashCode ^
         soyisim.hashCode ^
+        kacKisi.hashCode ^
         gPic.hashCode;
   }
 

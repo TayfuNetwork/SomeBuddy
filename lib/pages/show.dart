@@ -132,6 +132,17 @@ class _showState extends State<show> {
                     subtitle: ControlName(),
                   ),
                   const SizedBox(width: 18),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(
+                        "Takipte: ${(takipedilen().toString())} ",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text("Takip Eden: ${takipeden().toString()} ",
+                          style: TextStyle(color: Colors.white)),
+                    ],
+                  ),
                   const Divider(
                     height: 2,
                   ),
@@ -367,6 +378,11 @@ class _showState extends State<show> {
     setState(() {
       tamamMi;
     });
+    setState(() {
+      int takipte = widget.whoData.kacKisi!;
+      takipte++;
+      widget.whoData.kacKisi = takipte;
+    });
   }
 
   takiptenCikar() {
@@ -379,5 +395,28 @@ class _showState extends State<show> {
     setState(() {
       tamamMi;
     });
+    setState(() {
+      int takipte = widget.whoData.kacKisi!;
+      takipte--;
+      widget.whoData.kacKisi = takipte;
+    });
+  }
+
+  int takipedilen() {
+    List? a = widget.whoData.takip;
+    if (widget.whoData.takip != null) {
+      return a!.length;
+    } else {
+      return 0;
+    }
+  }
+
+  takipeden() {
+    int? takipte = widget.whoData.kacKisi;
+    if (takipte != null) {
+      return takipte;
+    } else {
+      return 0;
+    }
   }
 }
