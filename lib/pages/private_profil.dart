@@ -197,7 +197,7 @@ class _private_profilState extends State<private_profil> {
                     //initialValue: _userModel.user!.userName,
                     readOnly: false,
                     decoration: InputDecoration(
-                        labelText: 'Biografi'.tr(),
+                        labelText: 'Paylaşım'.tr(),
                         hintText: 'BioOrnek'.tr(),
                         border: OutlineInputBorder()),
                   ),

@@ -164,20 +164,56 @@ class _bilgilerimState extends State<bilgilerim> {
                           children: <Widget>[
                             Text("AnaSayfaKimlik".tr(),
                                 style: TextStyle(color: Colors.grey)),
-                            ListTile(
-                              textColor: Colors.black,
-                              title: Text("${user.userName}"),
-                              leading: CircleAvatar(
-                                child: Text(
-                                  "${user.yas}",
-                                  style: const TextStyle(
-                                      fontSize: 20, color: Colors.white),
+                            Card(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      topRight: Radius.circular(20),
+                                      bottomLeft: Radius.circular(20),
+                                      bottomRight: Radius.circular(20))),
+                              color: Color.fromARGB(221, 23, 22, 22),
+                              child: ListTile(
+                                title: SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: [
+                                      SingleChildScrollView(
+                                        child: Text(
+                                          "${AuthService().user!.userName} ${AuthService().user!.soyisim} - ",
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Text(
+                                          "${AuthService().user!.ilce} / ${AuthService().user!.mevki}",
+                                          style: const TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.yellow),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                backgroundColor: renk(),
+                                leading: CircleAvatar(
+                                  child: Text(
+                                    AuthService().user!.yas.toString(),
+                                    style: const TextStyle(
+                                        fontSize: 20, color: Colors.white),
+                                  ),
+                                  backgroundColor: previewColor(),
+                                ),
+                                subtitle: SingleChildScrollView(
+                                  child: Text(
+                                    "${AuthService().user!.bio}",
+                                    style: const TextStyle(color: Colors.blue),
+                                  ),
+                                ),
+                                trailing: previewIcon(),
+                                onTap: () {},
                               ),
-                              subtitle: ControlName(),
-                              trailing: const Icon(Icons.message),
-                              onTap: () {},
                             ),
                             const SizedBox(height: 5),
                             if (AuthService().user!.il != null)
@@ -521,20 +557,33 @@ class _bilgilerimState extends State<bilgilerim> {
                                 SizedBox(
                                   height: 20,
                                 ),
+                                Divider(
+                                  thickness: 2,
+                                  color: Colors.blueAccent,
+                                ),
+                                Text(
+                                  "Hobidaşların".tr(),
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
                                 StreamBuilder(
                                     stream:
                                         getTakipciler(AuthService().user!.id!),
                                     builder: (BuildContext context,
                                         AsyncSnapshot snapshot) {
                                       if (!snapshot.hasData) {
-                                        return Text("Hiç hobidaşınız yok");
+                                        return Text("Hiç hobidaşınız yok".tr(),
+                                            style:
+                                                TextStyle(color: Colors.black));
                                       }
                                       if (snapshot.data.data() != null) {
                                         MyUser user = MyUser.fromMap(
                                             snapshot.data.data()!);
 
                                         return SizedBox(
-                                          height: 250,
+                                          height: 200,
                                           child: ListView(
                                               children: user.takip!.map((u) {
                                             return FutureBuilder<
@@ -576,7 +625,8 @@ class _bilgilerimState extends State<bilgilerim> {
                                                                 bottomRight: Radius
                                                                     .circular(
                                                                         80))),
-                                                        color: Colors.blue,
+                                                        color:
+                                                            Colors.blueAccent,
                                                         child: ListTile(
                                                           title: Text(
                                                             izlenen.userName!,
@@ -588,7 +638,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                                             izlenen.bio!,
                                                             style: TextStyle(
                                                                 color: Colors
-                                                                    .black),
+                                                                    .white),
                                                           ),
                                                           leading:
                                                               GestureDetector(
@@ -841,5 +891,37 @@ class _bilgilerimState extends State<bilgilerim> {
 
   Future<DocumentSnapshot<Map<String, dynamic>>> getUser(String u) {
     return FirebaseFirestore.instance.collection("Users").doc(u).get();
+  }
+
+  _previewPhoto() {
+    if (AuthService().user!.image != null) {
+      return NetworkImage(AuthService().user!.image!);
+    } else {
+      return const AssetImage("images/logo.png");
+    }
+  }
+
+  Icon previewIcon() {
+    if (AuthService().user!.sex == 'Female' ||
+        AuthService().user!.sex == 'Female') {
+      return Icon(
+        Icons.person,
+        color: Colors.pink,
+      );
+    } else {
+      return Icon(
+        Icons.person,
+        color: Colors.blue,
+      );
+    }
+  }
+
+  Color previewColor() {
+    if (AuthService().user!.sex == 'Female' ||
+        AuthService().user!.sex == 'Female') {
+      return Colors.pink;
+    } else {
+      return Colors.blue;
+    }
   }
 }

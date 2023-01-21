@@ -142,7 +142,7 @@ class _ProfileState extends State<Profile> {
                             borderSide:
                                 BorderSide(color: Colors.blue, width: 1)),
                         focusColor: Colors.blue,
-                        hintText: 'Biografi'.tr(),
+                        hintText: 'Paylaşım'.tr(),
                       ),
                       autofocus: false,
                       onChanged: (deger) {

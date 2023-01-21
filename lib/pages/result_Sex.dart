@@ -165,6 +165,7 @@ class _Results2State extends State<Results2> {
                                 child: Row(
                                   children: [
                                     SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
                                       child: Text(
                                         "${e.userName} ${e.soyisim} - ",
                                         style: const TextStyle(
@@ -175,7 +176,7 @@ class _Results2State extends State<Results2> {
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                        "${e.ilce} ${e.mevki}",
+                                        "${e.ilce} / ${e.mevki}",
                                         style: const TextStyle(
                                             fontSize: 12, color: Colors.blue),
                                       ),
