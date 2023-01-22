@@ -375,14 +375,14 @@ class _showState extends State<show> {
     AuthService().user?.takip!.add(widget.whoData.id!);
     AuthService().updateUser(AuthService().user!);
     bool? tamamMi = AuthService().user?.takip!.contains(widget.whoData.id);
-    setState(() {
-      tamamMi;
-    });
-    setState(() {
-      int takipte = widget.whoData.kacKisi!;
-      takipte++;
-      widget.whoData.kacKisi = takipte;
-    });
+    if (widget.whoData.geriTakip != null) {
+      setState(() {
+        tamamMi;
+        kendiniEkle();
+        takipeden();
+        takipedilen();
+      });
+    } else {}
   }
 
   takiptenCikar() {
@@ -392,31 +392,57 @@ class _showState extends State<show> {
         .removeWhere((element) => element == widget.whoData.id!);
     AuthService().updateUser(AuthService().user!);
     bool? tamamMi = AuthService().user?.takip!.contains(widget.whoData.id);
-    setState(() {
-      tamamMi;
-    });
-    setState(() {
-      int takipte = widget.whoData.kacKisi!;
-      takipte--;
-      widget.whoData.kacKisi = takipte;
-    });
+    if (widget.whoData.geriTakip != null) {
+      setState(() {
+        tamamMi;
+        kendiniCikar();
+        takipeden();
+        takipedilen();
+      });
+    } else {
+      int takipte = 0;
+      takipteMi();
+      return takipte;
+    }
   }
 
   int takipedilen() {
-    List? a = widget.whoData.takip;
     if (widget.whoData.takip != null) {
+      List? a = widget.whoData.takip;
       return a!.length;
+    } else {
+      List? a = widget.whoData.takip;
+      return a!.length;
+    }
+  }
+
+  int takipeden() {
+    if (widget.whoData.geriTakip != null) {
+      List? Geritakipte = widget.whoData.geriTakip;
+      return Geritakipte!.length;
     } else {
       return 0;
     }
   }
 
-  takipeden() {
-    int? takipte = widget.whoData.kacKisi;
-    if (takipte != null) {
-      return takipte;
+  kendiniEkle() {
+    if (widget.whoData.geriTakip != null) {
+      widget.whoData.geriTakip!.add(AuthService().user!.id!);
+      AuthService()
+          .updateOtherUser(widget.whoData.id!, widget.whoData.geriTakip!);
     } else {
-      return 0;
+      ;
+    }
+  }
+
+  kendiniCikar() {
+    if (widget.whoData.geriTakip != null) {
+      widget.whoData.geriTakip!
+          .removeWhere((element) => element == AuthService().user!.id!);
+      AuthService()
+          .updateOtherUser(widget.whoData.id!, widget.whoData.geriTakip!);
+    } else {
+      null;
     }
   }
 }

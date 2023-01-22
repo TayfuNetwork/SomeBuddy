@@ -23,6 +23,7 @@ class MyUser {
   String? token;
   List<String>? takip = [];
   int? kacKisi = 0;
+  List<String>? geriTakip = [];
 
   MyUser(
       {this.soyisim,
@@ -40,6 +41,7 @@ class MyUser {
       this.bio,
       this.token,
       this.takip,
+      this.geriTakip,
       this.kacKisi,
       this.premium = false});
 
@@ -61,10 +63,12 @@ class MyUser {
     int? kacKisi = 0,
     List<Medya>? gPic,
     List<String>? takip,
+    List<String>? Geritakip,
   }) {
     return MyUser(
       kacKisi: kacKisi ?? this.kacKisi,
       takip: takip ?? this.takip,
+      geriTakip: geriTakip ?? this.geriTakip,
       token: token ?? this.token,
       soyisim: soyisim ?? this.soyisim,
       gPic: gPic ?? this.gPic,
@@ -87,6 +91,7 @@ class MyUser {
     return <String, dynamic>{
       'kacKisi': kacKisi,
       'takip': takip,
+      'geriTakip': geriTakip,
       'token': token,
       'soyisim': soyisim,
       'image': image,
@@ -111,6 +116,9 @@ class MyUser {
       kacKisi: map['kacKisi'] != null ? map['kacKisi'] as int : null,
       takip: map['takip'] != null
           ? (map['takip'] as List).map((e) => e.toString()).toList()
+          : [],
+      geriTakip: map['geriTakip'] != null
+          ? (map['geriTakip'] as List).map((e) => e.toString()).toList()
           : [],
       token: map['token'] != null ? map['token'] as String : null,
       soyisim: map['soyisim'] != null ? map['soyisim'] as String : null,
@@ -140,7 +148,7 @@ class MyUser {
 
   @override
   String toString() {
-    return 'MyUser(kacKisi: $kacKisi, $token, image: $image, email: $email, userName: $userName, id: $id, il: $il, ilce: $ilce, brans: $brans, soyisim: $soyisim, mevki: $mevki, yas: $yas, sex: $sex, bio: $bio, gPic: $gPic)';
+    return 'MyUser(geriTakip: $geriTakip,takip: $takip,kacKisi: $kacKisi, $token, image: $image, email: $email, userName: $userName, id: $id, il: $il, ilce: $ilce, brans: $brans, soyisim: $soyisim, mevki: $mevki, yas: $yas, sex: $sex, bio: $bio, gPic: $gPic)';
   }
 
   @override
@@ -158,6 +166,8 @@ class MyUser {
         other.mevki == mevki &&
         other.yas == yas &&
         other.sex == sex &&
+        other.takip == takip &&
+        other.geriTakip == geriTakip &&
         other.kacKisi == kacKisi &&
         other.soyisim == soyisim &&
         other.bio == bio &&
@@ -180,6 +190,8 @@ class MyUser {
         bio.hashCode ^
         soyisim.hashCode ^
         kacKisi.hashCode ^
+        takip.hashCode ^
+        geriTakip.hashCode ^
         gPic.hashCode;
   }
 

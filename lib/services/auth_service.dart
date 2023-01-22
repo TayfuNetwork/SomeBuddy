@@ -135,6 +135,21 @@ class AuthService {
     }
   }
 
+  Future<bool> updateOtherUser( String otherUserId, List<String> geriTakip) async {
+    try {
+      await userCollection.doc(otherUserId).update({"Geritakip":geriTakip});
+
+      return true;
+    } on Exception catch (e) {
+      Fluttertoast.showToast(
+        msg: e.toString(),
+        gravity: ToastGravity.BOTTOM,
+        toastLength: Toast.LENGTH_LONG,
+      );
+      return false;
+    }
+  }
+
   Future<bool> updateUserName(String userID, String yeniUserName) async {
     if (yeniUserName.length < 0) {
       var _users = await FirebaseFirestore.instance
@@ -227,6 +242,7 @@ class AuthService {
 
     return true;
   }
+
   Future<bool> updateStatu(String userID, String newStatu) async {
     if (newStatu.length < 0) {
       var _users = await FirebaseFirestore.instance

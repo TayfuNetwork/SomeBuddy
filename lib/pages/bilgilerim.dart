@@ -105,6 +105,7 @@ class _bilgilerimState extends State<bilgilerim> {
 
   @override
   Widget build(BuildContext context) {
+    final takipciler = getTakipciler(AuthService().user!.id!);
     return SafeArea(
       child: Scaffold(
         drawer: MyDrawer(),
@@ -216,6 +217,19 @@ class _bilgilerimState extends State<bilgilerim> {
                               ),
                             ),
                             const SizedBox(height: 5),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text(
+                                  "${("Takipte").tr()}: ${(benimHobidas().toString())} ",
+                                  style: TextStyle(color: Colors.blue),
+                                ),
+                                Text(
+                                    "${("Takip Eden").tr()} : ${benOnlarinHobidas().toString()} ",
+                                    style: TextStyle(color: Colors.blue)),
+                              ],
+                            ),
+                            const SizedBox(height: 5),
                             if (AuthService().user!.il != null)
                               TextButton(
                                   onPressed: () async {
@@ -309,7 +323,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                                                 il = _konumIl;
                                                                 ilce =
                                                                     _konumIlce;
-                                                                setState(() {});
+
                                                                 setState(() {
                                                                   _isloading =
                                                                       false;
@@ -387,7 +401,6 @@ class _bilgilerimState extends State<bilgilerim> {
                                           il = _konumIl;
                                           ilce = _konumIlce;
 
-                                          setState(() {});
                                           setState(() {
                                             _isloading = false;
                                           });
@@ -569,8 +582,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                   height: 20,
                                 ),
                                 StreamBuilder(
-                                    stream:
-                                        getTakipciler(AuthService().user!.id!),
+                                    stream: takipciler,
                                     builder: (BuildContext context,
                                         AsyncSnapshot snapshot) {
                                       if (!snapshot.hasData) {
@@ -583,7 +595,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                             snapshot.data.data()!);
 
                                         return SizedBox(
-                                          height: 100,
+                                          height: 190,
                                           child: ListView(
                                               children: user.takip!.map((u) {
                                             return FutureBuilder<
@@ -610,47 +622,57 @@ class _bilgilerimState extends State<bilgilerim> {
                                                         }
                                                       }
 
-                                                      return Card(
-                                                        shape: RoundedRectangleBorder(
-                                                            borderRadius: BorderRadius.only(
-                                                                topLeft: Radius
-                                                                    .circular(
-                                                                        80),
-                                                                topRight: Radius
-                                                                    .circular(
-                                                                        80),
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        80),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        80))),
-                                                        color:
-                                                            Colors.blueAccent,
-                                                        child: ListTile(
-                                                          title: Text(
-                                                            izlenen.userName!,
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .black),
-                                                          ),
-                                                          subtitle: Text(
-                                                            izlenen.bio!,
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .white),
-                                                          ),
-                                                          leading:
-                                                              GestureDetector(
-                                                            onTap: () => Navigator
-                                                                    .of(context)
-                                                                .push(CupertinoPageRoute(
-                                                                    builder: (context) => show(
+                                                      return GestureDetector(
+                                                        onTap: () => Navigator
+                                                                .of(context)
+                                                            .push(CupertinoPageRoute(
+                                                                builder: (context) =>
+                                                                    show(
                                                                         whoData:
                                                                             izlenen))),
-                                                            child: CircleAvatar(
+                                                        child: Card(
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius: BorderRadius.only(
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          80),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          80),
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          80),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          80))),
+                                                          color:
+                                                              Colors.blueAccent,
+                                                          child: ListTile(
+                                                            title: Text(
+                                                              izlenen.userName!,
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .black),
+                                                            ),
+                                                            subtitle: Text(
+                                                              izlenen.bio!,
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white),
+                                                            ),
+                                                            leading:
+                                                                CircleAvatar(
                                                               backgroundImage:
                                                                   _havePhoto(),
+                                                            ),
+                                                            trailing: Icon(
+                                                              Icons.person,
+                                                              color: Color
+                                                                  .fromARGB(
+                                                                      255,
+                                                                      32,
+                                                                      31,
+                                                                      31),
                                                             ),
                                                           ),
                                                         ),
@@ -897,20 +919,20 @@ class _bilgilerimState extends State<bilgilerim> {
     return FirebaseFirestore.instance
         .collection("Users")
         .doc(currentUserID)
-        .snapshots();
+        .snapshots(includeMetadataChanges: false);
   }
 
   Future<DocumentSnapshot<Map<String, dynamic>>> getUser(String u) {
     return FirebaseFirestore.instance.collection("Users").doc(u).get();
   }
 
-  _previewPhoto() {
+  /*  _previewPhoto() {
     if (AuthService().user!.image != null) {
       return NetworkImage(AuthService().user!.image!);
     } else {
       return const AssetImage("images/logo.png");
     }
-  }
+  } */
 
   Icon previewIcon() {
     if (AuthService().user!.sex == 'Female' ||
@@ -933,6 +955,24 @@ class _bilgilerimState extends State<bilgilerim> {
       return Colors.pink;
     } else {
       return Colors.blue;
+    }
+  }
+
+  benimHobidas() {
+    List? a = AuthService().user!.takip;
+    if (AuthService().user!.takip != null) {
+      return a!.length;
+    } else {
+      return 0;
+    }
+  }
+
+  benOnlarinHobidas() {
+    int? takipte = AuthService().user!.kacKisi;
+    if (takipte != null) {
+      return takipte;
+    } else {
+      return 0;
     }
   }
 }
