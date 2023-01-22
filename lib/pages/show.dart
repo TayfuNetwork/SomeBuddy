@@ -136,10 +136,10 @@ class _showState extends State<show> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(
-                        "Takipte: ${(takipedilen().toString())} ",
+                        "${("Takipte").tr()}: ${(takipedilen().toString())} ",
                         style: TextStyle(color: Colors.white),
                       ),
-                      Text("Takip Eden: ${takipeden().toString()} ",
+                      Text("${("Takip Eden")}: ${takipeden().toString()} ",
                           style: TextStyle(color: Colors.white)),
                     ],
                   ),
