@@ -677,14 +677,6 @@ class _bilgilerimState extends State<bilgilerim> {
                                                           ),
                                                         ),
                                                       );
-                                                    } else {
-                                                      Text(
-                                                        "Hiç hobidaşınız yok"
-                                                            .tr(),
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.black),
-                                                      );
                                                     }
                                                   }
                                                   return Text(

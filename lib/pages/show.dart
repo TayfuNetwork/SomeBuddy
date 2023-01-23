@@ -106,15 +106,7 @@ class _showState extends State<show> {
                         takiptenCikar();
                       }
                     },
-                    /* onTap: () async {
-                      if (adHelper.rewardedAd != null) {
-                        await adHelper.showInterstitialAd((p0) {
-                          git();
-                        });
-                      } else {
-                        git();
-                      }
-                    }, */
+                    
                     textColor: Colors.black,
                     title: Text(
                       "${widget.whoData.userName} ${widget.whoData.soyisim}",
