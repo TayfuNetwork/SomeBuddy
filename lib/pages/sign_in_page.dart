@@ -7,9 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:version1/control_pages/landing_page.dart';
 import 'package:version1/pages/emailpassword.dart';
 import 'package:version1/services/auth_service.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({
@@ -30,63 +32,67 @@ class _SignInPageState extends State<SignInPage> {
       child: Scaffold(
         /*************/ body: Container(
           decoration: BoxDecoration(
-              image: DecorationImage(
+            gradient: LinearGradient(colors: [
+              Color.fromARGB(255, 220, 222, 238),
+              Color.fromARGB(255, 76, 65, 147)
+            ], end: Alignment.topRight, begin: Alignment.bottomRight),
+            color: Color.fromARGB(255, 163, 215, 231),
+            /* image: DecorationImage(
                   image: AssetImage("images/background.png"),
-                  fit: BoxFit.cover)),
+                  fit: BoxFit.cover) */
+          ),
           /*************/ padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
+          child: Container(
+              child: Padding(
+            padding: const EdgeInsets.all(40),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
                   "OturumAcKaydol".tr(),
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    color: Colors.white,
-                    fontStyle: FontStyle.italic,
-                  ),
+                  style: GoogleFonts.lato(
+                      fontStyle: FontStyle.italic, fontSize: 30),
                 ),
-              ),
-              /*************/ const SizedBox(height: 48),
+                /*************/ const SizedBox(height: 48),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                      onPressed: _isloading ? null : _googleGirisi,
+                      child: _isloading
+                          ? buildSmallButton()
+                          : Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Icon(LineIcons.googlePlus),
+                                Text(
+                                  'GoogleileOturum'.tr(),
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 16),
+                                ),
+                                Image.asset(
+                                  "images/google-logo.png",
+                                  color: Colors.white.withOpacity(0),
+                                ),
+                              ],
+                            ),
+                      style: ElevatedButton.styleFrom(primary: Colors.blue)),
+                ),
 
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                    onPressed: _isloading ? null : _googleGirisi,
-                    child: _isloading
-                        ? buildSmallButton()
-                        : Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Image.asset("images/google-logo.png"),
-                              Text(
-                                'GoogleileOturum'.tr(),
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
-                              ),
-                              Image.asset(
-                                "images/google-logo.png",
-                                color: Colors.white.withOpacity(0),
-                              ),
-                            ],
-                          ),
-                    style: ElevatedButton.styleFrom(primary: Colors.blue)),
-              ),
-
-              /*************/ Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: eMailGirisi(context),
-              ),
+                /*************/ Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: eMailGirisi(context),
+                ),
+              ],
+            ),
+          )
 
               /*************/ //AnonimGiris(),
-            ],
-          ),
+
+              ),
         ),
       ),
     );
@@ -94,23 +100,23 @@ class _SignInPageState extends State<SignInPage> {
 
   ElevatedButton eMailGirisi(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        Navigator.of(context).push(
-            CupertinoPageRoute(builder: (context) => const EmailPassword()));
-      },
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Icon(Icons.email),
-          Text(
-            'EmailileOturum'.tr(),
-            style: TextStyle(color: Colors.white, fontSize: 16),
-          ),
-          Icon(Icons.email, color: Colors.white.withOpacity(0)),
-        ],
-      ),
-    );
+        onPressed: () {
+          Navigator.of(context).push(
+              CupertinoPageRoute(builder: (context) => const EmailPassword()));
+        },
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Icon(Icons.email),
+            Text(
+              'EmailileOturum'.tr(),
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+            Icon(Icons.email, color: Colors.white.withOpacity(0)),
+          ],
+        ),
+        style: ElevatedButton.styleFrom(primary: Colors.blue));
   }
 
 /*   void _misafirGirisi() async {

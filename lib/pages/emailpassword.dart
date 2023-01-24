@@ -75,9 +75,7 @@ class _EmailPasswordState extends State<EmailPassword> {
               CupertinoPageRoute(builder: (context) => const Profile()),
               (route) => false);
         }
-      } on Exception catch (e) {
-        print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa $e");
-      }
+      } on Exception catch (e) {}
     }
     if (_formType == FormType.Login) {
       user = await service.signIn(_sifre!, _email!, context);
@@ -115,7 +113,7 @@ class _EmailPasswordState extends State<EmailPassword> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(12.0),
                     child: Text("uyari".tr(),
                         style: TextStyle(color: Colors.yellow),
                         textAlign: TextAlign.center),
@@ -124,7 +122,7 @@ class _EmailPasswordState extends State<EmailPassword> {
                     height: 40,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(12.0),
                     child: TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
@@ -144,7 +142,7 @@ class _EmailPasswordState extends State<EmailPassword> {
                   ),
                   const SizedBox(height: 8),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(12.0),
                     child: TextFormField(
                       obscureText: true,
                       decoration: InputDecoration(
@@ -169,7 +167,7 @@ class _EmailPasswordState extends State<EmailPassword> {
                           CupertinoPageRoute(
                               builder: (context) => ForgotPasswordPage())),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(12.0),
                         child: Text('SifreUnuttun'.tr()),
                       ),
                     ),
