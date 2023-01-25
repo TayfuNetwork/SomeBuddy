@@ -37,6 +37,9 @@ bool _isBottomAdLoaded = false;
 // ignore: camel_case_types
 class _bilgilerimState extends State<bilgilerim> {
   Brans? brans;
+  double h1 = 60;
+  double w1 = 60;
+  double c1 = 30;
 
   String? mevki;
   BransServices model = BransServices();
@@ -595,97 +598,116 @@ class _bilgilerimState extends State<bilgilerim> {
                                             snapshot.data.data()!);
 
                                         return SizedBox(
-                                          height: 190,
-                                          child: ListView(
+                                          //height: 190,
+                                          child: Wrap(
+                                              spacing: 8,
+                                              runSpacing: 8,
                                               children: user.takip!.map((u) {
-                                            return FutureBuilder<
-                                                    DocumentSnapshot<
-                                                        Map<String, dynamic>>>(
-                                                future: getUser(u),
-                                                builder: (context, snapshot) {
-                                                  if (snapshot.hasData) {
-                                                    if (snapshot.data!.data() !=
-                                                        null) {
-                                                      MyUser izlenen =
-                                                          MyUser.fromMap(
-                                                              snapshot.data!
-                                                                  .data()!);
-                                                      ImageProvider
-                                                          _havePhoto() {
-                                                        if (izlenen.image !=
+                                                return FutureBuilder<
+                                                        DocumentSnapshot<
+                                                            Map<String,
+                                                                dynamic>>>(
+                                                    future: getUser(u),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      if (snapshot.hasData) {
+                                                        if (snapshot.data!
+                                                                .data() !=
                                                             null) {
-                                                          return NetworkImage(
-                                                              izlenen.image!);
-                                                        } else {
-                                                          return const AssetImage(
-                                                              "images/logo.png");
+                                                          MyUser izlenen =
+                                                              MyUser.fromMap(
+                                                                  snapshot.data!
+                                                                      .data()!);
+                                                          ImageProvider
+                                                              _havePhoto() {
+                                                            if (izlenen.image !=
+                                                                null) {
+                                                              return NetworkImage(
+                                                                  izlenen
+                                                                      .image!);
+                                                            } else {
+                                                              return const AssetImage(
+                                                                  "images/logo.png");
+                                                            }
+                                                          }
+
+                                                          _moveBox() {
+                                                            showDialog(
+                                                              context: context,
+                                                              builder: (builder) =>
+                                                                  Stack(
+                                                                      children: [
+                                                                    AlertDialog(
+                                                                      content:
+                                                                          Container(
+                                                                        width:
+                                                                            400,
+                                                                        height:
+                                                                            400,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          image: DecorationImage(
+                                                                              image: _havePhoto(),
+                                                                              fit: BoxFit.fill),
+                                                                          color:
+                                                                              Colors.blue,
+                                                                          borderRadius:
+                                                                              BorderRadius.all(Radius.circular(c1)),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ]),
+                                                            );
+                                                          }
+
+                                                          return AnimatedContainer(
+                                                            duration: Duration(
+                                                                seconds: 1),
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: _moveBox,
+                                                              child: Column(
+                                                                children: [
+                                                                  Container(
+                                                                    width: w1,
+                                                                    height: h1,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      image: DecorationImage(
+                                                                          image:
+                                                                              _havePhoto(),
+                                                                          fit: BoxFit
+                                                                              .fill),
+                                                                      color: Colors
+                                                                          .blue,
+                                                                      borderRadius:
+                                                                          BorderRadius.all(
+                                                                              Radius.circular(c1) //                 <--- border radius here
+                                                                              ),
+                                                                    ),
+                                                                  ),
+                                                                  Text(
+                                                                    izlenen
+                                                                        .userName!,
+                                                                    style: TextStyle(
+                                                                        color: Colors
+                                                                            .black),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          );
                                                         }
                                                       }
-
-                                                      return GestureDetector(
-                                                        onTap: () => Navigator
-                                                                .of(context)
-                                                            .push(CupertinoPageRoute(
-                                                                builder: (context) =>
-                                                                    show(
-                                                                        whoData:
-                                                                            izlenen))),
-                                                        child: Card(
-                                                          shape: RoundedRectangleBorder(
-                                                              borderRadius: BorderRadius.only(
-                                                                  topLeft: Radius
-                                                                      .circular(
-                                                                          80),
-                                                                  topRight: Radius
-                                                                      .circular(
-                                                                          80),
-                                                                  bottomLeft: Radius
-                                                                      .circular(
-                                                                          80),
-                                                                  bottomRight: Radius
-                                                                      .circular(
-                                                                          80))),
-                                                          color:
-                                                              Colors.blueAccent,
-                                                          child: ListTile(
-                                                            title: Text(
-                                                              izlenen.userName!,
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .black),
-                                                            ),
-                                                            subtitle: Text(
-                                                              izlenen.bio!,
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .white),
-                                                            ),
-                                                            leading:
-                                                                CircleAvatar(
-                                                              backgroundImage:
-                                                                  _havePhoto(),
-                                                            ),
-                                                            trailing: Icon(
-                                                              Icons.person,
-                                                              color: Color
-                                                                  .fromARGB(
-                                                                      255,
-                                                                      32,
-                                                                      31,
-                                                                      31),
-                                                            ),
-                                                          ),
-                                                        ),
+                                                      return Text(
+                                                        "Hiç hobidaşınız yok"
+                                                            .tr(),
+                                                        style: TextStyle(
+                                                            color:
+                                                                Colors.black),
                                                       );
-                                                    }
-                                                  }
-                                                  return Text(
-                                                    "Hiç hobidaşınız yok".tr(),
-                                                    style: TextStyle(
-                                                        color: Colors.black),
-                                                  );
-                                                });
-                                          }).toList()),
+                                                    });
+                                              }).toList()),
                                         );
                                       } else {
                                         return Text(
