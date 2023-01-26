@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:version1/models/mesaj.dart';
 import 'package:version1/models/user.dart';
@@ -135,9 +136,10 @@ class AuthService {
     }
   }
 
-  Future<bool> updateOtherUser( String otherUserId, List<String> geriTakip) async {
+  Future<bool> updateOtherUser(
+      String otherUserId, List<String> geriTakip) async {
     try {
-      await userCollection.doc(otherUserId).update({"Geritakip":geriTakip});
+      await userCollection.doc(otherUserId).update({"Geritakip": geriTakip});
 
       return true;
     } on Exception catch (e) {
@@ -267,4 +269,25 @@ class AuthService {
       return false;
     }
   }
+
+  /* AdminaddFieldAndValue() async {
+    final firestoreInstance = FirebaseFirestore.instance;
+    final QuerySnapshot snapshot =
+        await firestoreInstance.collection("Users").get();
+    var a = snapshot.docs.length;
+    var g = DateTime.now().day;
+    var ay = DateTime.now().month;
+    var yil = DateTime.now().year;
+    var saat = DateTime.now().hour;
+    var dakika = DateTime.now().second;
+    var tarih = "$g.$ay.$yil - $saat:$dakika";
+    for (var v = 0; v < a; v++) {
+      for (var document in snapshot.docs) {
+        await firestoreInstance
+            .collection("Users")
+            .doc(document.id)
+            .update({"statuDate": tarih});
+      }
+    }
+  } */
 }

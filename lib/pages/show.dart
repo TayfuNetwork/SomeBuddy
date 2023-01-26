@@ -106,7 +106,6 @@ class _showState extends State<show> {
                         takiptenCikar();
                       }
                     },
-                    
                     textColor: Colors.black,
                     title: Text(
                       "${widget.whoData.userName} ${widget.whoData.soyisim}",
@@ -179,6 +178,7 @@ class _showState extends State<show> {
                                         context: context,
                                         builder: (builder) => Stack(children: [
                                           AlertDialog(
+                                            backgroundColor: Colors.white,
                                             content: Card(
                                               child: Image.network(e.url),
                                               shape: RoundedRectangleBorder(

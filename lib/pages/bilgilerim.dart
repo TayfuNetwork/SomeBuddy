@@ -40,7 +40,6 @@ class _bilgilerimState extends State<bilgilerim> {
   double h1 = 60;
   double w1 = 60;
   double c1 = 30;
-
   String? mevki;
   BransServices model = BransServices();
   String? il;
@@ -631,13 +630,38 @@ class _bilgilerimState extends State<bilgilerim> {
                                                             }
                                                           }
 
-                                                          _moveBox() {
+                                                          Text ControlHobby() {
+                                                            if (izlenen.il !=
+                                                                null) {
+                                                              return Text(
+                                                                "${izlenen.il}/${izlenen.ilce} - ${(izlenen.brans)!.tr()}/${(izlenen.mevki)!.tr()}",
+                                                                style: const TextStyle(
+                                                                    color: Colors
+                                                                        .yellow),
+                                                              );
+                                                            } else {
+                                                              return Text(
+                                                                "HobiKaydiBulunmuyor"
+                                                                    .tr(),
+                                                                style: const TextStyle(
+                                                                    color: Colors
+                                                                        .orange),
+                                                              );
+                                                            }
+                                                          }
+
+                                                          _moveBox() async {
                                                             showDialog(
                                                               context: context,
                                                               builder: (builder) =>
                                                                   Stack(
+                                                                      fit: StackFit
+                                                                          .expand,
                                                                       children: [
                                                                     AlertDialog(
+                                                                      backgroundColor:
+                                                                          Colors
+                                                                              .white,
                                                                       content:
                                                                           Container(
                                                                         width:
@@ -652,9 +676,34 @@ class _bilgilerimState extends State<bilgilerim> {
                                                                           color:
                                                                               Colors.blue,
                                                                           borderRadius:
-                                                                              BorderRadius.all(Radius.circular(c1)),
+                                                                              BorderRadius.all(Radius.circular(12)),
                                                                         ),
                                                                       ),
+                                                                      actions: [
+                                                                        Center(
+                                                                          child:
+                                                                              Column(
+                                                                            children: [
+                                                                              Padding(
+                                                                                padding: const EdgeInsets.all(8.0),
+                                                                                child: ControlHobby(),
+                                                                              ),
+                                                                              Text(
+                                                                                izlenen.bio!,
+                                                                                style: TextStyle(color: Colors.black),
+                                                                              ),
+                                                                              TextButton(
+                                                                                  onPressed: () {
+                                                                                    Navigator.of(context).push(CupertinoPageRoute(
+                                                                                        builder: (context) => show(
+                                                                                              whoData: izlenen,
+                                                                                            )));
+                                                                                  },
+                                                                                  child: Text("Profil".tr()))
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      ],
                                                                     ),
                                                                   ]),
                                                             );
