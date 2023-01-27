@@ -601,7 +601,10 @@ class _bilgilerimState extends State<bilgilerim> {
                                           child: Wrap(
                                               spacing: 8,
                                               runSpacing: 8,
-                                              children: user.takip!.map((u) {
+                                              children: (user.takip!
+                                                    ..sort((a, b) =>
+                                                        a.compareTo(b)))
+                                                  .map((u) {
                                                 return FutureBuilder<
                                                         DocumentSnapshot<
                                                             Map<String,
@@ -1031,9 +1034,9 @@ class _bilgilerimState extends State<bilgilerim> {
   }
 
   benOnlarinHobidas() {
-    int? takipte = AuthService().user!.kacKisi;
+    List? takipte = AuthService().user!.geriTakip;
     if (takipte != null) {
-      return takipte;
+      return takipte.length;
     } else {
       return 0;
     }

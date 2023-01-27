@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -139,7 +141,7 @@ class AuthService {
   Future<bool> updateOtherUser(
       String otherUserId, List<String> geriTakip) async {
     try {
-      await userCollection.doc(otherUserId).update({"Geritakip": geriTakip});
+      await userCollection.doc(otherUserId).update({"geriTakip": geriTakip});
 
       return true;
     } on Exception catch (e) {
@@ -149,6 +151,21 @@ class AuthService {
         toastLength: Toast.LENGTH_LONG,
       );
       return false;
+    }
+  }
+
+  Future<int> otherUsersList(String otheruserId, List<String> listName) async {
+    final FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+    DocumentReference userDoc =
+        await firestore.collection('Users').doc(otheruserId);
+
+    var doc = await userDoc.get();
+    List<String>? myList = (doc.data() as Map<String, dynamic>)['$listName'];
+    if (myList != null) {
+      return myList.length;
+    } else {
+      return 0;
     }
   }
 
