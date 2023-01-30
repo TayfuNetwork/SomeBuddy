@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:version1/control_pages/landing_page.dart';
+import 'package:version1/control_pages/statuPage.dart';
 import 'package:version1/services/ad_helper.dart';
 import 'package:version1/services/auth_service.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -18,8 +19,6 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 
 GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
-
-
 
 void showSnack(String text) {
   if (_scaffoldKey.currentContext != null) {

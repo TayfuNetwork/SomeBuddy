@@ -7,6 +7,7 @@ import 'package:version1/control_pages/json-models.dart';
 import 'package:flutter/material.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/control_pages/badge_goster.dart';
+import 'package:version1/control_pages/statuPage.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/result_Sex.dart';
 import 'package:version1/pages/results.dart';
@@ -158,184 +159,144 @@ class _searchPageState extends State<searchPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        drawer: MyDrawer(),
-        appBar: AppBar(
-          flexibleSpace: Container(),
-          backgroundColor: Colors.blueAccent,
-          elevation: 10,
-          toolbarHeight: 80,
-          toolbarOpacity: 0.8,
-          shadowColor: Colors.black,
-          title: Text(
-            "AnaSayfaGezintiButonu".tr(),
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-          ),
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(8))),
-          titleTextStyle: TextStyle(
-            color: Colors.white,
-            fontSize: 22,
-          ),
-          actions: [
-            baddge(),
-            IconButton(
-              icon: const Icon(Icons.home, color: Colors.white),
-              onPressed: _bilgilerimeGit,
-            ),
-          ],
-        ),
-        //******************************************************************//
-
-        body: SingleChildScrollView(
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image:
-                    AssetImage("images/background.png"), // <-- BACKGROUND IMAGE
-                fit: BoxFit.cover,
+      child: createStatuPage(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          drawer: MyDrawer(),
+          appBar: AppBar(
+            toolbarHeight: 80,
+            elevation: 0,
+            backgroundColor: Colors.black12,
+            title: Center(
+              child: Text(
+                "AnaSayfaGezintiButonu".tr(),
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 19),
               ),
             ),
-            child: SingleChildScrollView(
-                child: Container(
-              width: double.maxFinite,
-              padding: const EdgeInsets.all(15),
-              margin: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
+            titleTextStyle: TextStyle(
+              color: Colors.white,
+            ),
+            actions: [
+              baddge(),
+              IconButton(
+                icon: const Icon(
+                  Icons.home,
+                  color: Colors.white,
+                  size: 27,
+                ),
+                onPressed: _bilgilerimeGit,
+              ),
+            ],
+          ),
+          //******************************************************************//
+
+          body: SingleChildScrollView(
+            child: Container(
+              color: Colors.black.withOpacity(0),
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: SingleChildScrollView(
+                  child: Container(
+                width: double.maxFinite,
+                padding: const EdgeInsets.all(15),
+                margin: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
-                  boxShadow: const [
-                    BoxShadow(color: Colors.grey, blurRadius: 6),
-                  ]),
-              //******************************************************************//
+                ),
+                //******************************************************************//
 
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      "YazimYanlisiDikkat".tr(),
-                      style: TextStyle(color: Colors.red),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        "YazimYanlisiDikkat".tr(),
+                        style: TextStyle(color: Colors.red),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                  //******************************************************************//
+                    const SizedBox(height: 20),
+                    //******************************************************************//
 
-                  TextFormField(
-                    inputFormatters: <TextInputFormatter>[
-                      UpperCaseTextFormatter()
-                    ],
-                    maxLines: 1,
-                    style: const TextStyle(color: Colors.black),
-                    decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 1),
-                          borderRadius: BorderRadius.all(Radius.circular(8.0))),
-                      focusColor: Colors.blue,
-                      hintText: 'IliGiriniz'.tr(),
-                      enabled: true,
-                    ),
-                    autofocus: false,
-                    onChanged: (girilenil) {
-                      il = girilenil;
-                    },
-                  ),
-                  //******************************************************************//
-
-                  const SizedBox(height: 10),
-                  //******************************************************************//
-
-                  TextField(
-                    inputFormatters: <TextInputFormatter>[
-                      UpperCaseTextFormatter()
-                    ],
-                    textCapitalization: TextCapitalization.words,
-                    maxLines: 1,
-                    style: const TextStyle(color: Colors.black),
-                    decoration: InputDecoration(
-                      hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue, width: 1),
-                          borderRadius: BorderRadius.all(Radius.circular(8.0))),
-                      focusColor: Colors.blue,
-                      hintText: 'IlceGiriniz'.tr(),
-                      enabled: true,
-                    ),
-                    autofocus: false,
-                    onChanged: (girilenilce) {
-                      ilce = girilenilce;
-                    },
-                  ),
-
-                  //******************************************************************//
-
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("Brans:".tr(),
-                            style: TextStyle(color: Colors.blue)),
-                        DropdownButton<int>(
-                          menuMaxHeight: 400,
-                          iconEnabledColor: Colors.blue,
-                          dropdownColor:
-                              const Color.fromARGB(255, 28, 185, 242),
-                          style: const TextStyle(color: Colors.black),
-                          value: brans?.no ?? 82,
-                          items: model.branslar.map((b) {
-                            return DropdownMenuItem(
-                              child: Text(b.brans.tr(),
-                                  style: TextStyle(color: Colors.black)),
-                              value: b.no,
-                              onTap: () {
-                                setState(() {
-                                  brans = b;
-                                  mevki = b.mevki.first;
-                                });
-                              },
-                            );
-                          }).toList(),
-                          onChanged: (s) {},
-                        ),
-                        Icon(
-                          Icons.download,
-                          color: Colors.blue,
-                        )
+                    TextFormField(
+                      inputFormatters: <TextInputFormatter>[
+                        UpperCaseTextFormatter()
                       ],
+                      maxLines: 1,
+                      style: const TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
+                        hintStyle:
+                            TextStyle(fontSize: 16.0, color: Colors.grey),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.blue, width: 1),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(8.0))),
+                        focusColor: Colors.blue,
+                        hintText: 'IliGiriniz'.tr(),
+                        enabled: true,
+                      ),
+                      autofocus: false,
+                      onChanged: (girilenil) {
+                        il = girilenil;
+                      },
                     ),
-                  ),
-                  //******************************************************************//
+                    //******************************************************************//
 
-                  if (brans != null)
+                    const SizedBox(height: 10),
+                    //******************************************************************//
+
+                    TextField(
+                      inputFormatters: <TextInputFormatter>[
+                        UpperCaseTextFormatter()
+                      ],
+                      textCapitalization: TextCapitalization.words,
+                      maxLines: 1,
+                      style: const TextStyle(color: Colors.black),
+                      decoration: InputDecoration(
+                        hintStyle:
+                            TextStyle(fontSize: 16.0, color: Colors.grey),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.blue, width: 1),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(8.0))),
+                        focusColor: Colors.blue,
+                        hintText: 'IlceGiriniz'.tr(),
+                        enabled: true,
+                      ),
+                      autofocus: false,
+                      onChanged: (girilenilce) {
+                        ilce = girilenilce;
+                      },
+                    ),
+
+                    //******************************************************************//
+
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Mevki:".tr(),
+                          Text("Brans:".tr(),
                               style: TextStyle(color: Colors.blue)),
-                          DropdownButton<String>(
+                          DropdownButton<int>(
                             menuMaxHeight: 400,
                             iconEnabledColor: Colors.blue,
                             dropdownColor:
                                 const Color.fromARGB(255, 28, 185, 242),
-                            value: mevki ?? brans!.mevki.first,
                             style: const TextStyle(color: Colors.black),
-                            items: model.mevki(brans!.no).map((b) {
+                            value: brans?.no ?? 82,
+                            items: model.branslar.map((b) {
                               return DropdownMenuItem(
-                                child: Text(
-                                  b.tr(),
-                                  style: TextStyle(color: Colors.black),
-                                ),
-                                value: b,
+                                child: Text(b.brans.tr(),
+                                    style: TextStyle(color: Colors.black)),
+                                value: b.no,
                                 onTap: () {
                                   setState(() {
-                                    mevki = b;
+                                    brans = b;
+                                    mevki = b.mevki.first;
                                   });
                                 },
                               );
@@ -345,149 +306,203 @@ class _searchPageState extends State<searchPage> {
                           Icon(
                             Icons.download,
                             color: Colors.blue,
-                          ),
-                        ],
-                      ),
-                    ),
-                  //******************************************************************//
-                  if (izlendi == true)
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: const [
-                            BoxShadow(color: Colors.grey, blurRadius: 6),
-                          ]),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              TextButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      secilenCinsiyet = "Male";
-                                      sex = secilenCinsiyet;
-                                    });
-                                  },
-                                  child: Text(
-                                    "Erkek".tr(),
-                                    style: TextStyle(color: Colors.black),
-                                  )),
-                              if (secilenCinsiyet == "Male")
-                                Icon(
-                                  Icons.download_done_outlined,
-                                  color: Colors.green,
-                                )
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              TextButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      secilenCinsiyet = "Female".tr();
-                                      sex = secilenCinsiyet;
-                                    });
-                                  },
-                                  child: Text(
-                                    "Kadın".tr(),
-                                    style: TextStyle(color: Colors.black),
-                                  )),
-                              if (secilenCinsiyet == "Female".tr())
-                                Icon(
-                                  Icons.download_done_outlined,
-                                  color: Colors.green,
-                                )
-                            ],
                           )
                         ],
                       ),
                     ),
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: 10,
+                    //******************************************************************//
+
+                    if (brans != null)
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Mevki:".tr(),
+                                style: TextStyle(color: Colors.blue)),
+                            DropdownButton<String>(
+                              menuMaxHeight: 400,
+                              iconEnabledColor: Colors.blue,
+                              dropdownColor:
+                                  const Color.fromARGB(255, 28, 185, 242),
+                              value: mevki ?? brans!.mevki.first,
+                              style: const TextStyle(color: Colors.black),
+                              items: model.mevki(brans!.no).map((b) {
+                                return DropdownMenuItem(
+                                  child: Text(
+                                    b.tr(),
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                  value: b,
+                                  onTap: () {
+                                    setState(() {
+                                      mevki = b;
+                                    });
+                                  },
+                                );
+                              }).toList(),
+                              onChanged: (s) {},
+                            ),
+                            Icon(
+                              Icons.download,
+                              color: Colors.blue,
+                            ),
+                          ],
+                        ),
                       ),
-                      ElevatedButton(
-                          onPressed: () {
-                            if (il != null && brans != null) {
-                              if (izlendi == true) {
-                                if (ilce == null) {
-                                  ilce = "null";
-                                }
-                                Navigator.of(context).push(CupertinoPageRoute(
-                                    builder: (context) => Results2(
-                                        sex: sex!,
-                                        sIcon: Icon(Icons.person),
-                                        ppColor: ppColor!,
-                                        brans: brans!.brans,
-                                        il: il!,
-                                        ilce: ilce!,
-                                        mevki: mevki!)));
-                              } else {
-                                arama();
-                              }
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                      backgroundColor: Colors.blue,
-                                      content: Text(
-                                          "ButunAlanlariEksiksiDoldur".tr(),
-                                          style:
-                                              TextStyle(color: Colors.white))));
-                            }
-                          },
-                          child: Text('Ara'.tr())),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            Icons.touch_app,
-                            color: Colors.green,
-                          ),
-                          Text(
-                            "CinsiyetFiltrele".tr(),
-                            style: TextStyle(color: Colors.red),
-                          ),
-                          Icon(
-                            Icons.navigate_next,
-                            color: Colors.red,
-                          ),
-                          TextButton(
-                              onPressed: () async {
-                                if (adHelper.rewardedAd != null) {
-                                  await adHelper.showRewardedAd(
-                                      onUserEarnedReward: (p0, p1) {
-                                    izlendi = true;
-                                    setState(() {});
-                                  });
+                    //******************************************************************//
+                    if (izlendi == true)
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: const [
+                              BoxShadow(color: Colors.grey, blurRadius: 6),
+                            ]),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                TextButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        secilenCinsiyet = "Male";
+                                        sex = secilenCinsiyet;
+                                      });
+                                    },
+                                    child: Text(
+                                      "Erkek".tr(),
+                                      style: TextStyle(color: Colors.black),
+                                    )),
+                                if (secilenCinsiyet == "Male")
+                                  Icon(
+                                    Icons.download_done_outlined,
+                                    color: Colors.green,
+                                  )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                TextButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        secilenCinsiyet = "Female".tr();
+                                        sex = secilenCinsiyet;
+                                      });
+                                    },
+                                    child: Text(
+                                      "Kadın".tr(),
+                                      style: TextStyle(color: Colors.black),
+                                    )),
+                                if (secilenCinsiyet == "Female".tr())
+                                  Icon(
+                                    Icons.download_done_outlined,
+                                    color: Colors.green,
+                                  )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              if (il != null && brans != null) {
+                                if (izlendi == true) {
+                                  if (ilce == null) {
+                                    ilce = "null";
+                                  }
+                                  Navigator.of(context).push(CupertinoPageRoute(
+                                      builder: (context) => Results2(
+                                          sex: sex!,
+                                          sIcon: Icon(Icons.person),
+                                          ppColor: ppColor!,
+                                          brans: brans!.brans,
+                                          il: il!,
+                                          ilce: ilce!,
+                                          mevki: mevki!)));
                                 } else {
-                                  Fluttertoast.showToast(
-                                    msg: "ReklamYuklenemedi".tr(),
-                                    gravity: ToastGravity.BOTTOM,
-                                    toastLength: Toast.LENGTH_LONG,
-                                  );
-                                  setState(() async {
-                                    await Future.delayed(Duration(seconds: 2));
-                                    izlendi = true;
-                                  });
+                                  arama();
                                 }
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(2.0),
-                                child: Text(
-                                  "Izle".tr(),
-                                  style: TextStyle(color: Colors.blue),
-                                ),
-                              )),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      if (AuthService().user?.il != null)
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        backgroundColor: Colors.blue,
+                                        content: Text(
+                                            "ButunAlanlariEksiksiDoldur".tr(),
+                                            style: TextStyle(
+                                                color: Colors.white))));
+                              }
+                            },
+                            child: Text('Ara'.tr())),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              Icons.touch_app,
+                              color: Colors.green,
+                            ),
+                            Text(
+                              "CinsiyetFiltrele".tr(),
+                              style: TextStyle(color: Colors.red),
+                            ),
+                            Icon(
+                              Icons.navigate_next,
+                              color: Colors.red,
+                            ),
+                            TextButton(
+                                onPressed: () async {
+                                  if (adHelper.rewardedAd != null) {
+                                    await adHelper.showRewardedAd(
+                                        onUserEarnedReward: (p0, p1) {
+                                      izlendi = true;
+                                      setState(() {});
+                                    });
+                                  } else {
+                                    Fluttertoast.showToast(
+                                      msg: "ReklamYuklenemedi".tr(),
+                                      gravity: ToastGravity.BOTTOM,
+                                      toastLength: Toast.LENGTH_LONG,
+                                    );
+                                    setState(() async {
+                                      await Future.delayed(
+                                          Duration(seconds: 2));
+                                      izlendi = true;
+                                    });
+                                  }
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Text(
+                                    "Izle".tr(),
+                                    style: TextStyle(color: Colors.blue),
+                                  ),
+                                )),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        if (AuthService().user?.il != null)
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.touch_app,
+                                color: Colors.green,
+                              ),
+                              TextButton(
+                                  onPressed: () {
+                                    yakinArama();
+                                  },
+                                  child: Text("EnYakinPartner".tr())),
+                            ],
+                          ),
                         Row(
                           children: [
                             Icon(
@@ -495,39 +510,27 @@ class _searchPageState extends State<searchPage> {
                               color: Colors.green,
                             ),
                             TextButton(
-                                onPressed: () {
-                                  //yakinArama();
-                                },
-                                child: Text("EnYakinPartner".tr())),
+                                onPressed: sonAramaTekrar,
+                                child: Text("BirOncekiAramaTekrar".tr())),
                           ],
                         ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.touch_app,
-                            color: Colors.green,
-                          ),
-                          TextButton(
-                              onPressed: sonAramaTekrar,
-                              child: Text("BirOncekiAramaTekrar".tr())),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        width: AdSize.banner.width.toDouble(),
-                        height: AdSize.banner.height.toDouble(),
-                        alignment: Alignment.bottomCenter,
-                        child: AdWidget(
-                          ad: adHelper.createBannerAd(),
+                        SizedBox(
+                          height: 10,
                         ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            )),
+                        Container(
+                          width: AdSize.banner.width.toDouble(),
+                          height: AdSize.banner.height.toDouble(),
+                          alignment: Alignment.bottomCenter,
+                          child: AdWidget(
+                            ad: adHelper.createBannerAd(),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )),
+            ),
           ),
         ),
       ),

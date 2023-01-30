@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:version1/control_pages/statuPage.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
@@ -32,128 +33,132 @@ ScrollController _scrollController = ScrollController();
 class _SohbetState extends State<Sohbet> {
   @override
   Widget build(BuildContext context) => SafeArea(
-        child: Scaffold(
+        child: SafeArea(
+          child: createStatuPage(
+            child: Scaffold(
+              backgroundColor: Colors.transparent,
           drawer: MyDrawer(),
           appBar: AppBar(
-            flexibleSpace: Container(),
-            backgroundColor: Colors.blueAccent,
-            elevation: 10,
             toolbarHeight: 80,
-            toolbarOpacity: 0.8,
-            shadowColor: Colors.black,
-            title: Text(
-              "ChatAppbarTittle".tr(),
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-            ),
-            shape: RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(8))),
-            titleTextStyle: TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-            ),
-            actions: [
-              baddge(),
-              IconButton(
-                icon: const Icon(Icons.search, color: Colors.white),
-                onPressed: _searchPage,
-              ),
-              IconButton(
-                icon: const Icon(Icons.home, color: Colors.white),
-                onPressed: _bilgilerimeGit,
-              ),
-            ],
-          ),
-          body: Center(
-            child: Column(
-              children: [
-                Expanded(
-                  child: StreamBuilder<List<Mesaj>>(
-                    stream: getMessages(
-                        widget.currentUser.id!, widget.konusulanUser.id!),
-                    builder: (context, StreamMesajlarlistesi) {
-                      if (!StreamMesajlarlistesi.hasData) {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
-
-                      FirebaseFirestore.instance
-                          .collection("konusmalar")
-                          .doc(
-                              "${widget.currentUser.id!}--${widget.konusulanUser.id!}")
-                          .update({"gorulduMu": "true", "goruldu": "true"});
-
-                      FirebaseFirestore.instance
-                          .collection("konusmalar")
-                          .doc(
-                              "${widget.konusulanUser.id!}--${widget.currentUser.id!}")
-                          .update({"goruldu": "true"});
-
-                      List<Mesaj>? tumMesajar = StreamMesajlarlistesi.data;
-                      return ListView.builder(
-                          reverse: true,
-                          controller: _scrollController,
-                          itemBuilder: (context, index) {
-                            return _konusmaBalonuOlustur(tumMesajar![index]);
-                          },
-                          
-                          itemCount: tumMesajar?.length);
-                    },
+            elevation: 0,
+            backgroundColor: Colors.black12,
+                title: Center(
+                  child: Text(
+                    "ChatAppbarTittle".tr(),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.only(bottom: 8, left: 8),
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: TextField(
-                          controller: _mesajController,
-                          cursorColor: Colors.blueGrey,
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.black,
-                          ),
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            filled: true,
-                            hintText: 'ChatMesajiniziYazin'.tr(),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30.0),
-                                borderSide: BorderSide.none),
-                          ),
-                        ),
+                shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.vertical(bottom: Radius.circular(8))),
+                titleTextStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                ),
+                actions: [
+                  baddge(),
+                  IconButton(
+                    icon: const Icon(Icons.search, color: Colors.white),
+                    onPressed: _searchPage,
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.home, color: Colors.white),
+                    onPressed: _bilgilerimeGit,
+                  ),
+                ],
+              ),
+              body: Center(
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: StreamBuilder<List<Mesaj>>(
+                        stream: getMessages(
+                            widget.currentUser.id!, widget.konusulanUser.id!),
+                        builder: (context, StreamMesajlarlistesi) {
+                          if (!StreamMesajlarlistesi.hasData) {
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+          
+                          FirebaseFirestore.instance
+                              .collection("konusmalar")
+                              .doc(
+                                  "${widget.currentUser.id!}--${widget.konusulanUser.id!}")
+                              .update({"gorulduMu": "true", "goruldu": "true"});
+          
+                          FirebaseFirestore.instance
+                              .collection("konusmalar")
+                              .doc(
+                                  "${widget.konusulanUser.id!}--${widget.currentUser.id!}")
+                              .update({"goruldu": "true"});
+          
+                          List<Mesaj>? tumMesajar = StreamMesajlarlistesi.data;
+                          return ListView.builder(
+                              reverse: true,
+                              controller: _scrollController,
+                              itemBuilder: (context, index) {
+                                return _konusmaBalonuOlustur(tumMesajar![index]);
+                              },
+                              
+                              itemCount: tumMesajar?.length);
+                        },
                       ),
-                      Container(
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 4,
-                        ),
-                        child: FloatingActionButton(
-                          elevation: 0,
-                          backgroundColor: stateColor(),
-                          child: const Icon(
-                            Icons.navigation,
-                            size: 35,
-                            color: Colors.white,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(bottom: 8, left: 8),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: TextField(
+                              controller: _mesajController,
+                              cursorColor: Colors.blueGrey,
+                              style: const TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.black,
+                              ),
+                              decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
+                                hintText: 'ChatMesajiniziYazin'.tr(),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    borderSide: BorderSide.none),
+                              ),
+                            ),
                           ),
-                          onPressed: () async {
-                            if (_mesajController.text.trim().length > 0) {
-                              Mesaj _kaydedilecekMesaj = Mesaj(
-                                kimden: widget.currentUser.id!,
-                                kime: widget.konusulanUser.id!,
-                                bendenMi: true,
-                                mesaj: _mesajController.text,
-                              );
-                              _mesajController.clear();
-                              await AuthService.saveMessage(_kaydedilecekMesaj);
-                            }
-                          },
-                        ),
-                      )
-                    ],
-                  ),
+                          Container(
+                            margin: const EdgeInsets.symmetric(
+                              horizontal: 4,
+                            ),
+                            child: FloatingActionButton(
+                              elevation: 0,
+                              backgroundColor: stateColor(),
+                              child: const Icon(
+                                Icons.navigation,
+                                size: 35,
+                                color: Colors.white,
+                              ),
+                              onPressed: () async {
+                                if (_mesajController.text.trim().length > 0) {
+                                  Mesaj _kaydedilecekMesaj = Mesaj(
+                                    kimden: widget.currentUser.id!,
+                                    kime: widget.konusulanUser.id!,
+                                    bendenMi: true,
+                                    mesaj: _mesajController.text,
+                                  );
+                                  _mesajController.clear();
+                                  await AuthService.saveMessage(_kaydedilecekMesaj);
+                                }
+                              },
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),

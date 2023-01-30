@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:version1/control_pages/statuPage.dart';
 import 'package:version1/models/konusma.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/chat.dart';
@@ -27,252 +28,260 @@ class _InboxState extends State<Inbox> {
     var _userModel = AuthService().user!;
 
     return SafeArea(
-      child: Scaffold(
-          drawer: MyDrawer(),
-          appBar: AppBar(
-            flexibleSpace: Container(),
-            backgroundColor: Colors.blueAccent,
-            elevation: 10,
-            toolbarHeight: 80,
-            toolbarOpacity: 0.8,
-            shadowColor: Colors.black,
-            title:  Text(
-              "GelenKutusuAppbarTitle".tr(),
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-            ),
-            shape: RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(8))),
-            titleTextStyle: TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-            ),
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.search, color: Colors.white),
-                onPressed: _searchPage,
+      child: createStatuPage(
+        child: Scaffold(
+            backgroundColor: Colors.transparent,
+            drawer: MyDrawer(),
+            appBar: AppBar(
+              toolbarHeight: 80,
+              elevation: 0,
+              backgroundColor: Colors.black12,
+              title: Center(
+                child: Text(
+                  "GelenKutusuAppbarTitle".tr(),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+                ),
               ),
-              IconButton(
-                icon: const Icon(Icons.home, color: Colors.white),
-                onPressed: _bilgilerimeGit,
+              shape: RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.vertical(bottom: Radius.circular(8))),
+              titleTextStyle: TextStyle(
+                color: Colors.white,
+                fontSize: 22,
               ),
-            ],
-          ),
-          body: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("images/background.png"),
-                fit: BoxFit.cover,
-              ),
+              actions: [
+                IconButton(
+                  icon: const Icon(Icons.search, color: Colors.white),
+                  onPressed: _searchPage,
+                ),
+                IconButton(
+                  icon: const Icon(Icons.home, color: Colors.white),
+                  onPressed: _bilgilerimeGit,
+                ),
+              ],
             ),
-            child: FutureBuilder<List<Konusma>>(
-              future: getAllConversations(_userModel.id!),
-              builder: (context, konusmaListesi) {
-                if (!konusmaListesi.hasData) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else {
-                  var tumKonusmalar = konusmaListesi.data!;
-                  var _saatDakikaDegeri = "";
+            body: Container(
+              color: Colors.black.withOpacity(0),
+              child: FutureBuilder<List<Konusma>>(
+                future: getAllConversations(_userModel.id!),
+                builder: (context, konusmaListesi) {
+                  if (!konusmaListesi.hasData) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else {
+                    var tumKonusmalar = konusmaListesi.data!;
+                    var _saatDakikaDegeri = "";
 
-                  return tumKonusmalar.isEmpty
-                      ? Center(child: Text('HicMesajYok'.tr()))
-                      : ListView.builder(
-                          itemCount: tumKonusmalar.length,
-                          itemBuilder: (context, index) {
-                            var oankiKonusma = tumKonusmalar[index];
+                    return tumKonusmalar.isEmpty
+                        ? Center(child: Text('HicMesajYok'.tr()))
+                        : ListView.builder(
+                            itemCount: tumKonusmalar.length,
+                            itemBuilder: (context, index) {
+                              var oankiKonusma = tumKonusmalar[index];
 
-                            return SingleChildScrollView(
-                              child: StreamBuilder<MyUser?>(
-                                  stream: getUserFromId(
-                                      oankiKonusma.kimle_konusuyor!),
-                                  builder: (context, snapshot) {
-                                    _saatDakikaDegeri = _saatDakikaGoster(
-                                        oankiKonusma.olusturulma_tarihi!);
-                                    if (snapshot.hasData) {
-                                      var myuser = AuthService().user!.id;
-                                      MyUser alici = snapshot.data!;
-                                      _konusmalariYenile();
-                                      git() {
-                                        Navigator.of(context).push(
-                                            CupertinoPageRoute(
-                                                builder: (context) =>
-                                                    show(whoData: alici)));
-                                      }
-
-                                      ImageProvider _havePhoto() {
-                                        if (alici.image != null) {
-                                          return NetworkImage(alici.image!);
-                                        } else {
-                                          return const AssetImage(
-                                              "images/logo.png");
+                              return SingleChildScrollView(
+                                child: StreamBuilder<MyUser?>(
+                                    stream: getUserFromId(
+                                        oankiKonusma.kimle_konusuyor!),
+                                    builder: (context, snapshot) {
+                                      _saatDakikaDegeri = _saatDakikaGoster(
+                                          oankiKonusma.olusturulma_tarihi!);
+                                      if (snapshot.hasData) {
+                                        var myuser = AuthService().user!.id;
+                                        MyUser alici = snapshot.data!;
+                                        _konusmalariYenile();
+                                        git() {
+                                          Navigator.of(context).push(
+                                              CupertinoPageRoute(
+                                                  builder: (context) =>
+                                                      show(whoData: alici)));
                                         }
-                                      }
 
-                                      return Dismissible(
-                                        direction: DismissDirection.endToStart,
-                                        onDismissed: ((direction) async {
-                                          showDialog(
-                                              context: context,
-                                              builder: (BuildContext context) {
-                                                return AlertDialog(
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              20.0)),
-                                                  title: Center(
-                                                    child: Text(
-                                                      "MesajlarSilinecek".tr(),
-                                                      style: TextStyle(
-                                                          color: Colors.red),
+                                        ImageProvider _havePhoto() {
+                                          if (alici.image != null) {
+                                            return NetworkImage(alici.image!);
+                                          } else {
+                                            return const AssetImage(
+                                                "images/logo.png");
+                                          }
+                                        }
+
+                                        return Dismissible(
+                                          direction:
+                                              DismissDirection.endToStart,
+                                          onDismissed: ((direction) async {
+                                            showDialog(
+                                                context: context,
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return AlertDialog(
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        20.0)),
+                                                    title: Center(
+                                                      child: Text(
+                                                        "MesajlarSilinecek"
+                                                            .tr(),
+                                                        style: TextStyle(
+                                                            color: Colors.red),
+                                                      ),
                                                     ),
-                                                  ),
-                                                  actions: <Widget>[
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        TextButton(
-                                                            onPressed:
-                                                                () async {
-                                                              FirebaseFirestore
-                                                                  .instance
-                                                                  .collection(
-                                                                      "konusmalar")
-                                                                  .doc(
-                                                                      "${myuser}--${alici.id}")
-                                                                  .delete();
-
-                                                              var collection = FirebaseFirestore
-                                                                  .instance
-                                                                  .collection(
-                                                                      'konusmalar')
-                                                                  .doc(
-                                                                      "${myuser}--${alici.id}")
-                                                                  .collection(
-                                                                      "mesajlar");
-                                                              var snapshots =
-                                                                  await collection
-                                                                      .get();
-                                                              for (var doc
-                                                                  in snapshots
-                                                                      .docs) {
-                                                                await doc
-                                                                    .reference
+                                                    actions: <Widget>[
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          TextButton(
+                                                              onPressed:
+                                                                  () async {
+                                                                FirebaseFirestore
+                                                                    .instance
+                                                                    .collection(
+                                                                        "konusmalar")
+                                                                    .doc(
+                                                                        "${myuser}--${alici.id}")
                                                                     .delete();
-                                                              }
 
+                                                                var collection = FirebaseFirestore
+                                                                    .instance
+                                                                    .collection(
+                                                                        'konusmalar')
+                                                                    .doc(
+                                                                        "${myuser}--${alici.id}")
+                                                                    .collection(
+                                                                        "mesajlar");
+                                                                var snapshots =
+                                                                    await collection
+                                                                        .get();
+                                                                for (var doc
+                                                                    in snapshots
+                                                                        .docs) {
+                                                                  await doc
+                                                                      .reference
+                                                                      .delete();
+                                                                }
+
+                                                                Navigator.pop(
+                                                                    context);
+                                                              },
+                                                              child: Text(
+                                                                "Sil".tr(),
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .blue),
+                                                              )),
+                                                          TextButton(
+                                                            onPressed: () {
+                                                              _konusmalariYenile();
                                                               Navigator.pop(
                                                                   context);
                                                             },
                                                             child: Text(
-                                                              "Sil".tr(),
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .blue),
-                                                            )),
-                                                        TextButton(
-                                                          onPressed: () {
-                                                            _konusmalariYenile();
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          child:  Text(
-                                                              "Vazgeç".tr(),
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .blue)),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                );
-                                              });
-                                        }),
-                                        key: UniqueKey(),
-                                        child: Card(
-                                          color: Colors.green,
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.only(
-                                                  topLeft: Radius.circular(80),
-                                                  topRight: Radius.circular(80),
-                                                  bottomLeft:
-                                                      Radius.circular(80),
-                                                  bottomRight:
-                                                      Radius.circular(80))),
-                                          child: ListTile(
-                                              title: Text(alici.userName!),
-                                              subtitle: SingleChildScrollView(
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                child: Row(
-                                                  children: [
-                                                    kimden(oankiKonusma
-                                                        .sonMesajBenimMi),
-                                                    Text(
-                                                      oankiKonusma
-                                                          .son_yollanan_mesaj!,
-                                                    ),
-                                                    Text("..."),
-                                                    Text(_saatDakikaDegeri),
-                                                  ],
+                                                                "Vazgeç".tr(),
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .blue)),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  );
+                                                });
+                                          }),
+                                          key: UniqueKey(),
+                                          child: Card(
+                                            color: Colors.green,
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(80),
+                                                    topRight:
+                                                        Radius.circular(80),
+                                                    bottomLeft:
+                                                        Radius.circular(80),
+                                                    bottomRight:
+                                                        Radius.circular(80))),
+                                            child: ListTile(
+                                                title: Text(alici.userName!),
+                                                subtitle: SingleChildScrollView(
+                                                  scrollDirection:
+                                                      Axis.horizontal,
+                                                  child: Row(
+                                                    children: [
+                                                      kimden(oankiKonusma
+                                                          .sonMesajBenimMi),
+                                                      Text(
+                                                        oankiKonusma
+                                                            .son_yollanan_mesaj!,
+                                                      ),
+                                                      Text("..."),
+                                                      Text(_saatDakikaDegeri),
+                                                    ],
+                                                  ),
                                                 ),
-                                              ),
-                                              trailing: isReaded(
-                                                  oankiKonusma.sonMesajBenimMi,
-                                                  oankiKonusma.gorulduMu!),
-                                              leading: GestureDetector(
-                                                onTap: git,
-                                                child: CircleAvatar(
-                                                  backgroundImage: _havePhoto(),
+                                                trailing: isReaded(
+                                                    oankiKonusma
+                                                        .sonMesajBenimMi,
+                                                    oankiKonusma.gorulduMu!),
+                                                leading: GestureDetector(
+                                                  onTap: git,
+                                                  child: CircleAvatar(
+                                                    backgroundImage:
+                                                        _havePhoto(),
+                                                  ),
                                                 ),
-                                              ),
-                                              onTap: () async {
-                                                setState(() {
-                                                  FirebaseFirestore.instance
-                                                      .collection("konusmalar")
-                                                      .doc(
-                                                          "${_userModel.id}--${alici.id}")
-                                                      .update({
-                                                    "gorulduMu": "true",
-                                                    "goruldu": "true"
+                                                onTap: () async {
+                                                  setState(() {
+                                                    FirebaseFirestore.instance
+                                                        .collection(
+                                                            "konusmalar")
+                                                        .doc(
+                                                            "${_userModel.id}--${alici.id}")
+                                                        .update({
+                                                      "gorulduMu": "true",
+                                                      "goruldu": "true"
+                                                    });
+
+                                                    FirebaseFirestore.instance
+                                                        .collection(
+                                                            "konusmalar")
+                                                        .doc(
+                                                            "${alici.id}--${_userModel.id}")
+                                                        .update({
+                                                      "goruldu": "true"
+                                                    });
                                                   });
 
-                                                   FirebaseFirestore.instance
-                                                      .collection("konusmalar")
-                                                      .doc(
-                                                          "${alici.id}--${_userModel.id}")
-                                                      .update({
-                                                    "goruldu": "true"
-                                                  }); 
-                                                });
-
-                                                await Navigator.of(context)
-                                                    .push(CupertinoPageRoute(
-                                                        builder: (context) =>
-                                                            Sohbet(
-                                                              currentUser:
-                                                                  _userModel,
-                                                              konusulanUser:
-                                                                  alici,
-                                                            )));
-                                              }),
-                                        ),
-                                      );
-                                    } else {
-                                      return const SizedBox(width: 20);
-                                    }
-                                  }),
-                            );
-                          });
-                }
-              },
-            ),
-          )),
+                                                  await Navigator.of(context)
+                                                      .push(CupertinoPageRoute(
+                                                          builder: (context) =>
+                                                              Sohbet(
+                                                                currentUser:
+                                                                    _userModel,
+                                                                konusulanUser:
+                                                                    alici,
+                                                              )));
+                                                }),
+                                          ),
+                                        );
+                                      } else {
+                                        return const SizedBox(width: 20);
+                                      }
+                                    }),
+                              );
+                            });
+                  }
+                },
+              ),
+            )),
+      ),
     );
   }
 
@@ -332,7 +341,6 @@ class _InboxState extends State<Inbox> {
     }
   }
 }
-
 
 Future<List<Konusma>> getAllConversations(String userID) async {
   QuerySnapshot<Map<String, dynamic>> querySnapshot = await FirebaseFirestore

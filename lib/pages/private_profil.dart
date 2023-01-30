@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:version1/control_pages/myDrawer.dart';
+import 'package:version1/control_pages/statuPage.dart';
 import 'package:version1/models/medya.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/control_pages/badge_goster.dart';
@@ -52,349 +53,363 @@ class _private_profilState extends State<private_profil> {
     final _bio = AuthService().user!.bio;
     _bioController.text = _bio.toString();
     return SafeArea(
-      child: Scaffold(
-        drawer: MyDrawer(),
-        appBar: AppBar(
-          flexibleSpace: Container(),
-          backgroundColor: Colors.blueAccent,
-          elevation: 10,
-          toolbarHeight: 80,
-          toolbarOpacity: 0.8,
-          shadowColor: Colors.black,
-          title: Text(
-            "PrivateProfilAppbarTitle".tr(),
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-          ),
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(8))),
-          titleTextStyle: TextStyle(
-            color: Colors.white,
-            fontSize: 22,
-          ),
-          actions: [
-            baddge(),
-            IconButton(
-              icon: const Icon(Icons.search, color: Colors.white),
-              onPressed: _searchPage,
+      child: createStatuPage(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          drawer: MyDrawer(),
+          appBar: AppBar(
+            toolbarHeight: 80,
+            elevation: 0,
+            backgroundColor: Colors.black12,
+            title: Center(
+              child: Text(
+                "PrivateProfilAppbarTitle".tr(),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+              ),
             ),
-            IconButton(
-              icon: const Icon(Icons.home, color: Colors.white),
-              onPressed: _bilgilerimeGit,
+            shape: RoundedRectangleBorder(
+                borderRadius:
+                    BorderRadius.vertical(bottom: Radius.circular(8))),
+            titleTextStyle: TextStyle(
+              color: Colors.white,
+              fontSize: 22,
             ),
-          ],
-        ),
-        body: SingleChildScrollView(
-            child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/background.png"),
-              fit: BoxFit.cover,
-            ),
+            actions: [
+              baddge(),
+              IconButton(
+                icon: const Icon(Icons.search, color: Colors.white),
+                onPressed: _searchPage,
+              ),
+              IconButton(
+                icon: const Icon(Icons.home, color: Colors.white),
+                onPressed: _bilgilerimeGit,
+              ),
+            ],
           ),
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      showModalBottomSheet(
-                          context: context,
-                          builder: (context) {
-                            return Container(
-                              height: 160,
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  children: <Widget>[
-                                    ListTile(
-                                      leading: const Icon(Icons.camera),
-                                      title: Text("KameradanCek".tr()),
-                                      onTap: () {
-                                        uploadProfilPhoto(ImageSource.camera);
-                                        Navigator.pop(context);
-                                      },
-                                    ),
-                                    ListTile(
-                                      leading: const Icon(Icons.image),
-                                      title: Text("Galeriden".tr()),
-                                      onTap: () {
-                                        uploadProfilPhoto(ImageSource.gallery);
-                                        Navigator.pop(context);
-                                      },
-                                    ),
-                                    ListTile(
-                                      leading: const Icon(Icons.no_accounts),
-                                      title: Text("FotoKaldir".tr()),
-                                      onTap: () {
-                                        deleteProfilPhoto();
-                                        Navigator.pop(context);
-                                      },
-                                    ),
-                                  ],
+          body: SingleChildScrollView(
+              child: Container(
+            color: Colors.black.withOpacity(0),
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return Container(
+                                height: 160,
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    children: <Widget>[
+                                      ListTile(
+                                        leading: const Icon(Icons.camera),
+                                        title: Text("KameradanCek".tr()),
+                                        onTap: () {
+                                          uploadProfilPhoto(ImageSource.camera);
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                      ListTile(
+                                        leading: const Icon(Icons.image),
+                                        title: Text("Galeriden".tr()),
+                                        onTap: () {
+                                          uploadProfilPhoto(
+                                              ImageSource.gallery);
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                      ListTile(
+                                        leading: const Icon(Icons.no_accounts),
+                                        title: Text("FotoKaldir".tr()),
+                                        onTap: () {
+                                          deleteProfilPhoto();
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            );
-                          });
-                    },
-                    child:
-                        StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-                      stream: galeri(),
-                      builder: (a, snapshot) {
-                        if (snapshot.hasData) {
-                          MyUser pphoto =
-                              MyUser.fromMap(snapshot.data!.data()!);
-                          if (pphoto.image != null) {
-                            return CircleAvatar(
-                              backgroundImage: NetworkImage(pphoto.image!),
-                              radius: 75,
-                              backgroundColor: Colors.white,
-                            );
+                              );
+                            });
+                      },
+                      child:
+                          StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                        stream: galeri(),
+                        builder: (a, snapshot) {
+                          if (snapshot.hasData) {
+                            MyUser pphoto =
+                                MyUser.fromMap(snapshot.data!.data()!);
+                            if (pphoto.image != null) {
+                              return CircleAvatar(
+                                backgroundImage: NetworkImage(pphoto.image!),
+                                radius: 75,
+                                backgroundColor: Colors.white,
+                              );
+                            } else {
+                              return const CircleAvatar(
+                                  backgroundImage:
+                                      AssetImage("images/logo.png"),
+                                  radius: 75);
+                            }
                           } else {
                             return const CircleAvatar(
                                 backgroundImage: AssetImage("images/logo.png"),
                                 radius: 75);
                           }
-                        } else {
-                          return const CircleAvatar(
-                              backgroundImage: AssetImage("images/logo.png"),
-                              radius: 75);
-                        }
-                      },
+                        },
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    enabled: false,
-                    initialValue: _userModel.email,
-                    readOnly: true,
-                    decoration: InputDecoration(
-                        labelText: 'Email'.tr(),
-                        hintText: 'Email'.tr(),
-                        border: OutlineInputBorder()),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      enabled: false,
+                      initialValue: _userModel.email,
+                      readOnly: true,
+                      decoration: InputDecoration(
+                          labelText: 'Email'.tr(),
+                          hintText: 'Email'.tr(),
+                          border: OutlineInputBorder()),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    maxLength: 13,
-                    maxLines: 1,
-                    controller: _userNameController,
-                    //initialValue: _userModel.user!.userName,
-                    readOnly: false,
-                    decoration: InputDecoration(
-                        labelText: 'KullaniciAdi'.tr(),
-                        hintText: 'KullaniciAdi'.tr(),
-                        border: OutlineInputBorder()),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      maxLength: 13,
+                      maxLines: 1,
+                      controller: _userNameController,
+                      //initialValue: _userModel.user!.userName,
+                      readOnly: false,
+                      decoration: InputDecoration(
+                          labelText: 'KullaniciAdi'.tr(),
+                          hintText: 'KullaniciAdi'.tr(),
+                          border: OutlineInputBorder()),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    maxLines: 2,
-                    controller: _bioController,
-                    //initialValue: _userModel.user!.userName,
-                    readOnly: false,
-                    decoration: InputDecoration(
-                        labelText: 'Paylaşım'.tr(),
-                        hintText: 'BioOrnek'.tr(),
-                        border: OutlineInputBorder()),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      maxLines: 2,
+                      controller: _bioController,
+                      //initialValue: _userModel.user!.userName,
+                      readOnly: false,
+                      decoration: InputDecoration(
+                          labelText: 'Paylaşım'.tr(),
+                          hintText: 'BioOrnek'.tr(),
+                          border: OutlineInputBorder()),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                      onPressed: () {
-                        _savetheChanges(context);
-                      },
-                      child: Text('DegisiklikKaydet'.tr())),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(0.1),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      TextButton(
-                          onPressed: () {
-                            uploadGalleryPhotoCamera(ImageSource.camera);
-                          },
-                          child: Text(
-                            'KameradanCek'.tr(),
-                            style: TextStyle(color: Colors.black),
-                          )),
-                      TextButton(
-                          onPressed: () {
-                            uploadGalleryPhotoCamera(ImageSource.gallery);
-                          },
-                          child: Text('Galeriden'.tr(),
-                              style: TextStyle(color: Colors.black))),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          _savetheChanges(context);
+                        },
+                        child: Text('DegisiklikKaydet'.tr())),
                   ),
-                ),
-                Container(
-                  width: double.maxFinite,
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  margin: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: const [
-                        BoxShadow(color: Colors.grey, blurRadius: 6),
-                      ]),
-                  child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: StreamBuilder<
-                              DocumentSnapshot<Map<String, dynamic>>>(
-                          stream: galeri(),
-                          builder: (c, snap) {
-                            if (snap.hasData) {
-                              MyUser user = MyUser.fromMap(snap.data!.data()!);
-                              List<Medya> photos = user.gPic ?? [];
+                  Padding(
+                    padding: const EdgeInsets.all(0.1),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        TextButton(
+                            onPressed: () {
+                              uploadGalleryPhotoCamera(ImageSource.camera);
+                            },
+                            child: Text(
+                              'KameradanCek'.tr(),
+                              style: TextStyle(color: Colors.black),
+                            )),
+                        TextButton(
+                            onPressed: () {
+                              uploadGalleryPhotoCamera(ImageSource.gallery);
+                            },
+                            child: Text('Galeriden'.tr(),
+                                style: TextStyle(color: Colors.black))),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: double.maxFinite,
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    margin: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.grey, blurRadius: 6),
+                        ]),
+                    child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: StreamBuilder<
+                                DocumentSnapshot<Map<String, dynamic>>>(
+                            stream: galeri(),
+                            builder: (c, snap) {
+                              if (snap.hasData) {
+                                MyUser user =
+                                    MyUser.fromMap(snap.data!.data()!);
+                                List<Medya> photos = user.gPic ?? [];
 
-                              return SingleChildScrollView(
-                                  child: Row(
-                                children: photos.map((e) {
-                                  return GestureDetector(
-                                    child: CircleAvatar(
-                                      backgroundImage: NetworkImage(e.url),
-                                      radius: 75,
-                                      backgroundColor: Colors.white,
-                                    ),
-                                    onTap: () {
-                                      showDialog(
-                                        barrierDismissible: false,
-                                        context: context,
-                                        builder: (builder) => Stack(children: [
-                                          AlertDialog(
-                                            content: Card(
-                                              child: Image.network(e.url),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(15.0),
+                                return SingleChildScrollView(
+                                    child: Row(
+                                  children: photos.map((e) {
+                                    return GestureDetector(
+                                      child: CircleAvatar(
+                                        backgroundImage: NetworkImage(e.url),
+                                        radius: 75,
+                                        backgroundColor: Colors.white,
+                                      ),
+                                      onTap: () {
+                                        showDialog(
+                                          barrierDismissible: false,
+                                          context: context,
+                                          builder: (builder) =>
+                                              Stack(children: [
+                                            AlertDialog(
+                                              content: Card(
+                                                child: Image.network(e.url),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15.0),
+                                                ),
                                               ),
-                                            ),
-                                            actions: <Widget>[
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  TextButton(
-                                                    onPressed: () async {
-                                                      var kisi = AuthService()
-                                                          .user!
-                                                          .id;
-                                                      await FirebaseFirestore
-                                                          .instance
-                                                          .doc('Users/$kisi')
-                                                          .set(
-                                                              {'image': e.url},
-                                                              SetOptions(
-                                                                  merge: true));
-                                                      Navigator.pop(context);
-                                                    },
-                                                    child: Text(
-                                                        "ProfilResmiYap".tr()),
-                                                  ),
-                                                  TextButton(
-                                                    onPressed: () async {
-                                                      var userID = AuthService()
-                                                          .user!
-                                                          .id;
-                                                      var _secilenResim =
-                                                          FirebaseStorage
-                                                              .instance
-                                                              .ref(
-                                                                  'Users/gallery/${e.ref}');
-                                                      // ignore: unnecessary_null_comparison
-                                                      if (_secilenResim !=
-                                                          null) {
-                                                        _secilenResim.delete();
-                                                        setState(() {
-                                                          galeri();
-                                                        });
-                                                        FirebaseFirestore
+                                              actions: <Widget>[
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    TextButton(
+                                                      onPressed: () async {
+                                                        var kisi = AuthService()
+                                                            .user!
+                                                            .id;
+                                                        await FirebaseFirestore
                                                             .instance
-                                                            .collection("Users")
-                                                            .doc(userID)
-                                                            .update({
-                                                          'gPic': FieldValue
-                                                              .arrayRemove(
-                                                                  [e.toMap()])
-                                                        });
+                                                            .doc('Users/$kisi')
+                                                            .set(
+                                                                {
+                                                              'image': e.url
+                                                            },
+                                                                SetOptions(
+                                                                    merge:
+                                                                        true));
                                                         Navigator.pop(context);
-                                                      } else {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(SnackBar(
-                                                                backgroundColor:
-                                                                    Colors.blue,
-                                                                content: Text(
-                                                                    "KayitliResimYok"
-                                                                        .tr(),
-                                                                    style: TextStyle(
-                                                                        color: Colors
-                                                                            .white))));
-                                                      }
-                                                    },
-                                                    child:
-                                                        Text("ResmiSil".tr()),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                          Positioned(
-                                            child: Card(
-                                              elevation: 10,
-                                              color: Colors.white,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(35.0),
-                                              ),
-                                              child: ClipOval(
-                                                child: Material(
-                                                  color: Colors
-                                                      .transparent, // button color
-                                                  child: InkWell(
-                                                    splashColor: Colors
-                                                        .red, // inkwell color
-                                                    child: const SizedBox(
-                                                      width: 35,
-                                                      height: 35,
-                                                      child: Icon(
-                                                        Icons.close,
-                                                        color: Colors.black,
-                                                        size: 19,
-                                                      ),
+                                                      },
+                                                      child: Text(
+                                                          "ProfilResmiYap"
+                                                              .tr()),
                                                     ),
-                                                    onTap: () {
-                                                      Navigator.pop(context);
-                                                    },
+                                                    TextButton(
+                                                      onPressed: () async {
+                                                        var userID =
+                                                            AuthService()
+                                                                .user!
+                                                                .id;
+                                                        var _secilenResim =
+                                                            FirebaseStorage
+                                                                .instance
+                                                                .ref(
+                                                                    'Users/gallery/${e.ref}');
+                                                        // ignore: unnecessary_null_comparison
+                                                        if (_secilenResim !=
+                                                            null) {
+                                                          _secilenResim
+                                                              .delete();
+                                                          setState(() {
+                                                            galeri();
+                                                          });
+                                                          FirebaseFirestore
+                                                              .instance
+                                                              .collection(
+                                                                  "Users")
+                                                              .doc(userID)
+                                                              .update({
+                                                            'gPic': FieldValue
+                                                                .arrayRemove(
+                                                                    [e.toMap()])
+                                                          });
+                                                          Navigator.pop(
+                                                              context);
+                                                        } else {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(SnackBar(
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .blue,
+                                                                  content: Text(
+                                                                      "KayitliResimYok"
+                                                                          .tr(),
+                                                                      style: TextStyle(
+                                                                          color:
+                                                                              Colors.white))));
+                                                        }
+                                                      },
+                                                      child:
+                                                          Text("ResmiSil".tr()),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                            Positioned(
+                                              child: Card(
+                                                elevation: 10,
+                                                color: Colors.white,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          35.0),
+                                                ),
+                                                child: ClipOval(
+                                                  child: Material(
+                                                    color: Colors
+                                                        .transparent, // button color
+                                                    child: InkWell(
+                                                      splashColor: Colors
+                                                          .red, // inkwell color
+                                                      child: const SizedBox(
+                                                        width: 35,
+                                                        height: 35,
+                                                        child: Icon(
+                                                          Icons.close,
+                                                          color: Colors.black,
+                                                          size: 19,
+                                                        ),
+                                                      ),
+                                                      onTap: () {
+                                                        Navigator.pop(context);
+                                                      },
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                            top: 150,
-                                            right: 20,
-                                          )
-                                        ]),
-                                      );
-                                    },
-                                  );
-                                }).toList(),
-                              ));
-                            } else {
-                              return Container();
-                            }
-                          })),
-                )
-              ],
+                                              top: 150,
+                                              right: 20,
+                                            )
+                                          ]),
+                                        );
+                                      },
+                                    );
+                                  }).toList(),
+                                ));
+                              } else {
+                                return Container();
+                              }
+                            })),
+                  )
+                ],
+              ),
             ),
-          ),
-        )),
+          )),
+        ),
       ),
     );
   }
