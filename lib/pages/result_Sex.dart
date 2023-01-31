@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:version1/control_pages/myDrawer.dart';
-import 'package:version1/control_pages/statuPage.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/control_pages/badge_goster.dart';
 import 'package:version1/pages/search_page.dart';
@@ -41,174 +41,186 @@ class _Results2State extends State<Results2> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: createStatuPage(
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          drawer: MyDrawer(),
-          appBar: AppBar(
-            toolbarHeight: 80,
-            elevation: 0,
-            backgroundColor: Colors.black12,
-            title: Center(
-              child: Text(
-                "ResultPageAppbarTitle".tr(),
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-              ),
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(LineIcons.pen),
+          foregroundColor: Colors.black,
+        ),
+        backgroundColor: Colors.transparent,
+        drawer: MyDrawer(),
+        appBar: AppBar(
+          toolbarHeight: 70,
+          elevation: 0,
+          backgroundColor: Colors.blueAccent,
+          title: Center(
+            child: Text(
+              "ResultPageAppbarTitle".tr(),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
             ),
-            shape: RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(8))),
-            titleTextStyle: TextStyle(
-              color: Colors.white,
-              fontSize: 22,
-            ),
-            actions: [
-              baddge(),
-              IconButton(
-                icon: const Icon(Icons.search, color: Colors.white),
-                onPressed: _searchPage,
-              ),
-              IconButton(
-                icon: const Icon(Icons.home, color: Colors.white),
-                onPressed: _bilgilerimeGit,
-              ),
-            ],
           ),
-          body: Container(
-            width: double.maxFinite,
-            padding: const EdgeInsets.all(2),
-            margin: const EdgeInsets.all(2),
-            child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-              stream: SearchService2().searchStream1(widget.il, widget.ilce,
-                  widget.brans, widget.mevki, widget.sex),
-              builder: (c, snap) {
-                if (snap.hasData) {
-                  List<MyUser> users = snap.data!.docs
-                      .map((e) => MyUser.fromMap(e.data()))
-                      .toList();
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(8))),
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 22,
+          ),
+          actions: [
+            baddge(),
+            IconButton(
+              icon: const Icon(Icons.search, color: Colors.white),
+              onPressed: _searchPage,
+            ),
+            IconButton(
+              icon: const Icon(Icons.home, color: Colors.white),
+              onPressed: _bilgilerimeGit,
+            ),
+          ],
+        ),
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Color.fromARGB(255, 220, 222, 238),
+                Color.fromARGB(255, 76, 65, 147)
+              ], end: Alignment.topRight, begin: Alignment.bottomRight),
+              color: Color.fromARGB(255, 163, 215, 231)
+              /* image: DecorationImage(
+                  image: AssetImage("images/background.png"),
+                  fit: BoxFit.cover) */
+              ),
+          width: double.maxFinite,
+          padding: const EdgeInsets.all(2),
+          margin: const EdgeInsets.all(2),
+          child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+            stream: SearchService2().searchStream1(
+                widget.il, widget.ilce, widget.brans, widget.mevki, widget.sex),
+            builder: (c, snap) {
+              if (snap.hasData) {
+                List<MyUser> users = snap.data!.docs
+                    .map((e) => MyUser.fromMap(e.data()))
+                    .toList();
 
-                  if (users.length == 1) {
-                    if (users.any((e) => e.id == AuthService().user!.id)) {
-                      return Center(
-                        child: Column(
-                          children: [
-                            Text("BuKriterdeTekUye".tr()),
-                          ],
-                        ),
-                      );
-                    }
-                  }
-
-                  if (users.isEmpty) {
+                if (users.length == 1) {
+                  if (users.any((e) => e.id == AuthService().user!.id)) {
                     return Center(
-                      child: Container(
-                        child: Column(
-                          children: [
-                            Text(widget.il +
-                                "/ " +
-                                widget.ilce +
-                                "/ " +
-                                widget.brans +
-                                "/ " +
-                                widget.mevki +
-                                "/ " +
-                                widget.sex),
-                            Text("BuKriterdeUyeYok".tr()),
-                          ],
-                        ),
+                      child: Column(
+                        children: [
+                          Text("BuKriterdeTekUye".tr()),
+                        ],
                       ),
                     );
                   }
-                  users.removeWhere((e) => e.id == AuthService().user!.id);
+                }
 
-                  return SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Column(
-                          children: users.map((e) {
-                            if (e.sex == 'Female' || e.sex == 'Kadın') {
-                              widget.ppColor = Colors.pink.shade400;
-                            } else {
-                              widget.ppColor = Colors.blue;
-                            }
-                            if (e.premium == false) {
-                              widget.sIcon =
-                                  const Icon(Icons.person, color: Colors.red);
-                            } else {
-                              widget.sIcon = const Icon(
-                                Icons.message,
-                                color: Colors.blue,
-                              );
-                            }
-                            return Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              child: ListTile(
-                                title: SingleChildScrollView(
-                                  child: Row(
-                                    children: [
-                                      SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Text(
-                                          "${e.userName} ${e.soyisim} - ",
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.white),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          "${e.ilce} / ${e.mevki}",
-                                          style: const TextStyle(
-                                              fontSize: 12, color: Colors.blue),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                leading: CircleAvatar(
-                                  child: Text(
-                                    e.yas.toString(),
-                                    style: const TextStyle(
-                                        fontSize: 20, color: Colors.white),
-                                  ),
-                                  backgroundColor: widget.ppColor,
-                                ),
-                                subtitle: SingleChildScrollView(
-                                  child: Text(
-                                    "${e.bio}",
-                                    style: const TextStyle(color: Colors.blue),
-                                  ),
-                                ),
-                                trailing: widget.sIcon,
-                                onTap: () {
-                                  Navigator.of(context).push(CupertinoPageRoute(
-                                      builder: (context) => show(
-                                            whoData: e,
-                                          )));
-
-                                  /* Navigator.of(context).push(CupertinoPageRoute(
-                                        builder: (context) => Sohbet(
-                                              currentUser: AuthService().user!,
-                                              konusulanUser: e,
-                                            ))); */
-                                },
-                              ),
-                            );
-                          }).toList(),
-                        ),
-                      ],
+                if (users.isEmpty) {
+                  return Center(
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Text(widget.il +
+                              "/ " +
+                              widget.ilce +
+                              "/ " +
+                              widget.brans +
+                              "/ " +
+                              widget.mevki +
+                              "/ " +
+                              widget.sex),
+                          Text("BuKriterdeUyeYok".tr()),
+                        ],
+                      ),
                     ),
                   );
-                } else {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
                 }
-              },
-            ),
+                users.removeWhere((e) => e.id == AuthService().user!.id);
+
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Column(
+                        children: users.map((e) {
+                          if (e.sex == 'Female' || e.sex == 'Kadın') {
+                            widget.ppColor = Colors.pink.shade400;
+                          } else {
+                            widget.ppColor = Colors.blue;
+                          }
+                          if (e.premium == false) {
+                            widget.sIcon =
+                                const Icon(Icons.person, color: Colors.red);
+                          } else {
+                            widget.sIcon = const Icon(
+                              Icons.message,
+                              color: Colors.blue,
+                            );
+                          }
+                          return Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            child: ListTile(
+                              title: SingleChildScrollView(
+                                child: Row(
+                                  children: [
+                                    SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Text(
+                                        "${e.userName} ${e.soyisim} - ",
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        "${e.ilce} / ${e.mevki}",
+                                        style: const TextStyle(
+                                            fontSize: 12, color: Colors.blue),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              leading: CircleAvatar(
+                                child: Text(
+                                  e.yas.toString(),
+                                  style: const TextStyle(
+                                      fontSize: 20, color: Colors.white),
+                                ),
+                                backgroundColor: widget.ppColor,
+                              ),
+                              subtitle: SingleChildScrollView(
+                                child: Text(
+                                  "${e.bio}",
+                                  style: const TextStyle(color: Colors.blue),
+                                ),
+                              ),
+                              trailing: widget.sIcon,
+                              onTap: () {
+                                Navigator.of(context).push(CupertinoPageRoute(
+                                    builder: (context) => show(
+                                          whoData: e,
+                                        )));
+
+                                /* Navigator.of(context).push(CupertinoPageRoute(
+                                      builder: (context) => Sohbet(
+                                            currentUser: AuthService().user!,
+                                            konusulanUser: e,
+                                          ))); */
+                              },
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ],
+                  ),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
           ),
         ),
       ),

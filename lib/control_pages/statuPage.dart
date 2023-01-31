@@ -3,12 +3,18 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class createStatuPage extends StatelessWidget {
+class createStatuPage extends StatefulWidget {
   const createStatuPage({
     Key? key,
     required this.child,
   }) : super(key: key);
   final Widget child;
+
+  @override
+  State<createStatuPage> createState() => _createStatuPageState();
+}
+
+class _createStatuPageState extends State<createStatuPage> {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -24,7 +30,7 @@ class createStatuPage extends StatelessWidget {
               sigmaY: 15,
             ),
             child: Positioned.fill(
-              child: child,
+              child: widget.child,
             )),
       ),
     ]);

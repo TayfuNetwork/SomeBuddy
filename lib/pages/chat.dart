@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:version1/control_pages/statuPage.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
@@ -34,40 +34,50 @@ class _SohbetState extends State<Sohbet> {
   @override
   Widget build(BuildContext context) => SafeArea(
         child: SafeArea(
-          child: createStatuPage(
-            child: Scaffold(
-              backgroundColor: Colors.transparent,
-          drawer: MyDrawer(),
-          appBar: AppBar(
-            toolbarHeight: 80,
-            elevation: 0,
-            backgroundColor: Colors.black12,
-                title: Center(
-                  child: Text(
-                    "ChatAppbarTittle".tr(),
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-                  ),
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            drawer: MyDrawer(),
+            appBar: AppBar(
+              toolbarHeight: 70,
+              elevation: 0,
+              backgroundColor: Colors.blueAccent,
+              title: Center(
+                child: Text(
+                  "ChatAppbarTittle".tr(),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
                 ),
-                shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.vertical(bottom: Radius.circular(8))),
-                titleTextStyle: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                ),
-                actions: [
-                  baddge(),
-                  IconButton(
-                    icon: const Icon(Icons.search, color: Colors.white),
-                    onPressed: _searchPage,
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.home, color: Colors.white),
-                    onPressed: _bilgilerimeGit,
-                  ),
-                ],
               ),
-              body: Center(
+              shape: RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.vertical(bottom: Radius.circular(8))),
+              titleTextStyle: TextStyle(
+                color: Colors.white,
+                fontSize: 22,
+              ),
+              actions: [
+                baddge(),
+                IconButton(
+                  icon: const Icon(Icons.search, color: Colors.white),
+                  onPressed: _searchPage,
+                ),
+                IconButton(
+                  icon: const Icon(Icons.home, color: Colors.white),
+                  onPressed: _bilgilerimeGit,
+                ),
+              ],
+            ),
+            body: Center(
+              child: Container(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [
+                      Color.fromARGB(255, 220, 222, 238),
+                      Color.fromARGB(255, 76, 65, 147)
+                    ], end: Alignment.topRight, begin: Alignment.bottomRight),
+                    color: Color.fromARGB(255, 163, 215, 231)
+                    /* image: DecorationImage(
+                  image: AssetImage("images/background.png"),
+                  fit: BoxFit.cover) */
+                    ),
                 child: Column(
                   children: [
                     Expanded(
@@ -80,27 +90,27 @@ class _SohbetState extends State<Sohbet> {
                               child: CircularProgressIndicator(),
                             );
                           }
-          
+
                           FirebaseFirestore.instance
                               .collection("konusmalar")
                               .doc(
                                   "${widget.currentUser.id!}--${widget.konusulanUser.id!}")
                               .update({"gorulduMu": "true", "goruldu": "true"});
-          
+
                           FirebaseFirestore.instance
                               .collection("konusmalar")
                               .doc(
                                   "${widget.konusulanUser.id!}--${widget.currentUser.id!}")
                               .update({"goruldu": "true"});
-          
+
                           List<Mesaj>? tumMesajar = StreamMesajlarlistesi.data;
                           return ListView.builder(
                               reverse: true,
                               controller: _scrollController,
                               itemBuilder: (context, index) {
-                                return _konusmaBalonuOlustur(tumMesajar![index]);
+                                return _konusmaBalonuOlustur(
+                                    tumMesajar![index]);
                               },
-                              
                               itemCount: tumMesajar?.length);
                         },
                       ),
@@ -148,7 +158,8 @@ class _SohbetState extends State<Sohbet> {
                                     mesaj: _mesajController.text,
                                   );
                                   _mesajController.clear();
-                                  await AuthService.saveMessage(_kaydedilecekMesaj);
+                                  await AuthService.saveMessage(
+                                      _kaydedilecekMesaj);
                                 }
                               },
                             ),

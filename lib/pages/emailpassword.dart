@@ -66,16 +66,16 @@ class _EmailPasswordState extends State<EmailPassword> {
               .set({'token': fcmToken}, SetOptions(merge: true));
           AuthService().user!.token = await fcmToken;
 
-          /* ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        backgroundColor: Colors.blue,
-        content: Text("GirisYapabilirsin".tr(),
-            style: TextStyle(color: Colors.white)))); */
-
           await Navigator.of(context).pushAndRemoveUntil(
               CupertinoPageRoute(builder: (context) => const Profile()),
               (route) => false);
         }
-      } on Exception catch (e) {}
+      } on Exception catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            backgroundColor: Colors.blue,
+            content: Text(e.toString(),
+                style: TextStyle(color: Colors.white))));
+      }
     }
     if (_formType == FormType.Login) {
       user = await service.signIn(_sifre!, _email!, context);
@@ -194,21 +194,23 @@ class _EmailPasswordState extends State<EmailPassword> {
                     ),
                   ],
                   _isloading
-                      ? ElevatedButton(
-                          onPressed: () {
-                            try {
-                              _fromSubmit(context);
-                              setState(() {
-                                _isloading == false;
-                              });
-                            } catch (e) {
-                              setState(() {
-                                _isloading == true;
-                              });
-                            }
-                          },
-                          child: Text(_butonText!),
-                        )
+                      ? Builder(builder: (context) {
+                          return ElevatedButton(
+                            onPressed: () {
+                              try {
+                                _fromSubmit(context);
+                                setState(() {
+                                  _isloading == false;
+                                });
+                              } catch (e) {
+                                setState(() {
+                                  _isloading == true;
+                                });
+                              }
+                            },
+                            child: Text(_butonText!),
+                          );
+                        })
                       : buildSmallButton(),
                   const SizedBox(height: 8),
                   TextButton(

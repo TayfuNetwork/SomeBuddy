@@ -5,7 +5,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:version1/control_pages/statuPage.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/pages/bilgilerim.dart';
 import 'package:version1/pages/sign_in_page.dart';
@@ -37,44 +36,89 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: createStatuPage(
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            toolbarHeight: 80,
-            elevation: 0,
-            backgroundColor: Colors.black12,
-            title: Text('Profil'.tr()),
-            actions: <Widget>[
-              TextButton(
-                onPressed: _cikisYap,
-                child: Text(
-                  'CikisYap'.tr(),
-                  style: TextStyle(color: (Colors.red)),
-                ),
-              )
-            ],
-          ),
-          body: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            color: Colors.black.withOpacity(0),
-            child: Container(
-              padding: const EdgeInsets.all(15),
-              margin: const EdgeInsets.all(20),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const SizedBox(height: 10),
-                    Text('ProfilSayfaBilgilerDogrulugu'.tr(),
-                        style: TextStyle(color: Colors.yellow)),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          toolbarHeight: 80,
+          elevation: 0,
+          backgroundColor: Colors.black12,
+          title: Center(child: Text('Profil'.tr())),
+          actions: <Widget>[
+            TextButton(
+              onPressed: _cikisYap,
+              child: Text(
+                'CikisYap'.tr(),
+                style: TextStyle(color: (Colors.red)),
+              ),
+            )
+          ],
+        ),
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Color.fromARGB(255, 220, 222, 238),
+                Color.fromARGB(255, 76, 65, 147)
+              ], end: Alignment.topRight, begin: Alignment.bottomRight),
+              color: Color.fromARGB(255, 163, 215, 231)
+              /* image: DecorationImage(
+                  image: AssetImage("images/background.png"),
+                  fit: BoxFit.cover) */
+              ),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: Container(
+            padding: const EdgeInsets.all(15),
+            margin: const EdgeInsets.all(20),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const SizedBox(height: 10),
+                  Text('ProfilSayfaBilgilerDogrulugu'.tr(),
+                      style: TextStyle(color: Colors.yellow)),
 
-                    /*************/ const SizedBox(height: 10),
-                    TextField(
+                  /*************/ const SizedBox(height: 10),
+                  TextField(
+                    style: const TextStyle(color: Colors.white),
+                    maxLength: 11,
+                    maxLines: 1,
+                    decoration: InputDecoration(
+                      hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue, width: 1)),
+                      focusColor: Colors.blue,
+                      hintText: 'Isim'.tr(),
+                      enabled: true,
+                    ),
+                    autofocus: false,
+                    onChanged: (girilenisim) {
+                      isim = girilenisim;
+                    },
+                  ),
+                  /*************/ const SizedBox(height: 10),
+                  TextField(
+                    maxLength: 11,
+                    maxLines: 1,
+                    style: const TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      hintStyle: TextStyle(fontSize: 16.0, color: Colors.grey),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.blue, width: 1)),
+                      focusColor: Colors.blue,
+                      hintText: 'Soyisim'.tr(),
+                      enabled: true,
+                    ),
+                    autofocus: false,
+                    onChanged: (girilensoyad) {
+                      soyisim = girilensoyad;
+                    },
+                  ),
+
+                  /*************/ const SizedBox(height: 10),
+                  TextField(
                       style: const TextStyle(color: Colors.white),
-                      maxLength: 11,
-                      maxLines: 1,
+                      maxLength: 4,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         hintStyle:
                             TextStyle(fontSize: 16.0, color: Colors.grey),
@@ -82,18 +126,19 @@ class _ProfileState extends State<Profile> {
                             borderSide:
                                 BorderSide(color: Colors.blue, width: 1)),
                         focusColor: Colors.blue,
-                        hintText: 'Isim'.tr(),
-                        enabled: true,
+                        hintText: 'Yas'.tr(),
                       ),
                       autofocus: false,
-                      onChanged: (girilenisim) {
-                        isim = girilenisim;
-                      },
-                    ),
-                    /*************/ const SizedBox(height: 10),
-                    TextField(
-                      maxLength: 11,
-                      maxLines: 1,
+                      onChanged: (deger) {
+                        int date = DateTime.now().year;
+
+                        sonuc = int.tryParse(deger) ?? 0;
+                        yas = (date - sonuc);
+                      }),
+
+                  /*************/ const SizedBox(height: 10),
+                  TextField(
+                      maxLines: 2,
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         hintStyle:
@@ -102,119 +147,98 @@ class _ProfileState extends State<Profile> {
                             borderSide:
                                 BorderSide(color: Colors.blue, width: 1)),
                         focusColor: Colors.blue,
-                        hintText: 'Soyisim'.tr(),
-                        enabled: true,
+                        hintText: 'Paylaşım'.tr(),
                       ),
                       autofocus: false,
-                      onChanged: (girilensoyad) {
-                        soyisim = girilensoyad;
-                      },
-                    ),
+                      onChanged: (deger) {
+                        bio = deger;
+                      }),
 
-                    /*************/ const SizedBox(height: 10),
-                    TextField(
-                        style: const TextStyle(color: Colors.white),
-                        maxLength: 4,
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          hintStyle:
-                              TextStyle(fontSize: 16.0, color: Colors.grey),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.blue, width: 1)),
-                          focusColor: Colors.blue,
-                          hintText: 'Yas'.tr(),
-                        ),
-                        autofocus: false,
-                        onChanged: (deger) {
-                          int date = DateTime.now().year;
+                  /*************/ const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(
+                        "Cinsiyet:".tr(),
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      DropdownButton<int>(
+                        iconEnabledColor: Colors.blue,
+                        dropdownColor: const Color.fromARGB(255, 28, 185, 242),
+                        style: const TextStyle(color: Colors.black),
+                        value: sex?.x ?? 1000,
+                        items: model1.sexs.map((a) {
+                          return DropdownMenuItem(
+                            child: Text(a.sex.tr(),
+                                style: const TextStyle(color: Colors.white)),
+                            value: a.x,
+                            onTap: () {
+                              setState(() {
+                                sex = a;
+                              });
+                            },
+                          );
+                        }).toList(),
+                        onChanged: (s) {},
+                      ),
+                    ],
+                  ),
+                  /*************/ Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      //******************************************************************//
+                      if (isim != null &&
+                          soyisim != null &&
+                          sex != null &&
+                          bio != null &&
+                          yas > 10 &&
+                          yas < 100)
+                        ElevatedButton(
+                          // ignore: prefer_const_constructors
 
-                          sonuc = int.tryParse(deger) ?? 0;
-                          yas = (date - sonuc);
-                        }),
+                          onPressed: () async {
+                            if (isim!.length > 0 &&
+                                soyisim!.length > 0 &&
+                                sex != null &&
+                                bio!.length > 0 &&
+                                yas > 10 &&
+                                yas < 100) {
+                              setState(() {
+                                ad = isim!;
+                                soyad = soyisim!;
+                                yasi = yas.toString();
+                                cinsiyeti = (sex)!.sex;
+                                bio = bio;
+                              });
+                              User user = FirebaseAuth.instance.currentUser!;
 
-                    /*************/ const SizedBox(height: 10),
-                    TextField(
-                        maxLines: 2,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                          hintStyle:
-                              TextStyle(fontSize: 16.0, color: Colors.grey),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.blue, width: 1)),
-                          focusColor: Colors.blue,
-                          hintText: 'Paylaşım'.tr(),
-                        ),
-                        autofocus: false,
-                        onChanged: (deger) {
-                          bio = deger;
-                        }),
+                              await user.updateDisplayName(
+                                ad! + " " + soyad!,
+                              );
 
-                    /*************/ const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(
-                          "Cinsiyet:".tr(),
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        DropdownButton<int>(
-                          iconEnabledColor: Colors.blue,
-                          dropdownColor:
-                              const Color.fromARGB(255, 28, 185, 242),
-                          style: const TextStyle(color: Colors.black),
-                          value: sex?.x ?? 1000,
-                          items: model1.sexs.map((a) {
-                            return DropdownMenuItem(
-                              child: Text(a.sex.tr(),
-                                  style: const TextStyle(color: Colors.white)),
-                              value: a.x,
-                              onTap: () {
-                                setState(() {
-                                  sex = a;
-                                });
-                              },
-                            );
-                          }).toList(),
-                          onChanged: (s) {},
-                        ),
-                      ],
-                    ),
-                    /*************/ Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        //******************************************************************//
-                        if (isim != null &&
-                            soyisim != null &&
-                            sex != null &&
-                            bio != null &&
-                            yas > 10 &&
-                            yas < 100)
-                          ElevatedButton(
-                            // ignore: prefer_const_constructors
+                              MyUser myUser = MyUser(
+                                email: user.email ?? "email",
+                                userName: ad ?? "isimsiz",
+                                id: user.uid,
+                                yas: yas,
+                                sex: (sex)!.sex,
+                                bio: bio,
+                                soyisim: soyisim,
+                              );
 
-                            onPressed: () async {
-                              if (isim!.length > 0 &&
-                                  soyisim!.length > 0 &&
-                                  sex != null &&
-                                  bio!.length > 0 &&
-                                  yas > 10 &&
-                                  yas < 100) {
-                                setState(() {
-                                  ad = isim!;
-                                  soyad = soyisim!;
-                                  yasi = yas.toString();
-                                  cinsiyeti = (sex)!.sex;
-                                  bio = bio;
-                                });
-                                User user = FirebaseAuth.instance.currentUser!;
+                              AuthService().user = MyUser();
+                              final fcmToken =
+                                  await FirebaseMessaging.instance.getToken();
+                              FirebaseFirestore.instance
+                                  .collection('Users')
+                                  .doc(user.uid)
+                                  .set({'token': fcmToken},
+                                      SetOptions(merge: true));
 
-                                await user.updateDisplayName(
-                                  ad! + " " + soyad!,
-                                );
+                              AuthService().user!.token = fcmToken;
+                              await AuthService().updateUser(myUser);
 
-                                MyUser myUser = MyUser(
+                              myUser = MyUser(
                                   email: user.email ?? "email",
                                   userName: ad ?? "isimsiz",
                                   id: user.uid,
@@ -222,49 +246,26 @@ class _ProfileState extends State<Profile> {
                                   sex: (sex)!.sex,
                                   bio: bio,
                                   soyisim: soyisim,
-                                );
-
-                                AuthService().user = MyUser();
-                                final fcmToken =
-                                    await FirebaseMessaging.instance.getToken();
-                                FirebaseFirestore.instance
-                                    .collection('Users')
-                                    .doc(user.uid)
-                                    .set({'token': fcmToken},
-                                        SetOptions(merge: true));
-
-                                AuthService().user!.token = fcmToken;
-                                await AuthService().updateUser(myUser);
-
-                                myUser = MyUser(
-                                    email: user.email ?? "email",
-                                    userName: ad ?? "isimsiz",
-                                    id: user.uid,
-                                    yas: yas,
-                                    sex: (sex)!.sex,
-                                    bio: bio,
-                                    soyisim: soyisim,
-                                    token: fcmToken);
-                                await AuthService().updateUser(myUser);
-                                await Navigator.of(context).push(
-                                    CupertinoPageRoute(
-                                        builder: (context) => bilgilerim()));
-                                Navigator.of(context).pop();
-                              } else {
-                                Fluttertoast.showToast(
-                                  msg: "BilgilerDogruMu".tr(),
-                                  gravity: ToastGravity.BOTTOM,
-                                  toastLength: Toast.LENGTH_LONG,
-                                );
-                              }
-                            },
-                            child: Text('KaydetveDevamEt'.tr(),
-                                style: TextStyle(color: Colors.white)),
-                          ),
-                      ],
-                    )
-                  ],
-                ),
+                                  token: fcmToken);
+                              await AuthService().updateUser(myUser);
+                              await Navigator.of(context).push(
+                                  CupertinoPageRoute(
+                                      builder: (context) => bilgilerim()));
+                              Navigator.of(context).pop();
+                            } else {
+                              Fluttertoast.showToast(
+                                msg: "BilgilerDogruMu".tr(),
+                                gravity: ToastGravity.BOTTOM,
+                                toastLength: Toast.LENGTH_LONG,
+                              );
+                            }
+                          },
+                          child: Text('KaydetveDevamEt'.tr(),
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                    ],
+                  )
+                ],
               ),
             ),
           ),

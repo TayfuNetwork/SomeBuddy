@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:version1/control_pages/statuPage.dart';
 
 import '../control_pages/myDrawer.dart';
 
@@ -10,23 +9,32 @@ class usage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: createStatuPage(
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          drawer: MyDrawer(),
-          appBar: AppBar(
-            toolbarHeight: 80,
-            elevation: 0,
-            backgroundColor: Colors.black12,
-            title: Center(child: Text("UsageAppbarTitle".tr())),
-          ),
-          body: Padding(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        drawer: MyDrawer(),
+        appBar: AppBar(
+          toolbarHeight: 70,
+          elevation: 0,
+          backgroundColor: Colors.blueAccent,
+          title: Center(child: Text("UsageAppbarTitle".tr())),
+        ),
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Color.fromARGB(255, 220, 222, 238),
+                Color.fromARGB(255, 76, 65, 147)
+              ], end: Alignment.topRight, begin: Alignment.bottomRight),
+              color: Color.fromARGB(255, 163, 215, 231)
+              /* image: DecorationImage(
+                  image: AssetImage("images/background.png"),
+                  fit: BoxFit.cover) */
+              ),
+          child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
               width: double.maxFinite,
               padding: const EdgeInsets.symmetric(vertical: 10),
               margin: const EdgeInsets.all(8),
-              color: Colors.black.withOpacity(0),
               child: Padding(
                 padding: const EdgeInsets.all(2.0),
                 child: SingleChildScrollView(

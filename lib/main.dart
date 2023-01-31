@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:version1/control_pages/landing_page.dart';
-import 'package:version1/control_pages/statuPage.dart';
 import 'package:version1/services/ad_helper.dart';
 import 'package:version1/services/auth_service.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -67,7 +66,7 @@ Future<void> setupFlutterNotifications() async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  checkForUpdate();
+  //checkForUpdate();
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(options: NotificationService.currentPlatform);
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
