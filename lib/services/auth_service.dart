@@ -259,7 +259,7 @@ class AuthService {
     return true;
   }
 
-  Future<bool> updateStatu(String userID, String newStatu) async {
+  /* Future<bool> updateStatu(String userID, String newStatu) async {
     if (newStatu.length < 0) {
       var _users = await FirebaseFirestore.instance
           .collection("Users")
@@ -282,7 +282,7 @@ class AuthService {
       );
       return false;
     }
-  }
+  } */
 
   /* AdminaddFieldAndValue() async {
     final firestoreInstance = FirebaseFirestore.instance;

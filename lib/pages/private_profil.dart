@@ -29,10 +29,12 @@ class _private_profilState extends State<private_profil> {
   late TextEditingController _userNameController;
   late TextEditingController _bioController;
   late TextEditingController _statuController;
+  late TextEditingController _postController;
 
   @override
   void initState() {
     super.initState();
+    _postController = TextEditingController();
     _userNameController = TextEditingController();
     _bioController = TextEditingController();
     _statuController = TextEditingController();
@@ -55,9 +57,12 @@ class _private_profilState extends State<private_profil> {
     return SafeArea(
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          backgroundColor: Colors.blueAccent,
+          onPressed: () {
+            statuCreate();
+          },
           child: Icon(LineIcons.pen),
-          foregroundColor: Colors.black,
+          foregroundColor: Colors.white,
         ),
         backgroundColor: Colors.transparent,
         drawer: MyDrawer(),
@@ -91,6 +96,8 @@ class _private_profilState extends State<private_profil> {
         ),
         body: SingleChildScrollView(
             child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
                 Color.fromARGB(255, 220, 222, 238),
@@ -202,6 +209,7 @@ class _private_profilState extends State<private_profil> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
+                    enabled: true,
                     maxLines: 2,
                     controller: _bioController,
                     //initialValue: _userModel.user!.userName,
@@ -555,5 +563,73 @@ class _private_profilState extends State<private_profil> {
     return Navigator.of(context).pushAndRemoveUntil(
         CupertinoPageRoute(builder: (context) => const searchPage()),
         ((route) => false));
+  }
+
+  Dialog? statuCreate() {
+    showDialog(
+      context: context,
+      builder: (builder) => Stack(fit: StackFit.expand, children: [
+        AlertDialog(
+          title: Center(
+            child: Text(
+              "Nedüşünüyorsun".tr(),
+              style: TextStyle(color: Colors.blue, fontSize: 14),
+            ),
+          ),
+          backgroundColor: Colors.white,
+          content: Container(
+            height: 100,
+            width: 600,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [
+                  Color.fromARGB(255, 220, 222, 238),
+                  Color.fromARGB(255, 76, 65, 147)
+                ], end: Alignment.topRight, begin: Alignment.bottomRight),
+                color: Color.fromARGB(255, 163, 215, 231)),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  maxLines: 2,
+                  controller: _postController,
+                  readOnly: false,
+                  decoration: InputDecoration(
+                      labelText: 'Paylaşım'.tr(),
+                      hintText: 'BioOrnek'.tr(),
+                      border: OutlineInputBorder()),
+                ),
+              ),
+            ),
+          ),
+          actions: [
+            Center(
+              child: Column(
+                children: [
+                  TextButton(
+                      onPressed: () async {
+                        final _userModel = AuthService();
+                        var userID = AuthService().user!.id;
+                        await FirebaseFirestore.instance
+                            .collection("Users")
+                            .doc(userID)
+                            .update({'bio': _postController.text});
+
+                        _userModel.user!.bio =
+                            _postController.text; //auth servisdeki user
+                        Navigator.pop(context);
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            backgroundColor: Colors.blue,
+                            content: Text("BiografiDegisBasarili".tr(),
+                                style: TextStyle(color: Colors.white))));
+                      },
+                      child:
+                          Text("Gönder".tr(), style: TextStyle(fontSize: 18)))
+                ],
+              ),
+            ),
+          ],
+        ),
+      ]),
+    );
   }
 }

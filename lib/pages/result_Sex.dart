@@ -42,11 +42,6 @@ class _Results2State extends State<Results2> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(LineIcons.pen),
-          foregroundColor: Colors.black,
-        ),
         backgroundColor: Colors.transparent,
         drawer: MyDrawer(),
         appBar: AppBar(

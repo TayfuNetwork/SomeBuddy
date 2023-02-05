@@ -104,6 +104,12 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "decorated_icon",
+      "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/decorated_icon-1.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "easy_localization",
       "rootUri": "file:///C:/Users/tayfu/OneDrive/Belgeler/FLUTTER/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/easy_localization-3.0.1",
       "packageUri": "lib/",
@@ -728,7 +734,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2023-01-31T16:29:54.169326Z",
+  "generated": "2023-02-01T21:19:20.400905Z",
   "generator": "pub",
   "generatorVersion": "2.18.6"
 }

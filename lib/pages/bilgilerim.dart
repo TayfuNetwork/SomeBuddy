@@ -3,7 +3,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:version1/control_pages/myDrawer.dart';
@@ -38,6 +37,7 @@ bool _isBottomAdLoaded = false;
 
 // ignore: camel_case_types
 class _bilgilerimState extends State<bilgilerim> {
+  late TextEditingController _bioController;
   Brans? brans;
   double h1 = 60;
   double w1 = 60;
@@ -77,6 +77,7 @@ class _bilgilerimState extends State<bilgilerim> {
 
   @override
   void initState() {
+    _bioController = TextEditingController();
     fcmGetir();
     bannercrate();
     super.initState();
@@ -86,6 +87,7 @@ class _bilgilerimState extends State<bilgilerim> {
   @override
   void dispose() {
     super.dispose();
+    _bioController.dispose();
     _bottomBannerAd.dispose();
   }
 
@@ -114,11 +116,12 @@ class _bilgilerimState extends State<bilgilerim> {
     return SafeArea(
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blueAccent,
           onPressed: () {
             statuCreate();
           },
           child: Icon(LineIcons.pen),
-          foregroundColor: Colors.black,
+          foregroundColor: Colors.white,
         ),
         backgroundColor: Colors.transparent,
         drawer: MyDrawer(),
@@ -828,18 +831,34 @@ class _bilgilerimState extends State<bilgilerim> {
       context: context,
       builder: (builder) => Stack(fit: StackFit.expand, children: [
         AlertDialog(
+          title: Center(
+            child: Text(
+              "Nedüşünüyorsun".tr(),
+              style: TextStyle(color: Colors.blue, fontSize: 14),
+            ),
+          ),
           backgroundColor: Colors.white,
           content: Container(
-            width: 400,
-            height: 200,
+            height: 100,
+            width: 600,
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(12)),
-            ),
+                gradient: LinearGradient(colors: [
+                  Color.fromARGB(255, 220, 222, 238),
+                  Color.fromARGB(255, 76, 65, 147)
+                ], end: Alignment.topRight, begin: Alignment.bottomRight),
+                color: Color.fromARGB(255, 163, 215, 231)),
             child: Center(
-              child: Text(
-                "Paylaşımı buraya yapacaksın",
-                style: TextStyle(color: Colors.black),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  maxLines: 2,
+                  controller: _bioController,
+                  readOnly: false,
+                  decoration: InputDecoration(
+                      labelText: 'Paylaşım'.tr(),
+                      hintText: 'BioOrnek'.tr(),
+                      border: OutlineInputBorder()),
+                ),
               ),
             ),
           ),
@@ -847,7 +866,25 @@ class _bilgilerimState extends State<bilgilerim> {
             Center(
               child: Column(
                 children: [
-                  TextButton(onPressed: () {}, child: Text("Gönder".tr()))
+                  TextButton(
+                      onPressed: () async {
+                        final _userModel = AuthService();
+                        var userID = AuthService().user!.id;
+                        await FirebaseFirestore.instance
+                            .collection("Users")
+                            .doc(userID)
+                            .update({'bio': _bioController.text});
+
+                        _userModel.user!.bio =
+                            _bioController.text; //auth servisdeki user
+                        Navigator.pop(context);
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            backgroundColor: Colors.blue,
+                            content: Text("BiografiDegisBasarili".tr(),
+                                style: TextStyle(color: Colors.white))));
+                      },
+                      child:
+                          Text("Gönder".tr(), style: TextStyle(fontSize: 18)))
                 ],
               ),
             ),

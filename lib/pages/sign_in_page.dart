@@ -30,18 +30,16 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        /*************/ body: Container(
+       body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(colors: [
               Color.fromARGB(255, 220, 222, 238),
               Color.fromARGB(255, 76, 65, 147)
             ], end: Alignment.topRight, begin: Alignment.bottomRight),
             color: Color.fromARGB(255, 163, 215, 231),
-            /* image: DecorationImage(
-                  image: AssetImage("images/background.png"),
-                  fit: BoxFit.cover) */
+           
           ),
-          /*************/ padding: const EdgeInsets.all(16.0),
+           padding: const EdgeInsets.all(16.0),
           child: Container(
               child: Padding(
             padding: const EdgeInsets.all(40),
@@ -56,7 +54,7 @@ class _SignInPageState extends State<SignInPage> {
                   style: GoogleFonts.lato(
                       fontStyle: FontStyle.italic, fontSize: 30),
                 ),
-                /*************/ const SizedBox(height: 48),
+                 const SizedBox(height: 48),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
@@ -82,7 +80,7 @@ class _SignInPageState extends State<SignInPage> {
                       style: ElevatedButton.styleFrom(primary: Colors.blue)),
                 ),
 
-                /*************/ Padding(
+                Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: eMailGirisi(context),
                 ),
@@ -90,7 +88,7 @@ class _SignInPageState extends State<SignInPage> {
             ),
           )
 
-              /*************/ //AnonimGiris(),
+            //AnonimGiris(),
 
               ),
         ),

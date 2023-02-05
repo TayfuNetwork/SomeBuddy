@@ -33,16 +33,14 @@ void initState() {
   }
 }
 
+@override
+void dispose() {}
+
 class _showState extends State<show> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(LineIcons.pen),
-          foregroundColor: Colors.black,
-        ),
         backgroundColor: Colors.transparent,
         drawer: MyDrawer(),
         appBar: AppBar(
@@ -81,9 +79,6 @@ class _showState extends State<show> {
                   Color.fromARGB(255, 76, 65, 147)
                 ], end: Alignment.topRight, begin: Alignment.bottomRight),
                 color: Color.fromARGB(255, 163, 215, 231)
-                /* image: DecorationImage(
-                  image: AssetImage("images/background.png"),
-                  fit: BoxFit.cover) */
                 ),
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,

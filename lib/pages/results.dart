@@ -41,11 +41,6 @@ class _ResultsState extends State<Results> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(LineIcons.pen),
-          foregroundColor: Colors.black,
-        ),
         backgroundColor: Colors.transparent,
         drawer: MyDrawer(),
         appBar: AppBar(
@@ -59,8 +54,7 @@ class _ResultsState extends State<Results> {
             ),
           ),
           shape: RoundedRectangleBorder(
-              borderRadius:
-                  BorderRadius.vertical(bottom: Radius.circular(8))),
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(8))),
           titleTextStyle: TextStyle(
             color: Colors.white,
             fontSize: 22,
@@ -79,15 +73,15 @@ class _ResultsState extends State<Results> {
         ),
         body: Container(
           decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  Color.fromARGB(255, 220, 222, 238),
-                  Color.fromARGB(255, 76, 65, 147)
-                ], end: Alignment.topRight, begin: Alignment.bottomRight),
-                color: Color.fromARGB(255, 163, 215, 231)
-                /* image: DecorationImage(
+              gradient: LinearGradient(colors: [
+                Color.fromARGB(255, 220, 222, 238),
+                Color.fromARGB(255, 76, 65, 147)
+              ], end: Alignment.topRight, begin: Alignment.bottomRight),
+              color: Color.fromARGB(255, 163, 215, 231)
+              /* image: DecorationImage(
                   image: AssetImage("images/background.png"),
                   fit: BoxFit.cover) */
-                ),
+              ),
           width: double.maxFinite,
           padding: const EdgeInsets.all(2),
           margin: const EdgeInsets.all(2),
@@ -174,8 +168,7 @@ class _ResultsState extends State<Results> {
                                       child: Text(
                                         "${e.ilce} / ${e.mevki}",
                                         style: const TextStyle(
-                                            fontSize: 12,
-                                            color: Colors.yellow),
+                                            fontSize: 12, color: Colors.yellow),
                                       ),
                                     ),
                                   ],
