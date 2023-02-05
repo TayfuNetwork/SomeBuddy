@@ -624,6 +624,7 @@ class _searchPageState extends State<searchPage> {
         ),
       ]),
     );
+    return null;
   }
 
   _bilgilerimeGit() {

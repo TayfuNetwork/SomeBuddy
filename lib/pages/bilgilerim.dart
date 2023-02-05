@@ -39,9 +39,6 @@ bool _isBottomAdLoaded = false;
 class _bilgilerimState extends State<bilgilerim> {
   late TextEditingController _bioController;
   Brans? brans;
-  double h1 = 60;
-  double w1 = 60;
-  double c1 = 30;
   String? mevki;
   BransServices model = BransServices();
   String? il;
@@ -755,8 +752,8 @@ class _bilgilerimState extends State<bilgilerim> {
                                                                       _moveBox,
                                                                   child:
                                                                       Container(
-                                                                    width: w1,
-                                                                    height: h1,
+                                                                    width: 60,
+                                                                    height: 60,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       image: DecorationImage(
@@ -768,7 +765,7 @@ class _bilgilerimState extends State<bilgilerim> {
                                                                           .blue,
                                                                       borderRadius:
                                                                           BorderRadius.all(
-                                                                              Radius.circular(c1) //                 <--- border radius here
+                                                                              Radius.circular(30) //                 <--- border radius here
                                                                               ),
                                                                     ),
                                                                   ),
@@ -892,6 +889,7 @@ class _bilgilerimState extends State<bilgilerim> {
         ),
       ]),
     );
+    return null;
   }
 
   Column info() {

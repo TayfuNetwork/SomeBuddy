@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:version1/control_pages/badge_goster.dart';
 import 'package:version1/pages/search_page.dart';
 import 'package:version1/services/ad_helper.dart';
