@@ -10,6 +10,7 @@ import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
 import 'package:version1/services/search_service.dart';
 import 'bilgilerim.dart';
+import 'followers.dart';
 
 // ignore: camel_case_types, must_be_immutable
 class Results2 extends StatefulWidget {
@@ -37,10 +38,33 @@ class Results2 extends StatefulWidget {
 
 // ignore: camel_case_types
 class _Results2State extends State<Results2> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.black,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Akış'.tr(),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people),
+              label: 'Hobidaşlar'.tr(),
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
         backgroundColor: Colors.transparent,
         drawer: MyDrawer(),
         appBar: AppBar(
@@ -71,152 +95,158 @@ class _Results2State extends State<Results2> {
             ),
           ],
         ),
-        body: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Color.fromARGB(255, 220, 222, 238),
-                Color.fromARGB(255, 76, 65, 147)
-              ], end: Alignment.topRight, begin: Alignment.bottomRight),
-              color: Color.fromARGB(255, 163, 215, 231)
-              /* image: DecorationImage(
+        body: _selectedIndex == 0
+            ? Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [
+                      Color.fromARGB(255, 220, 222, 238),
+                      Color.fromARGB(255, 76, 65, 147)
+                    ], end: Alignment.topRight, begin: Alignment.bottomRight),
+                    color: Color.fromARGB(255, 163, 215, 231)
+                    /* image: DecorationImage(
                   image: AssetImage("images/background.png"),
                   fit: BoxFit.cover) */
-              ),
-          width: double.maxFinite,
-          padding: const EdgeInsets.all(2),
-          margin: const EdgeInsets.all(2),
-          child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-            stream: SearchService2().searchStream1(
-                widget.il, widget.ilce, widget.brans, widget.mevki, widget.sex),
-            builder: (c, snap) {
-              if (snap.hasData) {
-                List<MyUser> users = snap.data!.docs
-                    .map((e) => MyUser.fromMap(e.data()))
-                    .toList();
-
-                if (users.length == 1) {
-                  if (users.any((e) => e.id == AuthService().user!.id)) {
-                    return Center(
-                      child: Column(
-                        children: [
-                          Text("BuKriterdeTekUye".tr()),
-                        ],
-                      ),
-                    );
-                  }
-                }
-
-                if (users.isEmpty) {
-                  return Center(
-                    child: Container(
-                      child: Column(
-                        children: [
-                          Text(widget.il +
-                              "/ " +
-                              widget.ilce +
-                              "/ " +
-                              widget.brans +
-                              "/ " +
-                              widget.mevki +
-                              "/ " +
-                              widget.sex),
-                          Text("BuKriterdeUyeYok".tr()),
-                        ],
-                      ),
                     ),
-                  );
-                }
-                users.removeWhere((e) => e.id == AuthService().user!.id);
+                padding: const EdgeInsets.all(2),
+                margin: const EdgeInsets.all(2),
+                child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+                  stream: SearchService2().searchStream1(widget.il, widget.ilce,
+                      widget.brans, widget.mevki, widget.sex),
+                  builder: (c, snap) {
+                    if (snap.hasData) {
+                      List<MyUser> users = snap.data!.docs
+                          .map((e) => MyUser.fromMap(e.data()))
+                          .toList();
 
-                return SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Column(
-                        children: users.map((e) {
-                          if (e.sex == 'Female' || e.sex == 'Kadın') {
-                            widget.ppColor = Colors.pink.shade400;
-                          } else {
-                            widget.ppColor = Colors.blue;
-                          }
-                          if (e.premium == false) {
-                            widget.sIcon =
-                                const Icon(Icons.person, color: Colors.red);
-                          } else {
-                            widget.sIcon = const Icon(
-                              Icons.message,
-                              color: Colors.blue,
-                            );
-                          }
-                          return Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
+                      if (users.length == 1) {
+                        if (users.any((e) => e.id == AuthService().user!.id)) {
+                          return Center(
+                            child: Column(
+                              children: [
+                                Text("BuKriterdeTekUye".tr()),
+                              ],
                             ),
-                            child: ListTile(
-                              title: SingleChildScrollView(
-                                child: Row(
-                                  children: [
-                                    SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Text(
-                                        "${e.userName} ${e.soyisim} - ",
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text(
-                                        "${e.ilce} / ${e.mevki}",
-                                        style: const TextStyle(
-                                            fontSize: 12, color: Colors.blue),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              leading: CircleAvatar(
-                                child: Text(
-                                  e.yas.toString(),
-                                  style: const TextStyle(
-                                      fontSize: 20, color: Colors.white),
-                                ),
-                                backgroundColor: widget.ppColor,
-                              ),
-                              subtitle: SingleChildScrollView(
-                                child: Text(
-                                  "${e.bio}",
-                                  style: const TextStyle(color: Colors.blue),
-                                ),
-                              ),
-                              trailing: widget.sIcon,
-                              onTap: () {
-                                Navigator.of(context).push(CupertinoPageRoute(
-                                    builder: (context) => show(
-                                          whoData: e,
-                                        )));
+                          );
+                        }
+                      }
 
-                                /* Navigator.of(context).push(CupertinoPageRoute(
+                      if (users.isEmpty) {
+                        return Center(
+                          child: Container(
+                            child: Column(
+                              children: [
+                                Text(widget.il +
+                                    "/ " +
+                                    widget.ilce +
+                                    "/ " +
+                                    widget.brans +
+                                    "/ " +
+                                    widget.mevki +
+                                    "/ " +
+                                    widget.sex),
+                                Text("BuKriterdeUyeYok".tr()),
+                              ],
+                            ),
+                          ),
+                        );
+                      }
+                      users.removeWhere((e) => e.id == AuthService().user!.id);
+
+                      return SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Column(
+                              children: users.map((e) {
+                                if (e.sex == 'Female' || e.sex == 'Kadın') {
+                                  widget.ppColor = Colors.pink.shade400;
+                                } else {
+                                  widget.ppColor = Colors.blue;
+                                }
+                                if (e.premium == false) {
+                                  widget.sIcon = const Icon(Icons.person,
+                                      color: Colors.red);
+                                } else {
+                                  widget.sIcon = const Icon(
+                                    Icons.message,
+                                    color: Colors.blue,
+                                  );
+                                }
+                                return Card(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  ),
+                                  child: ListTile(
+                                    title: SingleChildScrollView(
+                                      child: Row(
+                                        children: [
+                                          SingleChildScrollView(
+                                            scrollDirection: Axis.horizontal,
+                                            child: Text(
+                                              "${e.userName} ${e.soyisim} - ",
+                                              style: const TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Text(
+                                              "${e.ilce} / ${e.mevki}",
+                                              style: const TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.blue),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    leading: CircleAvatar(
+                                      child: Text(
+                                        e.yas.toString(),
+                                        style: const TextStyle(
+                                            fontSize: 20, color: Colors.white),
+                                      ),
+                                      backgroundColor: widget.ppColor,
+                                    ),
+                                    subtitle: SingleChildScrollView(
+                                      child: Text(
+                                        "${e.bio}",
+                                        style:
+                                            const TextStyle(color: Colors.blue),
+                                      ),
+                                    ),
+                                    trailing: widget.sIcon,
+                                    onTap: () {
+                                      Navigator.of(context)
+                                          .push(CupertinoPageRoute(
+                                              builder: (context) => show(
+                                                    whoData: e,
+                                                  )));
+
+                                      /* Navigator.of(context).push(CupertinoPageRoute(
                                       builder: (context) => Sohbet(
                                             currentUser: AuthService().user!,
                                             konusulanUser: e,
                                           ))); */
-                              },
+                                    },
+                                  ),
+                                );
+                              }).toList(),
                             ),
-                          );
-                        }).toList(),
-                      ),
-                    ],
-                  ),
-                );
-              } else {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-            },
-          ),
-        ),
+                          ],
+                        ),
+                      );
+                    } else {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  },
+                ),
+              )
+            : Followers(),
       ),
     );
   }

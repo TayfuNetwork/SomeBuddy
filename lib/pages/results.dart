@@ -11,6 +11,7 @@ import 'package:version1/services/auth_service.dart';
 import 'package:version1/services/search_service.dart';
 
 import 'bilgilerim.dart';
+import 'followers.dart';
 
 // ignore: camel_case_types, must_be_immutable
 class Results extends StatefulWidget {
@@ -36,10 +37,33 @@ class Results extends StatefulWidget {
 
 // ignore: camel_case_types
 class _ResultsState extends State<Results> {
+    int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.black,
+
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Akış'.tr(),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people),
+              label: 'Hobidaşlar'.tr(),
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
         backgroundColor: Colors.transparent,
         drawer: MyDrawer(),
         appBar: AppBar(
@@ -70,7 +94,8 @@ class _ResultsState extends State<Results> {
             ),
           ],
         ),
-        body: Container(
+        body: _selectedIndex == 0
+            ?  Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
                 Color.fromARGB(255, 220, 222, 238),
@@ -81,7 +106,8 @@ class _ResultsState extends State<Results> {
                   image: AssetImage("images/background.png"),
                   fit: BoxFit.cover) */
               ),
-          width: double.maxFinite,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.all(2),
           margin: const EdgeInsets.all(2),
           child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
@@ -214,7 +240,7 @@ class _ResultsState extends State<Results> {
               }
             },
           ),
-        ),
+        ): Followers(),
       ),
     );
   }

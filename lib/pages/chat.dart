@@ -73,9 +73,6 @@ class _SohbetState extends State<Sohbet> {
                       Color.fromARGB(255, 76, 65, 147)
                     ], end: Alignment.topRight, begin: Alignment.bottomRight),
                     color: Color.fromARGB(255, 163, 215, 231)
-                    /* image: DecorationImage(
-                  image: AssetImage("images/background.png"),
-                  fit: BoxFit.cover) */
                     ),
                 child: Column(
                   children: [

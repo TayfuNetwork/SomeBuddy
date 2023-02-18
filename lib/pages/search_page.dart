@@ -16,6 +16,8 @@ import 'package:version1/services/ad_helper.dart';
 import 'package:version1/services/auth_service.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import 'followers.dart';
+
 // ignore: camel_case_types
 class searchPage extends StatefulWidget {
   const searchPage({
@@ -160,13 +162,35 @@ class _searchPageState extends State<searchPage> {
     adHelper.rewardedAd;
     adHelper.interstitialAd;
   }
+  int _selectedIndex = 0;
 
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   String? sex;
   SexServices model1 = SexServices();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.black,
+
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Akış'.tr(),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people),
+              label: 'Hobidaşlar'.tr(),
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
           floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.blueAccent,
           onPressed: () {
@@ -204,7 +228,8 @@ class _searchPageState extends State<searchPage> {
         ),
         //******************************************************************//
 
-        body: SingleChildScrollView(
+        body: _selectedIndex == 0
+            ?  SingleChildScrollView(
           child: Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [
@@ -554,7 +579,7 @@ class _searchPageState extends State<searchPage> {
               ),
             )),
           ),
-        ),
+        ): Followers(),
       ),
     );
   }

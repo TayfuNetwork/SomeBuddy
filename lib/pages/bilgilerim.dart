@@ -8,8 +8,8 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:version1/control_pages/myDrawer.dart';
 import 'package:version1/models/user.dart';
 import 'package:version1/control_pages/badge_goster.dart';
+import 'package:version1/pages/followers.dart';
 import 'package:version1/pages/search_page.dart';
-import 'package:version1/pages/show.dart';
 import 'package:version1/services/auth_service.dart';
 import '../control_pages/json-models.dart';
 import 'package:geocoding/geocoding.dart';
@@ -51,8 +51,6 @@ class _bilgilerimState extends State<bilgilerim> {
   String? _konumIlce = "Place";
   bool _isloading = true;
   String _durum = "AnaSayfaKayitOlusturButonu".tr();
-  bool? _hobidas = false;
-  final takipciler = getTakipciler(AuthService().user!.id!);
 
   //final fcmToken = AuthService().user!.token;
 
@@ -108,10 +106,35 @@ class _bilgilerimState extends State<bilgilerim> {
     _bottomBannerAd.load();
   }
 
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.black,
+
+          items: <BottomNavigationBarItem>[
+            
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Akış'.tr(),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people),
+              label: 'Hobidaşlar'.tr(),
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.blueAccent,
           onPressed: () {
@@ -147,678 +170,468 @@ class _bilgilerimState extends State<bilgilerim> {
             //controlPremium()
           ],
         ),
-        body: Stack(
-          children: [
-            Column(
-              children: [
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            colors: [
-                              Color.fromARGB(255, 220, 222, 238),
-                              Color.fromARGB(255, 76, 65, 147)
-                            ],
-                            end: Alignment.topRight,
-                            begin: Alignment.bottomRight),
-                        color: Color.fromARGB(255, 163, 215, 231)
-                        /* image: DecorationImage(
+        body: _selectedIndex == 0
+            ? Stack(
+                children: [
+                  Column(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  colors: [
+                                    Color.fromARGB(255, 220, 222, 238),
+                                    Color.fromARGB(255, 76, 65, 147)
+                                  ],
+                                  end: Alignment.topRight,
+                                  begin: Alignment.bottomRight),
+                              color: Color.fromARGB(255, 163, 215, 231)
+                              /* image: DecorationImage(
                   image: AssetImage("images/background.png"),
                   fit: BoxFit.cover) */
-                        ),
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    child: SingleChildScrollView(
-                      child: Container(
-                        width: double.maxFinite,
-                        padding: const EdgeInsets.all(15),
-                        margin: const EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: const [
-                              BoxShadow(color: Colors.grey, blurRadius: 6),
-                            ]),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Text("AnaSayfaKimlik".tr(),
-                                style: TextStyle(color: Colors.grey)),
-                            Card(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20),
-                                      bottomLeft: Radius.circular(20),
-                                      bottomRight: Radius.circular(20))),
-                              color: Color.fromARGB(221, 23, 22, 22),
-                              child: ListTile(
-                                title: SingleChildScrollView(
-                                  scrollDirection: Axis.horizontal,
-                                  child: Row(
-                                    children: [
-                                      SingleChildScrollView(
+                              ),
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height,
+                          child: SingleChildScrollView(
+                            child: Container(
+                              width: double.maxFinite,
+                              padding: const EdgeInsets.all(15),
+                              margin: const EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                        color: Colors.grey, blurRadius: 6),
+                                  ]),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  Text("AnaSayfaKimlik".tr(),
+                                      style: TextStyle(color: Colors.grey)),
+                                  Card(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20),
+                                            bottomLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20))),
+                                    color: Color.fromARGB(221, 23, 22, 22),
+                                    child: ListTile(
+                                      title: SingleChildScrollView(
+                                        scrollDirection: Axis.horizontal,
+                                        child: Row(
+                                          children: [
+                                            SingleChildScrollView(
+                                              child: Text(
+                                                "${AuthService().user!.userName} ${AuthService().user!.soyisim} - ",
+                                                style: const TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Text(
+                                                "${AuthService().user!.ilce} / ${AuthService().user!.mevki}",
+                                                style: const TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.yellow),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      leading: CircleAvatar(
                                         child: Text(
-                                          "${AuthService().user!.userName} ${AuthService().user!.soyisim} - ",
+                                          AuthService().user!.yas.toString(),
                                           style: const TextStyle(
-                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20,
                                               color: Colors.white),
                                         ),
+                                        backgroundColor: previewColor(),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                      subtitle: SingleChildScrollView(
                                         child: Text(
-                                          "${AuthService().user!.ilce} / ${AuthService().user!.mevki}",
+                                          "${AuthService().user!.bio}",
                                           style: const TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.yellow),
+                                              color: Colors.blue),
                                         ),
                                       ),
+                                      trailing: previewIcon(),
+                                      onTap: () {},
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Text(
+                                        "${("Takipte").tr()}: ${(benimHobidas().toString())} ",
+                                        style: TextStyle(color: Colors.blue),
+                                      ),
+                                      Text(
+                                          "${("Takip Eden").tr()} : ${benOnlarinHobidas().toString()} ",
+                                          style: TextStyle(color: Colors.blue)),
                                     ],
                                   ),
-                                ),
-                                leading: CircleAvatar(
-                                  child: Text(
-                                    AuthService().user!.yas.toString(),
-                                    style: const TextStyle(
-                                        fontSize: 20, color: Colors.white),
-                                  ),
-                                  backgroundColor: previewColor(),
-                                ),
-                                subtitle: SingleChildScrollView(
-                                  child: Text(
-                                    "${AuthService().user!.bio}",
-                                    style: const TextStyle(color: Colors.blue),
-                                  ),
-                                ),
-                                trailing: previewIcon(),
-                                onTap: () {},
-                              ),
-                            ),
-                            const SizedBox(height: 5),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Text(
-                                  "${("Takipte").tr()}: ${(benimHobidas().toString())} ",
-                                  style: TextStyle(color: Colors.blue),
-                                ),
-                                Text(
-                                    "${("Takip Eden").tr()} : ${benOnlarinHobidas().toString()} ",
-                                    style: TextStyle(color: Colors.blue)),
-                              ],
-                            ),
-                            const SizedBox(height: 5),
-                            if (AuthService().user!.il != null)
-                              TextButton(
-                                  onPressed: () async {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                        SnackBar(
-                                            backgroundColor: Colors.blue,
-                                            duration: Duration(seconds: 5),
-                                            content: Text(
-                                                'KaydinizSilindi'.tr(),
-                                                style: TextStyle(
-                                                    color: Colors.white))));
-
-                                    var userID = AuthService().user!.id;
-                                    try {
-                                      await FirebaseFirestore.instance
-                                          .collection("Users")
-                                          .doc(userID)
-                                          .update({
-                                        'il': null,
-                                        'ilce': null,
-                                        'brans': null,
-                                        'mevki': null
-                                      });
-                                      AuthService().user =
-                                          AuthService().user!.copyWith(
-                                                il: null,
-                                                ilce: null,
-                                                brans: null,
-                                                mevki: null,
-                                              );
-                                      setState(() {});
-                                    } on Exception {}
-                                  },
-                                  child: Text(
-                                    'AnaSayfaHobiKatiniSil'.tr(),
-                                    style: TextStyle(color: Colors.pink),
-                                    softWrap: true,
-                                  )),
-                            const Divider(
-                              thickness: 2,
-                              color: Colors.blueAccent,
-                            ),
-                            const SizedBox(height: 10),
-                            Text('AnaSayfaKonumAciklama'.tr(),
-                                style: TextStyle(color: Colors.grey)),
-                            const SizedBox(height: 10),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                ElevatedButton(
-                                    onPressed: () async {
-                                      LocationPermission permission;
-                                      permission =
-                                          await Geolocator.checkPermission();
-                                      if (permission ==
-                                          LocationPermission.denied) {
-                                        showDialog(
-                                            barrierDismissible: false,
-                                            context: context,
-                                            builder: (builder) =>
-                                                Stack(children: [
-                                                  AlertDialog(
-                                                    content: Card(
-                                                      child: Text(
-                                                          "konumaIzinver".tr()),
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(15.0),
-                                                      ),
-                                                    ),
-                                                    actions: <Widget>[
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          TextButton(
-                                                            onPressed:
-                                                                () async {
-                                                              Navigator.pop(
-                                                                  context);
-                                                              try {
-                                                                _currentPosition =
-                                                                    await determinePosition();
-                                                                await _getAddressFromLatLng();
-                                                                _getCurrentLocation();
-                                                                il = _konumIl;
-                                                                ilce =
-                                                                    _konumIlce;
-
-                                                                setState(() {
-                                                                  _isloading =
-                                                                      false;
-                                                                });
-                                                                await Future.delayed(
-                                                                    Duration(
-                                                                        seconds:
-                                                                            3));
-                                                                setState(() {
-                                                                  _getCurrentLocation();
-                                                                  il = _konumIl;
-                                                                  ilce =
-                                                                      _konumIlce;
-                                                                  _isloading =
-                                                                      true;
-                                                                  _durum =
-                                                                      "AnaSayfaKonumBelirlendiButonu"
-                                                                          .tr();
-                                                                });
-                                                                await Future.delayed(
-                                                                    Duration(
-                                                                        seconds:
-                                                                            3));
-                                                                setState(() {
-                                                                  _durum =
-                                                                      "AnaSayfaTekrarTaratButonu"
-                                                                          .tr();
-                                                                });
-                                                              } catch (e) {
-                                                                ScaffoldMessenger.of(
-                                                                        context)
-                                                                    .showSnackBar(
-                                                                        SnackBar(
-                                                                  backgroundColor:
-                                                                      Colors
-                                                                          .blue,
-                                                                  content: Text(
-                                                                      "AnaSayfaKonumErisilemiyorHata"
-                                                                          .tr(),
-                                                                      style: TextStyle(
-                                                                          color:
-                                                                              Colors.white)),
-                                                                  duration:
-                                                                      Duration(
-                                                                          seconds:
-                                                                              5),
-                                                                ));
-                                                              }
-                                                            },
-                                                            child:
-                                                                Text("İzinVer")
-                                                                    .tr(),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed:
-                                                                () async {
-                                                              Navigator.pop(
-                                                                  context);
-                                                            },
-                                                            child: Text(
-                                                                    "İzinVerme")
-                                                                .tr(),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  )
-                                                ]));
-                                      } else {
-                                        try {
-                                          _currentPosition =
-                                              await determinePosition();
-                                          await _getAddressFromLatLng();
-                                          _getCurrentLocation();
-                                          il = _konumIl;
-                                          ilce = _konumIlce;
-
-                                          setState(() {
-                                            _isloading = false;
-                                          });
-                                          await Future.delayed(
-                                              Duration(seconds: 3));
-                                          setState(() {
-                                            _getCurrentLocation();
-                                            il = _konumIl;
-                                            ilce = _konumIlce;
-                                            _isloading = true;
-                                            _durum =
-                                                "AnaSayfaKonumBelirlendiButonu"
-                                                    .tr();
-                                          });
-                                          await Future.delayed(
-                                              Duration(seconds: 3));
-                                          setState(() {
-                                            _durum = "AnaSayfaTekrarTaratButonu"
-                                                .tr();
-                                          });
-                                        } catch (e) {
+                                  const SizedBox(height: 5),
+                                  if (AuthService().user!.il != null)
+                                    TextButton(
+                                        onPressed: () async {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(SnackBar(
-                                            backgroundColor: Colors.blue,
-                                            content: Text(
-                                                "AnaSayfaKonumErisilemiyorHata"
-                                                    .tr(),
-                                                style: TextStyle(
-                                                    color: Colors.white)),
-                                            duration: Duration(seconds: 5),
-                                          ));
-                                        }
-                                      }
-                                    },
-                                    child: !_isloading
-                                        ? buildSmallButton()
-                                        : Text(_durum)),
-                                if (il != null) info()
-                              ],
-                            ),
-                            if (il != null)
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Text("Brans".tr(),
-                                        style: TextStyle(color: Colors.blue)),
-                                    DropdownButton<int>(
-                                      menuMaxHeight: 400,
-                                      iconEnabledColor: Colors.blue,
-                                      dropdownColor: const Color.fromARGB(
-                                          255, 28, 185, 242),
-                                      style:
-                                          const TextStyle(color: Colors.black),
-                                      value: brans?.no ?? 82,
-                                      items: model.branslar.map((b) {
-                                        return DropdownMenuItem(
-                                          child: Text(b.brans,
-                                              style: const TextStyle(
-                                                  color: Colors.black)),
-                                          value: b.no,
-                                          onTap: () {
-                                            setState(() {
-                                              brans = b;
-                                              mevki = b.mevki.first;
+                                                  backgroundColor: Colors.blue,
+                                                  duration:
+                                                      Duration(seconds: 5),
+                                                  content: Text(
+                                                      'KaydinizSilindi'.tr(),
+                                                      style: TextStyle(
+                                                          color:
+                                                              Colors.white))));
+
+                                          var userID = AuthService().user!.id;
+                                          try {
+                                            await FirebaseFirestore.instance
+                                                .collection("Users")
+                                                .doc(userID)
+                                                .update({
+                                              'il': null,
+                                              'ilce': null,
+                                              'brans': null,
+                                              'mevki': null
                                             });
-                                          },
-                                        );
-                                      }).toList(),
-                                      onChanged: (s) {},
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            if (mevki != null)
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text("Mevki:".tr(),
-                                      style: TextStyle(color: Colors.blue)),
-                                  DropdownButton<String>(
-                                    menuMaxHeight: 400,
-                                    iconEnabledColor: Colors.blue,
-                                    dropdownColor:
-                                        const Color.fromARGB(255, 28, 185, 242),
-                                    value: mevki ?? brans!.mevki.first,
-                                    style: const TextStyle(color: Colors.black),
-                                    items: model.mevki(brans!.no).map((b) {
-                                      return DropdownMenuItem(
-                                        child: Text(
-                                          b,
-                                          style: const TextStyle(
-                                              color: Colors.black),
-                                        ),
-                                        value: b,
-                                        onTap: () {
-                                          setState(() {
-                                            mevki = b;
-                                          });
+                                            AuthService().user =
+                                                AuthService().user!.copyWith(
+                                                      il: null,
+                                                      ilce: null,
+                                                      brans: null,
+                                                      mevki: null,
+                                                    );
+                                            setState(() {});
+                                          } on Exception {}
                                         },
-                                      );
-                                    }).toList(),
-                                    onChanged: (s) {},
+                                        child: Text(
+                                          'AnaSayfaHobiKatiniSil'.tr(),
+                                          style: TextStyle(color: Colors.pink),
+                                          softWrap: true,
+                                        )),
+                                  const Divider(
+                                    thickness: 2,
+                                    color: Colors.blueAccent,
                                   ),
-                                  Icon(
-                                    Icons.abc,
-                                    color: Colors.white.withOpacity(0),
-                                  )
-                                ],
-                              ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                if (ilce != null && brans != null)
+                                  const SizedBox(height: 10),
+                                  Text('AnaSayfaKonumAciklama'.tr(),
+                                      style: TextStyle(color: Colors.grey)),
+                                  const SizedBox(height: 10),
                                   Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
                                     children: [
                                       ElevatedButton(
-                                        onPressed: () async {
-                                          ili = (il)!;
-                                          ilcesi = ilce;
-                                          bransi = (brans)!.brans;
-                                          mevkisi = mevki;
+                                          onPressed: () async {
+                                            LocationPermission permission;
+                                            permission = await Geolocator
+                                                .checkPermission();
+                                            if (permission ==
+                                                LocationPermission.denied) {
+                                              showDialog(
+                                                  barrierDismissible: false,
+                                                  context: context,
+                                                  builder:
+                                                      (builder) => Stack(
+                                                              children: [
+                                                                AlertDialog(
+                                                                  content: Card(
+                                                                    child: Text(
+                                                                        "konumaIzinver"
+                                                                            .tr()),
+                                                                    shape:
+                                                                        RoundedRectangleBorder(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              15.0),
+                                                                    ),
+                                                                  ),
+                                                                  actions: <
+                                                                      Widget>[
+                                                                    Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
+                                                                      children: [
+                                                                        TextButton(
+                                                                          onPressed:
+                                                                              () async {
+                                                                            Navigator.pop(context);
+                                                                            try {
+                                                                              _currentPosition = await determinePosition();
+                                                                              await _getAddressFromLatLng();
+                                                                              _getCurrentLocation();
+                                                                              il = _konumIl;
+                                                                              ilce = _konumIlce;
 
-                                          MyUser user = AuthService().user!;
-                                          user = user.copyWith(
-                                            brans: bransi,
-                                            il: ili,
-                                            ilce: ilce,
-                                            mevki: mevki,
-                                          );
-                                          var dateTime = DateTime.now();
-                                          var ddd =
-                                              DateFormat('MM/dd/yyyy HH:mm')
-                                                  .format(dateTime);
-                                          await FirebaseMessaging.instance
-                                              .getToken();
-                                          FirebaseFirestore.instance
-                                              .collection('Users')
-                                              .doc(user.id)
-                                              .set({'date': ddd},
-                                                  SetOptions(merge: true));
-                                          await AuthService().updateUser(user);
-                                          Navigator.of(context).push(
-                                              CupertinoPageRoute(
-                                                  builder: (context) =>
-                                                      const searchPage()));
-                                        },
-                                        child: Text(
-                                            'AnaSayfaKaydetvePartnerBulButonu'
-                                                .tr()),
+                                                                              setState(() {
+                                                                                _isloading = false;
+                                                                              });
+                                                                              await Future.delayed(Duration(seconds: 3));
+                                                                              setState(() {
+                                                                                _getCurrentLocation();
+                                                                                il = _konumIl;
+                                                                                ilce = _konumIlce;
+                                                                                _isloading = true;
+                                                                                _durum = "AnaSayfaKonumBelirlendiButonu".tr();
+                                                                              });
+                                                                              await Future.delayed(Duration(seconds: 3));
+                                                                              setState(() {
+                                                                                _durum = "AnaSayfaTekrarTaratButonu".tr();
+                                                                              });
+                                                                            } catch (e) {
+                                                                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                                                                backgroundColor: Colors.blue,
+                                                                                content: Text("AnaSayfaKonumErisilemiyorHata".tr(), style: TextStyle(color: Colors.white)),
+                                                                                duration: Duration(seconds: 5),
+                                                                              ));
+                                                                            }
+                                                                          },
+                                                                          child:
+                                                                              Text("İzinVer").tr(),
+                                                                        ),
+                                                                        TextButton(
+                                                                          onPressed:
+                                                                              () async {
+                                                                            Navigator.pop(context);
+                                                                          },
+                                                                          child:
+                                                                              Text("İzinVerme").tr(),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ],
+                                                                )
+                                                              ]));
+                                            } else {
+                                              try {
+                                                _currentPosition =
+                                                    await determinePosition();
+                                                await _getAddressFromLatLng();
+                                                _getCurrentLocation();
+                                                il = _konumIl;
+                                                ilce = _konumIlce;
+
+                                                setState(() {
+                                                  _isloading = false;
+                                                });
+                                                await Future.delayed(
+                                                    Duration(seconds: 3));
+                                                setState(() {
+                                                  _getCurrentLocation();
+                                                  il = _konumIl;
+                                                  ilce = _konumIlce;
+                                                  _isloading = true;
+                                                  _durum =
+                                                      "AnaSayfaKonumBelirlendiButonu"
+                                                          .tr();
+                                                });
+                                                await Future.delayed(
+                                                    Duration(seconds: 3));
+                                                setState(() {
+                                                  _durum =
+                                                      "AnaSayfaTekrarTaratButonu"
+                                                          .tr();
+                                                });
+                                              } catch (e) {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(SnackBar(
+                                                  backgroundColor: Colors.blue,
+                                                  content: Text(
+                                                      "AnaSayfaKonumErisilemiyorHata"
+                                                          .tr(),
+                                                      style: TextStyle(
+                                                          color: Colors.white)),
+                                                  duration:
+                                                      Duration(seconds: 5),
+                                                ));
+                                              }
+                                            }
+                                          },
+                                          child: !_isloading
+                                              ? buildSmallButton()
+                                              : Text(_durum)),
+                                      if (il != null) info()
+                                    ],
+                                  ),
+                                  if (il != null)
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Text("Brans".tr(),
+                                              style: TextStyle(
+                                                  color: Colors.blue)),
+                                          DropdownButton<int>(
+                                            menuMaxHeight: 400,
+                                            iconEnabledColor: Colors.blue,
+                                            dropdownColor: const Color.fromARGB(
+                                                255, 28, 185, 242),
+                                            style: const TextStyle(
+                                                color: Colors.black),
+                                            value: brans?.no ?? 82,
+                                            items: model.branslar.map((b) {
+                                              return DropdownMenuItem(
+                                                child: Text(b.brans,
+                                                    style: const TextStyle(
+                                                        color: Colors.black)),
+                                                value: b.no,
+                                                onTap: () {
+                                                  setState(() {
+                                                    brans = b;
+                                                    mevki = b.mevki.first;
+                                                  });
+                                                },
+                                              );
+                                            }).toList(),
+                                            onChanged: (s) {},
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  if (mevki != null)
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Text("Mevki:".tr(),
+                                            style:
+                                                TextStyle(color: Colors.blue)),
+                                        DropdownButton<String>(
+                                          menuMaxHeight: 400,
+                                          iconEnabledColor: Colors.blue,
+                                          dropdownColor: const Color.fromARGB(
+                                              255, 28, 185, 242),
+                                          value: mevki ?? brans!.mevki.first,
+                                          style: const TextStyle(
+                                              color: Colors.black),
+                                          items:
+                                              model.mevki(brans!.no).map((b) {
+                                            return DropdownMenuItem(
+                                              child: Text(
+                                                b,
+                                                style: const TextStyle(
+                                                    color: Colors.black),
+                                              ),
+                                              value: b,
+                                              onTap: () {
+                                                setState(() {
+                                                  mevki = b;
+                                                });
+                                              },
+                                            );
+                                          }).toList(),
+                                          onChanged: (s) {},
+                                        ),
+                                        Icon(
+                                          Icons.abc,
+                                          color: Colors.white.withOpacity(0),
+                                        )
+                                      ],
+                                    ),
+                                  Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      if (ilce != null && brans != null)
+                                        Column(
+                                          children: [
+                                            ElevatedButton(
+                                              onPressed: () async {
+                                                ili = (il)!;
+                                                ilcesi = ilce;
+                                                bransi = (brans)!.brans;
+                                                mevkisi = mevki;
+
+                                                MyUser user =
+                                                    AuthService().user!;
+                                                user = user.copyWith(
+                                                  brans: bransi,
+                                                  il: ili,
+                                                  ilce: ilce,
+                                                  mevki: mevki,
+                                                );
+                                                var dateTime = DateTime.now();
+                                                var ddd = DateFormat(
+                                                        'MM/dd/yyyy HH:mm')
+                                                    .format(dateTime);
+                                                await FirebaseMessaging.instance
+                                                    .getToken();
+                                                FirebaseFirestore.instance
+                                                    .collection('Users')
+                                                    .doc(user.id)
+                                                    .set({
+                                                  'date': ddd
+                                                }, SetOptions(merge: true));
+                                                await AuthService()
+                                                    .updateUser(user);
+                                                Navigator.of(context).push(
+                                                    CupertinoPageRoute(
+                                                        builder: (context) =>
+                                                            const searchPage()));
+                                              },
+                                              child: Text(
+                                                  'AnaSayfaKaydetvePartnerBulButonu'
+                                                      .tr()),
+                                            ),
+                                          ],
+                                        ),
+                                      if (ilce == null || brans == null)
+                                        ElevatedButton(
+                                            onPressed: () {
+                                              Navigator.of(context).push(
+                                                  CupertinoPageRoute(
+                                                      builder: (context) =>
+                                                          const searchPage()));
+                                            },
+                                            child: Text(
+                                                'AnaSayfaGezintiButonu'.tr())),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Divider(
+                                        thickness: 2,
+                                        color: Colors.blueAccent,
                                       ),
                                     ],
                                   ),
-                                if (ilce == null || brans == null)
-                                  ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.of(context).push(
-                                            CupertinoPageRoute(
-                                                builder: (context) =>
-                                                    const searchPage()));
-                                      },
-                                      child:
-                                          Text('AnaSayfaGezintiButonu'.tr())),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Divider(
-                                  thickness: 2,
-                                  color: Colors.blueAccent,
-                                ),
-                                TextButton(
-                                    onPressed: () {
-                                      if (_hobidas == false) {
-                                        _hobidas = true;
-                                        setState(() {
-                                          _hobidas = true;
-                                        });
-                                      } else {
-                                        _hobidas = false;
-                                        setState(() {
-                                          _hobidas = false;
-                                        });
-                                      }
-                                    },
-                                    child: Row(
-                                      children: [
-                                        Center(
-                                            child: Text("Hobidaşların".tr())),
-                                        budiesIcon(),
-                                      ],
-                                    )),
-                                StreamBuilder(
-                                    stream: takipciler,
-                                    builder: (BuildContext context,
-                                        AsyncSnapshot snapshot) {
-                                      if (!snapshot.hasData) {
-                                        return Text("Hiç hobidaşınız yok".tr(),
-                                            style:
-                                                TextStyle(color: Colors.black));
-                                      }
-                                      if (snapshot.data.data() != null) {
-                                        MyUser user = MyUser.fromMap(
-                                            snapshot.data.data()!);
-                                        if (_hobidas != false) {
-                                          return SizedBox(
-                                            //height: 190,
-                                            child: Wrap(
-                                                spacing: 8,
-                                                runSpacing: 8,
-                                                children: (user.takip!
-                                                      ..sort((a, b) =>
-                                                          a.compareTo(b)))
-                                                    .map((u) {
-                                                  return FutureBuilder<
-                                                          DocumentSnapshot<
-                                                              Map<String,
-                                                                  dynamic>>>(
-                                                      future: getUser(u),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        if (snapshot.hasData) {
-                                                          if (snapshot.data!
-                                                                  .data() !=
-                                                              null) {
-                                                            MyUser izlenen =
-                                                                MyUser.fromMap(
-                                                                    snapshot
-                                                                        .data!
-                                                                        .data()!);
-                                                            ImageProvider
-                                                                _havePhoto() {
-                                                              if (izlenen
-                                                                      .image !=
-                                                                  null) {
-                                                                return NetworkImage(
-                                                                  izlenen
-                                                                      .image!,
-                                                                );
-                                                              } else {
-                                                                return const AssetImage(
-                                                                    "images/logo.png");
-                                                              }
-                                                            }
-
-                                                            Text
-                                                                ControlHobby() {
-                                                              if (izlenen.il !=
-                                                                  null) {
-                                                                return Text(
-                                                                  "${izlenen.il}/${izlenen.ilce} - ${(izlenen.brans)!.tr()}/${(izlenen.mevki)!.tr()}",
-                                                                  style: const TextStyle(
-                                                                      color: Colors
-                                                                          .yellow),
-                                                                );
-                                                              } else {
-                                                                return Text(
-                                                                  "HobiKaydiBulunmuyor"
-                                                                      .tr(),
-                                                                  style: const TextStyle(
-                                                                      color: Colors
-                                                                          .orange),
-                                                                );
-                                                              }
-                                                            }
-
-                                                            _moveBox() async {
-                                                              showDialog(
-                                                                context:
-                                                                    context,
-                                                                builder: (builder) => Stack(
-                                                                    fit: StackFit
-                                                                        .expand,
-                                                                    children: [
-                                                                      AlertDialog(
-                                                                        backgroundColor:
-                                                                            Colors.white,
-                                                                        content:
-                                                                            Container(
-                                                                          width:
-                                                                              400,
-                                                                          height:
-                                                                              400,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            image:
-                                                                                DecorationImage(image: _havePhoto(), fit: BoxFit.fill),
-                                                                            color:
-                                                                                Colors.blue,
-                                                                            borderRadius:
-                                                                                BorderRadius.all(Radius.circular(12)),
-                                                                          ),
-                                                                        ),
-                                                                        actions: [
-                                                                          Center(
-                                                                            child:
-                                                                                Column(
-                                                                              children: [
-                                                                                Padding(
-                                                                                  padding: const EdgeInsets.all(8.0),
-                                                                                  child: ControlHobby(),
-                                                                                ),
-                                                                                Text(
-                                                                                  izlenen.bio!,
-                                                                                  style: TextStyle(color: Colors.black),
-                                                                                ),
-                                                                                TextButton(
-                                                                                    onPressed: () {
-                                                                                      Navigator.of(context).push(CupertinoPageRoute(
-                                                                                          builder: (context) => show(
-                                                                                                whoData: izlenen,
-                                                                                              )));
-                                                                                    },
-                                                                                    child: Text("Profil".tr()))
-                                                                              ],
-                                                                            ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ]),
-                                                              );
-                                                            }
-
-                                                            return Column(
-                                                              children: [
-                                                                GestureDetector(
-                                                                  onTap:
-                                                                      _moveBox,
-                                                                  child:
-                                                                      Container(
-                                                                    width: 60,
-                                                                    height: 60,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      image: DecorationImage(
-                                                                          image:
-                                                                              _havePhoto(),
-                                                                          fit: BoxFit
-                                                                              .fill),
-                                                                      color: Colors
-                                                                          .blue,
-                                                                      borderRadius:
-                                                                          BorderRadius.all(
-                                                                              Radius.circular(30) //                 <--- border radius here
-                                                                              ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Text(
-                                                                  izlenen
-                                                                      .userName!,
-                                                                  style: TextStyle(
-                                                                      color: Colors
-                                                                          .black),
-                                                                )
-                                                              ],
-                                                            );
-                                                          }
-                                                        }
-                                                        return CircularProgressIndicator();
-                                                      });
-                                                }).toList()),
-                                          );
-                                        } else {
-                                          return SizedBox();
-                                        }
-                                      } else {
-                                        return Text(
-                                          "Hiç hobidaşınız yok".tr(),
-                                          style: TextStyle(color: Colors.black),
-                                        );
-                                      }
-                                    }),
-                              ],
+                                ],
+                              ),
                             ),
-                          ],
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                ),
-              ],
-            ),
-            _isBottomAdLoaded
-                ? Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      width: _bottomBannerAd.size.width.toDouble(),
-                      height: _bottomBannerAd.size.height.toDouble(),
-                      child: AdWidget(
-                        ad: _bottomBannerAd,
-                      ),
-                    ),
-                  )
-                : SizedBox()
-          ],
-        ),
+                  _isBottomAdLoaded
+                      ? Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                            width: _bottomBannerAd.size.width.toDouble(),
+                            height: _bottomBannerAd.size.height.toDouble(),
+                            child: AdWidget(
+                              ad: _bottomBannerAd,
+                            ),
+                          ),
+                        )
+                      : SizedBox()
+                ],
+              )
+            : Followers(),
       ),
     );
   }
@@ -1130,19 +943,4 @@ class _bilgilerimState extends State<bilgilerim> {
       return 0;
     }
   }
-
-  Icon budiesIcon() {
-    if (_hobidas == false) {
-      return Icon(LineIcons.doorClosed);
-    } else {
-      return Icon(LineIcons.doorOpen);
-    }
-  }
-}
-
-Stream getTakipciler(String currentUserID) {
-  return FirebaseFirestore.instance
-      .collection("Users")
-      .doc(currentUserID)
-      .snapshots(includeMetadataChanges: false);
 }
