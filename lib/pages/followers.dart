@@ -45,14 +45,11 @@ class _FollowersState extends State<Followers> {
                   stream: getTakipciler(AuthService().user!.id!),
                   builder: (BuildContext context, AsyncSnapshot snapshot) {
                     if (!snapshot.hasData) {
-                      print("48. satırrrrrrrrrrrrrrr");
-
                       return Text("Hiç hobidaşınız yok".tr(),
                           style: TextStyle(color: Colors.white));
                     }
                     if (snapshot.data.data() != null) {
                       MyUser user = MyUser.fromMap(snapshot.data.data()!);
-                      print("56. satırrrrrrrrrrrrrrr");
 
                       return Expanded(
                         child: ListView(
@@ -63,8 +60,6 @@ class _FollowersState extends State<Followers> {
                               builder: (context, snapshot) {
                                 if (snapshot.hasData) {
                                   if (snapshot.data!.data() != null) {
-                                    print("63. satırrrrrrrrrrrrrrr");
-
                                     MyUser izlenen =
                                         MyUser.fromMap(snapshot.data!.data()!);
                                     ImageProvider _havePhoto() {
@@ -78,22 +73,6 @@ class _FollowersState extends State<Followers> {
                                       }
                                     }
 
-                                    Text ControlHobby() {
-                                      if (izlenen.il != null) {
-                                        return Text(
-                                          "${izlenen.il}/${izlenen.ilce} - ${(izlenen.brans)!.tr()}/${(izlenen.mevki)!.tr()}",
-                                          style: const TextStyle(
-                                              color: Colors.yellow),
-                                        );
-                                      } else {
-                                        return Text(
-                                          "HobiKaydiBulunmuyor".tr(),
-                                          style: const TextStyle(
-                                              color: Colors.orange),
-                                        );
-                                      }
-                                    }
-
                                     return Column(
                                       children: [
                                         ListTile(
@@ -101,17 +80,31 @@ class _FollowersState extends State<Followers> {
                                             scrollDirection: Axis.horizontal,
                                             child: Row(
                                               children: [
-                                                SingleChildScrollView(
-                                                  scrollDirection:
-                                                      Axis.horizontal,
-                                                  child: Text(
-                                                    "${izlenen.userName} ${izlenen.soyisim} ",
-                                                    style: GoogleFonts.lato(
-                                                        fontStyle:
-                                                            FontStyle.italic,
-                                                        fontSize: 12),
-                                                  ),
+                                                Text(
+                                                  "${izlenen.userName} ${izlenen.soyisim} -",
+                                                  style: GoogleFonts.lato(
+                                                      fontStyle:
+                                                          FontStyle.italic,
+                                                      fontSize: 12),
                                                 ),
+                                                izlenen.il != null
+                                                    ? Text(
+                                                        "${izlenen.il} ${izlenen.brans} -",
+                                                        style:
+                                                            GoogleFonts.aBeeZee(
+                                                                fontStyle:
+                                                                    FontStyle
+                                                                        .italic,
+                                                                fontSize: 12),
+                                                      )
+                                                    : Text(
+                                                        "Kayıt yok",
+                                                        style: GoogleFonts.lato(
+                                                            fontStyle: FontStyle
+                                                                .italic,
+                                                            fontSize: 12,
+                                                            color: Colors.grey),
+                                                      ),
                                               ],
                                             ),
                                           ),
@@ -142,11 +135,9 @@ class _FollowersState extends State<Followers> {
                                       ],
                                     );
                                   }
-                                  print("142. satırrrrrrrrrrrrrrr");
 
                                   return CircularProgressIndicator();
                                 }
-                                print("146. satırrrrrrrrrrrrrrr");
 
                                 return CircularProgressIndicator();
                               });
