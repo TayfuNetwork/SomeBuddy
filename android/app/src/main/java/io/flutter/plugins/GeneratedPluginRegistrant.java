@@ -63,7 +63,7 @@ public final class GeneratedPluginRegistrant {
     try {
       flutterEngine.getPlugins().add(new com.baseflow.geocoding.GeocodingPlugin());
     } catch(Exception e) {
-      Log.e(TAG, "Error registering plugin geocoding, com.baseflow.geocoding.GeocodingPlugin", e);
+      Log.e(TAG, "Error registering plugin geocoding_android, com.baseflow.geocoding.GeocodingPlugin", e);
     }
     try {
       flutterEngine.getPlugins().add(new com.baseflow.geolocator.GeolocatorPlugin());
@@ -104,6 +104,11 @@ public final class GeneratedPluginRegistrant {
       flutterEngine.getPlugins().add(new io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin());
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin shared_preferences_android, io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new io.flutter.plugins.webviewflutter.WebViewFlutterPlugin());
+    } catch(Exception e) {
+      Log.e(TAG, "Error registering plugin webview_flutter_android, io.flutter.plugins.webviewflutter.WebViewFlutterPlugin", e);
     }
   }
 }

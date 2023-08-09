@@ -66,7 +66,7 @@ Future<void> setupFlutterNotifications() async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  checkForUpdate();
+  //checkForUpdate();
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(options: NotificationService.currentPlatform);
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);

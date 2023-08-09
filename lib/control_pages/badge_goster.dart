@@ -1,4 +1,3 @@
-import 'package:badges/badges.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -34,11 +33,10 @@ class _baddgeState extends State<baddge> {
                     icon: Icon(Icons.chat),
                   )
                 : Badge(
-                    badgeColor: Colors.white,
-                    animationDuration: Duration(milliseconds: 300),
-                    position: BadgePosition.topEnd(top: 10, end: 10),
-                    animationType: BadgeAnimationType.slide,
-                    badgeContent: Text(
+                    textColor: Colors.red,
+                    backgroundColor: Colors.white,
+                    
+                    label: Text(
                       mesajlar.length.toString(),
                       style: TextStyle(color: Colors.red),
                     ),

@@ -54,10 +54,10 @@
 @import fluttertoast;
 #endif
 
-#if __has_include(<geocoding/GeocodingPlugin.h>)
-#import <geocoding/GeocodingPlugin.h>
+#if __has_include(<geocoding_ios/GeocodingPlugin.h>)
+#import <geocoding_ios/GeocodingPlugin.h>
 #else
-@import geocoding;
+@import geocoding_ios;
 #endif
 
 #if __has_include(<geolocator_apple/GeolocatorPlugin.h>)
@@ -84,10 +84,10 @@
 @import image_picker_ios;
 #endif
 
-#if __has_include(<path_provider_ios/FLTPathProviderPlugin.h>)
-#import <path_provider_ios/FLTPathProviderPlugin.h>
+#if __has_include(<path_provider_foundation/PathProviderPlugin.h>)
+#import <path_provider_foundation/PathProviderPlugin.h>
 #else
-@import path_provider_ios;
+@import path_provider_foundation;
 #endif
 
 #if __has_include(<permission_handler_apple/PermissionHandlerPlugin.h>)
@@ -96,10 +96,16 @@
 @import permission_handler_apple;
 #endif
 
-#if __has_include(<shared_preferences_ios/FLTSharedPreferencesPlugin.h>)
-#import <shared_preferences_ios/FLTSharedPreferencesPlugin.h>
+#if __has_include(<shared_preferences_foundation/SharedPreferencesPlugin.h>)
+#import <shared_preferences_foundation/SharedPreferencesPlugin.h>
 #else
-@import shared_preferences_ios;
+@import shared_preferences_foundation;
+#endif
+
+#if __has_include(<webview_flutter_wkwebview/FLTWebViewFlutterPlugin.h>)
+#import <webview_flutter_wkwebview/FLTWebViewFlutterPlugin.h>
+#else
+@import webview_flutter_wkwebview;
 #endif
 
 @implementation GeneratedPluginRegistrant
@@ -118,9 +124,10 @@
   [FLTGoogleMobileAdsPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTGoogleMobileAdsPlugin"]];
   [FLTGoogleSignInPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTGoogleSignInPlugin"]];
   [FLTImagePickerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTImagePickerPlugin"]];
-  [FLTPathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTPathProviderPlugin"]];
+  [PathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"PathProviderPlugin"]];
   [PermissionHandlerPlugin registerWithRegistrar:[registry registrarForPlugin:@"PermissionHandlerPlugin"]];
-  [FLTSharedPreferencesPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTSharedPreferencesPlugin"]];
+  [SharedPreferencesPlugin registerWithRegistrar:[registry registrarForPlugin:@"SharedPreferencesPlugin"]];
+  [FLTWebViewFlutterPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTWebViewFlutterPlugin"]];
 }
 
 @end
