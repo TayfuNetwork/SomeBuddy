@@ -14,7 +14,7 @@ import 'package:version1/services/auth_service.dart';
 import '../control_pages/json-models.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+//import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 // sadece oturum açmış kişiler bu sayfayı görebilir.
 // ignore: camel_case_types
@@ -32,7 +32,7 @@ var status = Permission.location.status;
 Future<bool> isShown = Permission.contacts.shouldShowRequestRationale;
 String? ili, ilcesi, bransi, mevkisi;
 Color? ppColor;
-late BannerAd _bottomBannerAd;
+//late BannerAd _bottomBannerAd;
 bool _isBottomAdLoaded = false;
 
 // ignore: camel_case_types
@@ -70,7 +70,7 @@ class _bilgilerimState extends State<bilgilerim> {
         .update({'token': a});
   }
 
-  @override
+ /* @override
   void initState() {
     _bioController = TextEditingController();
     fcmGetir();
@@ -79,7 +79,7 @@ class _bilgilerimState extends State<bilgilerim> {
     isShown;
   }
 
-  @override
+ @override
   void dispose() {
     super.dispose();
     _bioController.dispose();
@@ -104,7 +104,7 @@ class _bilgilerimState extends State<bilgilerim> {
       request: AdRequest(),
     );
     _bottomBannerAd.load();
-  }
+  }*/
 
   int _selectedIndex = 0;
 
@@ -617,7 +617,7 @@ class _bilgilerimState extends State<bilgilerim> {
                       ),
                     ],
                   ),
-                  _isBottomAdLoaded
+                  /* _isBottomAdLoaded
                       ? Align(
                           alignment: Alignment.bottomCenter,
                           child: Container(
@@ -627,8 +627,8 @@ class _bilgilerimState extends State<bilgilerim> {
                               ad: _bottomBannerAd,
                             ),
                           ),
-                        )
-                      : SizedBox()
+                        ) */
+                
                 ],
               )
             : Followers(),

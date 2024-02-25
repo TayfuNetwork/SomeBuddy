@@ -26,12 +26,12 @@ bool? rewardP = false;
 Color ppColor = Colors.blue;
 double boyut = 75;
 
-@override
+/* @override
 void initState() {
   if (adHelper.interstitialAd != null) {
     adHelper.interstitialAd;
   }
-}
+} */
 
 @override
 void dispose() {}

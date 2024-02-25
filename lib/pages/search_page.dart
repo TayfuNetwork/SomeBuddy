@@ -506,11 +506,10 @@ class _searchPageState extends State<searchPage> {
                           ),
                           TextButton(
                               onPressed: () async {
-                                if (adHelper.rewardedAd != null) {
+                                /* if (adHelper.rewardedAd != null) {
                                   await adHelper.showRewardedAd(
                                       onUserEarnedReward: (p0, p1) {
-                                    izlendi = true;
-                                    setState(() {});
+                                    
                                   });
                                 } else {
                                   Fluttertoast.showToast(
@@ -523,7 +522,9 @@ class _searchPageState extends State<searchPage> {
                                         Duration(seconds: 2));
                                     izlendi = true;
                                   });
-                                }
+                                } */
+                                izlendi = true;
+                                    setState(() {});
                               },
                               child: Padding(
                                 padding: const EdgeInsets.all(2.0),
@@ -565,14 +566,14 @@ class _searchPageState extends State<searchPage> {
                       SizedBox(
                         height: 10,
                       ),
-                      Container(
+                      /* Container(
                         width: AdSize.banner.width.toDouble(),
                         height: AdSize.banner.height.toDouble(),
                         alignment: Alignment.bottomCenter,
                         child: AdWidget(
                           ad: adHelper.createBannerAd(),
                         ),
-                      ),
+                      ), */
                     ],
                   ),
                 ],
