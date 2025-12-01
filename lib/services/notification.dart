@@ -59,7 +59,7 @@ class NotificationService {
         headers: <String, String>{
           'Content-Type': 'application/json',
           'Authorization':
-              'Bearer AAAAJWA_t5s:APA91bFrswOw2z4L65FjqRmzu_UxVIxhICjsQOL0eyScK6P-oqYxcxIZYieRUHfn1InfroaN0qkt0DpjzIkk1pzfsGOcUHvJzR-yyDYeSRBydqOJTTar0u7uPtN2j9HSV9RJ58oStb12'
+              'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
         },
         body: constructFCMPayload(token, tittle, body),
       );
@@ -92,21 +92,21 @@ class NotificationService {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyC2vIcldpxgupEm676Z5uGJsxcjDRiWgZg', // tamam
-    appId: '1:160528578459:web:80306c5335734349d5d33e', // tamam
-    messagingSenderId: '160528578459', // tamam
+    apiKey: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', // tamam
+    appId: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', // tamam
+    messagingSenderId: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', // tamam
     projectId: 'birini-bul', // tamam
-    authDomain: 'birini-bul.firebaseapp.com', // tamam
-    databaseURL: 'https://birini-bul-default-rtdb.firebaseio.com', // tamam
-    storageBucket: 'birini-bul.appspot.com', // tamam
+    authDomain: 'x', // tamam
+    databaseURL: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com', // tamam
+    storageBucket: 'x', // tamam
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA-PV-s9HDhncIYHG_Lnab6pziFPFYORk8', // tamam
-    appId: '1:160528578459:android:73784fd4d9c73005d5d33e', // tamam
-    messagingSenderId: '160528578459', //tamam
+    apiKey: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', // tamam
+    appId: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', // tamam
+    messagingSenderId: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', //tamam
     projectId: 'birini-bul', // tamam
-    databaseURL: 'https://birini-bul-default-rtdb.firebaseio.com', //tamam
-    storageBucket: 'birini-bul.appspot.com', // tamam
+    databaseURL: 'https://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.com', //tamam
+    storageBucket: 'x', // tamam
   );
 }
