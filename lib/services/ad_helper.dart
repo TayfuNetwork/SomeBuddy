@@ -144,13 +144,13 @@ class AdHelper {
   }
 
   String bannerAdUnitId = Platform.isAndroid
-      ? 'ca-app-pub-1753932827820630/5568784899'
+      ? 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
       : "";
   String _interstitialAdUnitId = Platform.isAndroid
-      ? 'ca-app-pub-1753932827820630/4490086060'
+      ? 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
       : ""; 
   String _rewardedAdUnitId = Platform.isAndroid
-      ? 'ca-app-pub-1753932827820630/2930532704'
+      ? 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
       : "";
 
   bool _isIntertitialLoaded = false;
